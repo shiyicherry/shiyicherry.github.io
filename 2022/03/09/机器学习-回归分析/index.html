@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>机器学习-回归分析 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="[TOC] 回归分析最简单的线性回归，避免多重共线性，过拟合，引入正则项的线性回归模型。涉及到的数学知识：一范数，二范数，多元函数求极值。模型的含义，参数求解算法，目标函数，以及各种模型的优缺点。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习-回归分析">
+<meta property="og:url" content="http://flytowardnewworld.github.io/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="[TOC] 回归分析最简单的线性回归，避免多重共线性，过拟合，引入正则项的线性回归模型。涉及到的数学知识：一范数，二范数，多元函数求极值。模型的含义，参数求解算法，目标函数，以及各种模型的优缺点。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-b15289fd1162a807e11949e5396c7989_720w.jpg">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1252882/201902/1252882-20190224115011028-596537100.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1252882/201902/1252882-20190224115035183-1841742133.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1252882/201902/1252882-20190224115121150-29154011.png">
+<meta property="og:image" content="https://img2018.cnblogs.com/blog/1252882/201902/1252882-20190224130226736-1827960691.png">
+<meta property="article:published_time" content="2022-03-09T06:47:01.000Z">
+<meta property="article:modified_time" content="2022-03-09T06:48:48.000Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic2.zhimg.com/80/v2-b15289fd1162a807e11949e5396c7989_720w.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://flytowardnewworld.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-机器学习-回归分析" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" class="article-date">
+  <time class="dt-published" datetime="2022-03-09T06:47:01.000Z" itemprop="datePublished">2022-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      机器学习-回归分析
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+<h1 id="回归分析"><a href="#回归分析" class="headerlink" title="回归分析"></a>回归分析</h1><p>最简单的线性回归，避免多重共线性，过拟合，引入正则项的线性回归模型。涉及到的数学知识：一范数，二范数，多元函数求极值。模型的含义，参数求解算法，目标函数，以及各种模型的优缺点。</p>
+<span id="more"></span>
+
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>回归分析是寻找自变量和因变量之间的数量关系，用于预测建模的方法。其一，它可以揭示自变量和因变量之间的显著性检测。其二，揭示多个自变量对一个因变量的影响程度大小。</p>
+<h2 id="回归类型"><a href="#回归类型" class="headerlink" title="回归类型"></a>回归类型</h2><p>1）独立变量的数量 2）度量变量的类型 3）回归线的形状</p>
+<h2 id="1-线性回归（Linear-Regression"><a href="#1-线性回归（Linear-Regression" class="headerlink" title="1. 线性回归（Linear Regression)"></a>1. 线性回归（Linear Regression)</h2><p>因变量：连续； 自变量：连续或者离散</p>
+<h3 id="模型的形式"><a href="#模型的形式" class="headerlink" title="模型的形式"></a>模型的形式</h3><p>$$<br>Y &#x3D; a+bX+𝜀\<br>\left(\begin{array}{c}<br>y_{1} \<br>y_{2} \<br>\vdots \<br>y_{n}<br>\end{array}\right)&#x3D;\left(\begin{array}{cccc}<br>1 &amp; x_{11} &amp; \cdots &amp; x_{1(p-1)} \<br>1 &amp; x_{21} &amp; \cdots &amp; x_{2(p-1)} \<br>\vdots &amp; \vdots &amp; \vdots &amp; \vdots \<br>1 &amp; x_{n 1} &amp; \cdots &amp; x_{n(p-1)}<br>\end{array}\right) \beta+\left(\begin{array}{c}<br>e_{1} \<br>e_{2} \<br>\vdots \<br>e_{n}<br>\end{array}\right)\<br>Y_{n<em>1} &#x3D; X_{n</em>p}\beta+𝜀<br>$$</p>
+<p>where $a$ and $b$ are the regression coefficients, and 𝜀 is the random error.</p>
+<h3 id="目标函数"><a href="#目标函数" class="headerlink" title="目标函数"></a>目标函数</h3><p>$$<br>min SSR &#x3D; \sum_{i}(y_i-f(x_i))^2\<br>min_{w}||Xw-y||_2^2<br>$$</p>
+<h3 id="参数估计"><a href="#参数估计" class="headerlink" title="参数估计"></a>参数估计</h3><p>最小二乘法（Lease Square Method)（OLS)</p>
+<p>This approach is called the method of ordinary least squares.</p>
+<h3 id="模型评估"><a href="#模型评估" class="headerlink" title="模型评估"></a>模型评估</h3><h4 id="拟合优度-R-square-coefficient-of-determination"><a href="#拟合优度-R-square-coefficient-of-determination" class="headerlink" title="拟合优度 R-square , coefficient of determination"></a>拟合优度 R-square , coefficient of determination</h4><p>Larger $R^2$ indicates a better fit and means that the model can better explain the variation of the output with different inputs.</p>
+<p><a target="_blank" rel="noopener" href="https://realpython.com/linear-regression-in-python/">https://realpython.com/linear-regression-in-python/</a></p>
+<h3 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h3><ul>
+<li>自变量和因变量之间必须满足线性关系。</li>
+<li>多元回归存在多重共线性，自相关性和异方差性。</li>
+<li>线性回归对异常值非常敏感。异常值会严重影响回归线和最终的预测值。</li>
+<li>多重共线性会增加系数估计的方差，并且使得估计对模型中的微小变化非常敏感。结果是系数估计不稳定。</li>
+<li>在多个自变量的情况下，我们可以采用正向选择、向后消除和逐步选择的方法来选择最重要的自变量。</li>
+</ul>
+<h2 id="逻辑回归（Logistic-Regression"><a href="#逻辑回归（Logistic-Regression" class="headerlink" title="逻辑回归（Logistic Regression)"></a>逻辑回归（Logistic Regression)</h2><p>Logistic 回归的本质是：假设数据服从这个分布，然后使用极大似然估计做参数的估计。</p>
+<h3 id="Logistic-分布"><a href="#Logistic-分布" class="headerlink" title="Logistic 分布"></a>Logistic 分布</h3><p>$$<br>F(x) &#x3D; P(X&lt;&#x3D;x) &#x3D; \frac{1}{1+e^{-(x-u)&#x2F;\gamma}}<br>$$</p>
+<p>$$<br>f(x) &#x3D; F’(X&lt;&#x3D;x) &#x3D; \frac{e^{-(x-u)&#x2F;\gamma}}{\gamma(1+e^{-1(x-u)&#x2F;\gamma})^2}<br>$$</p>
+<p>where $u$ 表示位置参数，$\gamma$是形状参数</p>
+<p><img src="https://pic2.zhimg.com/80/v2-b15289fd1162a807e11949e5396c7989_720w.jpg" alt="img"></p>
+<h3 id="模型形式"><a href="#模型形式" class="headerlink" title="模型形式"></a>模型形式</h3><p>$$<br>y &#x3D; \frac{1}{1+e^{-(w^Tx+b)}}<br>$$</p>
+<p>$$<br>P(Y&#x3D;1|x) &#x3D; \frac{1}{1+e^{-(w^Tx+b)}}<br>$$</p>
+<h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p>$$<br>P(Y&#x3D;1|x)&#x3D;p(x)\<br>p(Y&#x3D;0|x) &#x3D; 1-p(x)<br>$$</p>
+<p>似然函数<br>$$<br>L(w)<br>$$</p>
+<h2 id="多项式回归（Polynomial-Regression）"><a href="#多项式回归（Polynomial-Regression）" class="headerlink" title="多项式回归（Polynomial Regression）"></a>多项式回归（Polynomial Regression）</h2><h2 id="逐步回归（Stepwise-Regrssion"><a href="#逐步回归（Stepwise-Regrssion" class="headerlink" title="逐步回归（Stepwise Regrssion)"></a>逐步回归（Stepwise Regrssion)</h2><h2 id="岭回归（Ridge-Regression"><a href="#岭回归（Ridge-Regression" class="headerlink" title="岭回归（Ridge Regression)"></a>岭回归（Ridge Regression)</h2><p>L2正则化(The ridge coefficients minimize a penalized residual sum of squares) 惩罚函数</p>
+<h3 id="损失函数-1"><a href="#损失函数-1" class="headerlink" title="损失函数"></a>损失函数</h3><p>$$<br>argmin_{w}||y-X\beta||_2^2+\lambda||\beta||_2^2<br>$$</p>
+<p>岭回归分析是一种用于存在多重共线性（自变量高度相关）数据的技术。在多重共线性情况下，尽管最小二乘法（OLS）对每个变量很公平，但它们的差异很大，使得观测值偏移并远离真实值。岭回归通过给回归估计上增加一个偏差度，来降低标准误差。</p>
+<h2 id="套索回归（-Lasso-Regression）"><a href="#套索回归（-Lasso-Regression）" class="headerlink" title="套索回归（ Lasso Regression）"></a>套索回归（ <strong>Lasso Regression</strong>）</h2><h3 id="L1正则化-损失函数"><a href="#L1正则化-损失函数" class="headerlink" title="L1正则化 损失函数"></a>L1正则化 损失函数</h3><p>$$<br>argmin_{w}||y-X\beta||_2^2+\lambda||\beta||_1<br>$$</p>
+<p>The larger the value of $\lambda$ , the greater the amount of shrinkage and thus the coefficients become more robust to collinearity. </p>
+<h2 id="弹性回归-ElasticNet-Regression"><a href="#弹性回归-ElasticNet-Regression" class="headerlink" title="弹性回归 ElasticNet Regression"></a>弹性回归 ElasticNet Regression</h2><h4 id="损失函数-2"><a href="#损失函数-2" class="headerlink" title="损失函数"></a>损失函数</h4><p>$$<br>argmin_{w}||y-X\beta||_2^2+\lambda_1||\beta||_2^2+\lambda_2||\beta||_1<br>$$</p>
+<h2 id="贝叶斯回归"><a href="#贝叶斯回归" class="headerlink" title="贝叶斯回归"></a>贝叶斯回归</h2><p>频率派（优化问题）</p>
+<p>贝叶斯派</p>
+<p>在极大似然估计线性回归中我们把参数看成是一个未知的固定值，而贝叶斯学派则把看成是一个随机变量。 </p>
+<p>Model<br>$$<br>f(x) &#x3D; w^Tx &#x3D; x^Tw<br>$$<br>Bayesian Method</p>
+<p>Inference and Prediction</p>
+<p><img src="https://img2018.cnblogs.com/blog/1252882/201902/1252882-20190224115011028-596537100.png" alt="img"></p>
+<p><img src="https://img2018.cnblogs.com/blog/1252882/201902/1252882-20190224115035183-1841742133.png" alt="img"></p>
+<p><img src="https://img2018.cnblogs.com/blog/1252882/201902/1252882-20190224115121150-29154011.png" alt="img"></p>
+<p><img src="https://img2018.cnblogs.com/blog/1252882/201902/1252882-20190224130226736-1827960691.png" alt="img"></p>
+<h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><p><a target="_blank" rel="noopener" href="https://courses.analyticsvidhya.com/courses/Fundamentals-of-Regression-Analysis?utm_source=blog&amp;utm_medium=introduction_to_regression">https://courses.analyticsvidhya.com/courses/Fundamentals-of-Regression-Analysis?utm_source=blog&amp;utm_medium=introduction_to_regression</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.analyticsvidhya.com/blog/2016/12/45-questions-to-test-a-data-scientist-on-regression-skill-test-regression-solution/">https://www.analyticsvidhya.com/blog/2016/12/45-questions-to-test-a-data-scientist-on-regression-skill-test-regression-solution/</a></p>
+<h1 id="Linear-Regression-by-Sklearn"><a href="#Linear-Regression-by-Sklearn" class="headerlink" title="Linear Regression by Sklearn"></a>Linear Regression by Sklearn</h1><h2 id="OLS"><a href="#OLS" class="headerlink" title="OLS"></a>OLS</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(__doc__)</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets, linear_model</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error, r2_score </span><br><span class="line"></span><br><span class="line"><span class="comment"># Load the diabetes dataset</span></span><br><span class="line">diabetes_X, diabetes_Y = datasets.load_diabetes(return_X_y= <span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># select one feature</span></span><br><span class="line">diabetes_X = diabetes_X[:, np.newaxis, <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Split the data set into training/testing sets</span></span><br><span class="line">X_train = diabetes_X[:-<span class="number">20</span>]</span><br><span class="line">X_test = diabetes_X[-<span class="number">20</span>:]</span><br><span class="line"></span><br><span class="line">Y_train = diabetes_Y[:-<span class="number">20</span>]</span><br><span class="line">Y_test = diabetes_Y[-<span class="number">20</span>:]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create linear regression object</span></span><br><span class="line">regr = linear_model.LinearRegression()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Train regression model</span></span><br><span class="line">regr.fit(X_train, Y_train)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Predict </span></span><br><span class="line">Y_pred = regr.predict(X_test)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Evaluate</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Mean squared error: %.2f&#x27;</span>% mean_squared_error(Y_test, Y_pred))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;R2_score:%.2f&#x27;</span>% r2_score(Y_test,Y_pred))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Plot</span></span><br><span class="line">plt.scatter(X_test,Y_test, color = <span class="string">&#x27;black&#x27;</span>)</span><br><span class="line">plt.plot(X_test,Y_pred, color = <span class="string">&#x27;blue&#x27;</span>,linewidth = <span class="number">3</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<h2 id="Ridge-amp-Lasso"><a href="#Ridge-amp-Lasso" class="headerlink" title="Ridge &amp; Lasso"></a>Ridge &amp; Lasso</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> linear_model</span><br><span class="line"></span><br><span class="line">reg = line_model.Ridge(alpha = <span class="number">.2</span>)</span><br><span class="line">reg.fit([[<span class="number">0</span>,<span class="number">0</span>],[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">8</span>]],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>])</span><br><span class="line">reg.coef_</span><br><span class="line">reg.intercept_</span><br><span class="line"></span><br><span class="line">reg1 = line_model.RidgeCV(alphas = np.logspace(-<span class="number">6</span>,<span class="number">6</span>,<span class="number">13</span>))</span><br><span class="line">reg1.fit([[<span class="number">0</span>,<span class="number">0</span>],[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">8</span>]],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>])</span><br><span class="line">reg.alpha_</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> linear_model</span><br><span class="line"></span><br><span class="line">reg = line_model.Lasso(alpha = <span class="number">.2</span>)</span><br><span class="line">reg.fit([[<span class="number">0</span>,<span class="number">0</span>],[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">8</span>]],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>])</span><br><span class="line">reg.coef_</span><br><span class="line">reg.intercept_</span><br><span class="line"></span><br><span class="line">reg1 = line_model.LassoCV(alphas = np.logspace(-<span class="number">6</span>,<span class="number">6</span>,<span class="number">13</span>))</span><br><span class="line">reg1.fit([[<span class="number">0</span>,<span class="number">0</span>],[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">3</span>,<span class="number">8</span>]],[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>])</span><br><span class="line">reg.alpha_</span><br></pre></td></tr></table></figure>
+
+<h3 id="正则系数选择"><a href="#正则系数选择" class="headerlink" title="正则系数选择"></a>正则系数选择</h3><p>交叉验证 LassoCV。 LassoLarsCV基于Least Angle Regression 算法</p>
+<p>坐标下降法</p>
+<h2 id="弹性回归"><a href="#弹性回归" class="headerlink" title="弹性回归"></a>弹性回归</h2><p>Elastic-Net</p>
+<h3 id="最小角回归"><a href="#最小角回归" class="headerlink" title="最小角回归"></a>最小角回归</h3><h3 id="LARS-Lasso"><a href="#LARS-Lasso" class="headerlink" title="LARS Lasso"></a>LARS Lasso</h3><h3 id="贝叶斯岭回归"><a href="#贝叶斯岭回归" class="headerlink" title="贝叶斯岭回归"></a>贝叶斯岭回归</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> linear_model</span><br><span class="line">X = [[<span class="number">0</span>, <span class="number">0</span>], [<span class="number">1</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">3</span>]]</span><br><span class="line">Y = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line">reg = linear_mode.BayesianRidge()</span><br><span class="line">reg.fit(X, Y)</span><br></pre></td></tr></table></figure>
+
+<h2 id="逻辑斯特回归"><a href="#逻辑斯特回归" class="headerlink" title="逻辑斯特回归"></a>逻辑斯特回归</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from sklearn import linear_model</span><br><span class="line"></span><br><span class="line">reg = linear_model.LogisticRegression()</span><br></pre></td></tr></table></figure>
+
+<p>参数</p>
+<p><strong>penalty</strong><strong>{‘l1’, ‘l2’, ‘elasticnet’, ‘none’}, default&#x3D;’l2’</strong></p>
+<p><strong>tol</strong><em>float, default&#x3D;1e-4</em></p>
+<p>Tolerance for stopping criteria.</p>
+<p><strong>C</strong><em>float, default&#x3D;1.0</em></p>
+<p>Inverse of regularization strength; must be a positive float. Like in support vector machines, smaller values specify stronger regularization.</p>
+<p><strong>solver</strong><em>{‘newton-cg’, ‘lbfgs’, ‘liblinear’, ‘sag’, ‘saga’}, default&#x3D;’lbfgs’</em></p>
+<p>Algorithm to use in the optimization problem.</p>
+<p><strong>max_iter****int, default&#x3D;100</strong></p>
+<p><strong>n_jobs****int, default&#x3D;None</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flytowardnewworld.github.io/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" data-id="cl5v7whk7007ui0vk0u3oer3n" data-title="机器学习-回归分析" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E6%B5%8B%E9%87%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          机器学习-模型测量
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">机器学习-贝叶斯分类器</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-Learning/">Deep Learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/R/">R</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/machine-learning/">machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A8%B1%E4%B9%90%E7%94%9F%E6%B4%BB/">娱乐生活</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E3%81%AE%E5%8E%86%E7%A8%8B-Journal-of-Studying/">学习の历程(Journal of Studying)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BF%83%E5%BE%97/">心得</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">数据可视化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6-Data-Science/">数据科学(Data Science)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%BF%97/">日志</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%95%B0%E5%AD%A6/">数学</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%91%E6%99%AE/">科普</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%91%E7%A0%94/">科研</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AB%9E%E8%B5%9B/">竞赛</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%8B%B1%E8%AF%AD/">英语</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%A7%84%E5%88%92/">规划</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0/">视频学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6%E6%97%A5%E5%B8%B8/">读书日常</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/1/" rel="tag">1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BI/" rel="tag">BI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BP/" rel="tag">BP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Boosting-AdaBoost/" rel="tag">Boosting, AdaBoost</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Daily/" rel="tag">Daily</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Mining/" rel="tag">Data Mining</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-learning/" rel="tag">Deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/" rel="tag">Excel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Numpuy/" rel="tag">Numpuy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/" rel="tag">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/" rel="tag">R</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVD/" rel="tag">SVD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deep-learning/" rel="tag">deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-learning/" rel="tag">machine learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/origin/" rel="tag">origin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tensorlow/" rel="tag">tensorlow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/" rel="tag">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wan/" rel="tag">wan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92/" rel="tag">二次规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" rel="tag">交叉验证</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" rel="tag">关联规则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/" rel="tag">决策树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" rel="tag">回归分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" rel="tag">回归树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E6%8E%92/" rel="tag">安排</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" rel="tag">希腊字母</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BD%92%E4%B8%80%E5%8C%96/" rel="tag">归一化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BD%A9%E9%93%85/" rel="tag">彩铅</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%88%90%E9%95%BF/" rel="tag">成长</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">我的读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E8%83%BD/" rel="tag">技能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" rel="tag">支持向量机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" rel="tag">支持向量机回归</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">数据分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD/" rel="tag">数据分析技能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag">数据挖掘</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2/" rel="tag">数据探索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B0%E6%A6%82%E5%BF%B5/" rel="tag">新概念</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E5%B8%B8/" rel="tag">日常</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%87%E5%87%86%E5%8C%96/" rel="tag">标准化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E5%8C%96/" rel="tag">正则化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" rel="tag">特征工程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB%E6%97%A5%E5%BF%97/" rel="tag">生活日志</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" rel="tag">监督学习与非监督学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6/" rel="tag">社会科学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E7%A0%94/" rel="tag">科研</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" rel="tag">科研工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/" rel="tag">科研笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AB%9E%E8%B5%9B/" rel="tag">竞赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%98%E5%9B%BE/" rel="tag">绘图</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/" rel="tag">西瓜书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%84%E5%88%92/" rel="tag">规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" rel="tag">贝叶斯分类器</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/1/" style="font-size: 10px;">1</a> <a href="/tags/BI/" style="font-size: 12.5px;">BI</a> <a href="/tags/BP/" style="font-size: 10px;">BP</a> <a href="/tags/Boosting-AdaBoost/" style="font-size: 10px;">Boosting, AdaBoost</a> <a href="/tags/Daily/" style="font-size: 15px;">Daily</a> <a href="/tags/Data-Mining/" style="font-size: 10px;">Data Mining</a> <a href="/tags/Deep-learning/" style="font-size: 17.5px;">Deep learning</a> <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/Numpuy/" style="font-size: 10px;">Numpuy</a> <a href="/tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="/tags/Python/" style="font-size: 17.5px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/SVD/" style="font-size: 10px;">SVD</a> <a href="/tags/deep-learning/" style="font-size: 10px;">deep learning</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/machine-learning/" style="font-size: 12.5px;">machine learning</a> <a href="/tags/origin/" style="font-size: 10px;">origin</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/tensorlow/" style="font-size: 10px;">tensorlow</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/wan/" style="font-size: 10px;">wan</a> <a href="/tags/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92/" style="font-size: 10px;">二次规划</a> <a href="/tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" style="font-size: 10px;">交叉验证</a> <a href="/tags/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" style="font-size: 10px;">关联规则</a> <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/" style="font-size: 15px;">决策树</a> <a href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 15px;">可视化</a> <a href="/tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" style="font-size: 10px;">回归分析</a> <a href="/tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" style="font-size: 10px;">回归树</a> <a href="/tags/%E5%AE%89%E6%8E%92/" style="font-size: 10px;">安排</a> <a href="/tags/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" style="font-size: 10px;">希腊字母</a> <a href="/tags/%E5%BD%92%E4%B8%80%E5%8C%96/" style="font-size: 10px;">归一化</a> <a href="/tags/%E5%BD%A9%E9%93%85/" style="font-size: 10px;">彩铅</a> <a href="/tags/%E6%88%90%E9%95%BF/" style="font-size: 10px;">成长</a> <a href="/tags/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">我的读书笔记</a> <a href="/tags/%E6%8A%80%E8%83%BD/" style="font-size: 10px;">技能</a> <a href="/tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" style="font-size: 10px;">支持向量机</a> <a href="/tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" style="font-size: 10px;">支持向量机回归</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 20px;">数据分析</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD/" style="font-size: 10px;">数据分析技能</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 10px;">数据挖掘</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2/" style="font-size: 10px;">数据探索</a> <a href="/tags/%E6%96%B0%E6%A6%82%E5%BF%B5/" style="font-size: 10px;">新概念</a> <a href="/tags/%E6%97%A5%E5%B8%B8/" style="font-size: 12.5px;">日常</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E6%A0%87%E5%87%86%E5%8C%96/" style="font-size: 10px;">标准化</a> <a href="/tags/%E6%AD%A3%E5%88%99%E5%8C%96/" style="font-size: 10px;">正则化</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">特征工程</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%97%A5%E5%BF%97/" style="font-size: 10px;">生活日志</a> <a href="/tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">监督学习与非监督学习</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6/" style="font-size: 10px;">社会科学</a> <a href="/tags/%E7%A7%91%E7%A0%94/" style="font-size: 10px;">科研</a> <a href="/tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">科研工具</a> <a href="/tags/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">科研笔记</a> <a href="/tags/%E7%AB%9E%E8%B5%9B/" style="font-size: 10px;">竞赛</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="/tags/%E7%BB%98%E5%9B%BE/" style="font-size: 10px;">绘图</a> <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 10px;">统计学</a> <a href="/tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/" style="font-size: 10px;">西瓜书</a> <a href="/tags/%E8%A7%84%E5%88%92/" style="font-size: 10px;">规划</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 10px;">读书</a> <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" style="font-size: 10px;">贝叶斯分类器</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/07/21/%E7%AE%97%E6%B3%95%E6%B1%87%E6%80%BB/FeatureExtraction/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/21/recording%20of%20master/MyMain/">心路历程</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/21/%E8%BF%90%E8%90%A5%E4%B9%8B%E7%AB%9E%E5%93%81%E5%88%86%E6%9E%90/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/21/%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95%E4%B9%8B%E9%93%B6%E8%A1%8C%E4%B8%9A%E5%8A%A1%E6%A8%A1%E5%9D%97/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/21/%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95%E4%B9%8B%E9%93%B6%E8%A1%8C%E4%B8%9A%E5%8A%A1/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
