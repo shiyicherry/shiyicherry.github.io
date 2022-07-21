@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>python库 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="开始接触Python是大二结束的时候，到现在都快两年了，其实一直并不是很细节的学习，只是希望能够跑个结果。不过呢？，以后肯定是会经常用Python，所以呢？我接下来会认真学习Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python库">
+<meta property="og:url" content="http://flytowardnewworld.github.io/2019/02/24/python%E5%BA%93/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="开始接触Python是大二结束的时候，到现在都快两年了，其实一直并不是很细节的学习，只是希望能够跑个结果。不过呢？，以后肯定是会经常用Python，所以呢？我接下来会认真学习Python">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190216223007343.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0Ryb2tlX1pob3U=,size_16,color_FFFFFF,t_70#pic_center">
+<meta property="article:published_time" content="2019-02-24T04:29:29.000Z">
+<meta property="article:modified_time" content="2020-07-28T11:57:36.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190216223007343.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0Ryb2tlX1pob3U=,size_16,color_FFFFFF,t_70#pic_center">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://flytowardnewworld.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-python库" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/02/24/python%E5%BA%93/" class="article-date">
+  <time class="dt-published" datetime="2019-02-24T04:29:29.000Z" itemprop="datePublished">2019-02-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/python/">python</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      python库
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>开始接触Python是大二结束的时候，到现在都快两年了，其实一直并不是很细节的学习，只是希望能够跑个结果。不过呢？，以后肯定是会经常用Python，所以呢？我接下来会认真学习Python</p>
+<span id="more"></span>
+<h2 id="Python-高级用法总结"><a href="#Python-高级用法总结" class="headerlink" title="Python 高级用法总结"></a>Python 高级用法总结</h2><p>基本数据类型：整型、浮点型、布尔类型</p>
+<h3 id="容器：-Containers"><a href="#容器：-Containers" class="headerlink" title="容器： Containers"></a>容器： Containers</h3><p>容器是一种把多个元素组织在一起的数据结构，容器中的元素可以逐个地迭代获取，可以用in, not in关键字判断元素是否包含在容器中。通常这类数据结构把所有的元素存储在内存中（也有一些特例，并不是所有的元素都放在内存，比如迭代器和生成器对象）在Python中，常见的容器对象有：<br>list, deque<br>set, frozensets<br>dict, defaultdict, OrderedDict, Counter<br>tuple, namedtuple<br>str</p>
+<h2 id="list推导（list-comprehensions"><a href="#list推导（list-comprehensions" class="headerlink" title="list推导（list comprehensions)"></a>list推导（list comprehensions)</h2><p>官方解释：列表解析式是Python内置的非常<strong>简单</strong>却<strong>强大</strong>的可以用来创建list的生成式。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">对于一个列表，既要遍历索引又要遍历元素。</span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">array = [<span class="string">&#x27;I&#x27;</span>, <span class="string">&#x27;love&#x27;</span>, <span class="string">&#x27;Python&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> i, element <span class="keyword">in</span> <span class="built_in">enumerate</span>(array):</span><br><span class="line">    array[i] = <span class="string">&#x27;%d: %s&#x27;</span> % (i, seq[i])</span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">getitem</span>(<span class="params">index, element</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;%d: %s&#x27;</span> % (index, element)</span><br><span class="line"></span><br><span class="line">array = [<span class="string">&#x27;I&#x27;</span>, <span class="string">&#x27;love&#x27;</span>, <span class="string">&#x27;Python&#x27;</span>]</span><br><span class="line">arrayIndex = [getitem(index, element) <span class="keyword">for</span> index, element <span class="keyword">in</span> <span class="built_in">enumerate</span>(array)]</span><br></pre></td></tr></table></figure>
+<h2 id="迭代器和生成器"><a href="#迭代器和生成器" class="headerlink" title="迭代器和生成器"></a>迭代器和生成器</h2><h3 id="可迭代对象："><a href="#可迭代对象：" class="headerlink" title="可迭代对象："></a>可迭代对象：</h3><p>凡是可以返回一个迭代器的对象都可称之为可迭代对象<br>例如：list    dic    str     set     tuple     range()     enumerate(枚举)     f=open()（文件句柄）<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### 迭代器(iterator)</span></span><br><span class="line">是一个带状态的对象，他能在你调用<span class="built_in">next</span>()方法的时候返回容器中的下一个值，任何实现了__iter__和__next__()（python2中实现<span class="built_in">next</span>()）方法的对象都是迭代器，__iter__返回迭代器自身，__next__返回容器中的下一个值，如果容器中没有更多元素了，则抛出StopIteration异常</span><br><span class="line"><span class="comment">### 生成器(generator)</span></span><br><span class="line">生成器其实是一种特殊的迭代器，不过这种迭代器更加优雅。它不需要再像上面的类一样写__iter__()和__next__()方法了，只需要一个yiled关键字。 生成器一定是迭代器（反之不成立）</span><br><span class="line"><span class="comment">#列表生成式</span></span><br><span class="line">lis = [x*x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]</span><br><span class="line"><span class="comment"># 受到内存限制，列表容量肯定是有限的</span></span><br><span class="line"><span class="comment">#生成器表达式</span></span><br><span class="line">generator_ex = (x*x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>))</span><br></pre></td></tr></table></figure><br>生成器： 不用创建完整的list，为节省大量的空间，在Python中，这种一边循环一边计算的机制，称为生成器：generator<br>Tuples:()<br> 字典：{：，}<br> Sets: {,}<br>函数<br>类</p>
+<h2 id="Python库——numpy"><a href="#Python库——numpy" class="headerlink" title="Python库——numpy"></a>Python库——numpy</h2><h3 id="What"><a href="#What" class="headerlink" title="What"></a>What</h3><p>NumPy=Numerical+Python<br>主要是提供了高性能多维数组这个对象，以及处理相关的方法</p>
+<h3 id="How"><a href="#How" class="headerlink" title="How"></a>How</h3><ol>
+<li>自定义一个（1D or MD)数组或者特殊的数组,一维，二维</li>
+<li>数组切片（也就是提取数组元素），注意 a[:,0]和a[:,0:1]是不同的喔</li>
+<li>关于数组属性的方法</li>
+<li>数组运算</li>
+<li>索引<br> where 函数<br> 索引的布尔数组</li>
+<li>广播（Broadcasting）<br>用于处理不同性状的 数组。 Broadcasting提供了一种矢量化数组操作的方法，使得循环发生在C而不是Python。标量乘以一个矢量的时候，用Boradcasting更快，因为 broadcasting在乘法期间移动较少的内存</li>
+<li>array 和 matrix 选择哪个?<br> <a target="_blank" rel="noopener" href="https://www.numpy.org.cn/user_guide/numpy_for_matlab_users.html">戳我</a></li>
+<li>矢量化和广播、索引<br>在Python中循环数组或任何数据结构时，会涉及很多开销。 NumPy中的向量化操作将内部循环委托给高度优化的C和Fortran函数，从而实现更清晰，更快速的Python代码。<h2 id="stack-vstack-hstack"><a href="#stack-vstack-hstack" class="headerlink" title="stack|vstack|hstack"></a>stack|vstack|hstack</h2></li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">b = np.array([<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line">np.stack((a, b))</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">       [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]])</span><br><span class="line"></span><br><span class="line">% hstack</span><br><span class="line">a = np.array((<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>))</span><br><span class="line">b = np.array((<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>))</span><br><span class="line">np.hstack((a,b))</span><br><span class="line">array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line">a = np.array([[<span class="number">1</span>],[<span class="number">2</span>],[<span class="number">3</span>]])</span><br><span class="line">b = np.array([[<span class="number">2</span>],[<span class="number">3</span>],[<span class="number">4</span>]])</span><br><span class="line">np.hstack((a,b))</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">2</span>],</span><br><span class="line">       [<span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">       [<span class="number">3</span>, <span class="number">4</span>]])</span><br><span class="line">% vstack</span><br><span class="line">a = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">b = np.array([<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line">np.vstack((a,b))</span><br><span class="line">array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">       [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]])</span><br><span class="line">a = np.array([[<span class="number">1</span>], [<span class="number">2</span>], [<span class="number">3</span>]])</span><br><span class="line">b = np.array([[<span class="number">2</span>], [<span class="number">3</span>], [<span class="number">4</span>]])</span><br><span class="line">np.vstack((a,b))</span><br><span class="line">array([[<span class="number">1</span>],</span><br><span class="line">       [<span class="number">2</span>],</span><br><span class="line">       [<span class="number">3</span>],</span><br><span class="line">       [<span class="number">2</span>],</span><br><span class="line">       [<span class="number">3</span>],</span><br><span class="line">       [<span class="number">4</span>]])</span><br></pre></td></tr></table></figure>
+<h2 id="mean"><a href="#mean" class="headerlink" title="mean"></a>mean</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([[1, 2], [3, 4]])</span><br><span class="line">np.mean(a)</span><br><span class="line"></span><br><span class="line">np.mean(a, axis=0)</span><br><span class="line"></span><br><span class="line">np.mean(a, axis=1)</span><br></pre></td></tr></table></figure>
+<h2 id="reshape"><a href="#reshape" class="headerlink" title="reshape"></a>reshape</h2><p>reshape(x, y)，其中x表示转换后数组的行数，y表示转换后数组的列数。当x或者y为-1时，表示该元素随机分配，如reshape(2, -1)表示列数随机，行数为两行。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">格式：np.reshape((x, y, z))</span><br><span class="line"></span><br><span class="line">参数的含义：</span><br><span class="line"></span><br><span class="line">x：表示生成的三维数组中二维数组的个数</span><br><span class="line"></span><br><span class="line">y：表示单个二维数组中一维数组的个数</span><br><span class="line"></span><br><span class="line">z：表示三维数组的列数</span><br></pre></td></tr></table></figure>
+<h2 id="numpy数组去掉冗余的维度——-squeeze-函数"><a href="#numpy数组去掉冗余的维度——-squeeze-函数" class="headerlink" title="numpy数组去掉冗余的维度——-squeeze()函数"></a>numpy数组去掉冗余的维度——-squeeze()函数</h2><p>import numpy as np a = [[[10, 2, 3]]] a = np.array(a) a_sque = np.squeeze(a) print(a) print(a_sque)</p>
+<h2 id="Python库——pandas"><a href="#Python库——pandas" class="headerlink" title="Python库——pandas"></a>Python库——pandas</h2><p>记得学习pandas是在大三时候的美赛，花了一天多时间学习pandas，然后预处理数据，当时三个队友都是各自的家，是非常愉快的！！！</p>
+<h3 id="what"><a href="#what" class="headerlink" title="what"></a>what</h3><p>Python Data Analysis Library</p>
+<ol>
+<li>三种数据结构<br>序列： Series 1D<br>数据帧： DataFrame 2D<br>面板： Panel &gt;2D</li>
+<li>自定义创建<ol>
+<li>可以通过字段、数据、series、列表</li>
+<li>列表传入的时候，主要行列，如果单个列表：列；如果是[[],[]]是按行[]</li>
+<li>如果位置不对可转置</li>
+<li>创建空 pd.DataFrame()</li>
+</ol>
+</li>
+<li>选择区块<br> a) Series<br> []<br> b) DataFrame<br> 列选择 [‘colums的名字’]<br> 行列选择：.loc[列名,行名]名称 .iloc[列索引,行索引]整数</li>
+<li>array<br>.value</li>
+<li>统计描述<br> .descibe(include = ‘all’) .head() .tail()<br> .select_dtype(include=[])<br> .columns<br> .dtype</li>
+<li><p>缺少数据</p>
+<ol>
+<li>查看缺失值<br>isnull() notnull() 也可以 做一些统计，sum, any,all </li>
+<li>清理缺失值<br> dropna(axis=0)：axis = 0:index axis=1,columns</li>
+<li>填充缺少指<br> fillna() 标量替换</li>
+<li>替换</li>
+</ol>
+</li>
+<li><p>统计函数</p>
+</li>
+</ol>
+<ol>
+<li><p>Pandas 函数应用<br>表合理函数应用：pipe()<br>行或列函数应用：apply()<br>元素函数应用：applymap()<br>eg： pd.pipe(lambda x: x*100)</p>
+</li>
+<li><p>类别变量向量化<br>非数值类型的处理方法</p>
+</li>
+<li><p>时间序列生成 data_range</p>
+<ol>
+<li>pandas.date_range(“11:00”, “21:30”, freq=”30min”)</li>
+<li>参数<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Return a fixed frequency DatetimeIndex.</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+<p>Parameters<br>startstr or datetime-like, optional<br>Left bound for generating dates.</p>
+<p>endstr or datetime-like, optional<br>Right bound for generating dates.</p>
+<p>periodsint, optional<br>Number of periods to generate.</p>
+<p>freqstr or DateOffset, default ‘D’<br>Frequency strings can have multiples, e.g. ‘5H’. See here for a list of frequency aliases.</p>
+<p>tzstr or tzinfo, optional<br>Time zone name for returning localized DatetimeIndex, for example ‘Asia/Hong_Kong’. By default, the resulting DatetimeIndex is timezone-naive.</p>
+<p>normalizebool, default False<br>Normalize start/end dates to midnight before generating date range.</p>
+<p>namestr, default None<br>Name of the resulting DatetimeIndex.</p>
+<p>closed{None, ‘left’, ‘right’}, optional<br>Make the interval closed with respect to the given frequency to the ‘left’, ‘right’, or both sides (None, the default).</p>
+<p>**kwargs<br>For compatibility. Has no effect on the result.</p>
+<p>Returns<br>rngDatetimeIndex<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">11. DataFrame.stack</span><br><span class="line">Parameters</span><br><span class="line">levelint, str, list, default -1</span><br><span class="line">Level(s) to stack from the column axis onto the index axis, defined as one index or label, or a list of indices or labels.</span><br><span class="line"></span><br><span class="line">dropnabool, default True</span><br><span class="line">Whether to drop rows in the resulting Frame/Series with missing values. Stacking a column level onto the index axis can create combinations of index and column values that are missing from the original dataframe. See Examples section.</span><br><span class="line"></span><br><span class="line">Returns</span><br><span class="line">DataFrame or Series</span><br><span class="line">Stacked dataframe or series.</span><br><span class="line">​```python</span><br><span class="line">df_single_level_cols</span><br><span class="line">     weight height</span><br><span class="line">cat       0      1</span><br><span class="line">dog       2      3</span><br><span class="line">df_single_level_cols.stack()</span><br><span class="line">cat  weight    0</span><br><span class="line">     height    1</span><br><span class="line">dog  weight    2</span><br><span class="line">     height    </span><br></pre></td></tr></table></figure><br>DataFrame.value_connts()返回序列，index=统计值，值：统计个数</p>
+<h2 id="Matplotlib"><a href="#Matplotlib" class="headerlink" title="Matplotlib"></a>Matplotlib</h2><p>matplotlib.pyplot as plt</p>
+<ol>
+<li>窗口：figure: 一个窗口，plt.figure(num=,figsize=(h,w))下面数据都属于当前的figure,有一定的顺序喔</li>
+<li>画图：plt.plot(x,y,color=,linewidth=,linestyle,label=)</li>
+<li>标注信息： plt.xlim((,)), plt.yxlim((,)),plt.xlabel(),plt.ylabel(),ticks:图像的小标，plt.xticks(),plt.yticks([值1，值2],[r’$值1\ 对应的文字$’,r’值2的文字 \alpha])</li>
+<li>坐标轴：axis gac=’get current axis’<br>ax = plt.gca() # 轴<br># 获取四个轴<br>ax.spines[‘right|left|top|’].set_color(‘none’)<br>ax.xaxis.set_ticks_position(‘bottom’)<br>ax.spines[‘bottom’].set_position((‘data’,-1))</li>
+<li>图例：legend:<br> a. plt.plot(,label=), plt.legend()<br> b. l1, = plt.plot() plt.legend(handles=[l1,],labels=[,],loc=’best|upper right|’)</li>
+<li>注解 annotation<br>a. 点的位置(x0，y0) plt.scatter(). plt.plot([x0,y0],[y0,0],’k—‘,lw=)<br>b . method 1:<br>plt.annotate(r’name’,xy=(,)起始点，xycoords=’data’//基于xy,xytext=(+30,30),textcoords=’offseet points’//文本基于xy,arrowprops=dict(arrowstyle=’-&gt;’箭头,connectionstyle=’arc3,rad=.2’)弧度)</li>
+<li>Bar 柱状图<br>plt.bar(x,+|-y,facecolor=””,edgecolor,)<br>|# ha horizontal alignment 对齐方式<br>for x,y in zip(x,y):<br> plt.text(x+0,4,y+0.05,’%.2f’%y,ha=’center’,va=’bottom’)</li>
+<li>很多自动 subplot(总行，当前行的列，总的按最小分的第几个)<br>subplot(,,)<h2 id="index"><a href="#index" class="headerlink" title="index"></a>index</h2></li>
+</ol>
+<p>reset_index:限于DataFrame</p>
+<p>set_index</p>
+<p>index</p>
+<h1 id="scikit-learn"><a href="#scikit-learn" class="headerlink" title="scikit-learn"></a>scikit-learn</h1><p>官方教程绝对是最好最棒的选择，有简单数学推导、直观立马就能上手的案例，还能提阅读英文的能力喔，实在是一举多得啊！！！！ <a target="_blank" rel="noopener" href="https://scikit-learn.org/">scikit-learn.org</a></p>
+<h2 id="regression"><a href="#regression" class="headerlink" title="regression"></a>regression</h2><h2 id="Feature-selection"><a href="#Feature-selection" class="headerlink" title="Feature selection"></a>Feature selection</h2><h3 id="Method-from-sklearn-feature-selection-import-VarianceThreshold"><a href="#Method-from-sklearn-feature-selection-import-VarianceThreshold" class="headerlink" title="Method from sklearn.feature_selection import VarianceThreshold"></a>Method from sklearn.feature_selection import VarianceThreshold</h3><h3 id="sklearn-feature-selection-SelectFromModel"><a href="#sklearn-feature-selection-SelectFromModel" class="headerlink" title="sklearn.feature_selection.SelectFromModel"></a>sklearn.feature_selection.SelectFromModel</h3><p><em>class</em> sklearn.feature_selection.SelectFromModel(<em>estimator</em>, , <em>threshold=None</em>, <em>prefit=False</em>, <em>norm_order=1</em>, <em>max_features=None</em>)</p>
+<h1 id=""><a href="#" class="headerlink" title=" "></a> </h1><h1 id="seaborn"><a href="#seaborn" class="headerlink" title="seaborn"></a>seaborn</h1><p>seaborn.jointplot(x, y, data=None, kind=’scatter’, stat_func=None, color=None, height=6, ratio=5, space=0.2, dropna=True, xlim=None, ylim=None, joint_kws=None, marginal_kws=None, annot_kws=None, **kwargs)</p>
+<ul>
+<li><p>Parameters</p>
+<p><strong>x, y</strong>strings or vectorsData or names of variables in <code>data</code>.<strong>data</strong>DataFrame, optionalDataFrame when <code>x</code> and <code>y</code> are variable names.<strong>kind</strong>{ “scatter” | “reg” | “resid” | “kde” | “hex” }, optionalKind of plot to draw.<strong>stat_func</strong>callable or None, optional<em>Deprecated**</em>color<strong>matplotlib color, optionalColor used for the plot elements.</strong>height<strong>numeric, optionalSize of the figure (it will be square).</strong>ratio<strong>numeric, optionalRatio of joint axes height to marginal axes height.</strong>space<strong>numeric, optionalSpace between the joint and marginal axes</strong>dropna<strong>bool, optionalIf True, remove observations that are missing from <code>x</code> and <code>y</code>.</strong>{x, y}lim<strong>two-tuples, optionalAxis limits to set before plotting.</strong>{joint, marginal, annot}_kws<strong>dicts, optionalAdditional keyword arguments for the plot components.</strong>kwargs**key, value pairingsAdditional keyword arguments are passed to the function used to draw the plot on the joint Axes, superseding items in the <code>joint_kws</code> dictionary.</p>
+</li>
+<li><p>Returns</p>
+<p><strong>grid</strong><a target="_blank" rel="noopener" href="https://seaborn.pydata.org/generated/seaborn.JointGrid.html#seaborn.JointGrid"><code>JointGrid</code></a><a target="_blank" rel="noopener" href="https://seaborn.pydata.org/generated/seaborn.JointGrid.html#seaborn.JointGrid"><code>JointGrid</code></a> object with the plot on it.</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="http://seaborn.pydata.org/generated/seaborn.JointGrid.html#seaborn.JointGrid">http://seaborn.pydata.org/generated/seaborn.JointGrid.html#seaborn.JointGrid</a></p>
+<p>g = sns.jointplot(x=”x”, y=”y”, kind = ‘reg’ , space=0,color = ‘g’, data=df11,stat_func=sci.pearsonr)</p>
+<p>sns.set()</p>
+<p>sns.axes_style(“darkgrid”)</p>
+<p>sns.set_context(“paper”)</p>
+<p><a target="_blank" rel="noopener" href="https://blog.mazhangjing.com/2018/03/29/learn_seaborn/">https://blog.mazhangjing.com/2018/03/29/learn_seaborn/</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weiyudang11/article/details/51549672">https://blog.csdn.net/weiyudang11/article/details/51549672</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#初始化类</span><br><span class="line">g=sns.JointGrid(x=&#x27;v_ma5&#x27;,y=&#x27;price_change&#x27;,data=stock,space=0.5,ratio=5)</span><br><span class="line"></span><br><span class="line">g=sns.JointGrid(x=&#x27;v_ma5&#x27;,y=&#x27;price_change&#x27;,data=stock,space=0.5,ratio=5)</span><br><span class="line">g=g.plot_joint(plt.scatter,color=&#x27;.3&#x27;,edgecolor=&#x27;r&#x27;)</span><br><span class="line">g=g.plot_marginals(sns.distplot,kde=False)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">from scipy import stats</span><br><span class="line">g=sns.JointGrid(x=&#x27;v_ma5&#x27;,y=&#x27;price_change&#x27;,data=stock,space=0.5,ratio=5)</span><br><span class="line">g=g.plot_joint(plt.scatter,color=&#x27;.3&#x27;,edgecolor=&#x27;r&#x27;)</span><br><span class="line">_=g.ax_marg_x.hist(stock.v_ma10,color=&#x27;r&#x27;,alpha=.6,bins=50)</span><br><span class="line">_=g.ax_marg_y.hist(stock.low,color=&#x27;y&#x27;,orientation=&quot;horizontal&quot;,bins=20)</span><br><span class="line">rquare=lambda a,b:stats.pearsonr(a,b)[0]**2</span><br><span class="line">g=g.annotate(rquare,template=&#x27;&#123;stat&#125;:&#123;val:.2f&#125;&#x27;,stat=&#x27;$R^2$&#x27;,loc=&#x27;upper left&#x27;,fontsize=12)</span><br></pre></td></tr></table></figure>
+<h2 id="颜色和风格设置"><a href="#颜色和风格设置" class="headerlink" title="颜色和风格设置"></a>颜色和风格设置</h2><h2 id="调色板"><a href="#调色板" class="headerlink" title="调色板"></a>调色板</h2><p>主要使用以下几个函数设置颜色：<br>color_palette() 能传入任何Matplotlib所有支持的颜色<br>color_palette() 不写参数则默认颜色</p>
+<p>current_palette = sns.color_palette() sns.palplot(current_palette) plt.show()</p>
+<p>set_palette() 设置所有图的颜色</p>
+<p>sns.palplot(sns.color_palette(“hls”,8)) plt.show()</p>
+<h2 id="颜色的亮度及饱和度"><a href="#颜色的亮度及饱和度" class="headerlink" title="颜色的亮度及饱和度"></a>颜色的亮度及饱和度</h2><p>l-光度 lightness<br>s-饱和 saturation</p>
+<p>sns.palplot(sns.hls_palette(8,l=.7,s=.9)) plt.show()</p>
+<h2 id="xkcd选取颜色"><a href="#xkcd选取颜色" class="headerlink" title="xkcd选取颜色"></a>xkcd选取颜色</h2><p>xkcd包含了一套众包努力的针对随机RGB色的命名。产生了954个可以随时通过xkcd_rgb字典中调用的命名颜色</p>
+<p>plt.plot([0,1],[0,1],sns.xkcd_rgb[‘pale red’],lw = 3) #lw = 线宽度<br>plt.plot([0,1],[0,2],sns.xkcd_rgb[‘medium green’],lw = 3)<br>plt.plot([0,1],[0,3],sns.xkcd_rgb[‘denim blue’],lw = 3)<br>plt.show()</p>
+<p><img src="https://img-blog.csdnimg.cn/20190216223007343.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0Ryb2tlX1pob3U=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="汇总"><a href="#汇总" class="headerlink" title="汇总"></a>汇总</h2><p><a target="_blank" rel="noopener" href="http://seaborn.pydata.org/api.html#">http://seaborn.pydata.org/api.html#</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mwaskom/seaborn/blob/master/seaborn/rcmod.py">https://github.com/mwaskom/seaborn/blob/master/seaborn/rcmod.py</a></p>
+<p><a target="_blank" rel="noopener" href="https://xkcd.com/color/rgb/">https://xkcd.com/color/rgb/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flytowardnewworld.github.io/2019/02/24/python%E5%BA%93/" data-id="cl5v9md76003i10vk1qfyerkn" data-title="python库" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/02/28/SVD/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          我的读书笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/02/22/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">我的读书笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-Learning/">Deep Learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/R/">R</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/machine-learning/">machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A8%B1%E4%B9%90%E7%94%9F%E6%B4%BB/">娱乐生活</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E3%81%AE%E5%8E%86%E7%A8%8B-Journal-of-Studying/">学习の历程(Journal of Studying)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BF%83%E5%BE%97/">心得</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">数据可视化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6-Data-Science/">数据科学(Data Science)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%BF%97/">日志</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%95%B0%E5%AD%A6/">数学</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%91%E6%99%AE/">科普</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%91%E7%A0%94/">科研</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AB%9E%E8%B5%9B/">竞赛</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%8B%B1%E8%AF%AD/">英语</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%A7%84%E5%88%92/">规划</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0/">视频学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6%E6%97%A5%E5%B8%B8/">读书日常</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/1/" rel="tag">1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BI/" rel="tag">BI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BP/" rel="tag">BP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Boosting-AdaBoost/" rel="tag">Boosting, AdaBoost</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Daily/" rel="tag">Daily</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Mining/" rel="tag">Data Mining</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-learning/" rel="tag">Deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/" rel="tag">Excel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Numpuy/" rel="tag">Numpuy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/" rel="tag">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/" rel="tag">R</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVD/" rel="tag">SVD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deep-learning/" rel="tag">deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-learning/" rel="tag">machine learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/origin/" rel="tag">origin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tensorlow/" rel="tag">tensorlow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/" rel="tag">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wan/" rel="tag">wan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92/" rel="tag">二次规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" rel="tag">交叉验证</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" rel="tag">关联规则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/" rel="tag">决策树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" rel="tag">回归分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" rel="tag">回归树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E6%8E%92/" rel="tag">安排</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" rel="tag">希腊字母</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BD%92%E4%B8%80%E5%8C%96/" rel="tag">归一化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BD%A9%E9%93%85/" rel="tag">彩铅</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%88%90%E9%95%BF/" rel="tag">成长</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">我的读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E8%83%BD/" rel="tag">技能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" rel="tag">支持向量机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" rel="tag">支持向量机回归</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">数据分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD/" rel="tag">数据分析技能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag">数据挖掘</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2/" rel="tag">数据探索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B0%E6%A6%82%E5%BF%B5/" rel="tag">新概念</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E5%B8%B8/" rel="tag">日常</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%87%E5%87%86%E5%8C%96/" rel="tag">标准化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E5%8C%96/" rel="tag">正则化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" rel="tag">特征工程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB%E6%97%A5%E5%BF%97/" rel="tag">生活日志</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" rel="tag">监督学习与非监督学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6/" rel="tag">社会科学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E7%A0%94/" rel="tag">科研</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" rel="tag">科研工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/" rel="tag">科研笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AB%9E%E8%B5%9B/" rel="tag">竞赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%98%E5%9B%BE/" rel="tag">绘图</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/" rel="tag">西瓜书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%84%E5%88%92/" rel="tag">规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" rel="tag">贝叶斯分类器</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/1/" style="font-size: 10px;">1</a> <a href="/tags/BI/" style="font-size: 12.5px;">BI</a> <a href="/tags/BP/" style="font-size: 10px;">BP</a> <a href="/tags/Boosting-AdaBoost/" style="font-size: 10px;">Boosting, AdaBoost</a> <a href="/tags/Daily/" style="font-size: 15px;">Daily</a> <a href="/tags/Data-Mining/" style="font-size: 10px;">Data Mining</a> <a href="/tags/Deep-learning/" style="font-size: 17.5px;">Deep learning</a> <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/Numpuy/" style="font-size: 10px;">Numpuy</a> <a href="/tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="/tags/Python/" style="font-size: 17.5px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/SVD/" style="font-size: 10px;">SVD</a> <a href="/tags/deep-learning/" style="font-size: 10px;">deep learning</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/machine-learning/" style="font-size: 12.5px;">machine learning</a> <a href="/tags/origin/" style="font-size: 10px;">origin</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/tensorlow/" style="font-size: 10px;">tensorlow</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/wan/" style="font-size: 10px;">wan</a> <a href="/tags/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92/" style="font-size: 10px;">二次规划</a> <a href="/tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" style="font-size: 10px;">交叉验证</a> <a href="/tags/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" style="font-size: 10px;">关联规则</a> <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/" style="font-size: 15px;">决策树</a> <a href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 15px;">可视化</a> <a href="/tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" style="font-size: 10px;">回归分析</a> <a href="/tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" style="font-size: 10px;">回归树</a> <a href="/tags/%E5%AE%89%E6%8E%92/" style="font-size: 10px;">安排</a> <a href="/tags/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" style="font-size: 10px;">希腊字母</a> <a href="/tags/%E5%BD%92%E4%B8%80%E5%8C%96/" style="font-size: 10px;">归一化</a> <a href="/tags/%E5%BD%A9%E9%93%85/" style="font-size: 10px;">彩铅</a> <a href="/tags/%E6%88%90%E9%95%BF/" style="font-size: 10px;">成长</a> <a href="/tags/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">我的读书笔记</a> <a href="/tags/%E6%8A%80%E8%83%BD/" style="font-size: 10px;">技能</a> <a href="/tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" style="font-size: 10px;">支持向量机</a> <a href="/tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" style="font-size: 10px;">支持向量机回归</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 20px;">数据分析</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD/" style="font-size: 10px;">数据分析技能</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 10px;">数据挖掘</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2/" style="font-size: 10px;">数据探索</a> <a href="/tags/%E6%96%B0%E6%A6%82%E5%BF%B5/" style="font-size: 10px;">新概念</a> <a href="/tags/%E6%97%A5%E5%B8%B8/" style="font-size: 12.5px;">日常</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E6%A0%87%E5%87%86%E5%8C%96/" style="font-size: 10px;">标准化</a> <a href="/tags/%E6%AD%A3%E5%88%99%E5%8C%96/" style="font-size: 10px;">正则化</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">特征工程</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%97%A5%E5%BF%97/" style="font-size: 10px;">生活日志</a> <a href="/tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">监督学习与非监督学习</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6/" style="font-size: 10px;">社会科学</a> <a href="/tags/%E7%A7%91%E7%A0%94/" style="font-size: 10px;">科研</a> <a href="/tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">科研工具</a> <a href="/tags/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">科研笔记</a> <a href="/tags/%E7%AB%9E%E8%B5%9B/" style="font-size: 10px;">竞赛</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="/tags/%E7%BB%98%E5%9B%BE/" style="font-size: 10px;">绘图</a> <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 10px;">统计学</a> <a href="/tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/" style="font-size: 10px;">西瓜书</a> <a href="/tags/%E8%A7%84%E5%88%92/" style="font-size: 10px;">规划</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 10px;">读书</a> <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" style="font-size: 10px;">贝叶斯分类器</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/07/21/%E7%AE%97%E6%B3%95%E6%B1%87%E6%80%BB/FeatureExtraction/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/21/recording%20of%20master/MyMain/">心路历程</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/21/%E8%BF%90%E8%90%A5%E4%B9%8B%E7%AB%9E%E5%93%81%E5%88%86%E6%9E%90/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/21/%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95%E4%B9%8B%E9%93%B6%E8%A1%8C%E4%B8%9A%E5%8A%A1%E6%A8%A1%E5%9D%97/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/21/%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95%E4%B9%8B%E9%93%B6%E8%A1%8C%E4%B8%9A%E5%8A%A1/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

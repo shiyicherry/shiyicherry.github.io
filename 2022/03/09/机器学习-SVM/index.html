@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>机器学习-SVM | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="[TOC] 支持向量机用于分类:硬间隔和软件间隔支持向量机。尽可能分对 支持向量机回归： 希望$f(x)$与$y$尽可能的接近。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习-SVM">
+<meta property="og:url" content="http://flytowardnewworld.github.io/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-SVM/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="[TOC] 支持向量机用于分类:硬间隔和软件间隔支持向量机。尽可能分对 支持向量机回归： 希望$f(x)$与$y$尽可能的接近。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-SVM/机器学习-SVM/1.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-SVM/机器学习-SVM/2.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-SVM/机器学习-SVM/3.jpg">
+<meta property="article:published_time" content="2022-03-09T06:46:35.000Z">
+<meta property="article:modified_time" content="2022-03-09T08:44:56.000Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://flytowardnewworld.github.io/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-SVM/机器学习-SVM/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://flytowardnewworld.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-机器学习-SVM" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-SVM/" class="article-date">
+  <time class="dt-published" datetime="2022-03-09T06:46:35.000Z" itemprop="datePublished">2022-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      机器学习-SVM
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+<p>支持向量机用于分类:硬间隔和软件间隔支持向量机。尽可能分对</p>
+<p>支持向量机回归： 希望$f(x)$与$y$尽可能的接近。</p>
+<span id="more"></span>
+<h1 id="支持向量机基本思想"><a href="#支持向量机基本思想" class="headerlink" title="支持向量机基本思想"></a>支持向量机基本思想</h1><p>英文名:support vector regression</p>
+<p>简记：SVR</p>
+<h2 id="标准的线性支持向量回归模型"><a href="#标准的线性支持向量回归模型" class="headerlink" title="标准的线性支持向量回归模型"></a>标准的线性支持向量回归模型</h2><p>学习的模型:</p>
+<script type="math/tex; mode=display">f(x)=w^Tx+b</script><p>假设能容忍$f(x)$与$y$之间差别绝对值$\xi$,这就以$f(x)=w^Tx+b$形成了一个$2\xi$的间隔带，因此模型</p>
+<script type="math/tex; mode=display">
+\min \frac{1}{2}w^Tw\\
+s.t -\xi<=f(x_i)-y_i<=\xi</script><p>但是上述条件太过严苛，因此增加惩罚项，</p>
+<script type="math/tex; mode=display">
+\min \frac{1}{2}w^Tw+C\sum(\epsilon_i+\hat{\epsilon}_i)\\
+s.t. \begin{cases}f(x_i)-y_i<=\xi+\epsilon_i\\
+y_i-f(x_i)<=\xi+\hat{\epsilon}_i\\
+\hat{\epsilon}_i>=0,\epsilon_i>=0
+\end{cases}</script><p>构造Lagrange函数</p>
+<script type="math/tex; mode=display">
+\begin{aligned} L :=\frac{1}{2}\|\omega\|^{2} &+C \sum\left(\xi_i+\xi^{\prime}_i\right)-\sum_{i=1}^{N}\left(\eta_{i} \xi_{i}+\eta_{i}^{'} \xi_{i}6{'}\right) \\ &+\sum \alpha_{i}\left(y_{i}-\omega^{T} x_{i}-b-\varepsilon-\xi_{i}\right) \\ &+\sum \alpha_{i}^{'}\left(\omega^{T} x_{i}+b-y_{i}-\varepsilon-\xi_{i}^{\prime}\right) \end{aligned}\tag{1}</script><p>求偏导</p>
+<script type="math/tex; mode=display">
+\frac{\partial L}{\partial \omega}=\omega-\sum\left(\alpha_{i}-\alpha_{i}\right) x_{i}=0 \Rightarrow \omega=\sum\left(\alpha_{i}-\alpha_{i}^{\prime}\right) x_{i}\tag{2}</script><script type="math/tex; mode=display">
+\frac{\partial L}{\partial b}=\sum_{i=1}^{N}\left(\alpha_{i}-\alpha_{i}^{\prime}\right)=0 \tag{3}</script><script type="math/tex; mode=display">
+\frac{\partial L}{\partial \xi_{i}^{\prime}}=C-\alpha_{i}^{'}-\eta_{i}^{\prime}=0 \tag{4}</script><script type="math/tex; mode=display">
+\frac{\partial L}{\partial \xi_{i}}=C-\alpha_{i}-\eta_{i}=0 \tag{5}</script><p>将(2)-(4)带回(1),可得对偶问题</p>
+<script type="math/tex; mode=display">
+\begin{aligned} \min L(\boldsymbol{\alpha})=& \frac{1}{2} \sum_{i=1}^{N} \sum_{j=1}^{N}\left(\alpha_{i}-\alpha_{i}^{*}\right)\left(\alpha_{j}-\alpha_{j}^{*}\right)\left\langle x_{i}, x_{j}\right\rangle \\ &+\varepsilon \sum_{i=1}^{N}\left(\alpha_{i}+\alpha_{i}^{*}\right)-\sum_{i=1}^{N} y_{i}\left(\alpha_{i}-\alpha_{i}^{*}\right) \\ \text { s.t. } & \sum_{n=1}^{N}\left(\alpha_{n}-\alpha_{n}^{*}\right)=0 \end{aligned}</script><p>再将(2)带回$Y=w^Tx+b$,可得线性回归模型</p>
+<script type="math/tex; mode=display">
+y(x)=\sum_{i=1}^{N}\left(\alpha_{i}-\alpha_{i}^{*}\right) x_{i}^{T} x+b</script><h2 id="非线性支持向量机"><a href="#非线性支持向量机" class="headerlink" title="非线性支持向量机"></a>非线性支持向量机</h2><p>考虑模型</p>
+<script type="math/tex; mode=display">
+y=f(x)+b</script><p>$f(x)$是非线性函数，存在一个由$X$所在空间到希尔伯特空间的映射，使得</p>
+<script type="math/tex; mode=display">
+f(x)=w^T\varphi(x)</script><p>因此，建立如下的优化问题</p>
+<script type="math/tex; mode=display">
+\min \frac{1}{2}\|\omega\|^{T}+C \sum_{i}\left(\xi_{i}+\xi_{i}^{\prime}\right)\\
+\begin{cases} y\left(x_{i}\right)-\omega^{T} \varphi\left(x_{i}\right)-b \leq \xi_{i} \\ \omega^{T} \varphi\left(x_{i}\right)+b-y\left(x_{i}\right) & \leq \xi_{i} \\ \xi_{i} & \geq 0 \\ \xi_{i} & \geq 0 \end{cases}</script><p>构造lagrange函数</p>
+<script type="math/tex; mode=display">
+\begin{aligned} L :=\frac{1}{2}\|\omega\|^{2} &+C \sum\left(\xi+\xi^{\prime}\right)-\sum\left(\eta_{i} \xi_{i}+\eta_{i} \xi_{i}^{\prime}\right) \\ &+\sum \alpha_{i}\left(y_{i}-w^{T} \varphi\left(x_{i}\right)-b-\varepsilon_{i}-\xi_{i}\right) \\ &+\sum \alpha_{\mathrm{i}}^{\prime}\left(w^{T} \varphi\left(x_{i}\right)+b-y_{i}-\varepsilon_{i}^{'}-\xi_{i}^{\prime}\right) \end{aligned}</script><p>求偏导</p>
+<script type="math/tex; mode=display">
+\begin{cases}\frac{\partial L}{\partial w}=w-\sum\left(\alpha_{i}-\alpha_{i}\right) \varphi\left(x_{i}\right)=0\\
+ \frac{\partial L}{\partial b} =\sum\left(\alpha_{i}-\alpha_{i}^{\prime}\right)=0 \\ \frac{\partial L}{\partial \xi_{i}^{\prime}} =C-\alpha_{i}^{'}-\eta_{i}^{\prime}=0 \\ \frac{\partial L}{\partial \xi_{i}} =C-\alpha_{i}-\eta_{i}=0 \end{cases}</script><p>再带回优化问题可得</p>
+<script type="math/tex; mode=display">\min _{t}-\frac{1}{2} \sum\left(\alpha_{i}-\alpha_{i}^{\prime}\right)\left(\alpha_{j}-\alpha_{j}^{\prime}\right) \varphi\left(x_{i}\right)^{T} \varphi\left(x_{j}\right)-\varepsilon \sum\left(\alpha_{i}+\alpha_{i}^{\prime}\right)+\sum y_{i}\left(\alpha_{i}-\alpha_{i}^{'}\right)\\s t . \sum\left(\alpha_{i}-\alpha_{i}^{\prime}\right)=0</script><p>再次将$w$带回模型</p>
+<script type="math/tex; mode=display">
+y=\sum\left(\alpha_{i}-\alpha_{i}^{'}\right) \varphi\left(x_{i}\right)^{T} \varphi(x)+b</script><h1 id="预备的数学知识"><a href="#预备的数学知识" class="headerlink" title="预备的数学知识"></a>预备的数学知识</h1><h2 id="约束优化问题"><a href="#约束优化问题" class="headerlink" title="约束优化问题"></a>约束优化问题</h2><p>原问题,带等式约束，也带不等式约束的一般约束问题</p>
+<script type="math/tex; mode=display">
+\begin{cases} \min_{x}f(x)\\
+s.t \begin{cases} m_i(x)>=0, i=1,..,m\\
+n_j(x)=0，j=1,..,m\\
+\end{cases}
+\end{cases}\tag{1}</script><p>构造lagrange乘子法</p>
+<script type="math/tex; mode=display">
+L(x,\lambda_i,\eta_j)= f(x)-\sum_{i=1}^{m}\lambda_im_i(x)-\sum_{j=1}^{n}\eta_j \tag{2}</script><script type="math/tex; mode=display">
+\begin{cases} \min_{x} max_{\lambda_i,\eta_j} L(R^p)\\
+s.t \lambda_i>=0
+\end{cases}</script><p>上述两个问题的等价性证明</p>
+<p>如果x不满足约束$m_i(x)$,则$\lambda_i&gt;=0$,同时$m_i(x)&lt;$,则$L(R^{p},\lambda,\eta)$趋近无穷，反之，则存在最大值</p>
+<script type="math/tex; mode=display">
+min_{x} max_{\lambda,\eta}=min_{x}(max f满足条件,max f不满足约束)\\=min_{x} max_{\lambda,\eta}{f满足条件}</script><p>对偶问题: 关于$\lambda,\eta$的最大化问题</p>
+<script type="math/tex; mode=display">max min L(x,\lambda,\eta)\\
+s.t \lambda_i>=0</script><p><strong>弱对偶问题：对偶问题&lt;=原问题</strong> </p>
+<p>证明: $max<em>{x} min(\lambda \eta ) L&lt;=min</em>{\eta,\lambda } max_{x} L$</p>
+<script type="math/tex; mode=display">
+\underbrace{\min_{x}L(x,\lambda,\eta)}_{A(\lambda,\eta)}<=L(x,\lambda,\eta)<=\underbrace{\max_{\lambda,\eta} L(x,\lambda,\eta)}_{B(x)}</script><h1 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h1><p>hard-margin SVM、 soft-margin SVM 、kernel SVM</p>
+<h1 id="线性可分支持向量机"><a href="#线性可分支持向量机" class="headerlink" title="线性可分支持向量机"></a>线性可分支持向量机</h1><p><img src="机器学习-SVM\1.png" alt=""></p>
+<p>对于A子图，可以用一个超平面($w^Tx+b$)去分类两类数据，建立如下的数学模型</p>
+<script type="math/tex; mode=display">f(w,b)=sign(w^Tx+b)</script><p>B,C,D子图提供了超平面都可以分类，显然B,C图的超平面的鲁棒性不如D图。SVM就是找到最好的一个超平面，怎么衡量好呢？找到平面离样本点的距离最大</p>
+<h2 id="hard-margin-SVM：-最大间隔SVM"><a href="#hard-margin-SVM：-最大间隔SVM" class="headerlink" title="hard-margin SVM： 最大间隔SVM"></a>hard-margin SVM： 最大间隔SVM</h2><h2 id="第一宝-间隔"><a href="#第一宝-间隔" class="headerlink" title="第一宝 间隔"></a>第一宝 间隔</h2><p>首先，看下margin的定义</p>
+<p><img src="机器学习-SVM\2.png" alt=""></p>
+<script type="math/tex; mode=display">margin(w,b) = min(\frac{|w^Tx_i+b|}{||w||})</script><p>接下来</p>
+<p>数学模型：</p>
+<script type="math/tex; mode=display">\begin{cases}  \max margin(w,b)\\ st. y_i(w^Tx_i+b)>0\end{cases}</script><script type="math/tex; mode=display">\Longrightarrow\begin{cases}  max \frac{1}{||w||}min(y_i(w^Tx_i+b))\\  st. y_i(w^Tx_i+b)>0\end{cases}</script><p>注意，$y_i(w^Tx_i+b)&gt;0$,所以$\exists r&gt;0, min(y_i(w^Tx_i+b))=r$,可令$r=1$,这是对超平面范数的固定作用，因为$y=w^Tx+b$和$y=2w^T+2b$是同一个超平面，总能找到缩放$w,b$使得，可以将$r$缩放到1</p>
+<script type="math/tex; mode=display">\Longrightarrow\begin{cases}  max \frac{1}{||w||}\\  st. y_i(w^Tx_i+b)>=1\end{cases}</script><script type="math/tex; mode=display">\Longrightarrow\begin{cases}  \min \frac{1}{2}w^Tw\\  st. y_i(w^Tx_i+b)>=1\end{cases}</script><p>这是一个土二次规划问题</p>
+<h2 id="第二宝-对偶"><a href="#第二宝-对偶" class="headerlink" title="第二宝 对偶"></a>第二宝 对偶</h2><p>利用lagrange乘子法得出对偶问题</p>
+<p><strong>带约束</strong></p>
+<script type="math/tex; mode=display">\begin{cases}  \min \frac{1}{2}w^Tw\\  st. y_i(w^Tx_i+b)-1>=0\end{cases}</script><script type="math/tex; mode=display">\Longrightarrow L(w,b,\lambda）=\frac{1}{2}w^Tw-\sum_{i=1}^{N}\lambda_i(1-y_i(w^Tx_i+b)</script><p><strong>无约束</strong></p>
+<script type="math/tex; mode=display">\begin{cases}min_{w,b} max_{\lambda}L(w,b,\lambda) \\ s.t \lambda_i>=0\end{cases}</script><p>此时关于$w,b$无约束的。</p>
+<p>对$(L(w,b,\lambda))$ 对$w$,$b$求偏导</p>
+<script type="math/tex; mode=display">
+\frac{\partial L}{\partial w}=w+\sum_{i=1}^{N}y_ix_i\lambda_i=0 \Longrightarrow w=-\sum_{i=1}^{N}y_ix_i\lambda_i\\
+\frac{\partial L}{\partial b}=-\sum_{i=1}^{N}\lambda_iy_i=0</script><p>带回$L(w,b,\lambda)$,可得<strong>对偶问题</strong></p>
+<script type="math/tex; mode=display">\begin{cases} max_{\lambda}L(w,b,\lambda ) =-\frac{1}{2}\sum_i^N\sum_j^N\lambda_i  \lambda_jy_iy_jx_i^Tx_j +\sum_i^N\lambda_i \\ s .t. \sum_{i=1}^N\lambda_iy_i,\lambda_i>=0\end{cases} \Longrightarrow\\\begin{cases} min_{\lambda}L(w,b,\lambda ) =\frac{1}{2}\sum_i^N\sum_j^N\lambda_i  \lambda_jy_iy_jx_i^Tx_j -\sum_i^N\lambda_i \\ s .t. \sum_{i=1}^N\lambda_iy_i,\lambda_i>=0\end{cases}</script><h3 id="原问题和对偶问题有相同解的充要条件"><a href="#原问题和对偶问题有相同解的充要条件" class="headerlink" title="原问题和对偶问题有相同解的充要条件"></a>原问题和对偶问题有相同解的充要条件</h3><p>满足 KKT</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+\frac{\partial L}{\partial w}=0,\frac{\partial L}{\partial b}=0,\frac{\partial L}{\partial \lambda}=0\\
+\lambda_i(y_i(w^Tx_i+b)-1)=0\\
+\lambda_i>=0\\
+y_i(w^Tx_i+b)-1>=0
+\end{cases}</script><p>如果存在$(x<em>k,y_k)=+1or -1$使得$y_i(w^Tx_i+b)-1=0$即可求解$b=y_k-\sum</em>{i=0}^{N}\lambda_ix_i^Tx_k$</p>
+<p>代入模型</p>
+<script type="math/tex; mode=display">f(x)=sign(\sum_i^Na_iy_ix_i^Tx+y_k-\sum_{i=0}^{N}\lambda_ix_i^Tx_k)</script><p>注意，对于任意的训练样本，总有$\lambda_i=0$或者$y_if(x_i)=1$,如果$\lambda_i&gt;0$,说明样本点落在最大间隔的边界上，这些点就是支持向量，这条边界$w^Tx+b=1or-1$</p>
+<h1 id="soft-marign-软间隔"><a href="#soft-marign-软间隔" class="headerlink" title="soft-marign 软间隔"></a>soft-marign 软间隔</h1><p>  想法：允许一部分样本可以不被正确分类</p>
+<h2 id="优化目标"><a href="#优化目标" class="headerlink" title="优化目标"></a>优化目标</h2><script type="math/tex; mode=display">
+\min_{w,b} \frac{1}{2}w^Tw+loss</script><h2 id="一些损失函数"><a href="#一些损失函数" class="headerlink" title="一些损失函数"></a>一些损失函数</h2><ol>
+<li><p>0-1损失 个数</p>
+<script type="math/tex; mode=display">loss=\sum_{i=1}^NI\{y_i(w^Tx+b)<1\}</script><p>数学性质不好，不连续</p>
+</li>
+<li><p>0-1损失 距离 <strong>hinge loss</strong></p>
+<script type="math/tex; mode=display">
+loss = \begin{cases}
+0 , y_i(w^Tx_i+b)>=0,\\
+1-y_i(w^tx_i+b),  y_i(w^Tx_i+b)<1\\
+\end{cases}</script><script type="math/tex; mode=display">
+loss_{max} = max(0,1-y_i(w^Tx_i+b)=1-z)</script><p>此时优化问题，令$\xi_i=1-y_i(w^Tx_i+b)$</p>
+<script type="math/tex; mode=display">
+\min \frac{1}{2}w^Tw+\sum_{i=1}^{N}\xi_i\\
+s.t \begin{cases}
+y_i(w^Tx_i+b)>=1-\xi_i\\
+\xi_i>=0
+\end{cases}</script></li>
+<li><p>指数损失（<strong>exponential loss </strong>)</p>
+<script type="math/tex; mode=display">
+l_{exp}(z)=exp(-z)</script></li>
+<li><p>对率损失<strong>logistic loss</strong></p>
+<script type="math/tex; mode=display">
+l_{log}(z)=log(1+exp(-z)）</script></li>
+</ol>
+<p><img src="机器学习-SVM\3.jpg" alt=""></p>
+<h1 id="核方法"><a href="#核方法" class="headerlink" title="核方法"></a>核方法</h1><h2 id="核函数的定义"><a href="#核函数的定义" class="headerlink" title="核函数的定义"></a>核函数的定义</h2><p>设 $\chi$为输入空间（Input Space），  $\mathrm{H}$为特征空间(Feature Space,一定是希尔伯特空间），存在一个映射</p>
+<script type="math/tex; mode=display">
+\varphi : \chi \rightarrow \mathrm{H}</script><p>对任意的 $x, y \in \mathrm{X}$，函数  $K(x, y)$，满足</p>
+<script type="math/tex; mode=display">
+K(x, y)=<\varphi(x), \varphi(y)></script><p>则称  $K(x, y)$为核函数。可以看出，我们并不需要知道输入空间和特征空间满足的映射关系   ，只需要知道核函数就可以算出，输入空间中任意两点映射到特征空间的内积。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flytowardnewworld.github.io/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-SVM/" data-id="cl5v9md8a007c10vk805mb34j" data-title="机器学习-SVM" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          机器学习-贝叶斯分类器
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-K%E8%BF%91%E9%82%BB/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">机器学习-K近邻</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-Learning/">Deep Learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/R/">R</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/machine-learning/">machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A8%B1%E4%B9%90%E7%94%9F%E6%B4%BB/">娱乐生活</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E3%81%AE%E5%8E%86%E7%A8%8B-Journal-of-Studying/">学习の历程(Journal of Studying)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BF%83%E5%BE%97/">心得</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">数据可视化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6-Data-Science/">数据科学(Data Science)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%BF%97/">日志</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%95%B0%E5%AD%A6/">数学</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%91%E6%99%AE/">科普</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%91%E7%A0%94/">科研</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AB%9E%E8%B5%9B/">竞赛</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%8B%B1%E8%AF%AD/">英语</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%A7%84%E5%88%92/">规划</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0/">视频学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6%E6%97%A5%E5%B8%B8/">读书日常</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/1/" rel="tag">1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BI/" rel="tag">BI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BP/" rel="tag">BP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Boosting-AdaBoost/" rel="tag">Boosting, AdaBoost</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Daily/" rel="tag">Daily</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Mining/" rel="tag">Data Mining</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-learning/" rel="tag">Deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/" rel="tag">Excel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Numpuy/" rel="tag">Numpuy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/" rel="tag">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/" rel="tag">R</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVD/" rel="tag">SVD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deep-learning/" rel="tag">deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-learning/" rel="tag">machine learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/origin/" rel="tag">origin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tensorlow/" rel="tag">tensorlow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/" rel="tag">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wan/" rel="tag">wan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92/" rel="tag">二次规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" rel="tag">交叉验证</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" rel="tag">关联规则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/" rel="tag">决策树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" rel="tag">回归分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" rel="tag">回归树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E6%8E%92/" rel="tag">安排</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" rel="tag">希腊字母</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BD%92%E4%B8%80%E5%8C%96/" rel="tag">归一化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BD%A9%E9%93%85/" rel="tag">彩铅</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%88%90%E9%95%BF/" rel="tag">成长</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">我的读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E8%83%BD/" rel="tag">技能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" rel="tag">支持向量机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" rel="tag">支持向量机回归</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">数据分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD/" rel="tag">数据分析技能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag">数据挖掘</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2/" rel="tag">数据探索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B0%E6%A6%82%E5%BF%B5/" rel="tag">新概念</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E5%B8%B8/" rel="tag">日常</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%87%E5%87%86%E5%8C%96/" rel="tag">标准化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E5%8C%96/" rel="tag">正则化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" rel="tag">特征工程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB%E6%97%A5%E5%BF%97/" rel="tag">生活日志</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" rel="tag">监督学习与非监督学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6/" rel="tag">社会科学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E7%A0%94/" rel="tag">科研</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" rel="tag">科研工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/" rel="tag">科研笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AB%9E%E8%B5%9B/" rel="tag">竞赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%98%E5%9B%BE/" rel="tag">绘图</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/" rel="tag">西瓜书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%84%E5%88%92/" rel="tag">规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" rel="tag">贝叶斯分类器</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/1/" style="font-size: 10px;">1</a> <a href="/tags/BI/" style="font-size: 12.5px;">BI</a> <a href="/tags/BP/" style="font-size: 10px;">BP</a> <a href="/tags/Boosting-AdaBoost/" style="font-size: 10px;">Boosting, AdaBoost</a> <a href="/tags/Daily/" style="font-size: 15px;">Daily</a> <a href="/tags/Data-Mining/" style="font-size: 10px;">Data Mining</a> <a href="/tags/Deep-learning/" style="font-size: 17.5px;">Deep learning</a> <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/Numpuy/" style="font-size: 10px;">Numpuy</a> <a href="/tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="/tags/Python/" style="font-size: 17.5px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/SVD/" style="font-size: 10px;">SVD</a> <a href="/tags/deep-learning/" style="font-size: 10px;">deep learning</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/machine-learning/" style="font-size: 12.5px;">machine learning</a> <a href="/tags/origin/" style="font-size: 10px;">origin</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/tensorlow/" style="font-size: 10px;">tensorlow</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/wan/" style="font-size: 10px;">wan</a> <a href="/tags/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92/" style="font-size: 10px;">二次规划</a> <a href="/tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" style="font-size: 10px;">交叉验证</a> <a href="/tags/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" style="font-size: 10px;">关联规则</a> <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/" style="font-size: 15px;">决策树</a> <a href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 15px;">可视化</a> <a href="/tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" style="font-size: 10px;">回归分析</a> <a href="/tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" style="font-size: 10px;">回归树</a> <a href="/tags/%E5%AE%89%E6%8E%92/" style="font-size: 10px;">安排</a> <a href="/tags/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" style="font-size: 10px;">希腊字母</a> <a href="/tags/%E5%BD%92%E4%B8%80%E5%8C%96/" style="font-size: 10px;">归一化</a> <a href="/tags/%E5%BD%A9%E9%93%85/" style="font-size: 10px;">彩铅</a> <a href="/tags/%E6%88%90%E9%95%BF/" style="font-size: 10px;">成长</a> <a href="/tags/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">我的读书笔记</a> <a href="/tags/%E6%8A%80%E8%83%BD/" style="font-size: 10px;">技能</a> <a href="/tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" style="font-size: 10px;">支持向量机</a> <a href="/tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" style="font-size: 10px;">支持向量机回归</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 20px;">数据分析</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD/" style="font-size: 10px;">数据分析技能</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 10px;">数据挖掘</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2/" style="font-size: 10px;">数据探索</a> <a href="/tags/%E6%96%B0%E6%A6%82%E5%BF%B5/" style="font-size: 10px;">新概念</a> <a href="/tags/%E6%97%A5%E5%B8%B8/" style="font-size: 12.5px;">日常</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E6%A0%87%E5%87%86%E5%8C%96/" style="font-size: 10px;">标准化</a> <a href="/tags/%E6%AD%A3%E5%88%99%E5%8C%96/" style="font-size: 10px;">正则化</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">特征工程</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%97%A5%E5%BF%97/" style="font-size: 10px;">生活日志</a> <a href="/tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">监督学习与非监督学习</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6/" style="font-size: 10px;">社会科学</a> <a href="/tags/%E7%A7%91%E7%A0%94/" style="font-size: 10px;">科研</a> <a href="/tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">科研工具</a> <a href="/tags/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">科研笔记</a> <a href="/tags/%E7%AB%9E%E8%B5%9B/" style="font-size: 10px;">竞赛</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="/tags/%E7%BB%98%E5%9B%BE/" style="font-size: 10px;">绘图</a> <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 10px;">统计学</a> <a href="/tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/" style="font-size: 10px;">西瓜书</a> <a href="/tags/%E8%A7%84%E5%88%92/" style="font-size: 10px;">规划</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 10px;">读书</a> <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" style="font-size: 10px;">贝叶斯分类器</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/07/21/%E7%AE%97%E6%B3%95%E6%B1%87%E6%80%BB/FeatureExtraction/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/21/recording%20of%20master/MyMain/">心路历程</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/21/%E8%BF%90%E8%90%A5%E4%B9%8B%E7%AB%9E%E5%93%81%E5%88%86%E6%9E%90/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/21/%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95%E4%B9%8B%E9%93%B6%E8%A1%8C%E4%B8%9A%E5%8A%A1%E6%A8%A1%E5%9D%97/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/21/%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95%E4%B9%8B%E9%93%B6%E8%A1%8C%E4%B8%9A%E5%8A%A1/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

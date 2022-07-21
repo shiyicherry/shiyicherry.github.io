@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>数据分析之面试dayday | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="数据分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据分析之面试dayday">
+<meta property="og:url" content="http://flytowardnewworld.github.io/2020/08/21/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E9%9D%A2%E8%AF%95dayday/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="数据分析">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="f:/MyBlog/MyBlog/hexo/source/_posts/数据分析之面试dayday/image-20210823214335803.png">
+<meta property="og:image" content="f:/MyBlog/MyBlog/hexo/source/_posts/数据分析之面试dayday/image-20210823215120334.png">
+<meta property="og:image" content="f:/MyBlog/MyBlog/hexo/source/_posts/数据分析之面试dayday/image-20210823215320242.png">
+<meta property="og:image" content="f:/MyBlog/MyBlog/hexo/source/_posts/数据分析之面试dayday/image-20210823215500174.png">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRsvGkNJPyypicCUqQaz5se1vRuiaNjwq7vb1mcKIOTVJRnFClgM9pZT8w/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRQNCevHCGf9utNqzUd5E68IRcoQDvOE3gdOQ0B8NdNZuL9ibdC1jxk6w/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRK22j1TOb90Y2wOJ1jbdSQxumIsLh7AfN41O1CAh0Z57b1fBgx6dVDg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRC4o3UgdJ5yuN9Ca0GmiauHvkKbVI8I9QHlMLSwJlgxN0icoSTfFQzc7Q/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKR1zNXhVHH3AWDVkUht7821AgLsB1EOC6uarOjUwBPvYW0tFUNgUp1Pg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRsfSlm8rMeTFj2ArSLPpAxpjhF6H1CxEWAiaYHJojdKwuBgMMAAcZ0gQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRSnpETeZoGSVhC0iaxQrPnzzVcZs19X1vvCjqMtdeYicottCq2aVEMlSg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKR0mVUToZzL89mgH5iadFibH0VBjqSeMGEGEOASlIX5icqzHNibW1avPWbwQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRJ5Tp9VTcMrkfsLnpFmLIkn6xGA41uvIhJ68rYGN3ZgcCyic8ylIPu3A/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKR7Sw45tGiczYUenvibxPMwbMg4B6PsLwcic18KYek6H7yE4YCEpcqxO0ng/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRj1NGV1HtnOKCJfwZjuDxNibtvrLgz2PtqGxosMARR6c9t7yt6Z4utibw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRLMp2W0lqQFJYJ5DEyhLvnokDgwGialY84Nib9Y1uYGrz9KsKLfXapgRw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRqibckZjDHaXqtEFibwmvdBiaF0qanfTIquL8sVZ3aicgBSNq0FYLyVsEgA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRxIm2BkwXRMrsANpFq2OB3WIicnmpQIFXsjUjCypKG2CKWzEqFCAJUxQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRtibMjqQ0C7sZCu3Cmk80vqUicM95dcXr8uZ6qfMNjMzDheejjrxOsfqQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRrzNlBDtbWbIHAhI5aNeRNHRoNKSKNFqDuTSMXnB5jADn88nktdrVcw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRsicBysplbmKMOn7XM6a8Fz92TaeibWYewoLfaDibtKh9NF3IXWY0MXDKw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRCUib697ZS8zXBZaB8ZVib0TPuCNbwCPErsTQr5EbEV9awkTwk7LVh7DA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRHQYYLMbPq5O8VyPbOCBoeVxHF8OqP6KtRxqiaiaRTFcq8VrcPK2ibHnBQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKROKQfh4Nmic7rdp6qMkgHNQYY2ibA4nQ8chiaKO3xeefb19jbF5tpMJVnA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRoxqj1PhxGoYrrTt4dIOq5PB0MxZN0xeroeVPUEgj8W7cIrP3k5sXXw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRO4bwSeKvnbVLj8QaS9BMBLVw304uOQFtH8lXc8OQEXXJLumkKFfXMA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRMM6KqwR1Men89ljibqMCunQibEOOXiabcUOHnLPeXWhmPTZXr7jZMgYNw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRajGkwUlvcnEba5icIANKibqZZgCkT11Cb3oxXfbzu623eQ6ItC3UjA7A/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRaeJXicwica31AXStLd9syFwQ2jGxQCPiccAocwVvgazb0cXrFMj2PbDuA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKR2LDic38rFWWHWIk38YQqWIpLtMJqBIaCobb36YnbOMsXKibGCwYI9nPw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKROKQfh4Nmic7rdp6qMkgHNQYY2ibA4nQ8chiaKO3xeefb19jbF5tpMJVnA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKR0zF6rq1oPymdUXY7ECcsPy9JtiaGaHGeic7FwnichwrwY5FDlgjibuxXgQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRznSZSFavOO6h3KIxGUGdfEt6Zd6tNbMkbtJZ9ibYic9Q2o5uVArT0vMg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRby72BBZ7Zic6xn7CiaBExOqNfI18OJT7KyKyHp7OoX2RbLmDMLSOPAfw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRpYmG6jZtibTVfiaJXuOcawZo5PIV9NCR2b8QrAJjvkOGSb6d4Mgubh0g/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRoBgO0aTQhPibycXhthibcRvHIlmVYoDiaekEwicjMlLGOUKftUvTPjzrCw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRBhaja9gdDaica4l6rjicIuIgRxsiceOFdRCFDVnXf0Zia0CfonDWtdbs1A/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRHQYYLMbPq5O8VyPbOCBoeVxHF8OqP6KtRxqiaiaRTFcq8VrcPK2ibHnBQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20210821225032151.png">
+<meta property="og:image" content="f:/MyBlog/MyBlog/hexo/source/_posts/数据分析之面试dayday/image-20210821225113562.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20210821225230562.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20210821225245998.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20210821225305313.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20210821225314061.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20210821225326557.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20210821225336503.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20210821225348030.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20210821225440895.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20210821225455761.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20210821225510930.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20210821225525513.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20210821225541432.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20210821225600355.png">
+<meta property="og:image" content="f:/MyBlog/MyBlog/hexo/source/_posts/数据分析之面试dayday/image-20210821231028417.png">
+<meta property="article:published_time" content="2020-08-21T13:11:41.000Z">
+<meta property="article:modified_time" content="2021-08-28T06:21:12.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="数据分析">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="f:/MyBlog/MyBlog/hexo/source/_posts/数据分析之面试dayday/image-20210823214335803.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://flytowardnewworld.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-数据分析之面试dayday" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/08/21/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E9%9D%A2%E8%AF%95dayday/" class="article-date">
+  <time class="dt-published" datetime="2020-08-21T13:11:41.000Z" itemprop="datePublished">2020-08-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      数据分析之面试dayday
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>数据分析</p>
+<span id="more"></span>
+<h1 id="20210823"><a href="#20210823" class="headerlink" title="20210823"></a>20210823</h1><h2 id="辛普森悖论"><a href="#辛普森悖论" class="headerlink" title="辛普森悖论"></a>辛普森悖论</h2><h2 id="A-B测试"><a href="#A-B测试" class="headerlink" title="A/B测试"></a>A/B测试</h2><p><img src="F:\MyBlog\MyBlog\hexo\source\_posts\数据分析之面试dayday\image-20210823214335803.png" alt="image-20210823214335803"></p>
+<p><img src="F:\MyBlog\MyBlog\hexo\source\_posts\数据分析之面试dayday\image-20210823215120334.png" alt="image-20210823215120334"></p>
+<p><img src="F:\MyBlog\MyBlog\hexo\source\_posts\数据分析之面试dayday\image-20210823215320242.png" alt="image-20210823215320242"></p>
+<p><img src="F:\MyBlog\MyBlog\hexo\source\_posts\数据分析之面试dayday\image-20210823215500174.png" alt="image-20210823215500174"></p>
+<h1 id="20210821"><a href="#20210821" class="headerlink" title="20210821"></a>20210821</h1><h2 id="数据分析思维"><a href="#数据分析思维" class="headerlink" title="数据分析思维"></a>数据分析思维</h2><p>三种（结构化，数据化，业务化）</p>
+<h3 id="案例：用Excel分析汽车-“销量下滑”-原因！"><a href="#案例：用Excel分析汽车-“销量下滑”-原因！" class="headerlink" title="案例：用Excel分析汽车 “销量下滑” 原因！"></a>案例：用Excel分析汽车 “销量下滑” 原因！</h3><h5 id="一、项目背景"><a href="#一、项目背景" class="headerlink" title="一、项目背景"></a>一、项目背景</h5><p>公司发现汽车销售额自一年前开始逐渐减少，老板想让你帮忙找找，<strong>汽车销量下滑的原因</strong>，最好能提出一些解决方案。</p>
+<h5 id="二、利用数据分析解决问题的过程"><a href="#二、利用数据分析解决问题的过程" class="headerlink" title="二、利用数据分析解决问题的过程"></a>二、利用数据分析解决问题的过程</h5><h6 id="1、明确问题"><a href="#1、明确问题" class="headerlink" title="1、明确问题"></a><strong>1、明确问题</strong></h6><p>首先要将问题定义清楚，这是数据分析的第一步。</p>
+<p>需要注意的两点：如果问题定义错了，后面的分析毫无意义。比如：老板告诉你：“可能是客单价高，最近利润下降了”，听到这番话，你将问题定位为“高客单价导致利润下滑了，怎么办”，这样错误的定义会缩小你的分析范围，导致最终结果出现偏差；另外一种情况，分析者根据自己过往的经验来定位问题，把思考限定在：“我觉得”，数据分析不是主观的臆断，而是一种<strong>客观的分析</strong>。</p>
+<p><strong>在案例中，问题的关键指标是 “销售额”，销售额下降了导致销量下滑。</strong></p>
+<p><strong>①验证数据准确性</strong></p>
+<p>不要急于分析，首先要和相关人员确认”下滑”，并有<strong>数据佐证</strong>。要保证数据本身是准确的，才能进行后面的步骤。在本案例中，可与相关人员沟通，了解清楚”销售额下滑”具体表现为哪些现象。</p>
+<p>例如：通过分析业务数据，发现汽车销售额在这两年确实下降了15%左右。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRsvGkNJPyypicCUqQaz5se1vRuiaNjwq7vb1mcKIOTVJRnFClgM9pZT8w/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p><strong>目前要解决的问题是：销售额逐渐下降的原因是什么，怎么解决？</strong></p>
+<p><strong>②沟通理解业务指标</strong></p>
+<p>对于业务指标，<strong>首先要确定分析指标的含义</strong>。在这个案例中，用”销售额”这个关键指标，销售额这个指标是怎么定义的？</p>
+<p>通过和<strong>业务部门沟通</strong>，明确了指标的定义：</p>
+<ul>
+<li>销售额 = 销售量 * 平均单价</li>
+<li>销售量 = 首次购买量 + 再次购买量</li>
+<li>再次购买量 = 客户忠诚度 * 再次购买人数</li>
+</ul>
+<h6 id="2、分析原因"><a href="#2、分析原因" class="headerlink" title="2、分析原因"></a><strong>2、分析原因</strong></h6><p>影响销售额下降的原因有很多，如果把所有原因都分析一遍，那么这个工作量是非常大的。所以，在分析原因的过程中，要优先分析关键因素。</p>
+<h6 id="①多维度拆解分析法"><a href="#①多维度拆解分析法" class="headerlink" title="①多维度拆解分析法"></a><strong>①多维度拆解分析法</strong></h6><p><strong>是什么？</strong></p>
+<p>多维度拆解分为维度（角度）和拆解，实质上是做加法。比如用户下降了 = 新用户数量 + 老用户数量</p>
+<p><strong>有啥用？</strong></p>
+<p>拆解整体数据内部各个部分的构成差异进行细分，将一个复杂的问题拆分成可以逐渐解决的子问题</p>
+<p><strong>怎么用？</strong></p>
+<p>可以通过指标构成或者业务流程来拆解</p>
+<p>对于本案例，我们是通过指标构成拆解，对问题进行拆解，将复杂问题细化成各个子问题。为了找到”哪里出了问题”，可以对”销售额”这个指标进行拆解。至于拆解到什么程度，没有统一的标准，要根据对业务的理解和实际问题灵活把握，本案例拆解如图所示：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRQNCevHCGf9utNqzUd5E68IRcoQDvOE3gdOQ0B8NdNZuL9ibdC1jxk6w/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<h6 id="②假设检验分析法"><a href="#②假设检验分析法" class="headerlink" title="②假设检验分析法"></a><strong>②假设检验分析法</strong></h6><p><strong>是什么？</strong></p>
+<p>假设检验实质上是逻辑推理，使用数据来做决策的过程</p>
+<p><strong>有啥用？</strong></p>
+<p>可以分析出问题出现的原因，适用于归因分析场景，比如：分析产品DAU下降原因是什么？</p>
+<p><strong>怎么用？</strong></p>
+<p>根据<strong>业务流程</strong>，<strong>提出假设——收集证据——得出结论</strong>，在业务中这三步是不断重复的过程。不断重复这个过程，直到找到问题的根源。</p>
+<p>接下来使用假设检验分析方法对多维度拆解后的每个业务流程提出假设，并加以验证。</p>
+<p><strong>提出假设：销售数量或平均单价，影响销售额下降？</strong></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRK22j1TOb90Y2wOJ1jbdSQxumIsLh7AfN41O1CAh0Z57b1fBgx6dVDg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>得出结论：销售数量与销售总额一样，也减少了近 15%。由此可见，我们应该优先关注<code>销售数量</code>的数据，<code>假设成立</code>。</p>
+<p>平均单价在 2 年期间比较稳定，基本在平均值（200 万元）上下 5%（190 万 ~ 210 万元）的范围内。至少在过去的一年里，没有出现过价格明显上升的情况，所以<code>假设不成立</code>。</p>
+<p><strong>提出假设：首次或再次购买量下降，导致再次购买量下降？</strong></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRC4o3UgdJ5yuN9Ca0GmiauHvkKbVI8I9QHlMLSwJlgxN0icoSTfFQzc7Q/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>得出结论：虽然两者在数量上没有太大差异，但首次购买量基本维持稳定，而再次购买量却在过去一年出现了减少。因此，可以确定，<code>再次购买量</code>应该是新车销售总额下滑的原因之一，<code>假设成立</code>。</p>
+<p><strong>提出假设：客户忠诚度下降，导致再次购买量下降？</strong></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKR1zNXhVHH3AWDVkUht7821AgLsB1EOC6uarOjUwBPvYW0tFUNgUp1Pg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>得出结论：可以发现导致“再次购买量”减少的是<code>客户忠诚度</code>的下降所导致，<code>假设成立</code>。</p>
+<p>至此，我们发现了导致销售额下降的关键因素是受到再次购买量以及用户忠诚度的影响。</p>
+<h6 id="顾客忠诚度"><a href="#顾客忠诚度" class="headerlink" title="顾客忠诚度"></a>顾客忠诚度</h6><p><a target="_blank" rel="noopener" href="https://wiki.mbalib.com/wiki/%E9%A1%BE%E5%AE%A2%E5%BF%A0%E8%AF%9A%E5%BA%A6">https://wiki.mbalib.com/wiki/%E9%A1%BE%E5%AE%A2%E5%BF%A0%E8%AF%9A%E5%BA%A6</a></p>
+<p>客户忠诚度，又可称为客户粘度，是指客户对某一特定产品或服务产生了好感，<strong>形成了“依附性”偏好</strong>，进而<strong>重复购买</strong>的一种趋向。</p>
+<p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/客户忠诚">客户忠诚</a>是指客户对企业的产品或服务的依恋或爱慕的感情，它主要通过客户的情感忠诚、行为忠诚和意识忠诚表现出来。其中情感忠诚表现为客户对企业的理念、行为和视觉形象的高度认同和满意；行为忠诚表现为客户再次消费时对企业的产品和服务的重复<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/购买行为">购买行为</a>；意识忠诚则表现为客户做出的对企业的产品和服务的未来消费意向。这样，由情感、行为和意识三个方面组成的客户忠诚营销理论，着重于对客户行为趋向的评价，通过这种评价活动的开展，反映企业在未来经营活动中的竞争优势。</p>
+<p>分析到这儿，可能会有人觉得结束了！实际上并没有，现在的分析结果无法产生实际的意义。仅仅看到用户忠诚度下降还不能决定”接下来要采取哪些具体措施才能解决问题”。所以，接下来要分析为什么客户的忠诚度下降，有什么改进措施。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRsfSlm8rMeTFj2ArSLPpAxpjhF6H1CxEWAiaYHJojdKwuBgMMAAcZ0gQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>现在将忠诚度再进行<strong>拆解</strong>，并不断提出假设，作出验证。</p>
+<p><strong>提出假设：由于各差异产品的销量|平均忠诚度，影响了再次购买量。</strong></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRSnpETeZoGSVhC0iaxQrPnzzVcZs19X1vvCjqMtdeYicottCq2aVEMlSg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>得出结论：对销量的构成比例进行比较，发现车型 A 的比例明显小于其他车型，那么如果将问题锁定为车型 A，即使采取了有效的对策，对解决整体问题的影响仍然是有限的。因此<code>可以暂且降低车型 A 的优先顺序</code>。</p>
+<p>按照不同车型，对客户忠诚度在 2 年期间的平均值进行比较，只有车型 A 的客户忠诚度显著偏低，其他车型之间没有太大差别。</p>
+<p>接下来，暂且将车型 A 从比较对象中剔除，对其余 3 个车型进行比较忠诚度变化比较。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKR0mVUToZzL89mgH5iadFibH0VBjqSeMGEGEOASlIX5icqzHNibW1avPWbwQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>发现车型 B 和车型 C 的客户忠诚度从年前开始逐渐降低。可能选择了竞品公司。具体数字是 2 年期间从约 80%～90% 减至 50%～60%，降低了 30-40 个百分点。表明：<code>产品B、产品C的客户忠诚度出现了问题，假设成立</code>。</p>
+<p><strong>提出假设: 由于竞品公司推出新产品|综合满意度下降，影响了用户忠诚度。</strong></p>
+<p>通过分析竞品公司推新情况，发现并没有新产品上市，假设不成立。但是，从客户的综合满意度趋势图看出明显下降了，那么说明综合满意度影响了客户忠诚度。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRJ5Tp9VTcMrkfsLnpFmLIkn6xGA41uvIhJ68rYGN3ZgcCyic8ylIPu3A/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKR7Sw45tGiczYUenvibxPMwbMg4B6PsLwcic18KYek6H7yE4YCEpcqxO0ng/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRj1NGV1HtnOKCJfwZjuDxNibtvrLgz2PtqGxosMARR6c9t7yt6Z4utibw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>上面我们通过使用假设检验分析方法，首先分析出销售额下降的原因是销售数量，销售数量下降的原因是再次购买量下降，再次购买量下降原因是产品B、产品C的忠诚度下降，<code>忠诚度下降的原因是用户综合满意度下降</code>。</p>
+<p>两者是否具有相关性，如何来验证两种数据的相关性，可以通过相关分析法。如果相关，那么忠诚度和综合满意度有多大程度上的相关，如何衡量。</p>
+<h6 id="③相关分析法"><a href="#③相关分析法" class="headerlink" title="③相关分析法"></a><strong>③相关分析法</strong></h6><p><strong>是什么？</strong></p>
+<p>相关性分析是研究两种或两种以上的变量之间有什么关系。如果变量间有关系，叫作有相关关系；如果没有关系，叫作没有相关关系。比如：学习时长和成绩有相关关系。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRLMp2W0lqQFJYJ5DEyhLvnokDgwGialY84Nib9Y1uYGrz9KsKLfXapgRw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p><strong>有啥用？</strong></p>
+<p>在研究变量间有什么关系或者判断某个事情是否受到其他事情影响时，不仅能帮助我们扩大思路，还能通过相关分析来衡量两个变量因素的相关密切程度。比如判断客户忠诚度和客户满意度这两个变量有多大程度的相关？</p>
+<p><strong>怎么用？</strong></p>
+<p>如何衡量两个变量的密切程度？通过”相关系数”，它就是专门用来衡量两种变量的相关程度的，并且相关系数数值的正负可以反映两种数据的相关方向，也就是说两种变量在过程中是同方向变化还是反方向变化。</p>
+<p>通常用字母 r 来表示 。可以用来快速锁定问题。</p>
+<p>相关系数 r 介于[-1,1] 之间，相关系数的绝对值｜r | 越大，表明变量间的相关程度越强。</p>
+<p>如果 r = 1，数据点都在一条直线上，表示两个变量完全正相关（假设有a，b两种变量），a的值越大，b的值也会越大；如果 r = -1,数据点都在一条直线上，表示两个变量完全负相关，a的值越大，b的值反而会越小。</p>
+<p>如果相关系数&gt;0,说明两个变量是正相关，是同方向变化，也就是一个变量的值越大，另一个变量的值就越大；</p>
+<p>如果相关系数&lt;0,说明两个变量是负相关，是反方向变化，也就是一个变量的值越大，另一个变量的值反而越小；</p>
+<p>如果相关系数=0,说明两个变量是不相关（无线性相关），有可能是其它方式相关，比如曲线方式。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRqibckZjDHaXqtEFibwmvdBiaF0qanfTIquL8sVZ3aicgBSNq0FYLyVsEgA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>业务中，如何计算具体的相关系数？现在excel 或 Python都有相应的功能或函数，我们只要知道怎么用，懂内部原理就够用了。以学习时长和成绩为例，利用Excel 计算相关系数。流程如下：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRxIm2BkwXRMrsANpFq2OB3WIicnmpQIFXsjUjCypKG2CKWzEqFCAJUxQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>下面计算本案例中综合满意度（月份平均）与客户忠诚度的相关性系数，同样利用Excel的数据分析功能。计算结果如下：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRtibMjqQ0C7sZCu3Cmk80vqUicM95dcXr8uZ6qfMNjMzDheejjrxOsfqQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>得出结论：整体客户忠诚度与综合满意度之间的相关系数为 0.64，由此可知一般来说（不区分产品），两者之间存在相关关系。再看不同产品的客户忠诚度与综合满意度的相关性， B 和 C 与综合满意度的相关系数分别为 075、0.69，数值较高，可以确认为相关，<code>假设成立</code>。</p>
+<p>再回到问题，只看综合满意度，还不能决定“应该釆取哪些措施”。这样的话仍然无法对实际业务产生意义，所以接下来还要再次应用相关分析来探讨“服务”、“产品”、“价格”不同维度与综合满意度之间的相关程度。定位产品B和C的综合满意度下降的根本原因是什么。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRrzNlBDtbWbIHAhI5aNeRNHRoNKSKNFqDuTSMXnB5jADn88nktdrVcw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>分别对两种产品的综合满意度和三种不同维度的相关性分析，结果如下：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRsicBysplbmKMOn7XM6a8Fz92TaeibWYewoLfaDibtKh9NF3IXWY0MXDKw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRCUib697ZS8zXBZaB8ZVib0TPuCNbwCPErsTQr5EbEV9awkTwk7LVh7DA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>对于B 来说，同类产品的价格比（相对而言是贵还是便宜）对综合满意度的影响较大。二者的相关系数为 -0.72，表示价格越高，顾客满意度就会越低。需要注意其变化趋势是相反的，也就是说， B 的用户对价格比较敏感。对于C，售后满意服务度对综合满意度的影响较大。二者相关系数为0.59，说明C的用户比较在意售后服务体验。</p>
+<p><strong>通过相关分析，发现跟销售总额相关度最高的因素是用户满意度，尤其是产品B，优先调整同类产品价格比；产品C提升售后服务水平，可以显著提升整体销售额。</strong></p>
+<p>现在复盘一下这个案例是如何分析的。分析流程如下：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRHQYYLMbPq5O8VyPbOCBoeVxHF8OqP6KtRxqiaiaRTFcq8VrcPK2ibHnBQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p><strong>3、提出建议</strong></p>
+<p>前面我们根据多维度拆解、假设检验、相关分析方法最终定位到销量下滑的根本原因。接下来也就是根据找到的原因提出建议。那么在提出建议这一步经常用的分析方法之一是回归分析。比如本案例知道需要提升满意度，但是将满意度具体改善到什么程度，才能提升销售额。这时候就需要用回归分析来计算出某个原因能够对目标造成多大程度的影响。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKROKQfh4Nmic7rdp6qMkgHNQYY2ibA4nQ8chiaKO3xeefb19jbF5tpMJVnA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p><strong>回归分析</strong></p>
+<p>回归分析是确定两种或两种以上变量间相互依赖的定量关系的一种统计分析方法。</p>
+<p>销售案例：利润和销售的相关系数是0.99，说明两个变量之间存在高度正相关。现在想知道下半年销售额达到多少以后，就可以实现利润5000万元。要想预测，就要在散点图上画一条直线，穿过这些点，使这条直线尽量靠近各个数据点，这样的直线叫作最佳拟合线。前提是两种数据存在相关关系，那么就可以保证每个点合理的接近直线，这样就可以通过销售额预测出利润的值。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRoxqj1PhxGoYrrTt4dIOq5PB0MxZN0xeroeVPUEgj8W7cIrP3k5sXXw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRO4bwSeKvnbVLj8QaS9BMBLVw304uOQFtH8lXc8OQEXXJLumkKFfXMA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>操作步骤如下：</p>
+<p>①点击【数据】——【数据分析】——选择【回归】——【确定】——勾选Y 和 X 的值——选中【线性拟合图】</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRMM6KqwR1Men89ljibqMCunQibEOOXiabcUOHnLPeXWhmPTZXr7jZMgYNw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>②上面操作会得到下图，点击【+】——选中【趋势线】——点击右边【三角】——【更多选项】——勾选【显示公式】——完成</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRajGkwUlvcnEba5icIANKibqZZgCkT11Cb3oxXfbzu623eQ6ItC3UjA7A/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRaeJXicwica31AXStLd9syFwQ2jGxQCPiccAocwVvgazb0cXrFMj2PbDuA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>这个方程可以理解为：Y(利润) = 0.1445X(销售额)-31.938。前面说过期望的利润目标是5000万，也就是利润Y = 5000万，代入回归方程就可以算出具体销售额= 34,823.41万元。也就是说，根据公司下半年想要实现5000万的目标，我们需要将销售额达到34823.41万元。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKR2LDic38rFWWHWIk38YQqWIpLtMJqBIaCobb36YnbOMsXKibGCwYI9nPw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>以上就是使用回归分析的整体流程。简单回顾下回归分析：回归方程里面有一种自变量的，这种回归叫一元线性回归；那么使用线性回归的前提是两个变量（因变量和自变量）要有相关关系，这样才能使用一元线性回归；线性回归实质上在帮助我们解决资源合理分配的问题。比如销售案例，知道了Y值，想知道X的值是多少。还有另外一种情况就是咱们的汽车销售额下滑的案例，例如Y是综合满意度，X是售后满意度，这样我们就知道售后满意度达到多少分时，综合满意度才能提升。当决策者有多种方案要选择的时候，就可以根据回归分析，知道把有限的资源投入到哪里才能发挥出最好的效果。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKROKQfh4Nmic7rdp6qMkgHNQYY2ibA4nQ8chiaKO3xeefb19jbF5tpMJVnA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>回到案例中：继续解决产品B 的价格满意度提升到多少；产品C的售后满意度提升到多少，才能提高综合满意度，进一步提升客户忠诚度。首先制定业务目标，也就是回归方程的Y值。那么我们可以追溯到客户忠诚度，会发现客户忠诚度75%才是一个正常趋势，所以我们确定过了要将产品B 和 C 的忠诚度提升到 75%。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKR0zF6rq1oPymdUXY7ECcsPy9JtiaGaHGeic7FwnichwrwY5FDlgjibuxXgQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRznSZSFavOO6h3KIxGUGdfEt6Zd6tNbMkbtJZ9ibYic9Q2o5uVArT0vMg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>通过回归方程，得出产品B 要想达到忠诚度到75%的目标，必须将综合满意度达到75以上。</p>
+<p>接下来提升B产品客户忠诚度：综合满意度与同类产品价格比的关系</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRby72BBZ7Zic6xn7CiaBExOqNfI18OJT7KyKyHp7OoX2RbLmDMLSOPAfw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>最后提升C产品客户忠诚度：客户忠诚度与售后服务满意度的关系</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRpYmG6jZtibTVfiaJXuOcawZo5PIV9NCR2b8QrAJjvkOGSb6d4Mgubh0g/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>如何提高售后服务满意度？</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRoBgO0aTQhPibycXhthibcRvHIlmVYoDiaekEwicjMlLGOUKftUvTPjzrCw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRBhaja9gdDaica4l6rjicIuIgRxsiceOFdRCFDVnXf0Zia0CfonDWtdbs1A/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p>到这里，分析结束。通过回归分析，最终得出可落地的建议如下：</p>
+<p>影响销售额下滑的主要定位到B产品的同类价格比 、C 产品的售后满意度出现问题</p>
+<p>1）产品B ：价格波动不要高于同类产品 2%</p>
+<p>2）产品C ：要重点抓售后服务，尤其是服务态度要达到76分</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/nDMNE6lrvW6QywKKTZh5UkkzCaugbLKRHQYYLMbPq5O8VyPbOCBoeVxHF8OqP6KtRxqiaiaRTFcq8VrcPK2ibHnBQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<h5 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h5><p>以上是本次通过汽车销量下滑案例，映射一个完整的，在工作中利用数据分析解决问题的过程。</p>
+<p><strong>首先，</strong>明确问题，通过观察现象，将问题定义清楚。只有明确了问题，最后的分析才有意义。</p>
+<p><strong>其次，</strong>分析原因，可以从两个思路出发分别是哪里出了问题？为什么会出现这个问题？</p>
+<p><strong>接下来，</strong>使用 “多维度拆解分析方法”，对问题进行拆解，将一个复杂问题拆解成多个子问题；对拆解的各个部分，使用 “假设检验分析方法” 找到哪里出现问题，在分析的过程中，可以结合其它分析方法辅助完成，比如通过相关分析法进行深入分析。</p>
+<p><strong>最后，</strong>提出建议。找到原因不是分析的重点，而是要针对原因，给出建议或提出解决方案，并且具有落地性。</p>
+<p>这里常用的分析方法是线性回归，使用线性回归的前提，是变量间具有相关性。只有这样决策者，才能够根据具体的措施，合理分配资源，解决业务问题，进而实现业务目标。</p>
+<h3 id="交易量增加，如何分析原因？"><a href="#交易量增加，如何分析原因？" class="headerlink" title="交易量增加，如何分析原因？"></a><strong>交易量增加，如何分析原因？</strong></h3><p>下面数据是2020年4月1日至4月10日某业务的数据，请对这些数据进行分析，并得出分析观点。</p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20210821225032151.png" alt="image-20210821225032151" style="zoom:50%;" /></p>
+<h3 id="【分析思路】"><a href="#【分析思路】" class="headerlink" title="\【分析思路】**"></a><strong><em>\</em>【分析思路】**</strong></h3><p>根据之前讲过的“<a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzAxMTMwNTMxMQ==&amp;mid=2649248793&amp;idx=2&amp;sn=1fe86f3083bd9c8ad1a427898199c71c&amp;chksm=835fdc29b428553fabf47f23dc05f8f6c296cbcc06ce7e409ff712e81141fbf9ad0aa9b2b99d&amp;scene=21#wechat_redirect">数据分析解决问题的步骤</a>”来解决业务问题。</p>
+<p><img src="F:\MyBlog\MyBlog\hexo\source\_posts\数据分析之面试dayday\image-20210821225113562.png" alt="image-20210821225113562"></p>
+<h3 id="一、明确问题"><a href="#一、明确问题" class="headerlink" title="\一、明确问题**"></a><strong><em>\</em>一、明确问题**</strong></h3><h4 id="1-明确据来源和准确性"><a href="#1-明确据来源和准确性" class="headerlink" title="1.明确据来源和准确性"></a><strong>1.明确据来源和准确性</strong></h4><p>从时间、地点、数据来源这3个维度来展开确定数据的来源和准确性。</p>
+<p>时间：2020.4.1~2020.4.10日10天的销售数据</p>
+<p>地点：全网销售</p>
+<p>数据来源：后台导出，数据准确无问题</p>
+<h4 id="2-业务指标理解"><a href="#2-业务指标理解" class="headerlink" title="2.业务指标理解"></a><strong>2.业务指标理解</strong></h4><p>单均交易价格=交易量/交易笔数</p>
+<p>遇到日报问题，需要先把表格数据可视化，才能发现问题。我们把10天交易量数据可视化，结果如下：</p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20210821225230562.png" alt="image-20210821225230562" style="zoom:33%;" /></p>
+<p>只有一周的数据，还没法确定和谁比，需要把前期的数据画出来。例如和面试官沟通后，给了同比和环比的数据。把数据可视化，结果如下：</p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20210821225245998.png" alt="image-20210821225245998" style="zoom:33%;" /></p>
+<p>通过对比发现，9号交易量大幅增加。</p>
+<h3 id="二、分析原因"><a href="#二、分析原因" class="headerlink" title="\二、分析原因**"></a><strong><em>\</em>二、分析原因**</strong></h3><p>当需要分析问题出现的原因时，可以使用<a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzAxMTMwNTMxMQ==&amp;mid=2649248793&amp;idx=2&amp;sn=1fe86f3083bd9c8ad1a427898199c71c&amp;chksm=835fdc29b428553fabf47f23dc05f8f6c296cbcc06ce7e409ff712e81141fbf9ad0aa9b2b99d&amp;scene=21#wechat_redirect">多维度拆解分析方法</a>对“交易量”从指标定义来拆解。</p>
+<p>通过前面“明确问题”知道了，单均交易价格=交易量/交易笔数。因此，交易量可以拆解为交易笔数和单均交易价格。</p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20210821225305313.png" alt="image-20210821225305313"></p>
+<p>而交易笔数又可以继续拆解为新客户交易笔数和老客户交易笔数。</p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20210821225314061.png" alt="image-20210821225314061"></p>
+<p>接下来我们用假设检验方法对“多维度拆解分析方法”里面的每个部分进行验证。</p>
+<p>（1）单均交易价格</p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20210821225326557.png" alt="image-20210821225326557"></p>
+<p>假设1：单均交易价格增加导致9号交易量增加</p>
+<p>用交易量除以交易笔数，得到单均交易价格，对比单均交易价格和交易量数据趋势变化，结果如下：</p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20210821225336503.png" alt="image-20210821225336503"></p>
+<p>我们发现9号总体交易量突增，但单均交易价格却有所下降。所以得出结论假设1不成立。</p>
+<p>（2）交易笔数</p>
+<p>可以从新客户交易笔数和老客户交易笔数分别来查找原因。</p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20210821225348030.png" alt="image-20210821225348030"></p>
+<p>假设2：新客户交易笔数增加导致交易量增加</p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20210821225440895.png" alt="image-20210821225440895" style="zoom:33%;" /></p>
+<p>对比交易量、新客户交易笔数的变化趋势，结果如下：</p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20210821225455761.png" alt="image-20210821225455761" style="zoom:33%;" /></p>
+<p>我们发现新客户交易笔数也在9号突增，与交易量趋势一致。所以假设2成立。</p>
+<p>假设3：老客户交易笔数增加导致交易量增加。</p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20210821225510930.png" alt="image-20210821225510930" style="zoom:33%;" /></p>
+<p>用交易笔数减去新客户交易笔数，得到老客户交易笔数，对比交易量和老客户交易笔数，结果如下：</p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20210821225525513.png" alt="image-20210821225525513" style="zoom:33%;" /></p>
+<p>我们可以发现9号老客户交易笔数与交易量变化趋势相同，都增加了，所以假设3成立。</p>
+<p>将前面的假设检验过程，用下图进行汇总，可以清楚的向面试官展示清楚你的分析思路。</p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20210821225541432.png" alt="image-20210821225541432" style="zoom: 50%;" /></p>
+<p>通过对日报进行可视化和对比分析发现，9号交易量增加。通过假设检验分析方法来寻找下降的原因，发现是因为：老客户交易笔数和新客户交易笔数均增加导致的。</p>
+<p>可以进一步和业务人员沟通，查找9号做了什么老客户交易笔数和新客户交易笔数均增加。</p>
+<h3 id="三、提出建议"><a href="#三、提出建议" class="headerlink" title="\三、提出建议**"></a><strong><em>\</em>三、提出建议**</strong></h3><p>1.做好促销活动后的留存和粘性工作。</p>
+<p>2.针对引流效果好的渠道加以利用，优化效果差的渠道</p>
+<p><strong><em>\</em>【举一反三】**</strong></p>
+<p><strong>1、数据分析解决问题的步骤</strong> </p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20210821225600355.png" alt="image-20210821225600355" style="zoom:50%;" /></p>
+<p>第1步：明确问题。明确数据来源和准确性，理解业务指标，把问题定义清楚。</p>
+<p>第2步：分析问题。分析问题发生的原因，使用“多维度拆解分析方法”拆解问题，把复杂问题简单化；使用“假设检验分析方法”找出哪里出了问题；使用“相关分析方法”解决为什么出现这个问题。</p>
+<p>第3步：决策。针对原因给出建议，或者提出可以实施的解决方案，常用回归分析或AARRR分析方法。</p>
+<p><strong>2、遇到报表解读问题，如何做？</strong></p>
+<p>(1)对数据可视化，与前期数据对比，得出问题</p>
+<p>(2)拆解指标</p>
+<p>(3)使用假设检验分析法分析问题</p>
+<p>(4)得出结论</p>
+<h1 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h1><h2 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h2><p><a target="_blank" rel="noopener" href="https://pythonhowto.readthedocs.io/zh_CN/latest/list.html#id2">https://pythonhowto.readthedocs.io/zh_CN/latest/list.html#id2</a></p>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>变量：是一个系统表的元素，拥有指向对象的连接空间<br>对象：被分配的一块内存，存储其所代表的值<br>引用：是自动形成的从变量到对象的指针<br>类型：属于对象，而非变量<br>不可变对象：一旦创建就不可修改的对象，包括字符串、元组、数值类型<br>（该对象所指向的内存中的值不能被改变。<strong>当改变某个变量时候，由于其所指的值不能被改变，相当于把原来的值复制一份后再改变，这会开辟一个新的地址，变量再指向这个新的地址。</strong>）</p>
+<p>可变对象：可以修改的对象，包括列表、字典、集合<br>（该对象所指向的内存中的值可以被改变。变量（准确的说是引用）改变后，实际上是其所指的值直接发生改变，并没有发生复制行为，也没有开辟新的地址，通俗点说就是原地改变。）<br>当我们写：</p>
+<p>a = ‘python’<br>Python解释器干的事情：</p>
+<ol>
+<li>创建变量a</li>
+<li>创建一个对象(分配一块内存)，来存储值 ‘python’</li>
+<li>将变量与对象，通过指针连接起来，从变量到对象的连接称之为引用(变量引用对象)</li>
+</ol>
+<p>一、python中的变量与对象、可变对象和不可变对象：</p>
+<p>a = 3         #创建 int对象 3，创建变量a， 变量a指向对象3<br>a = “test”    #创建string对象，变量a指向对象”test”</p>
+<p>对象：可变对象和不可变对象，不可变对象包括int，float，long，str，tuple等，可变对象包括list，set，dict等。</p>
+<p>需要注意的是：这里说的不可变指的是对象值的不可变。</p>
+<p>(1)、对于不可变类型的对象，如果要更改变量，则会创建一个新值，把变量绑定到新的对象上，而旧值如果没有被引用就等待垃圾回收。</p>
+<p>(2)、可变类型数据对对象操作的时候，不需要再在其他地方申请内存，只需要在此对象后面连续申请(+/-)即可，也就是它的内存地址会保持不变，但区域会变长或者变短。</p>
+<h2 id="Python-直接赋值、浅拷贝和深度拷贝解析"><a href="#Python-直接赋值、浅拷贝和深度拷贝解析" class="headerlink" title="Python 直接赋值、浅拷贝和深度拷贝解析"></a>Python 直接赋值、浅拷贝和深度拷贝解析</h2><ul>
+<li><strong>直接赋值：</strong>其实就是对象的引用（别名）。</li>
+<li><strong>浅拷贝(copy)：</strong>拷贝父对象，不会拷贝对象的内部的子对象。</li>
+<li><strong>深拷贝(deepcopy)：</strong> copy 模块的 deepcopy 方法，完全拷贝了父对象及其子对象。</li>
+</ul>
+<p><img src="F:\MyBlog\MyBlog\hexo\source\_posts\数据分析之面试dayday\image-20210821231028417.png" alt="image-20210821231028417"></p>
+<h2 id="字符串处理"><a href="#字符串处理" class="headerlink" title="字符串处理"></a>字符串处理</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flytowardnewworld.github.io/2020/08/21/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E9%9D%A2%E8%AF%95dayday/" data-id="cl5v9md87006w10vk1ldq88kn" data-title="数据分析之面试dayday" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">数据分析</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          数据分析实战项目
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/08/20/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL%E9%9D%A2%E8%AF%95%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">数据分析之SQL面试题</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Blog/">Blog</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Book/">Book</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Deep-Learning/">Deep Learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/R/">R</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/machine-learning/">machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A8%B1%E4%B9%90%E7%94%9F%E6%B4%BB/">娱乐生活</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AD%A6%E4%B9%A0%E3%81%AE%E5%8E%86%E7%A8%8B-Journal-of-Studying/">学习の历程(Journal of Studying)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BF%83%E5%BE%97/">心得</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">数据可视化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6-Data-Science/">数据科学(Data Science)</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E5%BF%97/">日志</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%95%B0%E5%AD%A6/">数学</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%91%E6%99%AE/">科普</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A7%91%E7%A0%94/">科研</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AB%9E%E8%B5%9B/">竞赛</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%8B%B1%E8%AF%AD/">英语</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%A7%84%E5%88%92/">规划</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0/">视频学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6%E6%97%A5%E5%B8%B8/">读书日常</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/1/" rel="tag">1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BI/" rel="tag">BI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BP/" rel="tag">BP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Boosting-AdaBoost/" rel="tag">Boosting, AdaBoost</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Daily/" rel="tag">Daily</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Data-Mining/" rel="tag">Data Mining</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deep-learning/" rel="tag">Deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Excel/" rel="tag">Excel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Numpuy/" rel="tag">Numpuy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pandas/" rel="tag">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/R/" rel="tag">R</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVD/" rel="tag">SVD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deep-learning/" rel="tag">deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/machine-learning/" rel="tag">machine learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/origin/" rel="tag">origin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tensorlow/" rel="tag">tensorlow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/" rel="tag">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wan/" rel="tag">wan</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92/" rel="tag">二次规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" rel="tag">交叉验证</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" rel="tag">关联规则</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/" rel="tag">决策树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" rel="tag">回归分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" rel="tag">回归树</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E6%8E%92/" rel="tag">安排</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" rel="tag">希腊字母</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BD%92%E4%B8%80%E5%8C%96/" rel="tag">归一化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BD%A9%E9%93%85/" rel="tag">彩铅</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%88%90%E9%95%BF/" rel="tag">成长</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">我的读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E8%83%BD/" rel="tag">技能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" rel="tag">支持向量机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" rel="tag">支持向量机回归</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">数据分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD/" rel="tag">数据分析技能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag">数据挖掘</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2/" rel="tag">数据探索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B0%E6%A6%82%E5%BF%B5/" rel="tag">新概念</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E5%B8%B8/" rel="tag">日常</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%87%E5%87%86%E5%8C%96/" rel="tag">标准化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AD%A3%E5%88%99%E5%8C%96/" rel="tag">正则化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" rel="tag">特征工程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB%E6%97%A5%E5%BF%97/" rel="tag">生活日志</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" rel="tag">监督学习与非监督学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6/" rel="tag">社会科学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E7%A0%94/" rel="tag">科研</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" rel="tag">科研工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/" rel="tag">科研笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AB%9E%E8%B5%9B/" rel="tag">竞赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%98%E5%9B%BE/" rel="tag">绘图</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/" rel="tag">西瓜书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%84%E5%88%92/" rel="tag">规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" rel="tag">贝叶斯分类器</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/1/" style="font-size: 10px;">1</a> <a href="/tags/BI/" style="font-size: 12.5px;">BI</a> <a href="/tags/BP/" style="font-size: 10px;">BP</a> <a href="/tags/Boosting-AdaBoost/" style="font-size: 10px;">Boosting, AdaBoost</a> <a href="/tags/Daily/" style="font-size: 15px;">Daily</a> <a href="/tags/Data-Mining/" style="font-size: 10px;">Data Mining</a> <a href="/tags/Deep-learning/" style="font-size: 17.5px;">Deep learning</a> <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Excel/" style="font-size: 10px;">Excel</a> <a href="/tags/Numpuy/" style="font-size: 10px;">Numpuy</a> <a href="/tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="/tags/Python/" style="font-size: 17.5px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/SVD/" style="font-size: 10px;">SVD</a> <a href="/tags/deep-learning/" style="font-size: 10px;">deep learning</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/machine-learning/" style="font-size: 12.5px;">machine learning</a> <a href="/tags/origin/" style="font-size: 10px;">origin</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/tensorlow/" style="font-size: 10px;">tensorlow</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/wan/" style="font-size: 10px;">wan</a> <a href="/tags/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92/" style="font-size: 10px;">二次规划</a> <a href="/tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" style="font-size: 10px;">交叉验证</a> <a href="/tags/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" style="font-size: 10px;">关联规则</a> <a href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/" style="font-size: 15px;">决策树</a> <a href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 15px;">可视化</a> <a href="/tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" style="font-size: 10px;">回归分析</a> <a href="/tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" style="font-size: 10px;">回归树</a> <a href="/tags/%E5%AE%89%E6%8E%92/" style="font-size: 10px;">安排</a> <a href="/tags/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" style="font-size: 10px;">希腊字母</a> <a href="/tags/%E5%BD%92%E4%B8%80%E5%8C%96/" style="font-size: 10px;">归一化</a> <a href="/tags/%E5%BD%A9%E9%93%85/" style="font-size: 10px;">彩铅</a> <a href="/tags/%E6%88%90%E9%95%BF/" style="font-size: 10px;">成长</a> <a href="/tags/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">我的读书笔记</a> <a href="/tags/%E6%8A%80%E8%83%BD/" style="font-size: 10px;">技能</a> <a href="/tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" style="font-size: 10px;">支持向量机</a> <a href="/tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" style="font-size: 10px;">支持向量机回归</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 20px;">数据分析</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD/" style="font-size: 10px;">数据分析技能</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 10px;">数据挖掘</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2/" style="font-size: 10px;">数据探索</a> <a href="/tags/%E6%96%B0%E6%A6%82%E5%BF%B5/" style="font-size: 10px;">新概念</a> <a href="/tags/%E6%97%A5%E5%B8%B8/" style="font-size: 12.5px;">日常</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">机器学习</a> <a href="/tags/%E6%A0%87%E5%87%86%E5%8C%96/" style="font-size: 10px;">标准化</a> <a href="/tags/%E6%AD%A3%E5%88%99%E5%8C%96/" style="font-size: 10px;">正则化</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">特征工程</a> <a href="/tags/%E7%94%9F%E6%B4%BB%E6%97%A5%E5%BF%97/" style="font-size: 10px;">生活日志</a> <a href="/tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">监督学习与非监督学习</a> <a href="/tags/%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6/" style="font-size: 10px;">社会科学</a> <a href="/tags/%E7%A7%91%E7%A0%94/" style="font-size: 10px;">科研</a> <a href="/tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">科研工具</a> <a href="/tags/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">科研笔记</a> <a href="/tags/%E7%AB%9E%E8%B5%9B/" style="font-size: 10px;">竞赛</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="/tags/%E7%BB%98%E5%9B%BE/" style="font-size: 10px;">绘图</a> <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 10px;">统计学</a> <a href="/tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/" style="font-size: 10px;">西瓜书</a> <a href="/tags/%E8%A7%84%E5%88%92/" style="font-size: 10px;">规划</a> <a href="/tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 10px;">读书</a> <a href="/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" style="font-size: 10px;">贝叶斯分类器</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/07/21/%E7%AE%97%E6%B3%95%E6%B1%87%E6%80%BB/FeatureExtraction/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/21/recording%20of%20master/MyMain/">心路历程</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/21/%E8%BF%90%E8%90%A5%E4%B9%8B%E7%AB%9E%E5%93%81%E5%88%86%E6%9E%90/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/21/%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95%E4%B9%8B%E9%93%B6%E8%A1%8C%E4%B8%9A%E5%8A%A1%E6%A8%A1%E5%9D%97/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/07/21/%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95%E4%B9%8B%E9%93%B6%E8%A1%8C%E4%B8%9A%E5%8A%A1/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
