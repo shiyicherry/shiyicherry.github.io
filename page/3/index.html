@@ -71,6 +71,51 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-算法汇总/FeatureExtraction" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2022/07/21/%E7%AE%97%E6%B3%95%E6%B1%87%E6%80%BB/FeatureExtraction/" class="article-date">
+  <time class="dt-published" datetime="2022-07-21T15:58:05.443Z" itemprop="datePublished">2022-07-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Principal-Component-Analysis-主成分分析"><a href="#Principal-Component-Analysis-主成分分析" class="headerlink" title="Principal Component Analysis**  : 主成分分析"></a>Principal Component Analysis**  : 主成分分析</h1><h2 id="形象理解"><a href="#形象理解" class="headerlink" title="形象理解"></a>形象理解</h2><p>如图，下面是一张3d的图片，从不同的方向投影出来的二维图，可以看出右往左投影的含有更多信息。</p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20191102133219347.png" alt="image-20191102133219347"></p>
+<p>如图，下面是一个高斯分布，二维点往两个正交的方向投影，长轴含有的信息更多。</p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20191102133339237.png" alt="image-20191102133339237"></p>
+<h2 id="PCA的过程示意"><a href="#PCA的过程示意" class="headerlink" title="PCA的过程示意"></a>PCA的过程示意</h2><p><strong>Step 1 </strong> : 去中心。中心在坐标轴在（0,0)，均值在坐标轴原点</p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20191102133416190.png" alt="image-20191102133416190"></p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20191102133422942.png" alt="image-20191102133422942"></p>
+<p><strong>Step 2</strong>  : Remove correlation(去除相关性)</p>
+<p>通过坐标变化，坐标旋转，矩阵作用</p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20191102133442399.png" alt="image-20191102133442399"></p>
+<h3 id="数学推导"><a href="#数学推导" class="headerlink" title="数学推导"></a>数学推导</h3><p>目标：变换后的矩阵，对角非零，非对角线全为零。S(Y)有非零的对角元素，所有非对角元素都是零 </p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20191102133714679.png" alt="image-20191102133714679"></p>
+<h3 id="理论推导"><a href="#理论推导" class="headerlink" title="理论推导"></a>理论推导</h3><p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20191102133819074.png" alt="image-20191102133819074"></p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20191102133929665.png" alt="image-20191102133929665"></p>
+<h3 id="PCA-Examples"><a href="#PCA-Examples" class="headerlink" title="PCA Examples"></a>PCA Examples</h3><p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20191102133956360.png" alt="image-20191102133956360"></p>
+<h3 id="PCA-bias"><a href="#PCA-bias" class="headerlink" title="PCA bias"></a>PCA bias</h3><p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20191102134003219.png" alt="image-20191102134003219"></p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20191102134023435.png" alt="image-20191102134023435"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flytowardnewworld.github.io/2022/07/21/%E7%AE%97%E6%B3%95%E6%B1%87%E6%80%BB/FeatureExtraction/" data-id="cl67j0tnc00b37ovkf0zndxmc" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-recording of master/MyMain" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="../../2022/07/21/recording%20of%20master/MyMain/" class="article-date">
@@ -652,92 +697,12 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="重要性"><a href="#重要性" class="headerlink" title="重要性"></a>重要性</h1><ol>
-<li>客观呈现，形成洞见，决策</li>
-</ol>
-<p>先来后到：流程化，串行</p>
-<p>多层面：多维度化，并行</p>
-<h1 id="结构-金字塔原理"><a href="#结构-金字塔原理" class="headerlink" title="结构(金字塔原理)"></a>结构(金字塔原理)</h1><p>串行和并行（两种分隔）</p>
-<p>遵循结论先行</p>
-<p>列大纲，内容布局，定题目</p>
-<p>报告组成结构</p>
-<p>如何解决问题，并表达问题</p>
-<p>这是对内容的缩影，把内容拆分成多个部分（并列，递进的关系）</p>
-<p>分类汇总的思想是解决问题的核心，应用已有知识是方法论。分.看，从…看，怎么做的分类合理，先说结论，然后以上统下。</p>
-<p>纵向结构： </p>
-<p>​    PREP模式：Point, Reason, Example, Point</p>
-<p><strong><strong>横向结构</strong></strong></p>
-<p>无论是内容还是分论点都要，归纳分组，组成大的。</p>
-<p>横向逻辑、并列逻辑.<strong>首先要做的是，对你要表达的内容进行归类分组</strong></p>
-<p><strong>其次要遵循“逻辑递进”的原则，对每组的具体内容按照一定的逻辑顺序进行分解、拆分、排列。**</strong>在做归类分组和排列顺序的时候，要符合MECE法则。**MECE法则的意思是“相互独立，完全穷尽”。</p>
-<p>逻辑顺序的具体分类比较多，常见的有三种：一是时间顺序（比如过去、现在、未来，第一步、第二步、第三步等）；二是结构顺序（比如从整体到部分的分解）；三是程度顺序（比如上期讲到过的“时间四象限法”中处理事情的顺序：先紧急且重要，接着重要但不紧急，再到紧急但不重要，最后不紧急不重要）。金字塔纵向结构策略的“结论先行和以上统下”让我们突出重点、层次分明；金字塔横向结构策略的“归类分组和顺序排列”</p>
-<p><img src="https://pic2.zhimg.com/80/v2-1beb4a1b514133014222845fa9d22465_1440w.jpg" alt="img"></p>
-<p>思维：逻辑树模型（大问题化成小问题）；多维度法（分类的思想）</p>
-<h1 id="风格"><a href="#风格" class="headerlink" title="风格"></a>风格</h1><ol>
-<li>文字</li>
-<li>图表</li>
-<li>颜色搭配</li>
-<li>布局</li>
-</ol>
-<p>多参考i瑞咨询里面的报告风格</p>
-<p>单色 渐变 混合</p>
-<p>冷色调 暖色调 中间色</p>
-<h1 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h1><p>总分总</p>
-<p>标题，中心观点（结论），结果，图表（数据）</p>
-<p>金字塔原理：分类，多维度的思想是完成事情的核心。划分为小问题，小内容，逐步解决。分治思想。</p>
-<p>从什么看，分什么看</p>
-<p>供给和需求</p>
-<p>一方面，另一方面</p>
-<p>在，，，之下， 伴随，，，</p>
-<p>首先， 其次， 最后。</p>
-<p>此为，与此同时</p>
-<h2 id="分析报告结构"><a href="#分析报告结构" class="headerlink" title="分析报告结构"></a>分析报告结构</h2><h3 id="背景和目的"><a href="#背景和目的" class="headerlink" title="背景和目的"></a>背景和目的</h3><h3 id="分析思路（拆解思维）"><a href="#分析思路（拆解思维）" class="headerlink" title="分析思路（拆解思维）"></a>分析思路（拆解思维）</h3><ol>
-<li><p>理论模型</p>
-</li>
-<li><p>头脑风暴（分类）</p>
-</li>
-<li><p>利用excel和思维导图 整理思路</p>
-<p>列大纲</p>
-</li>
-</ol>
-<h3 id="信息获取"><a href="#信息获取" class="headerlink" title="信息获取"></a>信息获取</h3><h3 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h3><h3 id="结论及建议"><a href="#结论及建议" class="headerlink" title="结论及建议"></a>结论及建议</h3><p>事实描述：A比B多20%</p>
-<p>结论：A更受欢迎</p>
-<p>建议： 推广A</p>
-<p>中心论点：论点展开解说；论据</p>
-<h1 id="PPT制作能力"><a href="#PPT制作能力" class="headerlink" title="PPT制作能力"></a>PPT制作能力</h1><h2 id="分类：组成框架"><a href="#分类：组成框架" class="headerlink" title="分类：组成框架"></a>分类：组成框架</h2><h2 id="结论：主要结论"><a href="#结论：主要结论" class="headerlink" title="结论：主要结论"></a>结论：主要结论</h2><h2 id="分论点："><a href="#分论点：" class="headerlink" title="分论点："></a>分论点：</h2><h2 id="论据：数据，内容的整合"><a href="#论据：数据，内容的整合" class="headerlink" title="论据：数据，内容的整合"></a>论据：数据，内容的整合</h2><p>论证你的结论，要有支撑</p>
-<h2 id="图表"><a href="#图表" class="headerlink" title="图表"></a>图表</h2><p>如何展示你的结论，你是怎么分析，是数据支撑，还是定性分析，不同的维度看，比较，如何。</p>
-<p>美观，简洁，层次分明</p>
-<h2 id="内容分散时"><a href="#内容分散时" class="headerlink" title="内容分散时"></a>内容分散时</h2><p><img src="" alt=""></p>
-<p><img src="数据分析之数据分析报告写法\QQ图片20220730204922.jpg" alt="QQ图片20220730204922" style="zoom: 200%;" /></p>
-<p><img src="数据分析之数据分析报告写法\QQ图片20220730204929.jpg" alt="QQ图片20220730204929" style="zoom: 200%;" /></p>
-<p>报告时，从论据上说，阐述分论点与分论据的之间的推理</p>
-<p><img src="数据分析之数据分析报告写法\QQ图片20220730204935.jpg" alt="QQ图片20220730204935"  /></p>
-<p><img src="数据分析之数据分析报告写法\QQ图片20220730204941.jpg" alt="QQ图片20220730204941" style="zoom: 150%;" /></p>
-<p><img src="数据分析之数据分析报告写法\QQ图片20220730204945.jpg" alt="QQ图片20220730204945" style="zoom: 150%;" /></p>
-<p><img src="数据分析之数据分析报告写法\QQ图片20220730204949.jpg" alt="QQ图片20220730204949" style="zoom:33%;" /></p>
-<p><img src="数据分析之数据分析报告写法\QQ图片20220730204910.jpg" alt="QQ图片20220730204910" style="zoom:33%;" /></p>
-<h2 id="数据分析-1"><a href="#数据分析-1" class="headerlink" title="数据分析"></a>数据分析</h2><p><img src="M:\博客\newblog\source\_posts\数据分析之数据分析报告写法\QQ图片20220730205439.png" alt="QQ图片20220730205439" style="zoom:200%;" /></p>
-<p><img src="M:\博客\newblog\source\_posts\数据分析之数据分析报告写法\QQ图片20220730205614.png" style="zoom:150%;" /></p>
-<h1 id="数据报告"><a href="#数据报告" class="headerlink" title="数据报告"></a>数据报告</h1><ol>
-<li>揭示现状</li>
-<li>发现问题</li>
-<li>怎么办，展望，措施</li>
-</ol>
-<p>大致上的 串联结构，内部的并联结构</p>
-<p>遇到新的问题，如何写，如何布局。</p>
-<p>技巧： </p>
-<pre><code>      1.  分类，关键词，解释，递进，重点突出
-      2.  布局，框架，遵循的标准，现状，意义，瓶颈，困难，难点，展望，
-      3.  维度比较： 竞品分析，两个实体取得维度进行分析。 如：好处，坏处，优势，劣势分析，一定是在某些方面，一定要分类。
-      4.  写长，写深；内容上丰富，加入不同的关键点，内容点，展开写。
-      5.  内容上的分类，关键词提取，围绕展开。
-</code></pre><p>1） 大布局要吸引人，瓶颈，问题，现状，目标，</p>
-<p>2） 段落要逻辑，分类汇总，关键词，突出重点，转折，递进等关系的确定。</p>
-<p>3） 句子要，清晰，表达清楚，写复杂句。状语从句，标点符号，用词，专业术语，虚词+实词。</p>
-<h2 id="常见的布局"><a href="#常见的布局" class="headerlink" title="常见的布局"></a>常见的布局</h2><h3 id="大框架"><a href="#大框架" class="headerlink" title="大框架"></a>大框架</h3><p>案例与理论</p>
-<h3 id="段落布局"><a href="#段落布局" class="headerlink" title="段落布局"></a>段落布局</h3><p>在方面，</p>
-<p>一是，二是，</p>
-<h3 id="句子写法"><a href="#句子写法" class="headerlink" title="句子写法"></a>句子写法</h3>
+        Here's something encrypted, password is required to continue reading.
+        
+          <p class="article-more-link">
+            <a href="../../2022/07/13/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A%E5%86%99%E6%B3%95/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
@@ -745,44 +710,8 @@
       
       
       
-    </footer>
-  </div>
-  
-</article>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">数据分析</a></li></ul>
 
-
-
-  
-    <article id="post-行业-报告" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2022/04/13/%E8%A1%8C%E4%B8%9A-%E6%8A%A5%E5%91%8A/" class="article-date">
-  <time class="dt-published" datetime="2022-04-13T10:59:26.000Z" itemprop="datePublished">2022-04-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2022/04/13/%E8%A1%8C%E4%B8%9A-%E6%8A%A5%E5%91%8A/">行业-报告</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://flytowardnewworld.github.io/2022/04/13/%E8%A1%8C%E4%B8%9A-%E6%8A%A5%E5%91%8A/" data-id="cl67j0tn200a87ovka02x2exc" data-title="行业-报告" class="article-share-link">Share</a>
-      
-      
-      
     </footer>
   </div>
   
@@ -826,7 +755,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="../../tags/1/" style="font-size: 10px;">1</a> <a href="../../tags/BI/" style="font-size: 12.5px;">BI</a> <a href="../../tags/BP/" style="font-size: 10px;">BP</a> <a href="../../tags/Boosting-AdaBoost/" style="font-size: 10px;">Boosting, AdaBoost</a> <a href="../../tags/Daily/" style="font-size: 12.5px;">Daily</a> <a href="../../tags/Data-Mining/" style="font-size: 10px;">Data Mining</a> <a href="../../tags/Deep-learning/" style="font-size: 17.5px;">Deep learning</a> <a href="../../tags/English/" style="font-size: 10px;">English</a> <a href="../../tags/Excel/" style="font-size: 10px;">Excel</a> <a href="../../tags/Numpuy/" style="font-size: 10px;">Numpuy</a> <a href="../../tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="../../tags/Python/" style="font-size: 17.5px;">Python</a> <a href="../../tags/R/" style="font-size: 10px;">R</a> <a href="../../tags/SQL/" style="font-size: 10px;">SQL</a> <a href="../../tags/SVD/" style="font-size: 10px;">SVD</a> <a href="../../tags/deep-learning/" style="font-size: 10px;">deep learning</a> <a href="../../tags/linux/" style="font-size: 10px;">linux</a> <a href="../../tags/machine-learning/" style="font-size: 12.5px;">machine learning</a> <a href="../../tags/origin/" style="font-size: 10px;">origin</a> <a href="../../tags/python/" style="font-size: 10px;">python</a> <a href="../../tags/tensorlow/" style="font-size: 10px;">tensorlow</a> <a href="../../tags/test/" style="font-size: 10px;">test</a> <a href="../../tags/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92/" style="font-size: 10px;">二次规划</a> <a href="../../tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" style="font-size: 10px;">交叉验证</a> <a href="../../tags/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" style="font-size: 10px;">关联规则</a> <a href="../../tags/%E5%86%B3%E7%AD%96%E6%A0%91/" style="font-size: 15px;">决策树</a> <a href="../../tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 15px;">可视化</a> <a href="../../tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" style="font-size: 10px;">回归分析</a> <a href="../../tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" style="font-size: 10px;">回归树</a> <a href="../../tags/%E5%AE%89%E6%8E%92/" style="font-size: 10px;">安排</a> <a href="../../tags/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" style="font-size: 10px;">希腊字母</a> <a href="../../tags/%E5%BD%92%E4%B8%80%E5%8C%96/" style="font-size: 10px;">归一化</a> <a href="../../tags/%E5%BD%A9%E9%93%85/" style="font-size: 10px;">彩铅</a> <a href="../../tags/%E6%80%9D%E7%BB%B4/" style="font-size: 12.5px;">思维</a> <a href="../../tags/%E6%88%90%E9%95%BF/" style="font-size: 10px;">成长</a> <a href="../../tags/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">我的读书笔记</a> <a href="../../tags/%E6%8A%80%E8%83%BD/" style="font-size: 10px;">技能</a> <a href="../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" style="font-size: 10px;">支持向量机</a> <a href="../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" style="font-size: 10px;">支持向量机回归</a> <a href="../../tags/%E6%95%B0%E5%AD%97%E5%8C%96/" style="font-size: 10px;">数字化</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 20px;">数据分析</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD/" style="font-size: 10px;">数据分析技能</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 10px;">数据挖掘</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2/" style="font-size: 10px;">数据探索</a> <a href="../../tags/%E6%96%B0%E6%A6%82%E5%BF%B5/" style="font-size: 10px;">新概念</a> <a href="../../tags/%E6%97%A5%E5%B8%B8/" style="font-size: 12.5px;">日常</a> <a href="../../tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 12.5px;">机器学习</a> <a href="../../tags/%E6%A0%87%E5%87%86%E5%8C%96/" style="font-size: 10px;">标准化</a> <a href="../../tags/%E6%AD%A3%E5%88%99%E5%8C%96/" style="font-size: 10px;">正则化</a> <a href="../../tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="../../tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">特征工程</a> <a href="../../tags/%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">生活</a> <a href="../../tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">监督学习与非监督学习</a> <a href="../../tags/%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6/" style="font-size: 10px;">社会科学</a> <a href="../../tags/%E7%A7%91%E7%A0%94/" style="font-size: 10px;">科研</a> <a href="../../tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">科研工具</a> <a href="../../tags/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">科研笔记</a> <a href="../../tags/%E7%AB%9E%E8%B5%9B/" style="font-size: 10px;">竞赛</a> <a href="../../tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="../../tags/%E7%BB%98%E5%9B%BE/" style="font-size: 10px;">绘图</a> <a href="../../tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 10px;">统计学</a> <a href="../../tags/%E8%81%8C%E4%B8%9A/" style="font-size: 10px;">职业</a> <a href="../../tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/" style="font-size: 10px;">西瓜书</a> <a href="../../tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 10px;">读书</a> <a href="../../tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" style="font-size: 10px;">贝叶斯分类器</a>
+      <a href="../../tags/1/" style="font-size: 10px;">1</a> <a href="../../tags/BI/" style="font-size: 12.5px;">BI</a> <a href="../../tags/BP/" style="font-size: 10px;">BP</a> <a href="../../tags/Boosting-AdaBoost/" style="font-size: 10px;">Boosting, AdaBoost</a> <a href="../../tags/Daily/" style="font-size: 12.5px;">Daily</a> <a href="../../tags/Data-Mining/" style="font-size: 10px;">Data Mining</a> <a href="../../tags/Deep-learning/" style="font-size: 17.5px;">Deep learning</a> <a href="../../tags/English/" style="font-size: 10px;">English</a> <a href="../../tags/Excel/" style="font-size: 10px;">Excel</a> <a href="../../tags/Numpuy/" style="font-size: 10px;">Numpuy</a> <a href="../../tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="../../tags/Python/" style="font-size: 17.5px;">Python</a> <a href="../../tags/R/" style="font-size: 10px;">R</a> <a href="../../tags/SQL/" style="font-size: 10px;">SQL</a> <a href="../../tags/SVD/" style="font-size: 10px;">SVD</a> <a href="../../tags/deep-learning/" style="font-size: 10px;">deep learning</a> <a href="../../tags/linux/" style="font-size: 10px;">linux</a> <a href="../../tags/machine-learning/" style="font-size: 12.5px;">machine learning</a> <a href="../../tags/origin/" style="font-size: 10px;">origin</a> <a href="../../tags/python/" style="font-size: 10px;">python</a> <a href="../../tags/tensorlow/" style="font-size: 10px;">tensorlow</a> <a href="../../tags/test/" style="font-size: 10px;">test</a> <a href="../../tags/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92/" style="font-size: 10px;">二次规划</a> <a href="../../tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" style="font-size: 10px;">交叉验证</a> <a href="../../tags/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" style="font-size: 10px;">关联规则</a> <a href="../../tags/%E5%86%B3%E7%AD%96%E6%A0%91/" style="font-size: 15px;">决策树</a> <a href="../../tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 15px;">可视化</a> <a href="../../tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" style="font-size: 10px;">回归分析</a> <a href="../../tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" style="font-size: 10px;">回归树</a> <a href="../../tags/%E5%AE%89%E6%8E%92/" style="font-size: 10px;">安排</a> <a href="../../tags/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" style="font-size: 10px;">希腊字母</a> <a href="../../tags/%E5%BD%92%E4%B8%80%E5%8C%96/" style="font-size: 10px;">归一化</a> <a href="../../tags/%E5%BD%A9%E9%93%85/" style="font-size: 10px;">彩铅</a> <a href="../../tags/%E6%80%9D%E7%BB%B4/" style="font-size: 17.5px;">思维</a> <a href="../../tags/%E6%88%90%E9%95%BF/" style="font-size: 10px;">成长</a> <a href="../../tags/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">我的读书笔记</a> <a href="../../tags/%E6%8A%80%E8%83%BD/" style="font-size: 10px;">技能</a> <a href="../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" style="font-size: 10px;">支持向量机</a> <a href="../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" style="font-size: 10px;">支持向量机回归</a> <a href="../../tags/%E6%95%B0%E5%AD%97%E5%8C%96/" style="font-size: 10px;">数字化</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 20px;">数据分析</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD/" style="font-size: 10px;">数据分析技能</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 10px;">数据挖掘</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2/" style="font-size: 10px;">数据探索</a> <a href="../../tags/%E6%96%B0%E6%A6%82%E5%BF%B5/" style="font-size: 10px;">新概念</a> <a href="../../tags/%E6%97%A5%E5%B8%B8/" style="font-size: 12.5px;">日常</a> <a href="../../tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 12.5px;">机器学习</a> <a href="../../tags/%E6%A0%87%E5%87%86%E5%8C%96/" style="font-size: 10px;">标准化</a> <a href="../../tags/%E6%AD%A3%E5%88%99%E5%8C%96/" style="font-size: 10px;">正则化</a> <a href="../../tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="../../tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">特征工程</a> <a href="../../tags/%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">生活</a> <a href="../../tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">监督学习与非监督学习</a> <a href="../../tags/%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6/" style="font-size: 10px;">社会科学</a> <a href="../../tags/%E7%A7%91%E7%A0%94/" style="font-size: 10px;">科研</a> <a href="../../tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">科研工具</a> <a href="../../tags/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">科研笔记</a> <a href="../../tags/%E7%AB%9E%E8%B5%9B/" style="font-size: 10px;">竞赛</a> <a href="../../tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="../../tags/%E7%BB%98%E5%9B%BE/" style="font-size: 10px;">绘图</a> <a href="../../tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 10px;">统计学</a> <a href="../../tags/%E8%81%8C%E4%B8%9A/" style="font-size: 10px;">职业</a> <a href="../../tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/" style="font-size: 10px;">西瓜书</a> <a href="../../tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 10px;">读书</a> <a href="../../tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" style="font-size: 10px;">贝叶斯分类器</a>
     </div>
   </div>
 
@@ -848,6 +777,10 @@
       <ul>
         
           <li>
+            <a href="../../2022/08/14/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E6%8A%A5%E5%91%8A%E6%A1%88%E4%BE%8B%E5%AD%A6%E4%B9%A0/">数据分析之报告案例学习</a>
+          </li>
+        
+          <li>
             <a href="../../2022/08/14/%E4%B8%AA%E4%BA%BA%E6%8F%90%E5%8D%87%E4%B9%8B%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95/">个人提升之职业发展</a>
           </li>
         
@@ -861,10 +794,6 @@
         
           <li>
             <a href="../../2022/08/13/%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95%E4%B9%8B%E6%95%B0%E5%AD%97%E5%8C%96/">职业发展之数字化</a>
-          </li>
-        
-          <li>
-            <a href="../../2022/08/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/">机器学习-特征工程</a>
           </li>
         
       </ul>
