@@ -71,6 +71,659 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-scikit-learn" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2019/03/23/scikit-learn/" class="article-date">
+  <time class="dt-published" datetime="2019-03-23T10:39:47.000Z" itemprop="datePublished">2019-03-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2019/03/23/scikit-learn/">scikit-learn</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id=""><a href="#" class="headerlink" title=""></a><!-- more  --></h1><h1 id="Cross-validation-evaluating-estimator-performance¶"><a href="#Cross-validation-evaluating-estimator-performance¶" class="headerlink" title="Cross-validation: evaluating estimator performance¶"></a>Cross-validation: evaluating estimator performance<a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/cross_validation.html#cross-validation-evaluating-estimator-performance">¶</a></h1><p><img src="https://scikit-learn.org/stable/_images/grid_search_workflow.png" alt="Grid Search Workflow"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">from sklearn.model_selection import train_test_split</span><br><span class="line"></span><br><span class="line"># 调用train_test_split函数 自动划分数据集 40%for testing</span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(iris.data,iris.target, test_size=0.4, random_state=0)</span><br></pre></td></tr></table></figure>
+<h2 id="corss-validation"><a href="#corss-validation" class="headerlink" title="corss validation"></a>corss validation</h2><p><img src="https://scikit-learn.org/stable/_images/grid_search_cross_validation.png" alt="../_images/grid_search_cross_validation.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.model_selection import cross_validate</span><br><span class="line">from sklearn.metrics import recall_score</span><br><span class="line">scoring = [&#x27;precision_macro&#x27;, &#x27;recall_macro&#x27;]</span><br><span class="line">clf = svm.SVC(kernel=&#x27;linear&#x27;, C=1, random_state=0)</span><br><span class="line">scores = cross_validate(clf, iris.data, iris.target, scoring=scoring,</span><br><span class="line">                        cv=5, return_train_score=False)</span><br><span class="line">sorted(scores.keys())</span><br></pre></td></tr></table></figure>
+<h2 id="Cross-validation-of-time-series-data"><a href="#Cross-validation-of-time-series-data" class="headerlink" title="Cross validation of time series data"></a>Cross validation of time series data</h2><p><img src="https://scikit-learn.org/stable/_images/sphx_glr_plot_cv_indices_0101.png" alt="../_images/sphx_glr_plot_cv_indices_0101.png"></p>
+<h1 id="Tuning-the-hyper-parameters-of-an-estimator"><a href="#Tuning-the-hyper-parameters-of-an-estimator" class="headerlink" title="Tuning the hyper-parameters of an estimator"></a>Tuning the hyper-parameters of an estimator</h1><p>A search consists of:</p>
+<ul>
+<li><p>an estimator (regressor or classifier such as <code>sklearn.svm.SVC()</code>);</p>
+</li>
+<li><p>a parameter space;</p>
+</li>
+<li><p>a method for searching or sampling candidates;</p>
+</li>
+<li><p>a cross-validation scheme; and</p>
+</li>
+<li><p>a <a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/grid_search.html#gridsearch-scoring">score function</a>.</p>
+</li>
+</ul>
+<h2 id="Grid-Search"><a href="#Grid-Search" class="headerlink" title="Grid Search"></a>Grid Search</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">param_grid = [</span><br><span class="line">  &#123;&#x27;C&#x27;: [1, 10, 100, 1000], &#x27;kernel&#x27;: [&#x27;linear&#x27;]&#125;,</span><br><span class="line">  &#123;&#x27;C&#x27;: [1, 10, 100, 1000], &#x27;gamma&#x27;: [0.001, 0.0001], &#x27;kernel&#x27;: [&#x27;rbf&#x27;]&#125;,</span><br><span class="line"> ]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> print_function</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> datasets</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> GridSearchCV</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> classification_report</span><br><span class="line"><span class="keyword">from</span> sklearn.svm <span class="keyword">import</span> SVC</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(__doc__)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Loading the Digits dataset</span></span><br><span class="line">digits = datasets.load_digits()</span><br><span class="line"></span><br><span class="line"><span class="comment"># To apply an classifier on this data, we need to flatten the image, to</span></span><br><span class="line"><span class="comment"># turn the data in a (samples, feature) matrix:</span></span><br><span class="line">n_samples = <span class="built_in">len</span>(digits.images)</span><br><span class="line">X = digits.images.reshape((n_samples, -<span class="number">1</span>))</span><br><span class="line">y = digits.target</span><br><span class="line"></span><br><span class="line"><span class="comment"># Split the dataset in two equal parts</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(</span><br><span class="line">    X, y, test_size=<span class="number">0.5</span>, random_state=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Set the parameters by cross-validation</span></span><br><span class="line">tuned_parameters = [&#123;<span class="string">&#x27;kernel&#x27;</span>: [<span class="string">&#x27;rbf&#x27;</span>], <span class="string">&#x27;gamma&#x27;</span>: [<span class="number">1e-3</span>, <span class="number">1e-4</span>],</span><br><span class="line">                     <span class="string">&#x27;C&#x27;</span>: [<span class="number">1</span>, <span class="number">10</span>, <span class="number">100</span>, <span class="number">1000</span>]&#125;,</span><br><span class="line">                    &#123;<span class="string">&#x27;kernel&#x27;</span>: [<span class="string">&#x27;linear&#x27;</span>], <span class="string">&#x27;C&#x27;</span>: [<span class="number">1</span>, <span class="number">10</span>, <span class="number">100</span>, <span class="number">1000</span>]&#125;]</span><br><span class="line"></span><br><span class="line">scores = [<span class="string">&#x27;precision&#x27;</span>, <span class="string">&#x27;recall&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> score <span class="keyword">in</span> scores:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;# Tuning hyper-parameters for %s&quot;</span> % score)</span><br><span class="line">    <span class="built_in">print</span>()</span><br><span class="line"></span><br><span class="line">    clf = GridSearchCV(SVC(), tuned_parameters, cv=<span class="number">5</span>,</span><br><span class="line">                       scoring=<span class="string">&#x27;%s_macro&#x27;</span> % score)</span><br><span class="line">    clf.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Best parameters set found on development set:&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>()</span><br><span class="line">    <span class="built_in">print</span>(clf.best_params_)</span><br><span class="line">    <span class="built_in">print</span>()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Grid scores on development set:&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>()</span><br><span class="line">    means = clf.cv_results_[<span class="string">&#x27;mean_test_score&#x27;</span>]</span><br><span class="line">    stds = clf.cv_results_[<span class="string">&#x27;std_test_score&#x27;</span>]</span><br><span class="line">    <span class="keyword">for</span> mean, std, params <span class="keyword">in</span> <span class="built_in">zip</span>(means, stds, clf.cv_results_[<span class="string">&#x27;params&#x27;</span>]):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;%0.3f (+/-%0.03f) for %r&quot;</span></span><br><span class="line">              % (mean, std * <span class="number">2</span>, params))</span><br><span class="line">    <span class="built_in">print</span>()</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Detailed classification report:&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;The model is trained on the full development set.&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;The scores are computed on the full evaluation set.&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>()</span><br><span class="line">    y_true, y_pred = y_test, clf.predict(X_test)</span><br><span class="line">    <span class="built_in">print</span>(classification_report(y_true, y_pred))</span><br><span class="line">    <span class="built_in">print</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Note the problem is too easy: the hyperparameter plateau is too flat and the</span></span><br><span class="line"><span class="comment"># output model is the same for precision and recall with ties in quality.</span></span><br></pre></td></tr></table></figure>
+<h2 id="Randomized-Parameter-Optimization"><a href="#Randomized-Parameter-Optimization" class="headerlink" title="Randomized Parameter Optimization"></a>Randomized Parameter Optimization</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(__doc__)</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> randint <span class="keyword">as</span> sp_randint</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> GridSearchCV</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> RandomizedSearchCV</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_digits</span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line"></span><br><span class="line"><span class="comment"># get some data</span></span><br><span class="line">digits = load_digits()</span><br><span class="line">X, y = digits.data, digits.target</span><br><span class="line"></span><br><span class="line"><span class="comment"># build a classifier</span></span><br><span class="line">clf = RandomForestClassifier(n_estimators=<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Utility function to report best scores</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">report</span>(<span class="params">results, n_top=<span class="number">3</span></span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n_top + <span class="number">1</span>):</span><br><span class="line">        candidates = np.flatnonzero(results[<span class="string">&#x27;rank_test_score&#x27;</span>] == i)</span><br><span class="line">        <span class="keyword">for</span> candidate <span class="keyword">in</span> candidates:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;Model with rank: &#123;0&#125;&quot;</span>.<span class="built_in">format</span>(i))</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;Mean validation score: &#123;0:.3f&#125; (std: &#123;1:.3f&#125;)&quot;</span>.<span class="built_in">format</span>(</span><br><span class="line">                  results[<span class="string">&#x27;mean_test_score&#x27;</span>][candidate],</span><br><span class="line">                  results[<span class="string">&#x27;std_test_score&#x27;</span>][candidate]))</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;Parameters: &#123;0&#125;&quot;</span>.<span class="built_in">format</span>(results[<span class="string">&#x27;params&#x27;</span>][candidate]))</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># specify parameters and distributions to sample from</span></span><br><span class="line">param_dist = &#123;<span class="string">&quot;max_depth&quot;</span>: [<span class="number">3</span>, <span class="literal">None</span>],</span><br><span class="line">              <span class="string">&quot;max_features&quot;</span>: sp_randint(<span class="number">1</span>, <span class="number">11</span>),</span><br><span class="line">              <span class="string">&quot;min_samples_split&quot;</span>: sp_randint(<span class="number">2</span>, <span class="number">11</span>),</span><br><span class="line">              <span class="string">&quot;bootstrap&quot;</span>: [<span class="literal">True</span>, <span class="literal">False</span>],</span><br><span class="line">              <span class="string">&quot;criterion&quot;</span>: [<span class="string">&quot;gini&quot;</span>, <span class="string">&quot;entropy&quot;</span>]&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># run randomized search</span></span><br><span class="line">n_iter_search = <span class="number">20</span></span><br><span class="line">random_search = RandomizedSearchCV(clf, param_distributions=param_dist,</span><br><span class="line">                                   n_iter=n_iter_search, cv=<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">start = time()</span><br><span class="line">random_search.fit(X, y)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;RandomizedSearchCV took %.2f seconds for %d candidates&quot;</span></span><br><span class="line">      <span class="string">&quot; parameter settings.&quot;</span> % ((time() - start), n_iter_search))</span><br><span class="line">report(random_search.cv_results_)</span><br><span class="line"></span><br><span class="line"><span class="comment"># use a full grid over all parameters</span></span><br><span class="line">param_grid = &#123;<span class="string">&quot;max_depth&quot;</span>: [<span class="number">3</span>, <span class="literal">None</span>],</span><br><span class="line">              <span class="string">&quot;max_features&quot;</span>: [<span class="number">1</span>, <span class="number">3</span>, <span class="number">10</span>],</span><br><span class="line">              <span class="string">&quot;min_samples_split&quot;</span>: [<span class="number">2</span>, <span class="number">3</span>, <span class="number">10</span>],</span><br><span class="line">              <span class="string">&quot;bootstrap&quot;</span>: [<span class="literal">True</span>, <span class="literal">False</span>],</span><br><span class="line">              <span class="string">&quot;criterion&quot;</span>: [<span class="string">&quot;gini&quot;</span>, <span class="string">&quot;entropy&quot;</span>]&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># run grid search</span></span><br><span class="line">grid_search = GridSearchCV(clf, param_grid=param_grid, cv=<span class="number">5</span>)</span><br><span class="line">start = time()</span><br><span class="line">grid_search.fit(X, y)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;GridSearchCV took %.2f seconds for %d candidate parameter settings.&quot;</span></span><br><span class="line">      % (time() - start, <span class="built_in">len</span>(grid_search.cv_results_[<span class="string">&#x27;params&#x27;</span>])))</span><br><span class="line">report(grid_search.cv_results_)</span><br></pre></td></tr></table></figure>
+<p>  step1： 交叉验证（评价模型）</p>
+<p>step2: 超参数选择，每一组参数：对应一次交叉验证</p>
+<p>step 3: 集成学习</p>
+<p>也可进行参数的调解</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.model_selection import cross_val_score</span><br><span class="line">from sklearn.datasets import load_iris</span><br><span class="line">from sklearn.ensemble import AdaBoostClassifier</span><br><span class="line"></span><br><span class="line">iris = load_iris()</span><br><span class="line">clf = AdaBoostClassifier(n_estimators=100)</span><br><span class="line">scores = cross_val_score(clf, iris.data, iris.target, cv=5)</span><br><span class="line">scores.mean()                             </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">from sklearn import datasets</span><br><span class="line">from sklearn.tree import DecisionTreeClassifier</span><br><span class="line">from sklearn.neighbors import KNeighborsClassifier</span><br><span class="line">from sklearn.svm import SVC</span><br><span class="line">from itertools import product</span><br><span class="line">from sklearn.ensemble import VotingClassifier</span><br><span class="line"></span><br><span class="line"># Loading some example data</span><br><span class="line">iris = datasets.load_iris()</span><br><span class="line">X = iris.data[:, [0, 2]]</span><br><span class="line">y = iris.target</span><br><span class="line"></span><br><span class="line"># Training classifiers</span><br><span class="line">clf1 = DecisionTreeClassifier(max_depth=4)</span><br><span class="line">clf2 = KNeighborsClassifier(n_neighbors=7)</span><br><span class="line">clf3 = SVC(gamma=&#x27;scale&#x27;, kernel=&#x27;rbf&#x27;, probability=True)</span><br><span class="line">eclf = VotingClassifier(estimators=[(&#x27;dt&#x27;, clf1), (&#x27;knn&#x27;, clf2), (&#x27;svc&#x27;, clf3)],</span><br><span class="line">                        voting=&#x27;soft&#x27;, weights=[2, 1, 2])</span><br><span class="line"></span><br><span class="line">clf1 = clf1.fit(X, y)</span><br><span class="line">clf2 = clf2.fit(X, y)</span><br><span class="line">clf3 = clf3.fit(X, y)</span><br><span class="line">eclf = eclf.fit(X, y)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flytowardnewworld.github.io/2019/03/23/scikit-learn/" data-id="cl67j0tkx003f7ovkd94a4zl1" data-title="scikit-learn" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Boosting" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2019/03/22/Boosting/" class="article-date">
+  <time class="dt-published" datetime="2019-03-22T06:54:29.000Z" itemprop="datePublished">2019-03-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2019/03/22/Boosting/">Boosting</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+<h1 id="Boosting"><a href="#Boosting" class="headerlink" title="Boosting"></a>Boosting</h1><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>Boosting算法是将“弱学习算法“提升为“强学习算法”的过程。</p>
+<ol>
+<li><p>加法模型</p>
+<script type="math/tex; mode=display">
+F_n(x;P) = \sum_{t=1}^{n}\alpha_th_t(x;a_t)</script></li>
+<li><p>前向分步</p>
+<script type="math/tex; mode=display">
+F_m(x) = F_{m-1}(x)+\alpha_mh_m(x,a_m)</script><p>如果选取不同损失函数，则产生不同的类型</p>
+</li>
+</ol>
+<h1 id="AdaBoost"><a href="#AdaBoost" class="headerlink" title="AdaBoost"></a>AdaBoost</h1><p>AdaBoost就是损失函数为指数损失的Boosting算法。</p>
+<ol>
+<li><p>每一次迭代的弱学习$h(x;a_m)$有何不一样，如何学习？</p>
+<p>AdaBoost改变了训练数据的权值，也就是样本的概率分布，其思想是将关注点放在被错误分类的样本上，减小上一轮被正确分类的样本权值，提高那些被错误分类的样本权值。</p>
+</li>
+<li><p>弱分类器权值$β_m$如何确定？</p>
+<p>AdaBoost采用加权多数表决的方法，加大分类误差率小的弱分类器的权重，减小分类误差率大的弱分类器的权重。这个很好理解，正确率高分得好的弱分类器在强分类器中当然应该有较大的发言权。</p>
+</li>
+</ol>
+<h2 id="原理理解"><a href="#原理理解" class="headerlink" title="原理理解"></a>原理理解</h2><p>基于Boosting的理解，对于AdaBoost，我们要搞清楚两点：</p>
+<p>每一次迭代的弱学习h(x;am)有何不一样，如何学习？<br>弱分类器权值βm如何确定？<br>对于第一个问题，AdaBoost改变了训练数据的权值，也就是样本的概率分布，其思想是将关注点放在被错误分类的样本上，减小上一轮被正确分类的样本权值，提高那些被错误分类的样本权值。然后，再根据所采用的一些基本机器学习算法进行学习，比如逻辑回归。</p>
+<p>对于第二个问题，AdaBoost采用加权多数表决的方法，加大分类误差率小的弱分类器的权重，减小分类误差率大的弱分类器的权重。这个很好理解，正确率高分得好的弱分类器在强分类器中当然应该有较大的发言权。</p>
+<h2 id="公式推导"><a href="#公式推导" class="headerlink" title="公式推导"></a>公式推导</h2><p>指数损失函数</p>
+<script type="math/tex; mode=display">
+L(Y,f(x))=exp(-Yf(x))</script><p>权重更新公式: 采用的指数误差函数</p>
+<script type="math/tex; mode=display">
+l_{exp}(a_th_t|D_t)=E(exp(-f(x)a_th_t(x)))\\
+=p(f(x)=h_t(x))e^{-at}+p(f(x)!=h_t(x))e^{at}\\
+=e^{-at}(1-\xi)+e^{at}\xi</script><script type="math/tex; mode=display">
+a_t=\frac{1}{2}ln \frac{1-\xi}{\xi}</script><p>分布更新公式</p>
+<script type="math/tex; mode=display">
+\begin{aligned} l\left(H_{t-1}(x)+\alpha h_{t}(x) | D\right) &=E_{X \sim D}\left(\exp \left(-y(x)\left(H_{t-1}(x)+\alpha h_{t}(x)\right)\right)\right) \\ &=E_{x \sim D}\left(\exp \left(-y(x) H_{t-1}(x)\right) \exp \left(-y(x) \alpha h_{t}(x)\right)\right) \end{aligned}</script><p>在泰勒展开$exp(-y(x)h_t(x))$</p>
+<script type="math/tex; mode=display">
+\begin{aligned} l\left(H_{t-1}(x)+h_{t}(x) | D\right) & \approx E_{x \sim D}\left[\exp \left(-y(x) H_{t-1}(x)\right)\left(1-\alpha y(x) h_{t}(x)+\frac{\alpha^{2} y^{2}(x) h_{t}^{2}(x)}{2}\right)\right] \\ &=E_{x \sim D}\left[\exp \left(-y(x) H_{t-1}(x)\right)\left(1-y(x) h_{t}(x)+0.5 \alpha^{2}\right)\right] \end{aligned}</script><script type="math/tex; mode=display">
+\begin{aligned} h(x) &=\arg \min _{h} l\left(H_{t-1}(x)+\alpha h_{t} | D\right) \\ &=\arg \max _{h} E_{x \sim D}\left[\exp \left(-y(x) H_{t-1}(x)\right) \alpha y(x) h_{t}(x)\right] \\ &=\arg \max _{h}\left[\frac{\exp \left(-y(x) H_{t-1}(x)\right)}{E_{x \sim D}\left[\exp \left(-y(x) H_{t-1}(x)\right)\right]} y(x) h(x)\right] \end{aligned}</script><script type="math/tex; mode=display">
+</script><p>令一个新分布,注意分子是常数</p>
+<script type="math/tex; mode=display">
+D_{t}(x)=\frac{D(x) \exp \left(-y(x) H_{t-1}(x)\right)^{L}}{E_{x \sim D}\left[\exp \left(-y(x) H_{t-1}(x)\right)\right]}</script><script type="math/tex; mode=display">
+\begin{aligned} h(x) &=\arg \max _{h} E_{x \sim D,}(y(x) h(x)) \\ &=\arg \max _{h} E_{x \sim D_{t}}(1-2 \mathcal{I}(y(x) \neq h(x))) \\ &=\arg \min _{h} E_{x \sim D_{i}}(\mathcal{I}(y(x) \neq h(x))) \end{aligned}</script><p>同理可得</p>
+<script type="math/tex; mode=display">
+\begin{aligned} D_{t+1} &=\frac{D(x) \exp \left(-y(x) H_{t}(x)\right)}{E_{x \sim D}\left[\exp \left(-y(x) H_{t}(x)\right)\right]} \\ &=\frac{D_{t}(x) \cdot E_{x \sim D}\left[\exp \left(-y(x) H_{t-1}(x)\right)\right] \cdot \exp \left(-y(x) H_{t}(x)\right)}{\exp \left(-y(x) H_{t-1}(x)\right) \cdot E_{x \sim D}\left[\exp \left(-y(x) H_{t}(x)\right)\right]} \\ &=D_{t}(x) \exp \left(-y(x) \alpha h_{t}(x)\right) \cdot C . \quad(C i s a \text {constant}) \end{aligned}</script><script type="math/tex; mode=display">
+Z_{t}=\sum_{i}^{m} D_{t}(x) \exp \left(-y(x) \alpha_{t} h_{y}(x)\right)</script><p>指数误差函数</p>
+<script type="math/tex; mode=display">
+\begin{aligned} l(H(x) | D) &=\frac{1}{m} \sum_{i}^{m} \exp \left(-y_{i} H\left(x_{i}\right)\right) \\ &=\frac{1}{m} \sum_{i}^{m} \exp \left(-\sum_{j}^{T} \alpha_{j} y_{i} h_{j}\left(x_{i}\right)\right) \\ &=\sum_{i}^{m} D_{1}\left(x_{i}\right) \exp \left(-\sum_{j}^{T} \alpha_{j} y_{i} h_{j}\left(x_{i}\right)\right) \\ &=Z_{1} Z_{2}\left(x_{i}\right) \exp \left(-\sum_{j=2}^{T} \alpha_{j} y_{i} h_{j}\left(x_{i}\right)\right) \\ & \vdots \\ &=\prod_{i=1}^{T} Z_{i} \end{aligned}</script><h2 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h2><p>总结一下，得到AdaBoost的算法流程：</p>
+<p>输入：训练数据集$T={(x1,y1),(x2,y2),(xN,yN)}T={(x1,y1),(x2,y2),(xN,yN)}$，其中，$xi∈X⊆Rnxi∈X⊆Rn，yi∈Y=−1,1yi∈Y=−1,1，$迭代次数M</p>
+<p>初始化训练样本的权值分布：$D1=(w1,1,w1,2,…,w1,i),w,i=1,2,…,N$。</p>
+<p>对于$m=1,2,…,M$</p>
+<p>(a)　使用具有权值分布$D_m$的训练数据集进行学习，得到弱分类器$h_m(x)$　(b)　计算$h_m(x)$在训练数据集上的分类误差率：</p>
+<p>$e<em>m=∑</em>{i=1}^{N}w_m,iI(h_m(xi)≠y_i)$</p>
+<p>(c)　计算$h_m(x)$在强分类器中所占的权重：</p>
+<p>$\alpha_m=\frac{1}{2}log(\frac{1−e_m}{e_m})$</p>
+<p>(d)　更新训练数据集的权值分布（这里，$z_m是归一化因子，为了使样本的概率分布和为1）：</p>
+<script type="math/tex; mode=display">w_{m+1,i}=\frac{w_{m,i}}exp(−α_my_ih_m(xi))，i=1,2,…,10</script><script type="math/tex; mode=display">z_m=∑_{i=1}^{N}w_{m,i}exp(−α_my_ih_m(xi))</script><p> 得到最终分类器：</p>
+<script type="math/tex; mode=display">F(x)=sign(∑_{i=1}^{N}α_mh_m(x))</script><h2 id="面经"><a href="#面经" class="headerlink" title="面经"></a>面经</h2><p>今年8月开始找工作，参加大厂面试问到的相关问题有如下几点：</p>
+<ol>
+<li>手推AdaBoost</li>
+</ol>
+<ol>
+<li>与GBDT比较</li>
+</ol>
+<ol>
+<li>AdaBoost几种基本机器学习算法哪个抗噪能力最强，哪个对重采样不敏感？</li>
+</ol>
+<h2 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h2><h2 id="实例计算"><a href="#实例计算" class="headerlink" title="实例计算"></a>实例计算</h2><h2 id="Python实现"><a href="#Python实现" class="headerlink" title="Python实现"></a>Python实现</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/davidwang456/articles/8927029.html">https://www.cnblogs.com/davidwang456/articles/8927029.html</a></p>
+<h1 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flytowardnewworld.github.io/2019/03/22/Boosting/" data-id="cl67j0tjl00057ovk7uwz26pp" data-title="Boosting" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Boosting-AdaBoost/" rel="tag">Boosting, AdaBoost</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-SVR" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2019/03/19/SVR/" class="article-date">
+  <time class="dt-published" datetime="2019-03-19T06:34:14.000Z" itemprop="datePublished">2019-03-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2019/03/19/SVR/">支持向量回归</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+<p>支持向量机用于分类:硬间隔和软件间隔支持向量机。尽可能分对</p>
+<p>支持向量机回归： 希望$f(x)$与$y$尽可能的接近。</p>
+        
+          <p class="article-more-link">
+            <a href="../../2019/03/19/SVR/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flytowardnewworld.github.io/2019/03/19/SVR/" data-id="cl67j0tkg001y7ovkcm1l29o3" data-title="支持向量回归" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" rel="tag">支持向量机回归</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-SVMClassifiar" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2019/03/17/SVMClassifiar/" class="article-date">
+  <time class="dt-published" datetime="2019-03-17T00:50:59.000Z" itemprop="datePublished">2019-03-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2019/03/17/SVMClassifiar/">支持向量机(SVM) ----- 分类器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+        
+          <p class="article-more-link">
+            <a href="../../2019/03/17/SVMClassifiar/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flytowardnewworld.github.io/2019/03/17/SVMClassifiar/" data-id="cl67j0tke001v7ovk4q4j245a" data-title="支持向量机(SVM) ----- 分类器" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" rel="tag">支持向量机</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-回归树" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2019/03/11/%E5%9B%9E%E5%BD%92%E6%A0%91/" class="article-date">
+  <time class="dt-published" datetime="2019-03-11T06:36:29.000Z" itemprop="datePublished">2019-03-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2019/03/11/%E5%9B%9E%E5%BD%92%E6%A0%91/">回归树</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+<h1 id="分类树与回归树"><a href="#分类树与回归树" class="headerlink" title="分类树与回归树"></a>分类树与回归树</h1><p>分类树用于分类问题。分类决策树在选取划分点，用信息熵、信息增益、或者信息增益率、或者基尼系数为标准。<br>Classification tree analysis is when the predicted outcome is the class to which the data belongs.</p>
+<p>回归决策树用于处理输出为连续型的数据。回归决策树在选取划分点，就希望划分的两个分支的误差越小越好。</p>
+<p>Regression tree analysis is when the predicted outcome can be considered a real number (e.g. the price of a house, or a patient’s length of stay in a hospital)。</p>
+        
+          <p class="article-more-link">
+            <a href="../../2019/03/11/%E5%9B%9E%E5%BD%92%E6%A0%91/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flytowardnewworld.github.io/2019/03/11/%E5%9B%9E%E5%BD%92%E6%A0%91/" data-id="cl67j0tl8004d7ovk813oefkp" data-title="回归树" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" rel="tag">回归树</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-BP算法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2019/03/05/BP%E7%AE%97%E6%B3%95/" class="article-date">
+  <time class="dt-published" datetime="2019-03-05T11:24:23.000Z" itemprop="datePublished">2019-03-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2019/03/05/BP%E7%AE%97%E6%B3%95/">BP算法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+<h1 id="1-需要的微积分知识"><a href="#1-需要的微积分知识" class="headerlink" title="1. 需要的微积分知识"></a>1. 需要的微积分知识</h1><h2 id="1-1-导数"><a href="#1-1-导数" class="headerlink" title="1.1 导数"></a>1.1 导数</h2><p>对于一元函数，在导数存在的情况下，在某一点的导数，也就是该点的斜率。<br>对于多元函数，对于某一点求导，则需要指明方向，两个特殊的方向，1. 偏导：在坐标轴方向的导数 2. 梯度的方向:总有一个方向是变化最快的。</p>
+<h2 id="1-2-求导的链式法则"><a href="#1-2-求导的链式法则" class="headerlink" title="1.2 求导的链式法则"></a>1.2 求导的链式法则</h2><ol>
+<li><p>$x \in R$, $z=g(f(x))$, $y=f(x)$</p>
+<script type="math/tex; mode=display">\frac{\partial z}{\partial x}=\frac{\partial z}{\partial y} \frac{\partial y}{\partial x}</script></li>
+<li><p>$ x \in R^m $, $f(x)$是$R^M$到$R^n$的映射，$g(f)$是$R^n$到R的映射</p>
+<script type="math/tex; mode=display">\frac{\partial g}{\partial x_i}=\sum_j^n \frac{\partial g}{\partial f_i} \frac{\partial f_i}{\partial x_i}</script><p> 如果使用向量表示</p>
+<script type="math/tex; mode=display">\nabla_x^z=(\frac{\partial f}{\partial x})^T \nabla_y^z</script><h1 id="2-梯度下降法"><a href="#2-梯度下降法" class="headerlink" title="2. 梯度下降法"></a>2. 梯度下降法</h1><h2 id="2-1-梯度"><a href="#2-1-梯度" class="headerlink" title="2.1 梯度"></a>2.1 梯度</h2><p>梯度其实本质也是一个向量，对于函数$f(X,y)$<br>在$(W,y)$这一点的梯度 $(\frac{\partial f}{\partial X},\frac{\partial f}{\partial y})$<br>梯度的几何意义：在该店变化增加最快的地方</p>
+</li>
+</ol>
+<h2 id="2-2-梯度算法的解释"><a href="#2-2-梯度算法的解释" class="headerlink" title="2.2 梯度算法的解释"></a>2.2 梯度算法的解释</h2><p>图来自吴恩达的机器学习课程<br><img src="BP算法/2.1.1.png" alt="tu"><br>颜色偏红(A)的地方开始，根据梯度的负方向通过9次更新，达到了最小值(B)。<br>现在给定一个点$A(\theta_0,\theta_1)$,干嘛呢，我们想从A到B点（最小值点),类似人类下山，需要知道往那个方向吧、走大多一步呢？<br>方向：梯度的负方向 $ \delta=(\frac{\partial L}{\partial \theta_0},\frac{\partial L}{\partial \theta_1})$)<br>步长：学习率（$\alpha$)<br>因此，计算一次里目标更近了 $(\theta_0,\theta_1)=(\theta_0,\theta_1)-\alpha \dot (\delta)$<br>在重复上两步，直到满意为止。</p>
+<h1 id="3-误差反向传播算法"><a href="#3-误差反向传播算法" class="headerlink" title="3.误差反向传播算法"></a>3.误差反向传播算法</h1><h2 id="3-1-理论推导"><a href="#3-1-理论推导" class="headerlink" title="3.1 理论推导"></a>3.1 理论推导</h2><p><img src="BP算法/3.1.1.png" alt="计算图"></p>
+<h3 id="3-1-1-符号说明"><a href="#3-1-1-符号说明" class="headerlink" title="3.1.1 符号说明"></a>3.1.1 符号说明</h3><p>上图是一个L层的神经网络，输入层为第一层，隐藏层：2至$L-1$层，输出层L</p>
+<p>令 输入向量 $\vec{X}$</p>
+<script type="math/tex; mode=display">\vec{X} = (x_1,x_2,...,x_{m-1},x_m)</script><p>输出向量 $\vec{Y}$</p>
+<script type="math/tex; mode=display">\vec{Y}=(y_1,y_2,...,y_{n-1},y_n)$$a
+第j层隐藏层的输出向量 $\vec{h^{(j)}}$
+$$\vec{h^{(j)}}=(h_1^{(j)},h_2^,...,h_{t-1}^{(j)},h_tj^{(j)})</script><p>其中，$tj$:表示第j的隐藏层个数<br>第$(l-1)$层的第i个神经元到第$l$层的第j个神经元的连接权重：$w_{ij}^{(l)}$，则第$(l-1)$层神经元到第$l$层神经元的连接权重矩阵</p>
+<script type="math/tex; mode=display">W^{(l)}=\left( \begin{matrix}w_{11}^{(l)}& \cdots & w_{1(tj)}\\
+    &   \dots &\\
+    w_{s(l-1)}^{l}&\cdots&w_{s(l-1)s(l)}^{l}
+\end{matrix}\right)</script><h3 id="3-1-2-推导过程"><a href="#3-1-2-推导过程" class="headerlink" title="3.1.2 推导过程"></a>3.1.2 推导过程</h3><h4 id="3-1-2-1-误差"><a href="#3-1-2-1-误差" class="headerlink" title="3.1.2.1 误差"></a>3.1.2.1 误差</h4><p>定义的误差函数,常见的衡量性指标见 <a href="#3.6">戳我</a>,这里选择的误差平方和最小<br>第$i$个输出的误差,假设实际输出$(d(1),d(2),…,d(n))$：,一个输入样本对应的误差</p>
+<script type="math/tex; mode=display">E(i)=\frac{1}{2}\sum_{k=1}^n(y(i)-d(i))^2=\frac{1}{2}||y-d||^2</script><p>所有训练样本($N$)的误差：</p>
+<script type="math/tex; mode=display">E(i)=\frac{1}{2}\sum_{j=1}^{N}(\sum_{k=1}^n(y(i)-d(i))^2)=\frac{1}{2N}\sum_{j=1}^{N}(||y(i)-d(i)||^2)</script><p>因此，</p>
+<script type="math/tex; mode=display">E = \frac{1}{2N}\sum_{i=1}^N(||y(i)-d(i)||^2)</script><p>其实，神经网络的输出是关于节点的复合函数。代价函数是关于$W$和$b$的函数。</p>
+<h4 id="3-1-2-2-正向传播"><a href="#3-1-2-2-正向传播" class="headerlink" title="3.1.2.2 正向传播"></a>3.1.2.2 正向传播</h4><p>输入层$\hat{X}$：</p>
+<script type="math/tex; mode=display">X =(x_1,x_2,x_3,...,x_m)</script><p>当有$N$个训练样本时，可用矩阵表示</p>
+<script type="math/tex; mode=display">X=\left( \begin{matrix}
+x_{11} &x_{12}&...&x_{1m}\\
+x_{21} & x_{22}&...&x_{2m}\\
+\vdots & \vdots&\dots&\vdots\\
+x_{N1} & \vdots&\vdots&x_{Nm}\\
+\end{matrix}  \right)</script><p>第二层 $h^{(2)}$,一共$s2$个节点:<br>第i个节点的计算</p>
+<script type="math/tex; mode=display">h^{(2)}(i)=f(\sum_{j=1}^{s2}x(j)*w_{ji}^{(l)}+b_i)=f(x*w(:,i)+b_i)</script><p>矩阵表示</p>
+<script type="math/tex; mode=display">h^{(2)}=f(x*W^{(l)}+b^{(2)})</script><p>第i层 矩阵形式</p>
+<script type="math/tex; mode=display">h^{(l)}=f(h^{(l-1)}*W^{(l)}+b)</script><h4 id="3-1-2-3-反向传播"><a href="#3-1-2-3-反向传播" class="headerlink" title="3.1.2.3 反向传播"></a>3.1.2.3 反向传播</h4><p>梯度下降法更新权重，不断迭代到最优解。<br>对$w<em>{ij}$求导数可得,可更新$w</em>{ij}$更新公式：</p>
+<script type="math/tex; mode=display">w_{ij}=w_{ij}-\alpha \frac{\partial E}{\partial w_{ij}}</script><p>当然简单的情况下，可直接写出公式，当太复杂的时候，引入BP简化求导</p>
+<p>方便书写公式，对于第i的输入$h^{(i-1)}*W^{(i)}+b^{(i)}$记作$net^{(i)}$,其中，第$i$的输入和输出的关系，$输入=f(输出)$<br>下面开始推导</p>
+<p>首先，对于$L$层，</p>
+<p>对于$W^{(L)}$，先看对$W_{ij}^{(L)}$求导，</p>
+<script type="math/tex; mode=display">\frac{\partial E}{\partial W_{ij}^{(L)}}
+=\frac{\partial E}{\partial y(j)} * \frac{\partial y(i)}{\partial net_{j}^{L}} * \frac{\partial net_{j}^{L}}{\partial W_{ij}^{(L)}}\\
+=(y(j)-d(j))*f(x)^{'}|_{x=net_j^{(L)}}h_i^{(L-1)}</script><p>令$\delta_i^{(L)}=y(i)-d(i)$</p>
+<p>上述给出了单个分量的求偏导的结果，对于$W^{(L)}$</p>
+<script type="math/tex; mode=display">
+\frac{\partial E}{\partial W^{(L)}}
+=\left[\begin{matrix} 
+\frac{\partial E}{\partial W_{11}^{(L)}} & \frac{\partial E}{\partial W_{12}^{(L)}}&\dots & \frac{\partial E}{\partial W_{1n}^{(L)}}\\
+\frac{\partial E}{\partial W_{21}^{(L)}} & \frac{\partial E}{\partial W_{22}^{(L)}}&\dots& \frac{\partial E}{\partial W_{2n}^{(L)}}\\
+\vdots& \dots& \dots& \dots\\
+\frac{\partial E}{\partial W_{sL,1}^{(L)}} & \frac{\partial E}{\partial W_{sL,2}^{(L)}}&\dots& \frac{\partial E}{\partial W_{sL,n}^{(L)}}
+\end{matrix}\right]
+\\= \left[
+\begin{matrix}
+h^{(L-1)}_1\\h^{(L-1)}_2\\ \dots\\h^{(L-1)}_n
+\end{matrix}
+\right] *\left[\begin{matrix}
+\delta_1^{(L)}f(x)^{'}|_{x=net_1^{(L)}}\\
+\delta_2^{(L)}f(x)^{'}|_{x=net_2^{(L)}}\\
+\dots\\
+\delta_n^{(L)}f(x)^{'}|_{x=net_n^{(L)}}
+\end{matrix}\right] ^T
+=h^{(L-1)}S^{(L)}</script><p>其中，</p>
+<script type="math/tex; mode=display">
+S^{(L)}=\left[\begin{matrix}
+
+\delta_1^{(L)}f(x)^{'}|_{x=net_1^{(L)}}\\
+\delta_2^{(L)}f(x)^{'}|_{x=net_2^{(L)}}\\
+\dots\\
+\delta_n^{(L)}f(x)^{'}|_{x=net_n^{(L)}}
+\end{matrix}\right]^T</script><p>同理可得，</p>
+<script type="math/tex; mode=display">
+\frac{\partial E}{\partial b_k^{(L)}}=(y(j)-d(j))*f(x)^{'}|_{x=net_j^{(L)}}</script><p>其次，对于隐含层$L-1$层，对$W_{ij}^{(L)}$求导</p>
+<script type="math/tex; mode=display">
+\frac{\partial E}{\partial W_{ij}^{(L-1)}}
+=\sum_{k=1}^{n}\frac{\partial E}{\partial y(k)} * \frac{\partial y(k)}{\partial net_{k}^{L}} * \frac{\partial net_{k}^{L}}{\partial f(net_j^{(L-1)})}*\frac{\partial f(net_j^{(L-1)})}{\partial net_j^{(L-1)}}*\frac{\partial net_j^{(L-1)}}{\partial W_{ij}^{(L-1)}}\\
+=\sum_{k=1}^{n} (y(j)-d(j))*f(x)^{'}|_{x=net_j^{(L)}}W_{kj}^{(L)}f(x)^{'}|_{x=net_j^{L-1}}h_i^{L-2}\\
+=\sum_{k=1}^{n}S_i^{(L)}W_{kj}^{(L)}f(x)^{'}|_{x=net_j^{L-1}}h_i^{L-2}\\</script><p>写出矩阵形式,对$W^{(L-1)}$</p>
+<script type="math/tex; mode=display">
+\frac{\partial E}{\partial W^{(L-1)}}=\left[\begin{matrix} h^{(L-2)}_1\\h^{(L-2)}_2\\\vdots\\h^{(L-2)}_{s(L-2)}\end{matrix}\right] \left[\begin{matrix}
+
+\delta_1^{(L)}f(x)^{'}|_{x=net_1^{(L)}}\\
+\delta_2^{(L)}f(x)^{'}|_{x=net_2^{(L)}}\\
+\dots\\
+\delta_n^{(L)}f(x)^{'}|_{x=net_n^{(L)}}
+\end{matrix}\right]^T
+\left[\begin{matrix} 
+W_{11}^{(L)} &  W_{12}^{(L)}&\dots & W_{1n}^{(L)}\\
+W_{21}^{(L)} &  W_{22}^{(L)}&\dots& W_{2n}^{(L)}\\
+\vdots& \dots& \dots& \dots\\
+ W_{s(L-1),1}^{(L)} & W_{s(L-1),2}^{(L)}&\dots& W_{s(L-1),n}^{(L)}
+\end{matrix}\right]^T
+ \\
+\left[ \begin{array}{ccc}{f^{'(L-1)}\left(net^{(L-1)}_{(1)}\right)} & {0} & {0}&{0} \\ {0} & {f^{'(L-1)}\left(net^{(L-1)}_{(2)}\right)} & {0} &{0}\\
+0 & \dots & \vdots & 0\\{0} & {0} & {0}&{f^{(L-1)}\left(ne t_{s(L-1)}^{(L-1)}\right)}\end{array}\right]\\
+=h^{(L-2)}S^{(L-1)}</script><script type="math/tex; mode=display">
+S^{(L-1)}=\left(\left[\begin{matrix}
+
+f(x)^{'(L)}|_{x=net_1^{(L)}}&0& \dots& 0\\
+0&f(x)^{'}|_{x=net_2^{(L)}}0& \dots& 0\\
+0&\dots&\dots&0\\
+0&0&0&f(x)^{'(L)}|_{x=net_n^{(L)}}
+\end{matrix}\right]\left[\begin{matrix} \delta_1^{(L)}\\\delta_2^{(L)}\\\vdots\\\delta_n^{(L)}\end{matrix}\right] \right)^T\\
+\left[\begin{matrix} 
+W_{11}^{(L)} &  W_{12}^{(L)}&\dots & W_{1n}^{(L)}\\
+W_{21}^{(L)} &  W_{22}^{(L)}&\dots& W_{2n}^{(L)}\\
+\vdots& \dots& \dots& \dots\\
+ W_{s(L-1),1}^{(L)} & W_{s(L-1),2}^{(L)}&\dots& W_{s(L-1),n}^{(L)}*
+\end{matrix}\right]^T
+\left[ \begin{array}{ccc}{f^{'(L-1)}\left(net^{(L-1)}_{(1)}\right)} & {0} & {0}&{0} \\ {0} & {f^{'(L-1)}\left(net^{(L-1)}_{(2)}\right)} & {0} &{0}\\
+0 & \dots & \vdots & 0\\{0} & {0} & {0}&{f^{(L-1)}\left(ne t_{s(L-1)}^{(L-1)}\right)}\end{array}\right]\\
+=S^{(L)}\left[\begin{matrix} 
+W_{11}^{(L)} &  W_{12}^{(L)}&\dots & W_{1n}^{(L)}\\
+W_{21}^{(L)} &  W_{22}^{(L)}&\dots& W_{2n}^{(L)}\\
+\vdots& \dots& \dots& \dots\\
+ W_{s(L-1),1}^{(L)} & W_{s(L-1),2}^{(L)}&\dots& W_{s(L-1),n}^{(L)}*
+\end{matrix}\right]^T\left[ \begin{array}{ccc}{f^{'(L-1)}\left(net^{(L-1)}_{(1)}\right)} & {0} & {0}&{0} \\ {0} & {f^{'(L-1)}\left(net^{(L-1)}_{(2)}\right)} & {0} &{0}\\
+0 & \dots & \vdots & 0\\{0} & {0} & {0}&{f^{(L-1)}\left(ne t_{s(L-1)}^{(L-1)}\right)}\end{array}\right]*\\</script><p>对$1&lt;l&lt;L$,求$W^{(l)}$的偏导,</p>
+<p>最后，根据上述的推导喔，很容易得出$S^{(l)}$和$S^{(l+1)}$,</p>
+<script type="math/tex; mode=display">
+S^{(l)}=S^{(l+1)}W^{(l+1)^T}F^{'(l)}(net^{(l)})\\
+S^{(L)}=(Y-\hat{Y})F^{'(L)}(net^{(L)})</script><script type="math/tex; mode=display">
+\frac{\partial E}{\part W^{(l)}}=\left[\begin{matrix}h^{(l-1)}_1\\h^{(l-1)}_2 \\\dots \\h^{(l-1)}_{sl}\end{matrix}\right]S^{(l+1)} \left[\begin{matrix}W_{11}^{(l+1)}&W_{12}^{(l+1)} &\dots& W_{2(sl+1)}^{(l+1)}\\
+W_{21}^{(l+1)}&W_{22}^{(l+1)} &\dots& W_{2(sl+1)}^{(l+1)}\\
+\dots&\dots&\dots&\dots\\
+W_{sl1}^{(l+1)}&W_{sl2}^{(l+1)} &\dots& W_{sl(sl+1)}^{(l+1)}\\
+\end{matrix}  \right]^T\left[\begin{matrix} \part f^{'(l)}(net_1^{l})&0&\dots & 0\\
+0\\0 &\part f^{'(l)}(net_2^{l})&\dots&0\\
+0 & 0&\dots&0\\
+0&0&\dots&\part f^{'(l)}(net_l^{l})\end{matrix}\right]</script><h2 id="3-2-BP算法的小结"><a href="#3-2-BP算法的小结" class="headerlink" title="3.2 BP算法的小结"></a>3.2 BP算法的小结</h2><p>算法分为两个阶段：前向阶段和后向传播阶段</p>
+<p>后向阶段算法：</p>
+<p>Step 1:  计算$\hat{y}^{(L)}$</p>
+<p>Step 2:  for l =L:2</p>
+<p>​        计算$S^{(l)}=S^{(l+1)}W^{(l+1)}F’(net^{(l)})$</p>
+<p>​        计算 $\Delta W^{(l)}=h^{(l-1)}S^{(l)} $</p>
+<p>​        计算$W^{(l)}=W^{(l)}-\delta \Delta W^{(l)}$</p>
+<h2 id="3-3-Python实现"><a href="#3-3-Python实现" class="headerlink" title="3.3 Python实现"></a>3.3 Python实现</h2><h3 id="3-3-1-最简单三层网络"><a href="#3-3-1-最简单三层网络" class="headerlink" title="3.3.1 最简单三层网络"></a>3.3.1 最简单三层网络</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">不用任何框架，自己写一个三层的神经网络</span></span><br><span class="line"><span class="string"># input-3,hidden-4 output-1</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">np.random.seed(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Input Matrix</span></span><br><span class="line">X = np.array([[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>],</span><br><span class="line">              [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>],</span><br><span class="line">              [<span class="number">1</span>, <span class="number">0</span> ,<span class="number">1</span>],</span><br><span class="line">              [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>],])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Output Matrix</span></span><br><span class="line">y = np.array([[<span class="number">0</span>],</span><br><span class="line">              [<span class="number">1</span>],</span><br><span class="line">              [<span class="number">1</span>],</span><br><span class="line">              [<span class="number">0</span>]])</span><br><span class="line"><span class="comment"># Nonlinear function</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sigmoid</span>(<span class="params">X,derive=<span class="literal">False</span></span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> derive:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span> / (<span class="number">1</span> + np.exp(-X))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> X*(<span class="number">1</span>-X)</span><br><span class="line"><span class="comment"># relu</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">relu</span>(<span class="params">X,derive = <span class="literal">False</span></span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> derive:</span><br><span class="line">        <span class="keyword">return</span> np.maximum(<span class="number">0</span>,X)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> (X&gt;<span class="number">0</span>).astype(<span class="built_in">float</span>)</span><br><span class="line">        </span><br><span class="line"><span class="comment"># Weight bias</span></span><br><span class="line">W1 = <span class="number">2</span> * np.random.random((<span class="number">3</span>, <span class="number">4</span>))-<span class="number">1</span></span><br><span class="line">b1 = <span class="number">0.1</span> * np.ones((<span class="number">4</span>,))</span><br><span class="line"> </span><br><span class="line">W2 = <span class="number">2</span> * np.random.random((<span class="number">4</span>,<span class="number">1</span>))-<span class="number">1</span></span><br><span class="line">b2 = <span class="number">0.1</span> * np.ones((<span class="number">1</span>,))</span><br><span class="line"> </span><br><span class="line">rate = <span class="number">0.1</span></span><br><span class="line">noline = relu</span><br><span class="line"><span class="comment"># Training</span></span><br><span class="line">train_times = <span class="number">200</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> time <span class="keyword">in</span> <span class="built_in">range</span>(train_times):</span><br><span class="line">    <span class="comment"># Layer one</span></span><br><span class="line">    A1 = np.dot(X,W1)+b1</span><br><span class="line">    Z1 = noline(A1)</span><br><span class="line">    <span class="comment"># Layer two </span></span><br><span class="line">    A2 = np.dot(Z1, W2)+b2</span><br><span class="line">    Z2 = noline(A2)</span><br><span class="line">    </span><br><span class="line">    cost = -y+Z2</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># Calc deltas </span></span><br><span class="line">    S2= cost*noline(A2,<span class="literal">True</span>)</span><br><span class="line">    delta_W2 = np.dot(Z1.T,S2)</span><br><span class="line">    bias2 = S2.<span class="built_in">sum</span>(axis=<span class="number">0</span>)</span><br><span class="line">    </span><br><span class="line">    S1 = np.dot(S2, W2.T)*noline(A1,<span class="literal">True</span>)</span><br><span class="line">    delta_W1= np.dot(X.T, S1)</span><br><span class="line">    bias1 = S1.<span class="built_in">sum</span>(axis=<span class="number">0</span>)</span><br><span class="line">    <span class="comment"># update</span></span><br><span class="line">    W1 = W1-rate*delta_W1</span><br><span class="line">    b1 = b1-rate*bias1</span><br><span class="line">    W2 = W2-rate*delta_W2</span><br><span class="line">    b2 = b2-rate*bias2</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;error&#x27;</span>,np.mean(((y-Z2)*(y-Z2))**<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;prediction&quot;</span>,Z2)</span><br></pre></td></tr></table></figure>
+<h2 id="3-4-附录："><a href="#3-4-附录：" class="headerlink" title="3.4  附录："></a><font id= 3.6>3.4  附录</font>：</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Abbreviation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mean absolute percentage error</td>
+<td>MAPE</td>
+</tr>
+<tr>
+<td>Root mean squares percentage error</td>
+<td>RMSPE</td>
+</tr>
+<tr>
+<td>Mean absolute percentage error</td>
+<td>MAE</td>
+</tr>
+<tr>
+<td>Mean squares error</td>
+<td>MSE</td>
+</tr>
+<tr>
+<td>Index of agreement</td>
+<td>IA</td>
+</tr>
+<tr>
+<td>Theil U statistic 1</td>
+<td>U1</td>
+</tr>
+<tr>
+<td>Theil U statistic 2</td>
+<td>U2</td>
+</tr>
+<tr>
+<td>Correlation coefficient</td>
+<td>R</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>MAPE    =    $\frac{1}{n} \sum<em>{k=1}^{n}\left|\frac{x^{(0)}(k)-\hat{x}^{(0)}(k)}{x^{(0)}(k)}\right| \times 100$<br>RMSPE    =    $\sqrt{\frac{1}{n} \sum</em>{k=1}^{n}\left(\frac{\hat{x}^{(0)}(k)-x^{(0)}(k)}{x^{(0)}(k)}\right)^{2}} \times 100$<br>MAE    =    $\frac{1}{n} \sum<em>{k=1}^{n}\left|\hat{x}^{(0)}(k)-x^{(0)}(k)\right|$<br>MSE    =    $\frac{1}{n} \sum</em>{k=1}^{n}\left(\hat{x}^{(0)}(k)-x^{(0)}(k)\right)^{2}$<br>IA    =    $1-\frac{\sum<em>{k=1}^{n}\left(\hat{x}^{(0)}(k)-x^{(0)}(k)\right)^{2}}{\sum</em>{k=1}^{n} \left( \left| \hat{x}^{(0)}(k)-\overline{x} \right|+\left| x^{(0)}(k)-\overline{x}\right| \right)^{2}}$<br>U1    =    $\frac{\sqrt{\frac{1}{n} \sum<em>{k=1}^{n}\left(x^{(0)}(k)-x^{(0)}(k)\right)^{2}}}{\sqrt{\frac{1}{n} \sum</em>{k=1}^{n} x^{(0)}(k)^{2}}+\sqrt{\frac{1}{n} \sum<em>{k=1}^{n} x^{(0)}(k)^{2}}}$<br>U2    =    $\frac{\left[\sum</em>{k=1}^{n}\left(\hat{x}^{(0)}(k)-x^{(0)}(k)\right)^{2}\right]^{1 / 2}}{\left[\sum_{k=1}^{n} x^{(0)}(k)^{2}\right]^{1 / 2}}$<br>R    =    $\frac{\operatorname{Cov}(\hat{x}^{(0)}, x^{(0)})}{\sqrt{\operatorname{Var}[\hat{x}^{(0)}] \operatorname{Var}[x^{(0)}]}}$</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flytowardnewworld.github.io/2019/03/05/BP%E7%AE%97%E6%B3%95/" data-id="cl67j0tjk00047ovk9jywg76x" data-title="BP算法" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/BP/" rel="tag">BP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-决策树" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2019/03/03/%E5%86%B3%E7%AD%96%E6%A0%91/" class="article-date">
+  <time class="dt-published" datetime="2019-03-03T01:18:39.000Z" itemprop="datePublished">2019-03-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2019/03/03/%E5%86%B3%E7%AD%96%E6%A0%91/">决策树</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>主要是分享决策的基本知识点，重点在分类决策树上，对于回归的决策树后面在给出。希望大家和我一起做知识的传播者啦！:smile: :smiley: :grin: :open_mouth:</p>
+        
+          <p class="article-more-link">
+            <a href="../../2019/03/03/%E5%86%B3%E7%AD%96%E6%A0%91/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flytowardnewworld.github.io/2019/03/03/%E5%86%B3%E7%AD%96%E6%A0%91/" data-id="cl67j0tl400407ovk9z1eg7fo" data-title="决策树" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E5%86%B3%E7%AD%96%E6%A0%91/" rel="tag">决策树</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-吴恩达" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2019/03/03/%E5%90%B4%E6%81%A9%E8%BE%BE/" class="article-date">
+  <time class="dt-published" datetime="2019-03-03T01:18:39.000Z" itemprop="datePublished">2019-03-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2019/03/03/%E5%90%B4%E6%81%A9%E8%BE%BE/">吴恩达</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id=""><a href="#" class="headerlink" title=" "></a> </h1><p>Neural Networks and Deep Learning </p>
+<p>4 周</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flytowardnewworld.github.io/2019/03/03/%E5%90%B4%E6%81%A9%E8%BE%BE/" data-id="cl67j0tl700477ovkd24u90nz" data-title="吴恩达" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E5%86%B3%E7%AD%96%E6%A0%91/" rel="tag">决策树</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-希腊字母" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="../../2019/03/03/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" class="article-date">
@@ -172,231 +825,11 @@
 
 
   
-    <article id="post-SVD" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2019/02/28/SVD/" class="article-date">
-  <time class="dt-published" datetime="2019-02-28T06:54:12.000Z" itemprop="datePublished">2019-02-28</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="../../categories/%E6%95%B0%E5%AD%A6/">数学</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2019/02/28/SVD/">我的读书笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="目录-smile"><a href="#目录-smile" class="headerlink" title="目录 :smile:"></a>目录 :smile:</h1><p>:one: <a href="#1">简单说一下特征值、特征向量与特征分解</a><br>&nbsp;&nbsp; I. <a href="#1.1">特征值、特征向量与特征分解</a><br>&nbsp;&nbsp; II. <a href="#1.2">几何意义</a><br>&nbsp;&nbsp; III.  <a href="#1.3">如何实现通过Matlab、Python实现</a><br>:two:<a href="#2">详细解说SVD</a><br>&nbsp;&nbsp; I. <a href="#2.1">几何意义</a><br>&nbsp;&nbsp; I. <a href="#2.2">奇异值分解的推导过程</a><br>&nbsp;&nbsp; I. <a href="#2.3">SVD算例</a><br>&nbsp;&nbsp; I. <a href="#2.4">如何通过Matlab和Python</a><br>:three:<a href="#3">应用举例</a><br>&nbsp;&nbsp; I. <a href="#3.1">特征值、特征向量与特征分解</a><br>:four:<a href="#4">特征分解、奇异值分解的区别</a><br>&nbsp;&nbsp; I. <a href="#4">特征分解、奇异值分解的区别</a></p>
-<h1 id="简单说一下特征值、特征向量与特征分解"><a href="#简单说一下特征值、特征向量与特征分解" class="headerlink" title=" 简单说一下特征值、特征向量与特征分解"></a><font id = '1' color = 'blue'> 简单说一下特征值、特征向量与特征分解</font></h1>
-        
-          <p class="article-more-link">
-            <a href="../../2019/02/28/SVD/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://flytowardnewworld.github.io/2019/02/28/SVD/" data-id="cl67j0tkd001s7ovk3nnug0m0" data-title="我的读书笔记" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/SVD/" rel="tag">SVD</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-python库" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2019/02/24/python%E5%BA%93/" class="article-date">
-  <time class="dt-published" datetime="2019-02-24T04:29:29.000Z" itemprop="datePublished">2019-02-24</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="../../categories/python/">python</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2019/02/24/python%E5%BA%93/">python库</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>开始接触Python是大二结束的时候，到现在都快两年了，其实一直并不是很细节的学习，只是希望能够跑个结果。不过呢？，以后肯定是会经常用Python，所以呢？我接下来会认真学习Python</p>
-        
-          <p class="article-more-link">
-            <a href="../../2019/02/24/python%E5%BA%93/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://flytowardnewworld.github.io/2019/02/24/python%E5%BA%93/" data-id="cl67j0tky003i7ovk9fcyehn4" data-title="python库" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-读书笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2019/02/22/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time class="dt-published" datetime="2019-02-22T13:02:12.000Z" itemprop="datePublished">2019-02-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="../../categories/%E8%AF%BB%E4%B9%A6%E6%97%A5%E5%B8%B8/">读书日常</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2019/02/22/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">我的读书笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <span id="more"></span>
-<h2 id="2019-第十五周"><a href="#2019-第十五周" class="headerlink" title="2019 第十五周"></a><font color='red' >2019 第十五周<font></h2><p>三月份至2019.4.9这段时间，才发现我是如此没有自律的人，充分体现了我是人的特性，那就是我是群体动物，苦笑.jpg,苦笑.jpg,</p>
-<p>en, 最近突然想给自己打上厨娘的身份，如果可以每天花两个小时做饭就好了</p>
-<hr>
-<h2 id="愿你被世界温柔的相待"><a href="#愿你被世界温柔的相待" class="headerlink" title="愿你被世界温柔的相待"></a>愿你被世界温柔的相待</h2><ol>
-<li>接触的东西越多，越深入，就会发现我是如此的菜，开始有些知识焦虑了，知识那么多<del>~，可是我只有一个头脑啊</del>~</li>
-<li>开始不想写一些特别低俗的博客了，一是觉得浪费时间，二是输出效果太差，引不起特别大的关注，虽然我写博客，完全是站在自己的角度，没有考虑读者的意愿，（滑稽.jpg)。</li>
-<li>现在的自己，不是停留在基本的问题上，更应该去探索未知 的知识世界，虽然离这个flag可能还有几年的时间，能够给世界的知识创造一点点价值，哪怕只是一小点点。离这个目标还需要努力啊！！！！！</li>
-<li>我想我应该去记录学习知识的过程，突破更大的更困难的问题。 </li>
-</ol>
-<hr>
-<h2 id="2019-第四周读书笔记"><a href="#2019-第四周读书笔记" class="headerlink" title="2019-第四周读书笔记"></a>2019-第四周读书笔记</h2><ol>
-<li><p>这周读了一本小说，是张爱玲的《倾城之恋》，原来和电视剧的何晟铭主演《倾城之恋》不是同一个事情啊！</p>
-</li>
-<li><p>看了《阿甘正传》，“生活就像一盒巧克力，你永远不知道下一颗是什么味道。“这是阿甘对生活最好的诠释。小时候，有人骑着自行车羞辱他，他只会跑，拼命的跑，只会再公路上跑。长大后，别人骑着车想打他，阿甘还是跑，但是这次阿甘学会了网草坪上跑！就被大学看上，进入运动大学，还通过参加比赛赢得了冠军，然后，阿甘当兵了，再后来，打乒乓球很出色。阿甘似乎做什么都能成功，也许心无旁骛，最笨的方法+时间=收获。</p>
-</li>
-</ol>
-<p>我觉得很心酸的是，当珍妮告诉他有儿子时候，阿甘问，”他聪明吗“？</p>
-<hr>
-<h2 id="2019第四周安排"><a href="#2019第四周安排" class="headerlink" title="2019第四周安排"></a>2019第四周安排</h2><ol>
-<li><p>改论文，改变自己的办事效率喔，拒绝重复工作</p>
-</li>
-<li><p>编程能力</p>
-</li>
-<li><p>慢慢的做事情，先慢后快，</p>
-</li>
-<li><p>生活、学习、交友、文采<br>2019-第三周读书笔记<br>这次读了《极简思维：颠覆传统思维模式的极简法则》作者：S.J斯科特 巴里.达文波特</p>
-</li>
-</ol>
-<p>我们生活充满了各种诱惑、杂乱信息、导致了生活的混乱，产生知识焦虑、年龄危机、人际关系的淡化。作者给我们介绍了许多问题、许多的解决方法，让我们这个信息爆炸的时代可以过的充实些。</p>
-<p>每天睡8个小时、还剩下16个小时，在减去2个小时解决个人卫生和饮食，那么还有14个小时，一个星期98个小时。那么98个小时，你投入在哪里呢？</p>
-<p>总的来说，这本书传达的东西，我还是很喜欢的，极简主义者，少不得也多不得！！！！！！！！！！！！！！！</p>
-<hr>
-<h2 id="读《拆掉思维里的墙》"><a href="#读《拆掉思维里的墙》" class="headerlink" title="读《拆掉思维里的墙》"></a>读《拆掉思维里的墙》</h2><p>摘录 ：我们的生活也由三个支架组成：自我、家庭与团体和职业。这样的支架支撑着我们的灵魂，它在记录我们的生命。我们一直都在调整着三个位置的平稳，使之成为最稳固的联动三脚架。</p>
-<p>这句大概是结合我的经历，最具有感悟的。因为一旦走出大学，这三者才开始真正的组成我们的生活。</p>
-<p>古典老师，从职业、成功学、爱情、家庭等等不同的案例，给我分析了大多数人会面临的无形的”墙“，给了我们如何拆掉这些墙的方法。但是呢，对于古典老师的爱情观点，我并不是很赞同，因为呢，那些愿意陪你度过余生的人付出的感情，是如此的廉价吗？有的人既可以是白玫瑰，也可以红玫瑰啊！</p>
-<hr>
-<h2 id="2019年第二周安T排"><a href="#2019年第二周安T排" class="headerlink" title="2019年第二周安T排"></a>2019年第二周安T排</h2><p>每天两个小时阅读论文或者专业书籍的阅读<br>开题报告修改和PPT制作（3h)<br>《拆掉思维里面的墙》（3h)<br>看哈利波特（一集）</p>
-<h2 id="—"><a href="#—" class="headerlink" title="—-"></a>—-</h2><h1 id="2018年的总结"><a href="#2018年的总结" class="headerlink" title="2018年的总结"></a>2018年的总结</h1><p> 小小的悔恨与遗憾</p>
-<ol>
-<li>大三下，在课堂上，打了半学期的游戏</li>
-<li>生活还是不规律，超喜欢深夜逛知乎、刷B站</li>
-<li>额头上，不停的冒着痘痘啊</li>
-<li>英语单词量在下降ing</li>
-<li>运动量在降低喔</li>
-<li>很讨厌洗衣服</li>
-</ol>
-<p>相比于上一年进步的方面</p>
-<ol>
-<li>愿意去承担更多的责任</li>
-<li>更乐意去交流</li>
-<li>越来越重视健康style</li>
-<li>不会随意发泄自己的情绪了<ol>
-<li>更加认识到自身的优势与劣势了<br>感到愉快的事情</li>
-</ol>
-</li>
-<li>知道自己想要什么，知道自己在做什么</li>
-<li>整理完了大学期间所有的东西，往事不堪回首， 但也只能是柳暗花明又一村。</li>
-<li>能读研究生了</li>
-</ol>
-<p>聊聊2019年的点点期许<br>学习上</p>
-<ol>
-<li>多看19场知乎live</li>
-<li>阅读10本书籍，书单也有了</li>
-<li>在专业学习上，希望有所提升咯<br>生活中</li>
-<li>早睡早起身体好</li>
-<li>看十部美剧，尽管我最大的兴趣是睡觉</li>
-<li>时常更新歌单，不想在一年里面都是相同的旋律</li>
-<li>静静静静静静静</li>
-<li>合理安排</li>
-<li>折星星</li>
-<li>番茄闹钟</li>
-<li>偶尔听听 TED<br>技术</li>
-<li>清理下了github 仓库</li>
-<li>重新更新了  github page</li>
-<li>多读、多写、多想</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://flytowardnewworld.github.io/2019/02/22/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" data-id="cl67j0tn300aa7ovkceane5f5" data-title="我的读书笔记" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="../15/">&laquo; Prev</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../14/">14</a><a class="page-number" href="../15/">15</a><span class="page-number current">16</span>
+    <a class="extend prev" rel="prev" href="../15/">&laquo; Prev</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../14/">14</a><a class="page-number" href="../15/">15</a><span class="page-number current">16</span><a class="page-number" href="../17/">17</a><a class="extend next" rel="next" href="../17/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -407,7 +840,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../categories/Book/">Book</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Deep-Learning/">Deep Learning</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/R/">R</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/machine-learning/">machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E5%A8%B1%E4%B9%90%E7%94%9F%E6%B4%BB/">娱乐生活</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E5%AD%A6%E4%B9%A0%E3%81%AE%E5%8E%86%E7%A8%8B-Journal-of-Studying/">学习の历程(Journal of Studying)</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E5%BF%83%E5%BE%97/">心得</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E6%80%9D%E7%BB%B4/">思维</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E6%95%B0%E5%AD%A6/">数学</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">数据可视化</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6-Data-Science/">数据科学(Data Science)</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%95%B0%E5%AD%A6/">数学</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E6%9D%82%E9%A1%B9/">杂项</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E7%A7%91%E6%99%AE/">科普</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E7%A7%91%E7%A0%94/">科研</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E7%AB%9E%E8%B5%9B/">竞赛</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E8%8B%B1%E8%AF%AD/">英语</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E8%A7%84%E5%88%92/">规划</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0/">视频学习</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E8%AF%BB%E4%B9%A6%E6%97%A5%E5%B8%B8/">读书日常</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../categories/Book/">Book</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/Deep-Learning/">Deep Learning</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/R/">R</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/machine-learning/">machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E5%A8%B1%E4%B9%90%E7%94%9F%E6%B4%BB/">娱乐生活</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E5%AD%A6%E4%B9%A0%E3%81%AE%E5%8E%86%E7%A8%8B-Journal-of-Studying/">学习の历程(Journal of Studying)</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E5%BF%83%E5%BE%97/">心得</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E6%80%9D%E7%BB%B4/">思维</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E6%95%B0%E5%AD%A6/">数学</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">数据可视化</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6-Data-Science/">数据科学(Data Science)</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/">数理统计</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%95%B0%E5%AD%A6/">数学</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E6%9D%82%E9%A1%B9/">杂项</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E7%A7%91%E6%99%AE/">科普</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E7%A7%91%E7%A0%94/">科研</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E7%AB%9E%E8%B5%9B/">竞赛</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E8%8B%B1%E8%AF%AD/">英语</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E8%A7%84%E5%88%92/">规划</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0/">视频学习</a></li><li class="category-list-item"><a class="category-list-link" href="../../categories/%E8%AF%BB%E4%B9%A6%E6%97%A5%E5%B8%B8/">读书日常</a></li></ul>
     </div>
   </div>
 
@@ -417,7 +850,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/1/" rel="tag">1</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/BI/" rel="tag">BI</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/BP/" rel="tag">BP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Boosting-AdaBoost/" rel="tag">Boosting, AdaBoost</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Daily/" rel="tag">Daily</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Data-Mining/" rel="tag">Data Mining</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Deep-learning/" rel="tag">Deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Excel/" rel="tag">Excel</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Numpuy/" rel="tag">Numpuy</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Pandas/" rel="tag">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/R/" rel="tag">R</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SVD/" rel="tag">SVD</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/deep-learning/" rel="tag">deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/machine-learning/" rel="tag">machine learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/origin/" rel="tag">origin</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/tensorlow/" rel="tag">tensorlow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/test/" rel="tag">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92/" rel="tag">二次规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" rel="tag">交叉验证</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" rel="tag">关联规则</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%86%B3%E7%AD%96%E6%A0%91/" rel="tag">决策树</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" rel="tag">回归分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" rel="tag">回归树</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%AE%89%E6%8E%92/" rel="tag">安排</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" rel="tag">希腊字母</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%BD%92%E4%B8%80%E5%8C%96/" rel="tag">归一化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%BD%A9%E9%93%85/" rel="tag">彩铅</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%80%9D%E7%BB%B4/" rel="tag">思维</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">我的读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%8A%80%E8%83%BD/" rel="tag">技能</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%8C%87%E6%A0%87/" rel="tag">指标</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" rel="tag">支持向量机</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" rel="tag">支持向量机回归</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%95%B0%E5%AD%97%E5%8C%96/" rel="tag">数字化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">数据分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD/" rel="tag">数据分析技能</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag">数据挖掘</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2/" rel="tag">数据探索</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%96%B0%E6%A6%82%E5%BF%B5/" rel="tag">新概念</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%97%A5%E5%B8%B8/" rel="tag">日常</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%A0%87%E5%87%86%E5%8C%96/" rel="tag">标准化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/" rel="tag">案例分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%AD%A3%E5%88%99%E5%8C%96/" rel="tag">正则化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" rel="tag">特征工程</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" rel="tag">监督学习与非监督学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6/" rel="tag">社会科学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%A7%91%E7%A0%94/" rel="tag">科研</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" rel="tag">科研工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/" rel="tag">科研笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%AB%9E%E8%B5%9B/" rel="tag">竞赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%BB%98%E5%9B%BE/" rel="tag">绘图</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%81%8C%E4%B8%9A/" rel="tag">职业</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/" rel="tag">西瓜书</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" rel="tag">贝叶斯分类器</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%BF%90%E8%90%A5/" rel="tag">运营</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/1/" rel="tag">1</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/BI/" rel="tag">BI</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/BP/" rel="tag">BP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Boosting-AdaBoost/" rel="tag">Boosting, AdaBoost</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Daily/" rel="tag">Daily</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Data-Mining/" rel="tag">Data Mining</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Deep-learning/" rel="tag">Deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Excel/" rel="tag">Excel</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Numpuy/" rel="tag">Numpuy</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Pandas/" rel="tag">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/R/" rel="tag">R</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SVD/" rel="tag">SVD</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/deep-learning/" rel="tag">deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/ielts/" rel="tag">ielts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/machine-learning/" rel="tag">machine learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/origin/" rel="tag">origin</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/tensorlow/" rel="tag">tensorlow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/test/" rel="tag">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92/" rel="tag">二次规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" rel="tag">交叉验证</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/" rel="tag">假设检验</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" rel="tag">关联规则</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%86%B3%E7%AD%96%E6%A0%91/" rel="tag">决策树</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%8D%95%E8%AF%8D/" rel="tag">单词</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%8D%A1%E6%96%B9%E5%88%86/" rel="tag">卡方分</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" rel="tag">回归分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" rel="tag">回归树</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%AE%89%E6%8E%92/" rel="tag">安排</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" rel="tag">希腊字母</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%BD%92%E4%B8%80%E5%8C%96/" rel="tag">归一化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%BD%A9%E9%93%85/" rel="tag">彩铅</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%80%9D%E7%BB%B4/" rel="tag">思维</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">我的读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%8A%80%E8%83%BD/" rel="tag">技能</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0/" rel="tag">抽样分布函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%8C%87%E6%A0%87/" rel="tag">指标</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" rel="tag">支持向量机</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" rel="tag">支持向量机回归</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%95%B0%E5%AD%97%E5%8C%96/" rel="tag">数字化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">数据分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD/" rel="tag">数据分析技能</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag">数据挖掘</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2/" rel="tag">数据探索</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%96%B0%E6%A6%82%E5%BF%B5/" rel="tag">新概念</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%97%A5%E5%B8%B8/" rel="tag">日常</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%A0%87%E5%87%86%E5%8C%96/" rel="tag">标准化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/" rel="tag">案例分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%AD%A3%E5%88%99%E5%8C%96/" rel="tag">正则化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" rel="tag">特征工程</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" rel="tag">监督学习与非监督学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6/" rel="tag">社会科学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%A7%91%E7%A0%94/" rel="tag">科研</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" rel="tag">科研工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/" rel="tag">科研笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%AB%9E%E8%B5%9B/" rel="tag">竞赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%BB%98%E5%9B%BE/" rel="tag">绘图</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%81%8C%E4%B8%9A/" rel="tag">职业</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%83%BD%E5%8A%9B/" rel="tag">能力</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/" rel="tag">西瓜书</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" rel="tag">贝叶斯分类器</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%BF%90%E8%90%A5/" rel="tag">运营</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%9B%85%E6%80%9D/" rel="tag">雅思</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a></li></ul>
     </div>
   </div>
 
@@ -427,7 +860,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="../../tags/1/" style="font-size: 10px;">1</a> <a href="../../tags/BI/" style="font-size: 12.5px;">BI</a> <a href="../../tags/BP/" style="font-size: 10px;">BP</a> <a href="../../tags/Boosting-AdaBoost/" style="font-size: 10px;">Boosting, AdaBoost</a> <a href="../../tags/Daily/" style="font-size: 12.5px;">Daily</a> <a href="../../tags/Data-Mining/" style="font-size: 10px;">Data Mining</a> <a href="../../tags/Deep-learning/" style="font-size: 17.5px;">Deep learning</a> <a href="../../tags/English/" style="font-size: 10px;">English</a> <a href="../../tags/Excel/" style="font-size: 10px;">Excel</a> <a href="../../tags/Numpuy/" style="font-size: 10px;">Numpuy</a> <a href="../../tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="../../tags/Python/" style="font-size: 17.5px;">Python</a> <a href="../../tags/R/" style="font-size: 10px;">R</a> <a href="../../tags/SQL/" style="font-size: 10px;">SQL</a> <a href="../../tags/SVD/" style="font-size: 10px;">SVD</a> <a href="../../tags/deep-learning/" style="font-size: 10px;">deep learning</a> <a href="../../tags/linux/" style="font-size: 10px;">linux</a> <a href="../../tags/machine-learning/" style="font-size: 12.5px;">machine learning</a> <a href="../../tags/origin/" style="font-size: 10px;">origin</a> <a href="../../tags/python/" style="font-size: 10px;">python</a> <a href="../../tags/tensorlow/" style="font-size: 10px;">tensorlow</a> <a href="../../tags/test/" style="font-size: 10px;">test</a> <a href="../../tags/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92/" style="font-size: 10px;">二次规划</a> <a href="../../tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" style="font-size: 10px;">交叉验证</a> <a href="../../tags/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" style="font-size: 10px;">关联规则</a> <a href="../../tags/%E5%86%B3%E7%AD%96%E6%A0%91/" style="font-size: 15px;">决策树</a> <a href="../../tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 15px;">可视化</a> <a href="../../tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" style="font-size: 10px;">回归分析</a> <a href="../../tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" style="font-size: 10px;">回归树</a> <a href="../../tags/%E5%AE%89%E6%8E%92/" style="font-size: 10px;">安排</a> <a href="../../tags/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" style="font-size: 10px;">希腊字母</a> <a href="../../tags/%E5%BD%92%E4%B8%80%E5%8C%96/" style="font-size: 10px;">归一化</a> <a href="../../tags/%E5%BD%A9%E9%93%85/" style="font-size: 10px;">彩铅</a> <a href="../../tags/%E6%80%9D%E7%BB%B4/" style="font-size: 17.5px;">思维</a> <a href="../../tags/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">我的读书笔记</a> <a href="../../tags/%E6%8A%80%E8%83%BD/" style="font-size: 10px;">技能</a> <a href="../../tags/%E6%8C%87%E6%A0%87/" style="font-size: 10px;">指标</a> <a href="../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" style="font-size: 10px;">支持向量机</a> <a href="../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" style="font-size: 10px;">支持向量机回归</a> <a href="../../tags/%E6%95%B0%E5%AD%97%E5%8C%96/" style="font-size: 10px;">数字化</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 20px;">数据分析</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD/" style="font-size: 10px;">数据分析技能</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 10px;">数据挖掘</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2/" style="font-size: 10px;">数据探索</a> <a href="../../tags/%E6%96%B0%E6%A6%82%E5%BF%B5/" style="font-size: 10px;">新概念</a> <a href="../../tags/%E6%97%A5%E5%B8%B8/" style="font-size: 12.5px;">日常</a> <a href="../../tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 12.5px;">机器学习</a> <a href="../../tags/%E6%A0%87%E5%87%86%E5%8C%96/" style="font-size: 10px;">标准化</a> <a href="../../tags/%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/" style="font-size: 10px;">案例分析</a> <a href="../../tags/%E6%AD%A3%E5%88%99%E5%8C%96/" style="font-size: 10px;">正则化</a> <a href="../../tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="../../tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">特征工程</a> <a href="../../tags/%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">生活</a> <a href="../../tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">监督学习与非监督学习</a> <a href="../../tags/%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6/" style="font-size: 10px;">社会科学</a> <a href="../../tags/%E7%A7%91%E7%A0%94/" style="font-size: 10px;">科研</a> <a href="../../tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">科研工具</a> <a href="../../tags/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">科研笔记</a> <a href="../../tags/%E7%AB%9E%E8%B5%9B/" style="font-size: 10px;">竞赛</a> <a href="../../tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="../../tags/%E7%BB%98%E5%9B%BE/" style="font-size: 10px;">绘图</a> <a href="../../tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 10px;">统计学</a> <a href="../../tags/%E8%81%8C%E4%B8%9A/" style="font-size: 10px;">职业</a> <a href="../../tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/" style="font-size: 10px;">西瓜书</a> <a href="../../tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 10px;">读书</a> <a href="../../tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" style="font-size: 10px;">贝叶斯分类器</a> <a href="../../tags/%E8%BF%90%E8%90%A5/" style="font-size: 10px;">运营</a> <a href="../../tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 10px;">项目</a>
+      <a href="../../tags/1/" style="font-size: 10px;">1</a> <a href="../../tags/BI/" style="font-size: 12px;">BI</a> <a href="../../tags/BP/" style="font-size: 10px;">BP</a> <a href="../../tags/Boosting-AdaBoost/" style="font-size: 10px;">Boosting, AdaBoost</a> <a href="../../tags/Daily/" style="font-size: 12px;">Daily</a> <a href="../../tags/Data-Mining/" style="font-size: 10px;">Data Mining</a> <a href="../../tags/Deep-learning/" style="font-size: 16px;">Deep learning</a> <a href="../../tags/English/" style="font-size: 10px;">English</a> <a href="../../tags/Excel/" style="font-size: 10px;">Excel</a> <a href="../../tags/Numpuy/" style="font-size: 10px;">Numpuy</a> <a href="../../tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="../../tags/Python/" style="font-size: 16px;">Python</a> <a href="../../tags/R/" style="font-size: 10px;">R</a> <a href="../../tags/SQL/" style="font-size: 10px;">SQL</a> <a href="../../tags/SVD/" style="font-size: 10px;">SVD</a> <a href="../../tags/deep-learning/" style="font-size: 10px;">deep learning</a> <a href="../../tags/ielts/" style="font-size: 10px;">ielts</a> <a href="../../tags/linux/" style="font-size: 10px;">linux</a> <a href="../../tags/machine-learning/" style="font-size: 12px;">machine learning</a> <a href="../../tags/origin/" style="font-size: 10px;">origin</a> <a href="../../tags/python/" style="font-size: 10px;">python</a> <a href="../../tags/tensorlow/" style="font-size: 10px;">tensorlow</a> <a href="../../tags/test/" style="font-size: 10px;">test</a> <a href="../../tags/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92/" style="font-size: 10px;">二次规划</a> <a href="../../tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" style="font-size: 10px;">交叉验证</a> <a href="../../tags/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/" style="font-size: 10px;">假设检验</a> <a href="../../tags/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" style="font-size: 10px;">关联规则</a> <a href="../../tags/%E5%86%B3%E7%AD%96%E6%A0%91/" style="font-size: 14px;">决策树</a> <a href="../../tags/%E5%8D%95%E8%AF%8D/" style="font-size: 10px;">单词</a> <a href="../../tags/%E5%8D%A1%E6%96%B9%E5%88%86/" style="font-size: 10px;">卡方分</a> <a href="../../tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 14px;">可视化</a> <a href="../../tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" style="font-size: 10px;">回归分析</a> <a href="../../tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" style="font-size: 10px;">回归树</a> <a href="../../tags/%E5%AE%89%E6%8E%92/" style="font-size: 10px;">安排</a> <a href="../../tags/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" style="font-size: 10px;">希腊字母</a> <a href="../../tags/%E5%BD%92%E4%B8%80%E5%8C%96/" style="font-size: 10px;">归一化</a> <a href="../../tags/%E5%BD%A9%E9%93%85/" style="font-size: 10px;">彩铅</a> <a href="../../tags/%E6%80%9D%E7%BB%B4/" style="font-size: 18px;">思维</a> <a href="../../tags/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">我的读书笔记</a> <a href="../../tags/%E6%8A%80%E8%83%BD/" style="font-size: 12px;">技能</a> <a href="../../tags/%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0/" style="font-size: 10px;">抽样分布函数</a> <a href="../../tags/%E6%8C%87%E6%A0%87/" style="font-size: 10px;">指标</a> <a href="../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" style="font-size: 10px;">支持向量机</a> <a href="../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" style="font-size: 10px;">支持向量机回归</a> <a href="../../tags/%E6%95%B0%E5%AD%97%E5%8C%96/" style="font-size: 10px;">数字化</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 20px;">数据分析</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD/" style="font-size: 10px;">数据分析技能</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 10px;">数据挖掘</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2/" style="font-size: 10px;">数据探索</a> <a href="../../tags/%E6%96%B0%E6%A6%82%E5%BF%B5/" style="font-size: 10px;">新概念</a> <a href="../../tags/%E6%97%A5%E5%B8%B8/" style="font-size: 12px;">日常</a> <a href="../../tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 12px;">机器学习</a> <a href="../../tags/%E6%A0%87%E5%87%86%E5%8C%96/" style="font-size: 10px;">标准化</a> <a href="../../tags/%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/" style="font-size: 10px;">案例分析</a> <a href="../../tags/%E6%AD%A3%E5%88%99%E5%8C%96/" style="font-size: 10px;">正则化</a> <a href="../../tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="../../tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">特征工程</a> <a href="../../tags/%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">生活</a> <a href="../../tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">监督学习与非监督学习</a> <a href="../../tags/%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6/" style="font-size: 10px;">社会科学</a> <a href="../../tags/%E7%A7%91%E7%A0%94/" style="font-size: 10px;">科研</a> <a href="../../tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">科研工具</a> <a href="../../tags/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">科研笔记</a> <a href="../../tags/%E7%AB%9E%E8%B5%9B/" style="font-size: 10px;">竞赛</a> <a href="../../tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="../../tags/%E7%BB%98%E5%9B%BE/" style="font-size: 10px;">绘图</a> <a href="../../tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 14px;">统计学</a> <a href="../../tags/%E8%81%8C%E4%B8%9A/" style="font-size: 10px;">职业</a> <a href="../../tags/%E8%83%BD%E5%8A%9B/" style="font-size: 10px;">能力</a> <a href="../../tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/" style="font-size: 10px;">西瓜书</a> <a href="../../tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 10px;">读书</a> <a href="../../tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" style="font-size: 10px;">贝叶斯分类器</a> <a href="../../tags/%E8%BF%90%E8%90%A5/" style="font-size: 10px;">运营</a> <a href="../../tags/%E9%9B%85%E6%80%9D/" style="font-size: 10px;">雅思</a> <a href="../../tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 10px;">项目</a>
     </div>
   </div>
 
@@ -436,7 +869,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/02/">February 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/02/">February 2019</a></li></ul>
     </div>
   </div>
 
@@ -449,23 +882,23 @@
       <ul>
         
           <li>
-            <a href="../../2022/08/14/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E6%8A%A5%E5%91%8A%E6%A1%88%E4%BE%8B%E5%AD%A6%E4%B9%A0/">数据分析之报告案例学习</a>
+            <a href="../../2022/10/03/%E7%88%B1%E7%94%9F%E6%B4%BB-%E5%AF%BC%E8%88%AA%E6%A0%8F/">爱生活-导航栏</a>
           </li>
         
           <li>
-            <a href="../../2022/08/14/%E4%B8%AA%E4%BA%BA%E6%8F%90%E5%8D%87%E4%B9%8B%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95/">个人提升之职业发展</a>
+            <a href="../../2022/10/03/Statistics-%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0/">Statistics-抽样分布函数</a>
           </li>
         
           <li>
-            <a href="../../2022/08/14/%E4%B8%AA%E4%BA%BA%E6%8F%90%E5%8D%87%E4%B9%8B%E7%94%9F%E6%B4%BB%E5%93%81%E8%B4%A8/">个人提升之生活品质</a>
+            <a href="../../2022/10/03/Statistics-%E5%A4%A7%E6%95%B0%E5%AE%9A%E5%BE%8B%E4%B8%8E%E4%B8%AD%E5%BF%83%E6%9E%81%E9%99%90%E5%AE%9A%E7%90%86/">Statistics-大数定律与中心极限定理</a>
           </li>
         
           <li>
-            <a href="../../2022/08/14/%E4%B8%AA%E4%BA%BA%E6%8F%90%E5%8D%87%E4%B9%8B%E6%80%9D%E7%BB%B4%E8%83%BD%E5%8A%9B/">个人提升之思维能力</a>
+            <a href="../../2022/09/15/%E4%B8%AA%E4%BA%BA%E8%83%BD%E5%8A%9B%E4%B9%8B%E4%B8%AA%E4%BA%BA%E6%8F%90%E5%8D%87/">个人能力之个人提升</a>
           </li>
         
           <li>
-            <a href="../../2022/08/13/%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95%E4%B9%8B%E6%95%B0%E5%AD%97%E5%8C%96/">职业发展之数字化</a>
+            <a href="../../2022/09/12/English-learning-ielts-202209/">English-learning-ielts-202209</a>
           </li>
         
       </ul>
