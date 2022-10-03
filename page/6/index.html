@@ -93,8 +93,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="Logistics-Regression"><a href="#Logistics-Regression" class="headerlink" title="Logistics Regression"></a>Logistics Regression</h1><p>   如何凸显你是一个对逻辑回归已经非常了解的人呢。那就是用一句话概括它！<strong>逻辑回归假设数据服从伯努利分布,通过极大化似然函数的方法，运用梯度下降来求解参数，来达到将数据二分类的目的。</strong></p>
-<p>​     这里面其实包含了5个点 1：逻辑回归的假设，2：逻辑回归的损失函数，3：逻辑回归的求解方法，4：逻辑回归的目的，5:逻辑回归如何分类。这些问题是考核你对逻辑回归的基本了解。</p>
+        <h1 id="Logistics-Regression"><a href="#Logistics-Regression" class="headerlink" title="Logistics Regression"></a>Logistics Regression</h1>
         
           <p class="article-more-link">
             <a href="../../2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E9%80%BB%E8%BE%91%E6%96%AF%E7%89%B9%E5%9B%9E%E5%BD%92/#more">Read More</a>
@@ -137,18 +136,12 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="交叉验证"><a href="#交叉验证" class="headerlink" title="交叉验证"></a>交叉验证</h1><p>第一种：简单交叉验证，我们随机的将样本数据分为两部分（比如： 70%的训练集，30%的测试集），然后用训练集来训练模型，在测试集上验证模型及参数。接着，我们再把样本打乱，重新选择训练集和测试集，继续训练数据和检验模型。最后我们选择损失函数评估最优的模型和参数。</p>
-<p>第二种：S折交叉验证（S-Folder Cross Validation）。和第一种方法不同，S折交叉验证会把样本数据随机的分成S份，每次随机的选择S-1份作为训练集，剩下的1份做测试集。当这一轮完成后，重新随机选择S-1份来训练数据。若干轮（小于S）之后，选择损失函数评估最优的模型和参数。</p>
-<p>第三种：留一交叉验证（Leave-one-out Cross Validation），它是第二种情况的特例，此时S等于样本数N，这样对于N个样本，每次选择N-1个样本来训练数据，留一个样本来验证模型预测的好坏。此方法主要用于样本量非常少的情况，比如对于普通适中问题，N小于50时，一般采用留一交叉验证。</p>
-<h2 id="简单交叉验证"><a href="#简单交叉验证" class="headerlink" title="简单交叉验证"></a>简单交叉验证</h2><p>训练集：70%训练集+ 30%的测试</p>
-<p>验证集：</p>
-<h2 id="S-折交叉验证"><a href="#S-折交叉验证" class="headerlink" title="S-折交叉验证"></a>S-折交叉验证</h2><p><img src="https://scikit-learn.org/stable/_images/grid_search_cross_validation.png" alt="../_images/grid_search_cross_validation.png"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">from sklearn.model_selection import RepeatedKFold</span><br><span class="line">X = np.array([[1, 2], [3, 4], [1, 2], [3, 4]])</span><br><span class="line">random_state = 12883823</span><br><span class="line">rkf = RepeatedKFold(n_splits=2, n_repeats=2, random_state=random_state)</span><br><span class="line">for train, test in rkf.split(X):</span><br><span class="line">    print(&quot;%s %s&quot; % (train, test))</span><br></pre></td></tr></table></figure>
-<h2 id="留一交叉验证"><a href="#留一交叉验证" class="headerlink" title="留一交叉验证"></a>留一交叉验证</h2><p>是交叉验证的特殊情况S = N</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.model_selection import LeaveOneOut</span><br><span class="line"></span><br><span class="line">X = [1, 2, 3, 4]</span><br><span class="line">loo = LeaveOneOut()</span><br><span class="line">for train, test in loo.split(X):</span><br><span class="line">    print(&quot;%s %s&quot; % (train, test))</span><br></pre></td></tr></table></figure>
-<h1 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h1><p>加正则项或者惩罚项</p>
-<p>可以是参数的一范数，二范数</p>
-<h1 id="超参数"><a href="#超参数" class="headerlink" title="超参数"></a>超参数</h1><h2 id="网格搜索"><a href="#网格搜索" class="headerlink" title="网格搜索"></a>网格搜索</h2>
+        <h1 id="交叉验证"><a href="#交叉验证" class="headerlink" title="交叉验证"></a>交叉验证</h1>
+        
+          <p class="article-more-link">
+            <a href="../../2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E6%B5%8B%E9%87%8F/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
@@ -710,18 +703,11 @@
         <h1 id="union-和union-all的区别"><a href="#union-和union-all的区别" class="headerlink" title="union 和union all的区别"></a>union 和union all的区别</h1><p>功能：union和union all都可以将多个结果集进行合并</p>
 <p>union:去重并排序</p>
 <p>union all: 不去重不排序</p>
-<h1 id="having-where"><a href="#having-where" class="headerlink" title="having where"></a>having where</h1><h1 id="Null-空字符串-0"><a href="#Null-空字符串-0" class="headerlink" title="Null 空字符串 0"></a>Null 空字符串 0</h1><p>null:没有输入数据或者输入空数据</p>
-<p>null: 长度就是null</p>
-<p>空字符串：长度0</p>
-<p>1:0</p>
-<p>Null表示没有对列或行输入数据</p>
-<p>空字符串：输入数据，就是空字符串</p>
-<p>0就是一个数值</p>
-<p>count()忽略null,而不是字符串</p>
-<h1 id="count-1-count-count-列"><a href="#count-1-count-count-列" class="headerlink" title="count(1) count(*) count(列)"></a>count(1) count(*) count(列)</h1><p>count(1):忽略所以列，</p>
-<p>count(*):考虑所以列，</p>
-<p>count(列)</p>
-
+        
+          <p class="article-more-link">
+            <a href="../../2022/03/07/%E8%BF%90%E8%90%A5-sql/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">

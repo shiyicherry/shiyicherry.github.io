@@ -6,12 +6,12 @@
   
   <title>机器学习-模型评估指标 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="分类问题混淆矩阵  1.准确率(Accuracy)预测正确的样本数量占总量的百分比，具体的公式如下：  准确率有一个缺点，就是数据的样本不均衡，这个指标是不能评价模型的性能优劣的。 假如一个测试集有正样本99个，负样本1个。模型把所有的样本都预测为正样本，那么模型的Accuracy为99%，看评价指标，模型的效果很好，但实际上模型没有任何预测能力。 2.精准率(Precision)又称为查准率，是">
+  <meta name="description" content="分类问题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习-模型评估指标">
 <meta property="og:url" content="http://flytowardnewworld.github.io/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="分类问题混淆矩阵  1.准确率(Accuracy)预测正确的样本数量占总量的百分比，具体的公式如下：  准确率有一个缺点，就是数据的样本不均衡，这个指标是不能评价模型的性能优劣的。 假如一个测试集有正样本99个，负样本1个。模型把所有的样本都预测为正样本，那么模型的Accuracy为99%，看评价指标，模型的效果很好，但实际上模型没有任何预测能力。 2.精准率(Precision)又称为查准率，是">
+<meta property="og:description" content="分类问题">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pic4.zhimg.com/80/v2-9c4d2f9faa4a240edca3c2d5a68f40e3_720w.jpg">
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=Precision%3D%5Cfrac%7B1%7D%7B1%2B0%7D%3D1+%5C%5C+Recall%3D%5Cfrac%7B1%7D%7B1%2B9%7D%3D0.1">
@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://pic3.zhimg.com/80/v2-77d72585f494c5702ceaf2538c6382d2_720w.jpg">
 <meta property="og:image" content="https://pic4.zhimg.com/80/v2-ec6a0ff59979bcfbb7a2af6e280cc83f_720w.jpg">
 <meta property="article:published_time" content="2022-03-09T07:11:46.000Z">
-<meta property="article:modified_time" content="2022-03-09T07:46:06.000Z">
+<meta property="article:modified_time" content="2022-10-03T13:53:34.981Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://pic4.zhimg.com/80/v2-9c4d2f9faa4a240edca3c2d5a68f40e3_720w.jpg">
@@ -119,7 +119,8 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h1><h2 id="混淆矩阵"><a href="#混淆矩阵" class="headerlink" title="混淆矩阵"></a>混淆矩阵</h2><p><img src="https://pic4.zhimg.com/80/v2-9c4d2f9faa4a240edca3c2d5a68f40e3_720w.jpg" alt="img"></p>
+        <h1 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h1><span id="more"></span>
+<h2 id="混淆矩阵"><a href="#混淆矩阵" class="headerlink" title="混淆矩阵"></a>混淆矩阵</h2><p><img src="https://pic4.zhimg.com/80/v2-9c4d2f9faa4a240edca3c2d5a68f40e3_720w.jpg" alt="img"></p>
 <p><img src="https://www.zhihu.com/equation?tex=Precision%3D%5Cfrac%7B1%7D%7B1%2B0%7D%3D1+%5C%5C+Recall%3D%5Cfrac%7B1%7D%7B1%2B9%7D%3D0.1" alt="[公式]"></p>
 <h3 id="1-准确率-Accuracy"><a href="#1-准确率-Accuracy" class="headerlink" title="1.准确率(Accuracy)"></a>1.准确率(Accuracy)</h3><p>预测正确的样本数量占总量的百分比，具体的公式如下：</p>
 <p><img src="https://www.zhihu.com/equation?tex=Accuracy%3D%5Cfrac%7BTP%2BTN%7D%7BTP%2BFN%2BFP%2BTN%7D" alt="[公式]"></p>

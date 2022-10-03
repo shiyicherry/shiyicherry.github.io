@@ -173,76 +173,12 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="假设检验的目的"><a href="#假设检验的目的" class="headerlink" title="假设检验的目的"></a>假设检验的目的</h1><p>对一个或多个总体的分布函数或参数未知或部分已知的情况下，提出分布函数或其参数的假设，通过抽取样本，构造适当的统计量，根据样本对所提出的假设作出拒绝或接受的决定。也称显著性检验；</p>
-<p>利用样本的信息估计或者推断总体状态</p>
-<p>局部近似全局</p>
-<p>原理： 认为小概率事件在一次研究过程中不能发生。反证法。</p>
-<p>什么是小概率事件： 落在了这个范围内的。这里的小概率事件需要通过阈值α来量化，通常取α=0.05或0.01或0.1，不同应用场合可选择其他值；</p>
-<p>当然可能一次实验刚刚碰到小概率事件，但是多抽样几次，就可以避免碰巧的事件。重复实验多次。</p>
-<p>在H0的假设下，样本检测统计量的概率应该大于α。P代表了抽样分布函数的值，P值小于α，则说明小概率事件发生，而小概率事件是不可能发生的（自相矛盾），说明原假设错误的，拒绝原假设。</p>
-<p>统计量 — 抽样分布</p>
-<p>统计量的构造是根据H0来的，</p>
-<p>定义是根据抽样分布函数，而非统计量。</p>
-<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><h2 id="显著性水平"><a href="#显著性水平" class="headerlink" title="显著性水平"></a><strong>显著性水平</strong></h2><p>显著性水平是一个概率值，原假设为真时，拒绝原假设的概率，表示为α，常取值为0.05、0.01、0.10。 是预先规定的概率值，一般取0.05，也可调整为0.10或其他，规定如果P值小于或等于 α ，则认为P值所代表的假设（ H0 ）为小概率事件。</p>
-<h2 id="原假设与备择假设："><a href="#原假设与备择假设：" class="headerlink" title="原假设与备择假设："></a><strong>原假设与备择假设</strong>：</h2><p>待检验的假设又叫原假设(零假设)，一般表示为H0，原假设一般表示两者没有显著性差异。与原假设进行对比的叫备择假设，表示为H1。一般在比较的时候，主要有等于、大于、小于。</p>
-<h2 id="检验统计量："><a href="#检验统计量：" class="headerlink" title="检验统计量："></a><strong>检验统计量：</strong></h2><p>即计算检验的统计量。根据给定的显著性水平，查表得出相应的临界值。再将检验统计量的值与该显著性水平的临界值进行比较，得出是否拒绝原假设的结论。</p>
-<p><strong>P值：</strong></p>
-<p>是一个概率值，如果原假设为真，p值是抽样分布中大于或小于样本统计量的概率。左检验时，p值为曲线上方小于等于检验统计量部分的面积。右检验时，p值为曲线上方大于等于检验统计量部分的面积。</p>
-<p>从 H0 规定的总体中随机抽样，将抽得的检验统计量与现有样本获得的检验统计量比较， 抽样结果等于及大于（或等于及小于）现有样本检验统计量的概率。</p>
-<h2 id="假设检验的两种错误："><a href="#假设检验的两种错误：" class="headerlink" title="假设检验的两种错误："></a><strong>假设检验的两种错误：</strong></h2><p>类型 I 错误(弃真)，如原假设为真，但否定它，则会犯类型 I 错误。犯类型 I 错误的概率为 α（即您为假设检验设置的显著性水平）。α 为 0.05 表明，当您否定原假设时，您愿意接受 5% 的犯错概率。为了降低此风险，必须使用较低的 α 值。但是，使用的α值越小，在差值确实存在时检测到实际差值的可能性也越小。类型 II 错误(采伪)，如原假设为假，但无法否定它，则会犯类型 II 错误。犯类型 II 错误的概率为 β，β 依赖检验功效。可以通过确保检验具有足够大的功效来降低犯类型 II 错误所带来的风险。方法是确保样本数量足够大，以便在差值确实存在时检测到实际差值。</p>
-<p>弃真：原假设正确，但拒绝了</p>
-<p>存伪：原假设错误，但接受了</p>
-<p>具体情况具体看，定值，看危害。</p>
-<p><img src="Statistics-大数定律与中心极限定理\显著性" alt="图片"></p>
-<p><img src="Statistics-大数定律与中心极限定理\显著性2" alt="图片"></p>
-<h2 id="置信区间"><a href="#置信区间" class="headerlink" title="置信区间"></a>置信区间</h2><h1 id="假设检验方法"><a href="#假设检验方法" class="headerlink" title="假设检验方法"></a><strong>假设检验方法</strong></h1><p>假设检验方法：z检验，t检验，卡方检验(卡方本篇不详述，应用较少)</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/5EpmeGExLQfRjKZicWiaHpA4jtLGHhhDpga1EWcjmiaEayMDmjeRgEUTwBiabE0A7YXJ5rxgwGTFzjjPSIFpiacdOEw/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
-<h2 id="2-1-Z检验"><a href="#2-1-Z检验" class="headerlink" title="2.1 Z检验"></a><strong>2.1 Z检验</strong></h2><p><strong>Z检验原理：</strong>当总体标准差已知,样本量较大时用标准正态分布的理论来推断差异发生的概率，从而比较两个平均数的差异是否显著。如果检验一个样本平均数与一个已知的总体平均数的差异是否显著，其Z值计算公式为：</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/5EpmeGExLQfRjKZicWiaHpA4jtLGHhhDpgDltK7iaQm5sia1Pn1Ty4aUUvJNz4s5gWF2VXT9dhS7JdV8eEtm9Ey2Hg/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
-<p>如果检验来自两个的两组样本平均数的差异性，从而判断它们各自代表的总体的差异是否显著，其Z值计算公式为：</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/5EpmeGExLQfRjKZicWiaHpA4jtLGHhhDpgeEicAZUJCmr2iaMb28n0xy4aGyE2OE2ibibq9Rzia6zHWIvRiaV3ZB0KdKpQ/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
-<h3 id="Z检验实例："><a href="#Z检验实例：" class="headerlink" title="Z检验实例："></a><strong>Z检验实例：</strong></h3><p>研究正常人与高血压患者胆固醇含量，比较两组血清胆固醇含量有无显著差异。</p>
-<p>正常人组数据:n1=506(样本量) μ1=180.6(样本均值) s1=34.2(标准差)</p>
-<p>高血压组数据:n2=142  μ2=223.6  s2=45.8</p>
-<p><strong>1、提出假设，规定适当检验统计量，确定检验水平：</strong></p>
-<p>H0：μ1=μ2</p>
-<p>H1：μ1≠μ2</p>
-<p>α=0.05，样本量较大，且检验来自两组样本平均数的差异性，故选择z检验统计量</p>
-<p><strong>2、计算统计量z值</strong></p>
-<p>将已知数据带入z检验公式，</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/5EpmeGExLQfRjKZicWiaHpA4jtLGHhhDpgxO0EOePMiatIjqJYQBzZOlPmvyM8XCK88FJ88zdHzMSQaoNwbRw36TQ/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
-<p>计算假设检验统计量 z=10.4</p>
-<p>α=0.05，双侧故 α/2=0.025，1-α=0.975 查表，确认临界值为1.96</p>
-<p><strong>3、确定p值，做出推断结论</strong> </p>
-<p>10.4(z值)&gt;1.96(临界值)，故p&lt;0.05，按α=0.05水准拒绝H0，接受H1，可以认为正常人和高血压患者的血清胆固醇含量有差异。</p>
-<h2 id="2-2-t检验"><a href="#2-2-t检验" class="headerlink" title="2.2 t检验"></a><strong>2.2 t检验</strong></h2><p><strong>t检验：</strong>分为单样本的t检验、配对样本均数t检验(本篇不详细说)、两独立样本均数t检验。t检验应用于两组计量资料小样本比较，样本对总体有较好代表性，对比组间有较好组间均衡性，即随机抽样和随机分组。且样本来自正态分布总体。<strong>单个样本t检验</strong>适用于样本均数与已知总体均数μ0的比较,目的是检验样本均数所代表的总体均数μ是否与已知总体均数μ0有差别。应用于总体标准α未知的小样本资料,且服从正态分布。</p>
-<p><strong>单样本t检验实例：</strong></p>
-<p>某地新生儿出生体重为3.3kg，从该地难产儿中随机抽取35名婴儿，平均体重为3.42kg，标准差为0.4kg，问该地难产儿出生体重与新生儿体重是否不同？</p>
-<p><strong>1、提出假设，规定适当检验统计量，确定检验水平：</strong></p>
-<p>H0：μ=μ0</p>
-<p>H1：μ≠μ0</p>
-<p>α=0.05 ，样本均数与已知总体均数μ0的比较，所以选择单样本t检验</p>
-<p><strong>2、计算统计量z值</strong></p>
-<p>n=35 μ0=3.3  μ=3.42  s=0.4</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/5EpmeGExLQfRjKZicWiaHpA4jtLGHhhDpgQbicibmicRRM3Vfy32DZt63MAuEmMozfhA1noxqibB1nHyhqKNiaEAHbbdw/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
-<p>自由度=n-1=34，α=0.05，双侧故 α/2=0.025，1-α=0.975，自由度34，查表得出临界值为2.032</p>
-<p><strong>3、确定p值，做出推断结论</strong> </p>
-<p>因为1.77(z值)<2.032(临界值)，故p>0.05，按α=0.05水平，差别无统计学意义，不拒绝h0，不能认为该地难产儿与新生儿体重有差异。</p>
-<p><strong>两独立样本t检验(ab实验背后原理)</strong>：适用于完全随机设计的两样本均数的比较,其目的是检验两样本所来自总体的均数是否相等。两独立样本t检验要求两样本所代表的总体服从正态分布N(μ1，σ^2)和N(μ2，σ^2)，且两总体方差σ1^2、σ2^2相等,即方差齐性。若两总体方差不等需要先进行变换。两独立样本t检验的检验假设是两总体均数相等,即H0：μ1=μ2，统计量计算公式为：</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/5EpmeGExLQfRjKZicWiaHpA4jtLGHhhDpgiaP8Jbh8Xdyk9aIMfapn8CiabnUfibLoZDn9lt7iacm9tFiaZYyOP5GIiapw/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
-<p><strong>两独立样本t检验实例：</strong></p>
-<p>25例糖尿病患者随机分成两组，甲单纯药物治疗，乙采用药物合并饮食治疗，二月后测空腹血糖如下，问两种疗法血糖值是否相同？</p>
-<p>数据：n1=12  s1=182.5  n2=13  s2=141</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/5EpmeGExLQfRjKZicWiaHpA4jtLGHhhDpgjwicvLy1sKjDYkkuLDEiayDd4ODKr5PicfiaaLhJJVTadWKObwDS9bNo1A/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
-<p><strong>1、提出假设，规定适当检验统计量，确定检验水平：</strong></p>
-<p>H0：μ1=μ2  H1：μ1≠μ2</p>
-<p>α=0.05, 选用两独立样本t检验方法</p>
-<p><strong>2、计算统计量z值</strong></p>
-<p>将数据带入公式，计算得t=2.639 </p>
-<p>自由度=n1+n2-2=23  α=0.05，双侧故 α/2=0.025，1-α=0.975，查表得临界值为 t=2.069</p>
-<p><strong>3、确定p值，做出推断结论</strong></p>
-<p>因为2.639(t值)&gt;2.069(临界值) ，故 p&lt;0.05 ， 在0.05水准下，拒绝H0，接受H1，存在显著性差异，故认为两种疗法效果不同。</p>
-
+        <h1 id="假设检验的目的"><a href="#假设检验的目的" class="headerlink" title="假设检验的目的"></a>假设检验的目的</h1>
+        
+          <p class="article-more-link">
+            <a href="../../2021/12/24/Statistics-%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
@@ -286,23 +222,12 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="卡方检测"><a href="#卡方检测" class="headerlink" title="卡方检测"></a>卡方检测</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>卡方检测： 定类和定类数据的差异，如性别与戴眼镜是否有关系。（相关性分析）</p>
-<p>卡方拟合优度检测：定类数据各选项的分布比例上是否存在差异性。</p>
-<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>卡方检验分为<strong>卡方独立性检验</strong>和<strong>拟合优度的卡方检验</strong>。</p>
-<ol>
-<li><p>拟合优度检测：</p>
-<p>用于检测单个变量是否来自于某个特定分布的总体</p>
-<p>是否满足某种特定分布</p>
-<p>推断广告所说的，每包糖果包含的六种口味糖果的数量是相等的。</p>
-<p>自由度： 该类别变量的数量-1</p>
-</li>
-<li><p>独立性检测</p>
-</li>
-</ol>
-<p>​    用于检测两个变量之间是否存在关系</p>
-<p>​    吸烟行为和性别是否存在关联性</p>
-<p>   自由度： （类别1-1)(类别2-1)</p>
-
+        <h1 id="卡方检测"><a href="#卡方检测" class="headerlink" title="卡方检测"></a>卡方检测</h1>
+        
+          <p class="article-more-link">
+            <a href="../../2021/12/24/Statistics-%E5%8D%A1%E6%96%B9%E6%A3%80%E6%B5%8B/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
@@ -384,21 +309,12 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="概率论与数理统计"><a href="#概率论与数理统计" class="headerlink" title="概率论与数理统计"></a>概率论与数理统计</h1><h2 id="概率论知识体系（理论支撑）"><a href="#概率论知识体系（理论支撑）" class="headerlink" title="概率论知识体系（理论支撑）"></a>概率论知识体系（理论支撑）</h2><p>基本概念 <a href="Statistics-统计学.md">Statistics-统计学.md</a> </p>
-<p>关键词： 随机变量 特征  分布函数 大数定律 </p>
-<h2 id="桥梁作用"><a href="#桥梁作用" class="headerlink" title="桥梁作用"></a>桥梁作用</h2><p><a href="Statistics-大数定律与中心极限定理.md">Statistics-大数定律与中心极限定理.md</a> </p>
-<p>喜欢正态分布</p>
-<p>不是正态分布，转正态分布</p>
-<h2 id="数理统计（应用）"><a href="#数理统计（应用）" class="headerlink" title="数理统计（应用）"></a>数理统计（应用）</h2><p>基本概念  <a href="Statistics-统计学.md">Statistics-统计学.md</a> </p>
-<p>关键词： 抽样，总体，统计量， 抽样分布，假设检验（参数和非参数)， 参数估计，多元线性回归，相关性分析，分布检测，均值检测</p>
-<p> <a href="Statistics-参数估计.md">Statistics-参数估计.md</a> </p>
-<p> <a href="Statistics-方差分析.md">Statistics-方差分析.md</a> </p>
-<p> <a href="Statistics-假设检验.md">Statistics-假设检验.md</a> </p>
-<p> <a href="Statistics-相关性分析.md">Statistics-相关性分析.md</a> </p>
-<p> <a href="Statistics-抽样分布函数.md">Statistics-抽样分布函数.md</a> </p>
-<p> <a href="Statistics-因子分析.md">Statistics-因子分析.md</a> </p>
-<p> <a href="Statistics-主成分分析.md">Statistics-主成分分析.md</a> </p>
-
+        <h1 id="概率论与数理统计"><a href="#概率论与数理统计" class="headerlink" title="概率论与数理统计"></a>概率论与数理统计</h1>
+        
+          <p class="article-more-link">
+            <a href="../../2021/12/24/Statistics/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">

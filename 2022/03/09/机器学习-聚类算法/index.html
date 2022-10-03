@@ -6,12 +6,12 @@
   
   <title>机器学习-聚类算法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="聚类算法相似度刻画距离 常见算法K-mean1.2 算法步骤所以 K-means 的算法步骤为：  选择初始化的 k 个样本作为初始聚类中心  ； 针对数据集中每个样本  计算它到 k 个聚类中心的距离并将其分到距离最小的聚类中心所对应的类中； 针对每个类别  ，重新计算它的聚类中心  （即属于该类的所有样本的质心）； 重复上面 2 3 两步操作，直到达到某个中止条件（迭代次数、最小误差变化等）。">
+  <meta name="description" content="聚类算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习-聚类算法">
 <meta property="og:url" content="http://flytowardnewworld.github.io/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="聚类算法相似度刻画距离 常见算法K-mean1.2 算法步骤所以 K-means 的算法步骤为：  选择初始化的 k 个样本作为初始聚类中心  ； 针对数据集中每个样本  计算它到 k 个聚类中心的距离并将其分到距离最小的聚类中心所对应的类中； 针对每个类别  ，重新计算它的聚类中心  （即属于该类的所有样本的质心）； 重复上面 2 3 两步操作，直到达到某个中止条件（迭代次数、最小误差变化等）。">
+<meta property="og:description" content="聚类算法">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=a%3D%7Ba_1%2Ca_2%2C%E2%80%A6a_k%7D">
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=x_i">
@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://flytowardnewworld.github.io/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/机器学习-聚类算法/i9t9nak7vp.png">
 <meta property="og:image" content="http://flytowardnewworld.github.io/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/机器学习-聚类算法/ku270y2ln6.png">
 <meta property="article:published_time" content="2022-03-09T08:21:43.000Z">
-<meta property="article:modified_time" content="2022-03-09T08:42:48.000Z">
+<meta property="article:modified_time" content="2022-10-03T13:53:43.624Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.zhihu.com/equation?tex=a%3D%7Ba_1%2Ca_2%2C%E2%80%A6a_k%7D">
@@ -105,7 +105,8 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="聚类算法"><a href="#聚类算法" class="headerlink" title="聚类算法"></a>聚类算法</h1><h2 id="相似度刻画"><a href="#相似度刻画" class="headerlink" title="相似度刻画"></a>相似度刻画</h2><p>距离</p>
+        <h1 id="聚类算法"><a href="#聚类算法" class="headerlink" title="聚类算法"></a>聚类算法</h1><span id="more"></span>
+<h2 id="相似度刻画"><a href="#相似度刻画" class="headerlink" title="相似度刻画"></a>相似度刻画</h2><p>距离</p>
 <h2 id="常见算法"><a href="#常见算法" class="headerlink" title="常见算法"></a>常见算法</h2><h3 id="K-mean"><a href="#K-mean" class="headerlink" title="K-mean"></a>K-mean</h3><h4 id="1-2-算法步骤"><a href="#1-2-算法步骤" class="headerlink" title="1.2 算法步骤"></a>1.2 算法步骤</h4><p>所以 K-means 的算法步骤为：</p>
 <ol>
 <li>选择初始化的 k 个样本作为初始聚类中心 <img src="https://www.zhihu.com/equation?tex=a%3D%7Ba_1%2Ca_2%2C%E2%80%A6a_k%7D" alt="[公式]"> ；</li>
