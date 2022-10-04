@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>计量经济学 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="就是呈现一些关于计量经济学的相关实践方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计量经济学">
+<meta property="og:url" content="http://flytowardnewworld.github.io/2020/09/13/%E7%A7%91%E7%A0%94%E4%B9%8B%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="就是呈现一些关于计量经济学的相关实践方法">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="file:///C:/Users/ADMIN/AppData/Roaming/Tencent/Users/2323020965/QQ/WinTemp/RichOle/%RD8D0A3HLYAMXPV831%60S%7DX.png">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1045132-24aa6e61e9ea3868.png?imageMogr2/auto-orient/strip|imageView2/2/w/873/format/webp">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20201006161241325.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20201006110349569.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20201006110508755.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20201006110654746.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20201006111253388.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20201006124927754.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20201006125117457.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20201006125335017.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20201006112428053.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20201006112510991.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20201006111902652.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20201006112111251.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20201006112012221.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20201006112035220.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20201006131019054.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20201006131522580.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20201006132238571.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20201006132615287.png">
+<meta property="og:image" content="f:/MyBlog/MyBlog/hexo/source/_posts/计量经济学/image-20210405131646510.png">
+<meta property="og:image" content="c:/Users/ADMIN/AppData/Roaming/Typora/typora-user-images/image-20201121093752887.png">
+<meta property="article:published_time" content="2020-09-13T07:58:36.000Z">
+<meta property="article:modified_time" content="2022-10-04T12:01:24.010Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="计量经济学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="file:///C:/Users/ADMIN/AppData/Roaming/Tencent/Users/2323020965/QQ/WinTemp/RichOle/%RD8D0A3HLYAMXPV831%60S%7DX.png">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="../../../../favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="../../../../css/style.css">
+
+  
+    
+<link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../../../index.html" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="../../../../index.html">Home</a>
+        
+          <a class="main-nav-link" href="../../../../archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../../../atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://flytowardnewworld.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-科研之计量经济学" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2020-09-13T07:58:36.000Z" itemprop="datePublished">2020-09-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../../../categories/%E7%A7%91%E7%A0%94/">科研</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      计量经济学
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>就是呈现一些关于计量经济学的相关实践方法</p>
+<span id="more"></span>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><ol>
+<li><p>标准误差</p>
+<p>标准误STANDARD ERRORS</p>
+<p>调整方差：稳健标准误（“Robust” standard errors）把误差项聚类了。</p>
+<pre><code>1. 异方差~（T)
+2. 聚类~(at level)
+</code></pre><p>Robust standard errors in parentheses</p>
+</li>
+<li><p>固定效应</p>
+<ol>
+<li>非常重要</li>
+</ol>
+</li>
+<li>时间和个人，城市上固定效应，控制不可观测因素的影响</li>
+</ol>
+<p>we add controls for the inverse hyperbolic sine of total cumulative citations to the author’s prior publications in each of the top-5 journals.  </p>
+<p>We use the asinh transformation to approximate the natural logarithm but accommodate zero citations. We note that for x &gt; 2, asinh(x) ≈ log(2x).  </p>
+<h1 id="非状态分布"><a href="#非状态分布" class="headerlink" title="非状态分布"></a>非状态分布</h1><h2 id="零过的处理方法"><a href="#零过的处理方法" class="headerlink" title="零过的处理方法"></a>零过的处理方法</h2><p>inverse hyperbolic  sine</p>
+<ul>
+<li>反双曲线正弦</li>
+</ul>
+<h1 id="计量经济学"><a href="#计量经济学" class="headerlink" title="计量经济学"></a>计量经济学</h1><p>计量经济学的模型估计的含义，不是确定的值，而是随机变量，反映了平均影响（期望)。还有随机误差项和普通方程的区别</p>
+<p>面板模型bai引入固定时间效应stata操作方法：<br>xi: xtreg y x1 x2 x3 i.year,fe 双向固定du效应，既可以控制年度效zhi应，又可以用固dao定效应消除部分内生性<br>xi: xtreg y x1 x2 x3 i.year LSDV法 就是虚拟变量最小二乘回归<br>另外，建议用聚类稳健标准差,这是解决异方差的良药<br>xi: xtreg y x1 x2 x3 i.year,fe vce(cluster.个体变量)<br>xi: xtreg y x1 x2 x3 i.year ，vce(cluster.个体变量)</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/baef9e9bc75d">https://www.jianshu.com/p/baef9e9bc75d</a></p>
+<p><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/6cd81d7be518964bcf847c75.html">https://wenku.baidu.com/view/6cd81d7be518964bcf847c75.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.stata.com/manuals13/xtxtreg.pdf">https://www.stata.com/manuals13/xtxtreg.pdf</a></p>
+<p><a target="_blank" rel="noopener" href="https://stata-club.github.io/stata_article/2017-06-02.html">https://stata-club.github.io/stata_article/2017-06-02.html</a></p>
+<h1 id="三大模型"><a href="#三大模型" class="headerlink" title="三大模型"></a>三大模型</h1><p>固定效应模型，随机效应模型和混合效应模型</p>
+<h2 id="混合估计模型"><a href="#混合估计模型" class="headerlink" title="混合估计模型"></a>混合估计模型</h2><p>reg cp ip</p>
+<h2 id="固定效应模型"><a href="#固定效应模型" class="headerlink" title="固定效应模型"></a>固定效应模型</h2><p>个体，时间，时间和个体</p>
+<h2 id="随机效应模型"><a href="#随机效应模型" class="headerlink" title="随机效应模型"></a>随机效应模型</h2><p>tsset id year<br>xtreg cp ip,re</p>
+<p>五、针对固定效应和随机效应模型选择主要根据Hausman检验结果判定：　　　<br>xtreg cp ip, fe<br>est store FE<br>xtreg cp ip, re<br>est store RE<br>hausman FE RE　由于原假设是随机效应和固定效应无差异，如果拒绝原假设，则采用固定效应模型，否则随机效应模型。</p>
+<p><a target="_blank" rel="noopener" href="http://www.jeepxie.net/article/928076.html">http://www.jeepxie.net/article/928076.html</a></p>
+<p>Three econometric models—a pooled model, a fixed-effect<br>8 model, and a random-effect model  </p>
+<p>方差分析主要有三种模型：即固定效应模型（fixed effects model），随机效应模型（random effects model），混合效应模型（mixed effects model）。</p>
+<p>所谓的固定、随机、混合，主要是针对分组变量而言的。</p>
+<p>固定效应模型，表示你打算比较的就是你现在选中的这几组。例如，我想比较3种药物的疗效，我的目的就是为了比较这三种药的差别，不想往外推广。这三种药不是从很多种药中抽样出来的，不想推广到其他的药物，结论仅限于这三种药。“固定”的含义正在于此，这三种药是固定的，不是随机选择的。</p>
+<p>随机效应模型，表示你打算比较的不仅是你的设计中的这几组，而是想通过对这几组的比较，推广到他们所能代表的总体中去。例如，你想知道是否名牌大学的就业率高于普通大学，你选择了北大、清华、北京工商大学、北京科技大学4所学校进行比较，你的目的不是为了比较这4所学校之间的就业率差异，而是为了说明他们所代表的名牌和普通大学之间的差异。你的结论不会仅限于这4所大学，而是要推广到名牌和普通这样的一个更广泛的范围。“随机”的含义就在于此，这4所学校是从名牌和普通大学中随机挑选出来的。混合效应模型就比较好理解了，就是既有固定的因素，也有随机的因素。</p>
+<p>一般来说，只有固定效应模型，才有必要进行两两比较，随机效应模型没有必要进行两两比较，因为研究的目的不是为了比较随机选中的这些组别。</p>
+<p>固定效应和随机效应的选择是大家做面板数据常常要遇到的问题，一个常见的方法是做huasman检验，即先估计一个随机效应，然后做检验，如果拒绝零假设，则可以使用固定效应，反之如果接受零假设，则使用随机效应。但这种方法往往得到事与愿违的结果。另一个想法是在建立模型前根据数据性质确定使用那种模型，比如数据是从总体中抽样得到的，则可以使用随机效应，比如从N个家庭中抽出了M个样本，则由于存在随机抽样，则建议使用随机效应，反之如果数据是总体数据，比如31个省市的Gdp，则不存在随机抽样问题，可以使用固定效应。同时，从估计自由度角度看，由于固定效应模型要估计每个截面的参数，因此随机效应比固定效应有较大的自由度.</p>
+<p>固定效应模型<br>　　固定效应模型（fixed effects model）的应用前提是假定全部研究结果的方向与效应大小基本相同，即各独立研究的结果趋于一致，一致性检验差异无显著性。因此固定效应模型适用于各独立研究间无差异，或差异较小的研究。<br>　　固定效应模型是指实验结果只想比较每一自变项之特定类目或类别间的差异及其与其他自变项之特定类目或类别间交互作用效果，而不想依此推论到同一自变项未包含在内的其他类目或类别的实验设计。例如：研究者想知道教师的认知类型在不同教学方法情境中，对儿童学习数学的效果有何不同，其中教师和学生的认知类型，均指场地依赖型和场地独立型，而不同的教学方法，则指启发式、讲演式、编序式。当实验结束时，研究者仅就两种类型间的交互作用效果及类型间的差异进行说明，而未推论到其他认知类型，或第四种教学方法。象此种实验研究模式，即称为固定效果模式。与本词相对者是随机效应模型（random effect model）、混合效应模型（mixed effect model）。</p>
+<p>随机效应模型 random effects models<br>　　随机效应模型(random effects models)是经典的线性模型的一种推广，就是把原来（固定）的回归系数看作是随机变量，一般都是假设是来自正态分布。如果模型里一部分系数是随机的，另外一些是固定的，一般就叫做混合模型（mixed models）。<br>　　虽然定义很简单，对线性混合模型的研究与应用也已经比较成熟了，但是如果从不同的侧面来看，可以把很多的统计思想方法综合联系起来。概括地来说，这个模型是频率派和贝叶斯模型的结合，是经典的参数统计到高维数据分析的先驱，是拟合具有一定相关结构的观测的典型工具。<br>　　随机效应最直观的用处就是把固定效应推广到随机效应。注意，这时随机效应是一个群体概念，代表了一个分布的信息 or 特征，而对固定效应而言，我们所做的推断仅限于那几个固定的（未知的）参数。例如，如果要研究一些水稻的品种是否与产量有影响，如果用于分析的品种是从一个很大的品种集合里随机选取的，那么这时用随机效应模型分析就可以推断所有品种构成的整体的一些信息。这里，就体现了经典的频率派的思想-任何样本都来源于一个无限的群体(population)。<br>同时，引入随机效应就可以使个体观测之间就有一定的相关性，所以就可以用来拟合非独立观测的数据。经典的就有重复观测的数据，多时间点的记录等等，很多时候就叫做纵向数据(longitudinal data)，已经成为很大的一个统计分支。</p>
+<p>随机效应模型(random effects models)，简称REM，是经典的线性模型的一种推广，就是把原来（<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/固定效应模型/628635">固定效应模型</a>）的回归系数看作是随机变量，一般都是假设是来自正态分布。如果模型里一部分系数是随机的，另外一些是固定的，一般就叫做<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/混合模型/6048939">混合模型</a>（mixed models）</p>
+<h2 id="xtref"><a href="#xtref" class="headerlink" title="xtref"></a>xtref</h2><h2 id="reg"><a href="#reg" class="headerlink" title="reg"></a>reg</h2><h2 id="固定效应回归"><a href="#固定效应回归" class="headerlink" title="固定效应回归"></a>固定效应回归</h2><p>实际上是个体效应</p>
+<p>如果要时间效应，效应自己添加时间固定效应</p>
+<p><img src="file:///C:\Users\ADMIN\AppData\Roaming\Tencent\Users\2323020965\QQ\WinTemp\RichOle\%RD8D0A3HLYAMXPV831`S}X.png" alt="img"></p>
+<p> 最后一个可以添加很多个虚拟变量</p>
+<h1 id="STATA面板数据模型进行Hausman检验"><a href="#STATA面板数据模型进行Hausman检验" class="headerlink" title="STATA面板数据模型进行Hausman检验"></a><strong>STATA面板数据模型进行Hausman检验</strong></h1><h2 id="时间固定效应和个体效应模型和随机效应模型"><a href="#时间固定效应和个体效应模型和随机效应模型" class="headerlink" title="时间固定效应和个体效应模型和随机效应模型"></a>时间固定效应和个体效应模型和随机效应模型</h2><p>二、固定效应模型<br>1.个体固定效应模型：<br> tsset id year　　　　<br> xtreg Y X, fe 或者xtreg Y X , fe i(id)　　　　<br> 针对个体固定效应（H0：不存在个体固定效应）的F检验自动生成，如果p&lt;=10%则应该选择个体固定效应。　　<br>2.时刻固定效应模型：<br>（1）麻烦的间接方法<br> tsset id year　　　　<br> xi:reg Y X i.year<br>  对于时间固定效应模型的检验不是很直接，要用wald检验，相应的命令为：<br>  建设是四年数据，时间虚变量为_Iyear_2、 _Iyear_3、 _Iyear_4，那么wald检验<br>  test _Iyear_2=_Iyear_3= _Iyear_4<br>  test _Iyear_2=_Iyear_3= _Iyear_4=0<br>（2）巧妙的方法<br>   这个方法有点麻烦，后来论坛中有人聪明的提出一种方法，让人眼前一亮，就是将时间和截面变量交换位置，之前得到的是个体固定效应，之后就是时间固定效应，具体如下：<br> tsset year id<br> xtreg Y X,fe<br>  针对时期固定效应（H0：不存在时期固定效应）的F检验自动生成。<br>我刚开始对此方法不是很有信心，最后自己将其与第一种方法做了对比发觉，估计的参数值和其他统计量均为一致性，因此推荐后面这种方法。　<br>（3）直接的方法<br>  参照个体固定效应的方法，我们再推荐一种简便直接方法：<br>  tsset id year　　　　<br>  xtreg Y X ,fe i(year)</p>
+<p>  针对时期固定效应（H0：不存在时期固定效应）的F检验自动生成。<br>  比较三种方法，第二、三种方法更为直接和有效，第一种与他们的区别还有一点就是常数项估计值不同，而第二种方法缺乏理论依据和现实做的人比较少，因此综合来看，第三种方法最为有效和直接。　　　<br>3.时刻个体双固定效应模型　<br>  实际上连玉君讲义中的时间效应（人大经济论坛出的stata论文专题讲义的p230）是时间个体双固定效应，可以这样理解fe只是固定个体效应，比如在个体固定效应模型中，输入fe和输入fe i(id)，得到的F值和p值均一致，另外从stata命令的中看sigma_u：panel-level standard deviation，F_f：F for u_i=0，均在说个体效应问题而时间效应已经通过设置时间虚拟变量进行了控制。具体方法如下：<br>　<br>  xtset id year<br>  xi:xtreg y x1 x2 i.year,fe<br>  这种方法有个问题是，估计的时候可能会出现：<br>“independent variables are collinear with the panel variable year”<br>解决的办法是从新生成一个panel varible比如code，此code是id和year的综合,前提是提前设置了<br>tsset id year。然后按照如下命令进行：<br>  gen code =year+id<br>  tsset code year<br>xi:xtreg y x1 x2 i.year,fe<br>针对时期固定效应（H0：不存在时期固定效应）的F检验自动生成。<br>最后在三种模型中到底选择哪个，主要根据F检验值是否显著进行判断，第一个显著后面不显著就选个体固定效应模型，第 二个显著其他不显著选择时间固定效应模型，第 三个显著意味着前两个均显著，那么选择个体时间双固定模型。<br>三、随机效应模型　　　　<br>tsset id year　<br> xtreg cp ip,re　　　　<br>　　　<br>四、回归系数不同的面板数据模型<br>by id: reg cp ip　　　　<br>然后把斜率＆截距整理合成一下就ok。</p>
+<p>五、针对固定效应和随机效应模型选择主要根据Hausman检验结果判定：　　　<br>  xtreg cp ip, fe　　<br>  est store FE 　<br>  xtreg cp ip, re<br>　　est store RE　<br>  hausman FE  RE　由于原假设是随机效应和固定效应无差异，如果拒绝原假设，则采用固定效应模型，否则随机效应模型。　</p>
+<h2 id="随机效应和固定效应的选择"><a href="#随机效应和固定效应的选择" class="headerlink" title="随机效应和固定效应的选择"></a>随机效应和固定效应的选择</h2><p>tsset id year　 </p>
+<p>  xtreg cp ip, fe　　<br>  est store FE 　<br>  xtreg cp ip, re<br>　　est store RE　<br>  hausman FE  RE</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1045132-24aa6e61e9ea3868.png?imageMogr2/auto-orient/strip|imageView2/2/w/873/format/webp" alt="img"></p>
+<p>这里最重要的还是检验P值，P&lt;0.05说明可以拒绝原假设（随机效应回归模型），因此我们的模型采用固定效应回归模型更为合适。</p>
+<h1 id="DID"><a href="#DID" class="headerlink" title="DID"></a>DID</h1><p>政策前后，时间前，时间后，至少要知道两期</p>
+<p>处理组和对照组：受不受影响。</p>
+<p>截面数据：设置的方法</p>
+<p>面板数据</p>
+<p>**PSM-DID方法———————————————-</p>
+<p>** PSM的部分<br>set seed 0001 //定义种子<br>gen tmp = runiform() //生成随机数<br>sort tmp //把数据库随机整理<br>psmatch2 treated $xlist, out(ln_w) logit ate neighbor(1) common caliper(.05) ties //通过近邻匹配，这里可以要outcome，也可以不要它</p>
+<p>pstest $xlist, both graph //检验协变量在处理组与控制组之间是否平衡<br>gen common=_support<br>drop if common == 0 //去掉不满足共同区域假定的观测值</p>
+<p>** DID的部分，根据上面匹配好的数据<br>reg ln_w did time treated $xlist </p>
+<p>xtreg ln_w did time treated $xlist i.year, fe</p>
+<p>**PSM-DID部分结束———————————————————</p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/yNZ95g8poUzyDGin7JMalA">https://mp.weixin.qq.com/s/yNZ95g8poUzyDGin7JMalA</a></p>
+<p>控制组和对照组受政策影响的时间是否一致</p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20201006161241325.png" alt="image-20201006161241325"></p>
+<h1 id="异方差"><a href="#异方差" class="headerlink" title="异方差"></a>异方差</h1><p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20201006110349569.png" alt="image-20201006110349569"></p>
+<p>对于每一个X,对应一个相同的分布。但实际上，可能不是。</p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20201006110508755.png" alt="image-20201006110508755"></p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20201006110654746.png" alt="image-20201006110654746"></p>
+<p>WLS: 加权最小二乘法(WLS)</p>
+<p>white调整（最大)</p>
+<p>截面数据</p>
+<p>异方差检验：方法</p>
+<p>如果存在：怀特调整； 变换方程的形式；重新定义变量；</p>
+<p>纯异方差：</p>
+<p>非纯异方差:</p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20201006111253388.png" alt="image-20201006111253388"></p>
+<p><a target="_blank" rel="noopener" href="https://mlln.cn/2018/12/11/stata%E6%95%99%E7%A8%8B03-%E5%BC%82%E6%96%B9%E5%B7%AE%E7%9A%84%E6%A3%80%E9%AA%8C%E5%92%8C%E5%A4%84%E7%90%86/">https://mlln.cn/2018/12/11/stata%E6%95%99%E7%A8%8B03-%E5%BC%82%E6%96%B9%E5%B7%AE%E7%9A%84%E6%A3%80%E9%AA%8C%E5%92%8C%E5%A4%84%E7%90%86/</a></p>
+<p>为了减少异方差和使结果更加稳健，我们使用“OLS+稳健标准误”的办法，通过加robust选项来求稳健标准误。使用“OLS+稳健标准误”的好处是，它对回归系数及标准误的估计都是一致的，并不需要知道条件方差函数的形式，更适用于一般的情形。</p>
+<p>线性模型的基本假设中有Var(μ|x1,x2,⋯,xk)=dVar(μ|x1,x2,⋯,xk)=d，即<strong>随机干扰项的方差不因自变量的不同而不同</strong>。表现在现实的经济生活中，以消费水平受到收入水平的影响为例。C=b0+b1∗Y+μC=b0+b1∗Y+μ,对于收入水平Y较低的群众而言，消费情况的变化是比较小的，但是对于收入水平较大的群体而言，其消费水平的变化差异可能就非常大了。用公式表示，即为var(μ|x1,x2,⋯,xk)=f(xi,d)</p>
+<h1 id="序列相关性"><a href="#序列相关性" class="headerlink" title="序列相关性"></a>序列相关性</h1><p>什么是？</p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20201006124927754.png" alt="image-20201006124927754"></p>
+<p>检测</p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20201006125117457.png" alt="image-20201006125117457"></p>
+<p>补救措施</p>
+<p>GLS: </p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20201006125335017.png" alt="image-20201006125335017"></p>
+<h1 id="遗漏变量"><a href="#遗漏变量" class="headerlink" title="遗漏变量"></a>遗漏变量</h1><h1 id="虚拟变量"><a href="#虚拟变量" class="headerlink" title="虚拟变量"></a>虚拟变量</h1><h2 id="政策变量"><a href="#政策变量" class="headerlink" title="政策变量"></a>政策变量</h2><p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20201006112428053.png" alt="image-20201006112428053"></p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20201006112510991.png" alt="image-20201006112510991"></p>
+<h2 id="虚拟变量的引入"><a href="#虚拟变量的引入" class="headerlink" title="虚拟变量的引入"></a>虚拟变量的引入</h2><p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20201006111902652.png" alt="image-20201006111902652"></p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20201006112111251.png" alt="image-20201006112111251"></p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20201006112012221.png" alt="image-20201006112012221"></p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20201006112035220.png" alt="image-20201006112035220"></p>
+<h1 id="面板数据"><a href="#面板数据" class="headerlink" title="面板数据"></a>面板数据</h1><ol>
+<li><p>不变参数模型和变截距模型</p>
+<p>混合回归模型与截面固定效应（P&lt;5%,拒绝混合回归模型）</p>
+<p>混合回归模型与时间固定效应模型的检测</p>
+<p>不变参数模型与截面和时间的联合检测</p>
+</li>
+<li><p>变截距模型是固定还是随机效应模型</p>
+<p>Wald统计量</p>
+<p>显著：固定效应</p>
+<p>截面上检验</p>
+<p>时间上检验</p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20201006131019054.png" alt="image-20201006131019054"></p>
+</li>
+</ol>
+<p>   混合回归模型：</p>
+<p>   变截距模型</p>
+<p>   <img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20201006131522580.png" alt="image-20201006131522580"></p>
+<p>   混合回归模型</p>
+<p>   变截距模型</p>
+<p>   ​    固定效应模型</p>
+<p>   ​    随机效应模型</p>
+<p>   变系数模型（不考虑</p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20201006132238571.png" alt="image-20201006132238571"></p>
+<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20201006132615287.png" alt="image-20201006132615287"></p>
+<p>OLS的假设。如果不满足相应的假设，则需要补救。</p>
+<p>常用的三大问题。</p>
+<p>面板数据的模型设置和检测。有哪些类别。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ol>
+<li><p>截面数据</p>
+<ol>
+<li>异方差</li>
+</ol>
+</li>
+<li><p>面板数据</p>
+<ol>
+<li>模型设置的形式</li>
+<li>检测方法</li>
+</ol>
+</li>
+<li><p>虚拟变量</p>
+<ol>
+<li><p>应用</p>
+<ol>
+<li>双重差分模型(原理)</li>
+<li>基本</li>
+<li>固定的</li>
+</ol>
+</li>
+<li><p>虚拟变量设置方法</p>
+<p>n-1</p>
+</li>
+</ol>
+</li>
+<li><p>普通最小二乘法的假设</p>
+<ol>
+<li>三大问题的检测方法和补救措施</li>
+</ol>
+</li>
+</ol>
+<h4 id="异方差-1"><a href="#异方差-1" class="headerlink" title="异方差"></a>异方差</h4><script type="math/tex; mode=display">
+Var(u_i) = \delta^2</script><p><strong>聚类调整标准误</strong></p>
+<p>即<strong>对于不同的样本点</strong>，<strong>随机误差项的方差不再是常数</strong>，<strong>而互不相同</strong>，<strong>则认为出现了异方差性(Heteroskedasticity)</strong>。</p>
+<p>标准误在统计推断中发挥着至关重要的作用，直接影响着系数的显著性和置信区间，并最终影响到假设检验的结论。因此，正确地估计标准误在实证分析的过程中显得尤为重要。当干扰项满足「独立同分布 (iid)」 条件时， OLS 所估计的标准误是无偏的。但是当误差项之间存在相关性时，OLS 所估计的标准误是有偏的，不能很好地反映估计系数的真实变异性 (Petersen, 2009)，故需要对标准误进行调整。在多种调整标准误的方式中，「聚类调整标准误 (cluster)」是一种有效的方法 (Petersen, 2009)。</p>
+<p>随机误差项的方差是常数。稳健标准误修正异方差</p>
+<p>到底在什么级别上进行聚类，即如何获得合理的聚类稳健标准误—clustered robust standard errors。 到底是在个体、县、市、省还是行业、时间聚类？有没有一个统一的标准或者指导准则？看一下这下面的黄色标注，即采取保守策略，先倾向于在一个更大层面进行聚类，然后比较聚类稳健标准误和原始的标准误的差异，可以在进一步的聚类稳健标准误变化很小的时候停止。</p>
+<p>聚类标准误</p>
+<p><strong>聚类稳健的标准误&gt;异方差稳健的标准误&gt;普通标准误</strong></p>
+<p>聚类的方法有两种：</p>
+<pre><code> 1. **异方差—稳健标准误**（Heteroskedasticity-Robust+Standard+Error）是指其标准差对于模型中可能存在的异方差或自相关问题不敏感，基于稳健 标准差计算的稳健t统计量仍然渐进分布t分布。 因此，在Stata中利用**robust**选项可以得到异方差—稳健标准误（Heteroskedasticity-Robust+Standard+Error）估计量。标准误
+</code></pre><ol>
+<li><p>聚类稳健标准误：reg y x ,vce(cluster xxx)</p>
+<p>聚类稳健标准误实质上是<strong>允许组内自相关</strong>，所以如果你假定一个企业的观测值在不同时间内存在相关性，但是不同的企业之间是独立的，就聚类到企业层面；如果你假定一个企业的观测值在不同的时间内存在相关性，且一个城市内的所有企业也存在相关性（即一个城市内的所有观测值中，任意两个都存在相关性），但不同城市之间的观测值是独立的，就聚类到城市层面。</p>
+<p>​     <strong>standard errors clustered at the xx level</strong></p>
+<p>提问1：老师，您好！请问一下在使用面板数据回归时，一般控制聚类稳健标准误应该聚类到哪个层面，具体代表哪些含义？具体来说，比如我现在的数据是地级市层面的面板数据，我控制了时间和地级市固定效应，进一步我想在模型中控制聚类稳健标准误，那么我可以选择聚类到地级市层面，也可以选择聚类到省级层面，想请问有一下这两者之间有什么区别，他们分别表示模型控制了哪些干扰因素（他们具体的经济含义是什么）？</p>
+<p>解答1：聚类标准误反映了不同观测值之间是如何关联的。在你的例子中，如果聚类到地级市层面，就相当于假设同一个地级市在不同时间上的观测值之间是相互关联的，但是不同地级市的观测值之间是没有关联的。如果聚类到省级层面，要求就更严格——同一个省内任何两个观测值之间都是相互关联的（不管是不是在同一个地级市），而不同省的观测值之间是没有关联的。一般来说，你的研究情形可以聚类到地级市层面，此时等价于面板数据回归在控制地级市固定效应之后计算常规的稳健标准误。</p>
+</li>
+</ol>
+<p><img src="F:\MyBlog\MyBlog\hexo\source\_posts\计量经济学\image-20210405131646510.png" alt="image-20210405131646510"></p>
+<p>08</p>
+<p>虚拟变量</p>
+<p>课时</p>
+<p>8.1 虚拟变量的含义</p>
+<p>8.2 虚拟变量的设置与引入</p>
+<p>8.3 虚拟变量的应用</p>
+<p>09</p>
+<p>虚拟应变量</p>
+<p>课时</p>
+<p>9.1 虚拟应变量的概念</p>
+<p>9.2 线性概率模型</p>
+<p>9.3 Logit模型和Probit模型</p>
+<p>10</p>
+<p>预测</p>
+<p>课时</p>
+<p>10.1 预测及其步骤</p>
+<p>10.2 精度指标</p>
+<p>10.3 时间序列模型预测</p>
+<p>11</p>
+<p>时间序列模型</p>
+<p>课时</p>
+<p>11.1 分布滞后模型及其估计</p>
+<p>11.2 Granger因果关系</p>
+<p>11.3 平稳性与单位根检验</p>
+<p>11.4 协整与误差修正模型</p>
+<p>12</p>
+<p>面板数据模型</p>
+<p>课时</p>
+<p>12.1 认识面板数据</p>
+<p>12.2 面板数据模型的设定</p>
+<p>12.3 面板数据模型的参数估计</p>
+<p>12.4 面板数据模型的设定检验</p>
+<h1 id="分组回归和交互性区别"><a href="#分组回归和交互性区别" class="headerlink" title="分组回归和交互性区别"></a>分组回归和交互性区别</h1><p>分组回归：控制变量系数不一样，样本量少了，估计不太好</p>
+<p>稳健性检测</p>
+<h1 id="summary"><a href="#summary" class="headerlink" title="summary"></a>summary</h1><p>截面数据</p>
+<p>面板数据</p>
+<p>时间序列</p>
+<p>DID的特殊性（两种形式)</p>
+<p>模型的形式</p>
+<p>估计方法（OLS,GLS)</p>
+<p>标准稳健性偏误</p>
+<h2 id="多重共线性"><a href="#多重共线性" class="headerlink" title="多重共线性"></a>多重共线性</h2><p>0.8 </p>
+<h2 id="相关性系数"><a href="#相关性系数" class="headerlink" title="相关性系数"></a>相关性系数</h2><h2 id="回归结果分析"><a href="#回归结果分析" class="headerlink" title="回归结果分析"></a>回归结果分析</h2><h2 id="方差膨胀因子-VIF"><a href="#方差膨胀因子-VIF" class="headerlink" title="方差膨胀因子 VIF"></a>方差膨胀因子 VIF</h2><p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20201121093752887.png" alt="image-20201121093752887"></p>
+<ol>
+<li>删除支配变量</li>
+<li>增加样本容量</li>
+<li><p>删除多余变量</p>
+</li>
+<li><p>主成分分析</p>
+</li>
+<li>因子分析</li>
+<li>如果不严重，可以不处理。除非是出现了严重的问题（符号问题)</li>
+<li></li>
+</ol>
+<p><a target="_blank" rel="noopener" href="http://ulsonhu.cn/%E6%9C%AC%E7%A7%91%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%8B%E5%9B%9E%E7%82%89%E9%87%8D%E9%80%A0%E7%AF%87.html">http://ulsonhu.cn/%E6%9C%AC%E7%A7%91%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%B9%8B%E5%9B%9E%E7%82%89%E9%87%8D%E9%80%A0%E7%AF%87.html</a></p>
+<h1 id="自选择偏误"><a href="#自选择偏误" class="headerlink" title="自选择偏误"></a>自选择偏误</h1><p>heckman来解决</p>
+<h1 id="内生性问题"><a href="#内生性问题" class="headerlink" title="内生性问题"></a>内生性问题</h1><h2 id="遗漏变量-1"><a href="#遗漏变量-1" class="headerlink" title="遗漏变量"></a>遗漏变量</h2><h2 id="互为因果"><a href="#互为因果" class="headerlink" title="互为因果"></a>互为因果</h2><h2 id="选择性偏差"><a href="#选择性偏差" class="headerlink" title="选择性偏差"></a>选择性偏差</h2><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="DID-1"><a href="#DID-1" class="headerlink" title="DID"></a>DID</h3><h3 id="断点回归"><a href="#断点回归" class="headerlink" title="断点回归"></a>断点回归</h3><h3 id="面板数据固定效应模型"><a href="#面板数据固定效应模型" class="headerlink" title="面板数据固定效应模型"></a>面板数据固定效应模型</h3><h4 id="IV"><a href="#IV" class="headerlink" title="IV"></a>IV</h4><h4 id="PSM"><a href="#PSM" class="headerlink" title="PSM"></a>PSM</h4><p>豪斯曼检验：是否是内生变量</p>
+<p>内生变量：与随机误差项相关</p>
+<p>heckman </p>
+<h2 id="回归模型要检测的指标以及修正方法"><a href="#回归模型要检测的指标以及修正方法" class="headerlink" title="回归模型要检测的指标以及修正方法"></a>回归模型要检测的指标以及修正方法</h2><p>内生检测</p>
+<p>异方差检测</p>
+<p>诊断：</p>
+<p>补救措施：</p>
+<p>多重共线性</p>
+<h1 id="因果分析"><a href="#因果分析" class="headerlink" title="因果分析"></a>因果分析</h1><h1 id="R2显著性检测"><a href="#R2显著性检测" class="headerlink" title="R2显著性检测"></a>R2显著性检测</h1><p>It’s a test to compare whether there is significant difference between the R^2 of two models.</p>
+<p>Example</p>
+<p>  <strong>. reg y x<br>  . est store modA<br>  . reg y z<br>  . est store modB<br>  . vuong modA modB</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flytowardnewworld.github.io/2020/09/13/%E7%A7%91%E7%A0%94%E4%B9%8B%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/" data-id="cl8uas9u500060kvk64eahg67" data-title="计量经济学" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/" rel="tag">计量经济学</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../24/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90-%E4%B8%83%E5%91%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          数据分析-七周
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../11/%E7%A7%91%E7%A0%94-%E7%A7%91%E7%A0%94tool/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">科研-科研tool</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Book/">Book</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Deep-Learning/">Deep Learning</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/R/">R</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/machine-learning/">machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E5%A8%B1%E4%B9%90%E7%94%9F%E6%B4%BB/">娱乐生活</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E5%AD%A6%E4%B9%A0%E3%81%AE%E5%8E%86%E7%A8%8B-Journal-of-Studying/">学习の历程(Journal of Studying)</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E5%BF%83%E5%BE%97/">心得</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E6%80%9D%E7%BB%B4/">思维</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E6%95%B0%E5%AD%A6/">数学</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">数据可视化</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6-Data-Science/">数据科学(Data Science)</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/">数理统计</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%95%B0%E5%AD%A6/">数学</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E6%9D%82%E9%A1%B9/">杂项</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E7%A7%91%E6%99%AE/">科普</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E7%A7%91%E7%A0%94/">科研</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E7%AB%9E%E8%B5%9B/">竞赛</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E8%8B%B1%E8%AF%AD/">英语</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E8%A7%84%E5%88%92/">规划</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0/">视频学习</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/">计量经济学</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E8%AF%BB%E4%B9%A6%E6%97%A5%E5%B8%B8/">读书日常</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/1/" rel="tag">1</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/BI/" rel="tag">BI</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/BP/" rel="tag">BP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Boosting-AdaBoost/" rel="tag">Boosting, AdaBoost</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Daily/" rel="tag">Daily</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Data-Mining/" rel="tag">Data Mining</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Deep-learning/" rel="tag">Deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Excel/" rel="tag">Excel</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Numpuy/" rel="tag">Numpuy</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Pandas/" rel="tag">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/R/" rel="tag">R</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/SVD/" rel="tag">SVD</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/deep-learning/" rel="tag">deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/df/" rel="tag">df</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ielts/" rel="tag">ielts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/logisitics-regression/" rel="tag">logisitics regression</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/machine-learning/" rel="tag">machine learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/origin/" rel="tag">origin</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/tensorlow/" rel="tag">tensorlow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/test/" rel="tag">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92/" rel="tag">二次规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" rel="tag">交叉验证</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/" rel="tag">假设检验</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" rel="tag">关联规则</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%86%B3%E7%AD%96%E6%A0%91/" rel="tag">决策树</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%8D%95%E8%AF%8D/" rel="tag">单词</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%8D%A1%E6%96%B9%E5%88%86/" rel="tag">卡方分</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" rel="tag">回归分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" rel="tag">回归树</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%AE%89%E6%8E%92/" rel="tag">安排</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" rel="tag">希腊字母</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%BD%92%E4%B8%80%E5%8C%96/" rel="tag">归一化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%BD%A9%E9%93%85/" rel="tag">彩铅</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%80%9D%E7%BB%B4/" rel="tag">思维</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">我的读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%8A%80%E8%83%BD/" rel="tag">技能</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0/" rel="tag">抽样分布函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%8C%87%E6%A0%87/" rel="tag">指标</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" rel="tag">支持向量机</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" rel="tag">支持向量机回归</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%95%B0%E5%AD%97%E5%8C%96/" rel="tag">数字化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">数据分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD/" rel="tag">数据分析技能</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag">数据挖掘</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2/" rel="tag">数据探索</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%96%B0%E6%A6%82%E5%BF%B5/" rel="tag">新概念</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%96%B9%E6%B3%95/" rel="tag">方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%97%A5%E5%B8%B8/" rel="tag">日常</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%A0%87%E5%87%86%E5%8C%96/" rel="tag">标准化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/" rel="tag">案例分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%AD%A3%E5%88%99%E5%8C%96/" rel="tag">正则化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" rel="tag">特征工程</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" rel="tag">监督学习与非监督学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6/" rel="tag">社会科学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%A7%91%E7%A0%94/" rel="tag">科研</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" rel="tag">科研工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/" rel="tag">科研笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%AB%9E%E8%B5%9B/" rel="tag">竞赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%BB%98%E5%9B%BE/" rel="tag">绘图</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%81%8C%E4%B8%9A/" rel="tag">职业</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%83%BD%E5%8A%9B/" rel="tag">能力</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/" rel="tag">西瓜书</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/" rel="tag">计量经济学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" rel="tag">贝叶斯分类器</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%BF%90%E8%90%A5/" rel="tag">运营</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E9%9B%85%E6%80%9D/" rel="tag">雅思</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/1/" style="font-size: 10px;">1</a> <a href="../../../../tags/BI/" style="font-size: 12px;">BI</a> <a href="../../../../tags/BP/" style="font-size: 10px;">BP</a> <a href="../../../../tags/Boosting-AdaBoost/" style="font-size: 10px;">Boosting, AdaBoost</a> <a href="../../../../tags/Daily/" style="font-size: 12px;">Daily</a> <a href="../../../../tags/Data-Mining/" style="font-size: 10px;">Data Mining</a> <a href="../../../../tags/Deep-learning/" style="font-size: 16px;">Deep learning</a> <a href="../../../../tags/English/" style="font-size: 10px;">English</a> <a href="../../../../tags/Excel/" style="font-size: 10px;">Excel</a> <a href="../../../../tags/Numpuy/" style="font-size: 10px;">Numpuy</a> <a href="../../../../tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="../../../../tags/Python/" style="font-size: 16px;">Python</a> <a href="../../../../tags/R/" style="font-size: 10px;">R</a> <a href="../../../../tags/SQL/" style="font-size: 10px;">SQL</a> <a href="../../../../tags/SVD/" style="font-size: 10px;">SVD</a> <a href="../../../../tags/deep-learning/" style="font-size: 10px;">deep learning</a> <a href="../../../../tags/df/" style="font-size: 10px;">df</a> <a href="../../../../tags/ielts/" style="font-size: 10px;">ielts</a> <a href="../../../../tags/linux/" style="font-size: 10px;">linux</a> <a href="../../../../tags/logisitics-regression/" style="font-size: 10px;">logisitics regression</a> <a href="../../../../tags/machine-learning/" style="font-size: 12px;">machine learning</a> <a href="../../../../tags/origin/" style="font-size: 10px;">origin</a> <a href="../../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../../tags/tensorlow/" style="font-size: 10px;">tensorlow</a> <a href="../../../../tags/test/" style="font-size: 10px;">test</a> <a href="../../../../tags/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92/" style="font-size: 10px;">二次规划</a> <a href="../../../../tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" style="font-size: 10px;">交叉验证</a> <a href="../../../../tags/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/" style="font-size: 10px;">假设检验</a> <a href="../../../../tags/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" style="font-size: 10px;">关联规则</a> <a href="../../../../tags/%E5%86%B3%E7%AD%96%E6%A0%91/" style="font-size: 14px;">决策树</a> <a href="../../../../tags/%E5%8D%95%E8%AF%8D/" style="font-size: 10px;">单词</a> <a href="../../../../tags/%E5%8D%A1%E6%96%B9%E5%88%86/" style="font-size: 10px;">卡方分</a> <a href="../../../../tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 14px;">可视化</a> <a href="../../../../tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" style="font-size: 10px;">回归分析</a> <a href="../../../../tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" style="font-size: 10px;">回归树</a> <a href="../../../../tags/%E5%AE%89%E6%8E%92/" style="font-size: 10px;">安排</a> <a href="../../../../tags/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" style="font-size: 10px;">希腊字母</a> <a href="../../../../tags/%E5%BD%92%E4%B8%80%E5%8C%96/" style="font-size: 10px;">归一化</a> <a href="../../../../tags/%E5%BD%A9%E9%93%85/" style="font-size: 10px;">彩铅</a> <a href="../../../../tags/%E6%80%9D%E7%BB%B4/" style="font-size: 18px;">思维</a> <a href="../../../../tags/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">我的读书笔记</a> <a href="../../../../tags/%E6%8A%80%E8%83%BD/" style="font-size: 12px;">技能</a> <a href="../../../../tags/%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0/" style="font-size: 10px;">抽样分布函数</a> <a href="../../../../tags/%E6%8C%87%E6%A0%87/" style="font-size: 10px;">指标</a> <a href="../../../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" style="font-size: 10px;">支持向量机</a> <a href="../../../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" style="font-size: 10px;">支持向量机回归</a> <a href="../../../../tags/%E6%95%B0%E5%AD%97%E5%8C%96/" style="font-size: 10px;">数字化</a> <a href="../../../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 20px;">数据分析</a> <a href="../../../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD/" style="font-size: 10px;">数据分析技能</a> <a href="../../../../tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 10px;">数据挖掘</a> <a href="../../../../tags/%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2/" style="font-size: 10px;">数据探索</a> <a href="../../../../tags/%E6%96%B0%E6%A6%82%E5%BF%B5/" style="font-size: 10px;">新概念</a> <a href="../../../../tags/%E6%96%B9%E6%B3%95/" style="font-size: 10px;">方法</a> <a href="../../../../tags/%E6%97%A5%E5%B8%B8/" style="font-size: 12px;">日常</a> <a href="../../../../tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 12px;">机器学习</a> <a href="../../../../tags/%E6%A0%87%E5%87%86%E5%8C%96/" style="font-size: 10px;">标准化</a> <a href="../../../../tags/%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/" style="font-size: 10px;">案例分析</a> <a href="../../../../tags/%E6%AD%A3%E5%88%99%E5%8C%96/" style="font-size: 10px;">正则化</a> <a href="../../../../tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="../../../../tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">特征工程</a> <a href="../../../../tags/%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">生活</a> <a href="../../../../tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">监督学习与非监督学习</a> <a href="../../../../tags/%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6/" style="font-size: 10px;">社会科学</a> <a href="../../../../tags/%E7%A7%91%E7%A0%94/" style="font-size: 12px;">科研</a> <a href="../../../../tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">科研工具</a> <a href="../../../../tags/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">科研笔记</a> <a href="../../../../tags/%E7%AB%9E%E8%B5%9B/" style="font-size: 10px;">竞赛</a> <a href="../../../../tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="../../../../tags/%E7%BB%98%E5%9B%BE/" style="font-size: 10px;">绘图</a> <a href="../../../../tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 14px;">统计学</a> <a href="../../../../tags/%E8%81%8C%E4%B8%9A/" style="font-size: 10px;">职业</a> <a href="../../../../tags/%E8%83%BD%E5%8A%9B/" style="font-size: 10px;">能力</a> <a href="../../../../tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/" style="font-size: 10px;">西瓜书</a> <a href="../../../../tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/" style="font-size: 12px;">计量经济学</a> <a href="../../../../tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 10px;">读书</a> <a href="../../../../tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" style="font-size: 10px;">贝叶斯分类器</a> <a href="../../../../tags/%E8%BF%90%E8%90%A5/" style="font-size: 10px;">运营</a> <a href="../../../../tags/%E9%9B%85%E6%80%9D/" style="font-size: 10px;">雅思</a> <a href="../../../../tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 10px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../../../../2022/10/04/%E7%A7%91%E7%A0%94%E4%B9%8B%E7%A7%91%E7%A0%94%E6%96%B9%E6%B3%95%E7%B3%BB%E5%88%97/">科研之科研方法系列</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2022/10/04/%E7%A7%91%E7%A0%94%E4%B9%8B%E9%80%BB%E8%BE%91%E6%96%AF%E7%89%B9%E5%9B%9E%E5%BD%92/">科研之逻辑斯特回归</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2022/10/04/%E7%A7%91%E7%A0%94%E4%B9%8B%E5%86%85%E7%94%9F%E6%80%A7/">科研之内生性</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2022/10/03/%E7%88%B1%E7%94%9F%E6%B4%BB-%E5%AF%BC%E8%88%AA%E6%A0%8F/">爱生活-导航栏</a>
+          </li>
+        
+          <li>
+            <a href="../../../../2022/10/03/Statistics-%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0/">Statistics-抽样分布函数</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="../../../../js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="../../../../fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
