@@ -6,77 +6,63 @@
   
   <title>数据分析之SQL | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="SQL">
+  <meta name="description" content="提纲SQL是一门编程语言，知识点包括：1）语法规则，变量定义，变量类型 2）内置函数，if函数，case函数 3）简单查询 4） 连接 5） 多表查询 6）子查询 select 列，窗口函数 over(parition by order by ) from (join )where group by having order by limit">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据分析之SQL">
 <meta property="og:url" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="SQL">
+<meta property="og:description" content="提纲SQL是一门编程语言，知识点包括：1）语法规则，变量定义，变量类型 2）内置函数，if函数，case函数 3）简单查询 4） 连接 5） 多表查询 6）子查询 select 列，窗口函数 over(parition by order by ) from (join )where group by having order by limit">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析技能/数据分析——SQL.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820010931.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820010931.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820011129.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820011308.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820011424.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820011527.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820011527.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820011812.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820011812.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820012051.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820012051.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820012313.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820012348.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210819233244.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820012509.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820012625.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820012625.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820012813.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820012832.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820012945.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820013022.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820013125.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/hexo/数据分析之SQL/QQ图片20210820000740.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820004053.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820004957.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820004300.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820004945.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820004008.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820003940.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/hexo/source/_posts/数据分析之SQL/QQ图片20210820005225.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820013658.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820014614.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820014523.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/hexo/source/_posts/数据分析之SQL/QQ图片20210820005525.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820005806.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820010019.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/hexo/source/_posts/数据分析之SQL/QQ图片20210820010455.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/hexo/source/_posts/数据分析之SQL/QQ图片20210820010458.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820014729.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820015321.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820015646.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820015813.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820015928.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820020113.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/QQ图片20210820020117.png">
-<meta property="og:image" content="https://iknow-pic.cdn.bcebos.com/eaf81a4c510fd9f9d19723c3202dd42a2934a493?x-bce-process%3Dimage%2Fresize%2Cm_lfit%2Cw_600%2Ch_800%2Climit_1%2Fquality%2Cq_85%2Fformat%2Cf_jpg">
-<meta property="og:image" content="https://img2018.cnblogs.com/blog/1206977/201911/1206977-20191101141406910-243495753.png">
-<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz/1OYP1AZw0W3tSUvjyS5cAyXmHujLfFa9Nx5d8OQokkByCJDol5JspFxKsbia9FRJ8ANcHFqcdPI2bdLVSpODPGw/640?wx_fmt=other&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
-<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz/1OYP1AZw0W3tSUvjyS5cAyXmHujLfFa97gYf9gzDQG7UiczUibHqbo8tnvODSkEuXBPybu4PTeHA1DR5u1080PfQ/640?wx_fmt=other&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
-<meta property="og:image" content="https://pic2.zhimg.com/80/v2-ad1d86f5a5b9f0ef684907b20b341099_720w.jpg">
-<meta property="og:image" content="https://pic3.zhimg.com/80/v2-7b63c571dfa285c0aa0c8f944ca89482_720w.jpg">
-<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz/1OYP1AZw0W3tSUvjyS5cAyXmHujLfFa93MKeQLibXS0JeqQP7GoTE5Z9L5AyCJoptyZsewuKciaXMibmz2OSYP3Og/640?wx_fmt=other&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
-<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/rfaNuFeWzwDHicVppcn3zqs3KdvibEXJW7plQCCOZzNDxoSs1luiafuTqA4kkiaGk8DoP5MlQDib9GS29DvHsTaIIaw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
-<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/rfaNuFeWzwDHicVppcn3zqs3KdvibEXJW7TXfSLE4UOhfch0DgHlHInViaVsMsyYvzGS4cUWGnfgk0LAOPUpWb6jg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
-<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/rfaNuFeWzwDHicVppcn3zqs3KdvibEXJW7hkXZFfUHia6uia0OvoI2tZ3N87UTqVLWz6EfXHZ8dMwudXHNIxtA5yFQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/image-20210601135359672.png">
-<meta property="og:image" content="f:/MyBlog/MyBlog/_posts/数据分析之SQL/FN9$IYZ7_T%7D%6054_@5_YEAF1.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820010931.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820010931.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820011129.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820011308.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820011424.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820011527.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820011527.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820011812.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820011812.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820012051.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820012313.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820012348.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210819233244.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820012509.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820012625.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820012625.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820012813.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820012832.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820012945.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820013022.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820013125.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820000740.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820004053.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820004957.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820004300.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820004945.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820004008.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820003940.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820005225.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820013658.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820014614.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820014523.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820005525.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820005806.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820010019.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820010455.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820010458.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820014729.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820015321.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820015646.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820015813.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820015928.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820020113.png">
+<meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820020117.png">
 <meta property="article:published_time" content="2020-08-25T09:55:15.000Z">
-<meta property="article:modified_time" content="2022-02-26T14:08:36.000Z">
+<meta property="article:modified_time" content="2022-10-05T10:50:09.013Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="SQL">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="f:/MyBlog/MyBlog/_posts/数据分析技能/数据分析——SQL.png">
+<meta name="twitter:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820010931.png">
   
     <link rel="alternate" href="../../../../atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -159,12 +145,13 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h1><p><img src="F:/MyBlog/MyBlog/_posts/数据分析技能/数据分析——SQL.png" alt=""></p>
+        <h1 id="提纲"><a href="#提纲" class="headerlink" title="提纲"></a>提纲</h1><p>SQL是一门编程语言，知识点包括：1）语法规则，变量定义，变量类型 2）内置函数，if函数，case函数 3）简单查询 4） 连接 5） 多表查询 6）子查询</p>
+<p>select 列，窗口函数 over(parition by order by ) from (join )where group by having order by limit </p>
 <span id="more"></span>
-<h1 id="什么是数据库"><a href="#什么是数据库" class="headerlink" title="什么是数据库"></a>什么是数据库</h1><p>DataBase(DB)数据库</p>
+<h1 id="Day01-什么是数据库"><a href="#Day01-什么是数据库" class="headerlink" title="Day01 - 什么是数据库"></a>Day01 - 什么是数据库</h1><p>DataBase(DB)数据库</p>
 <p>数据库管理系统</p>
 <p>​    常见的（SQL Server Oracle IBM  MySQL)</p>
-<p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820010931.png" alt=""></p>
+<p><img src="数据分析之SQL\QQ图片20210820010931.png" alt=""></p>
 <h2 id="LeetCode-amp-NowCoder"><a href="#LeetCode-amp-NowCoder" class="headerlink" title="LeetCode &amp; NowCoder"></a>LeetCode &amp; NowCoder</h2><p><a target="_blank" rel="noopener" href="https://leetcode.com/problemset/database/">https://leetcode.com/problemset/database/</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/ta/sql">https://www.nowcoder.com/ta/sql</a></p>
 <h2 id="关系型数据库"><a href="#关系型数据库" class="headerlink" title="关系型数据库"></a>关系型数据库</h2><p>本质上就是一个二维表，表和表之间可以建立关联性。</p>
@@ -264,358 +251,8 @@
 <li><p>| <strong>MySQL关键字</strong>    | <strong>含义</strong>                 |<br>| ————————— | ———————————— |<br>| NULL               | 数据列可包含NULL值       |<br>| NOT NULL           | 数据列不允许包含NULL值   |<br>| DEFAULT            | 默认值                   |<br>| PRIMARY KEY        | 主键                     |<br>| AUTO_INCREMENT     | 自动递增，适用于整数类型 |<br>| UNSIGNED           | 无符号                   |<br>| CHARACTER SET name | 指定一个字符集           |</p>
 </li>
 </ul>
-<h1 id="MySQL数据库"><a href="#MySQL数据库" class="headerlink" title="MySQL数据库"></a>MySQL数据库</h1><p>关键字 (大写)+操作对象</p>
-<p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820010931.png" alt=""></p>
-<h2 id="使用MySQL数据库"><a href="#使用MySQL数据库" class="headerlink" title="使用MySQL数据库"></a>使用MySQL数据库</h2><h3 id="Step1-登录到MySQL"><a href="#Step1-登录到MySQL" class="headerlink" title="Step1: 登录到MySQL"></a>Step1: 登录到MySQL</h3><p>当 MySQL 服务已经运行时, 我们可以通过MySQL自带的客户端工具登录到MySQL数据库中, 首先打开命令提示符, 输入以下格式的命名:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h 主机名 -u 用户名 -p</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>-h :</strong> 该命令用于指定客户端所要登录的MySQL主机名, 登录当前机器该参数可以省略;</li>
-<li><strong>-u :</strong> 所要登录的用户名;</li>
-<li><strong>-p :</strong> 告诉服务器将会使用一个密码来登录, 如果所要登录的用户名密码为空, 可以忽略此选项。</li>
-</ul>
-<p>以登录刚刚安装在本机的MySQL数据库为例, 在命令行下输入 mysql -u root -p 按回车确认, 如果安装正确且MySQL正在运行, 会得到以下响应:</p>
-<p>Enter password:</p>
-<p>若密码存在, 输入密码登录, 不存在则直接按回车登录, 按照本文中的安装方法, 默认 root 账号是无密码的。登录成功后你将会看到 Welecome to the MySQL monitor… 的提示语。</p>
-<p>然后命令提示符会一直以 mysql&gt; 加一个闪烁的光标等待命令的输入, 输入 exit 或 quit 退出登录。</p>
-<h3 id="Step2-创建一个数据库"><a href="#Step2-创建一个数据库" class="headerlink" title="Step2: 创建一个数据库"></a>Step2: 创建一个数据库</h3><p>使用 create database 语句可完成对数据库的创建, 创建命令的格式如下:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database 数据库名 [其他选项];</span><br></pre></td></tr></table></figure>
-<p>例如我们需要创建一个名为 samp_db 的数据库, 在命令行下执行以下命令:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database samp_db character set gbk;</span><br></pre></td></tr></table></figure>
-<p>为了便于在命令提示符下显示中文, 在创建时通过 character set gbk 将数据库字符编码指定为 gbk。创建成功时会得到 Query OK, 1 row affected(0.02 sec) 的响应。</p>
-<p><strong>注意:</strong> MySQL语句以分号(;)作为语句的结束, 若在语句结尾不添加分号时, 命令提示符会以 -&gt; 提示你继续输入(有个别特例, 但加分号是一定不会错的);</p>
-<p><strong>提示:</strong> 可以使用 show databases; 命令查看已经创建了哪些数据库。</p>
-<h3 id="Step3-选择所要操作的数据库"><a href="#Step3-选择所要操作的数据库" class="headerlink" title="Step3: 选择所要操作的数据库"></a>Step3: 选择所要操作的数据库</h3><p>要对一个数据库进行操作, 必须先选择该数据库, 否则会提示错误:</p>
-<p>ERROR 1046(3D000): No database selected</p>
-<p>两种方式对数据库进行使用的选择:</p>
-<p><strong>一:</strong> 在登录数据库时指定, 命令: <code>mysql -D 所选择的数据库名 -h 主机名 -u 用户名 -p</code></p>
-<p>例如登录时选择刚刚创建的数据库: mysql -D samp_db -u root -p</p>
-<p><strong>二:</strong> 在登录后使用 use 语句指定, 命令: <code>use 数据库名;</code></p>
-<p>use 语句可以不加分号, 执行 use samp_db 来选择刚刚创建的数据库, 选择成功后会提示: Database changed</p>
-<h3 id="Step4-创建数据库表"><a href="#Step4-创建数据库表" class="headerlink" title="Step4: 创建数据库表"></a>Step4: 创建数据库表</h3><p>使用 create table 语句可完成对表的创建, create table 的常见形式:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create table 表名称(列声明);</span><br></pre></td></tr></table></figure>
-<p>以创建 students 表为例, 表中将存放 学号(id)、姓名(name)、性别(sex)、年龄(age)、联系电话(tel) 这些内容:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">create table students</span><br><span class="line">（</span><br><span class="line">	id int unsigned not null auto_increment primary key,</span><br><span class="line">	name char(8) not null,</span><br><span class="line">	sex char(4) not null,</span><br><span class="line">	age tinyint unsigned not null,</span><br><span class="line">	tel char(13) null default &quot;-&quot;</span><br><span class="line">);</span><br><span class="line">			</span><br></pre></td></tr></table></figure>
-<p>对于一些较长的语句在命令提示符下可能容易输错, 因此我们可以通过任何文本编辑器将语句输入好后保存为 createtable.sql 的文件中, 通过命令提示符下的文件重定向执行执行该脚本。</p>
-<p>打开命令提示符, 输入: <code>mysql -D samp_db -u root -p &lt; createtable.sql</code></p>
-<p>(提示: 1.如果连接远程主机请加上 -h 指令; 2. createtable.sql 文件若不在当前工作目录下需指定文件的完整路径。)</p>
-<p><strong>语句解说:</strong></p>
-<p>create table tablename(columns) 为创建数据库表的命令, 列的名称以及该列的数据类型将在括号内完成;</p>
-<p>括号内声明了5列内容, id、name、sex、age、tel为每列的名称, 后面跟的是数据类型描述, 列与列的描述之间用逗号(,)隔开;</p>
-<p>以 “id int unsigned not null auto_increment primary key” 行进行介绍:</p>
-<ul>
-<li>“id” 为列的名称;</li>
-<li>“int” 指定该列的类型为 int(取值范围为 -8388608到8388607), 在后面我们又用 “unsigned” 加以修饰, 表示该类型为无符号型, 此时该列的取值范围为 0到16777215;</li>
-<li>“not null” 说明该列的值不能为空, 必须要填, 如果不指定该属性, 默认可为空;</li>
-<li>“auto_increment” 需在整数列中使用, 其作用是在插入数据时若该列为 NULL, MySQL将自动产生一个比现存值更大的唯一标识符值。在每张表中仅能有一个这样的值且所在列必须为索引列。</li>
-<li>“primary key” 表示该列是表的主键, 本列的值必须唯一, MySQL将自动索引该列。</li>
-</ul>
-<p>下面的 char(8) 表示存储的字符长度为8, tinyint的取值范围为 -127到128, default 属性指定当该列值为空时的默认值。</p>
-<p>更多的数据类型请参阅 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/zbseoag/archive/2013/03/19/2970004.html">《MySQL数据类型》</a> : <a target="_blank" rel="noopener" href="http://www.cnblogs.com/zbseoag/archive/2013/03/19/2970004.html">http://www.cnblogs.com/zbseoag/archive/2013/03/19/2970004.html</a></p>
-<p><strong>提示:</strong> 1. 使用 show tables; 命令可查看已创建了表的名称; 2. 使用 describe 表名; 命令可查看已创建的表的详细信息。</p>
-<h3 id="操作数据库"><a href="#操作数据库" class="headerlink" title="操作数据库"></a>操作数据库</h3><h3 id="向表中插入数据"><a href="#向表中插入数据" class="headerlink" title="向表中插入数据"></a>向表中插入数据</h3><p>insert 语句可以用来将一行或多行数据插到数据库表中, 使用的一般形式如下:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert [into] 表名 [(列名1, 列名2, 列名3, ...)] values (值1, 值2, 值3, ...);</span><br></pre></td></tr></table></figure>
-<p>其中 [] 内的内容是可选的, 例如, 要给 samp_db 数据库中的 students 表插入一条记录, 执行语句:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert into students values(NULL, &quot;王刚&quot;, &quot;男&quot;, 20, &quot;13811371377&quot;);</span><br></pre></td></tr></table></figure>
-<p>按回车键确认后若提示 Query Ok, 1 row affected (0.05 sec) 表示数据插入成功。 若插入失败请检查是否已选择需要操作的数据库。</p>
-<p>有时我们只需要插入部分数据, 或者不按照列的顺序进行插入, 可以使用这样的形式进行插入:</p>
-<p>insert into students (name, sex, age) values(“孙丽华”, “女”, 21);</p>
-<h3 id="查询表中的数据"><a href="#查询表中的数据" class="headerlink" title="查询表中的数据"></a>查询表中的数据</h3><p>select 语句常用来根据一定的查询规则到数据库中获取数据, 其基本的用法为:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 列名称 from 表名称 [查询条件];</span><br></pre></td></tr></table></figure>
-<h3 id="更新表中的数据"><a href="#更新表中的数据" class="headerlink" title="更新表中的数据"></a>更新表中的数据</h3><p>update 语句可用来修改表中的数据, 基本的使用形式为:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update 表名称 set 列名称=新值 where 更新条件;</span><br></pre></td></tr></table></figure>
-<p><strong>使用示例:</strong></p>
-<p>将id为5的手机号改为默认的”-“: update students set tel=default where id=5;</p>
-<p>将所有人的年龄增加1: update students set age=age+1;</p>
-<p>将手机号为 13288097888 的姓名改为 “张伟鹏”, 年龄改为 19: update students set name=”张伟鹏”, age=19 where tel=”13288097888”;</p>
-<h3 id="删除表中的数据"><a href="#删除表中的数据" class="headerlink" title="删除表中的数据"></a>删除表中的数据</h3><p>delete 语句用于删除表中的数据, 基本用法为:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete from 表名称 where 删除条件;</span><br></pre></td></tr></table></figure>
-<p><strong>使用示例:</strong></p>
-<p>删除id为2的行: delete from students where id=2;</p>
-<p>删除所有年龄小于21岁的数据: delete from students where age&lt;20;</p>
-<p>删除表中的所有数据: delete from students;</p>
-<h2 id="创建后表的修改"><a href="#创建后表的修改" class="headerlink" title="创建后表的修改"></a>创建后表的修改</h2><p>alter table 语句用于创建后对表的修改, 基础用法如下:</p>
-<h3 id="添加列"><a href="#添加列" class="headerlink" title="添加列"></a>添加列</h3><p>基本形式: <code>alter table 表名 add 列名 列数据类型 [after 插入位置];</code></p>
-<p><strong>示例:</strong></p>
-<p>在表的最后追加列 address: alter table students add address char(60);</p>
-<p>在名为 age 的列后插入列 birthday: alter table students add birthday date after age;</p>
-<h3 id="修改列"><a href="#修改列" class="headerlink" title="修改列"></a>修改列</h3><p>基本形式: <code>alter table 表名 change 列名称 列新名称 新数据类型;</code></p>
-<p><strong>示例:</strong></p>
-<p>将表 tel 列改名为 telphone: alter table students change tel telphone char(13) default “-“;</p>
-<p>将 name 列的数据类型改为 char(16): alter table students change name name char(16) not null;</p>
-<h3 id="删除列"><a href="#删除列" class="headerlink" title="删除列"></a>删除列</h3><p>基本形式: <code>alter table 表名 drop 列名称;</code></p>
-<p><strong>示例:</strong></p>
-<p>删除 birthday 列: alter table students drop birthday;</p>
-<h3 id="重命名表"><a href="#重命名表" class="headerlink" title="重命名表"></a>重命名表</h3><p>基本形式: <code>alter table 表名 rename 新表名;</code></p>
-<p><strong>示例:</strong></p>
-<p>重命名 students 表为 workmates: alter table students rename workmates;</p>
-<h3 id="删除整张表"><a href="#删除整张表" class="headerlink" title="删除整张表"></a>删除整张表</h3><p>基本形式: <code>drop table 表名;</code></p>
-<p><strong>示例:</strong> 删除 workmates 表: drop table workmates;</p>
-<h3 id="删除整个数据库"><a href="#删除整个数据库" class="headerlink" title="删除整个数据库"></a>删除整个数据库</h3><p>基本形式: <code>drop database 数据库名;</code></p>
-<p><strong>示例:</strong> 删除 samp_db 数据库: drop database samp_db;</p>
-<h2 id="数据表"><a href="#数据表" class="headerlink" title="数据表"></a>数据表</h2><p>列</p>
-<p>行</p>
-<p>虚拟表</p>
-<p>  create view</p>
-<p>​    drop    view</p>
-<p>真实表</p>
-<p>​    create table</p>
-<p>​    alter table</p>
-<h4 id="关键字-操作对象；"><a href="#关键字-操作对象；" class="headerlink" title="关键字+操作对象；"></a>关键字+操作对象；</h4><p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820011129.png" style="zoom: 80%;" /></p>
-<p>操作对象（数据库，表）</p>
-<h3 id="语句类型"><a href="#语句类型" class="headerlink" title="语句类型"></a>语句类型</h3><p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820011308.png" alt=""></p>
-<p>DDL: 数据定义语言</p>
-<p>​    create drop alter 数据库和表</p>
-<p>DML: 数据操作语言</p>
-<p>​    对数据表中的数据进行操作</p>
-<p>​    select</p>
-<p>​    insert</p>
-<p>​    update</p>
-<p>​    delete</p>
-<p>DCL数据控制语言</p>
-<p>​    commit </p>
-<p>​    rollback</p>
-<h1 id="Day3-单表查询"><a href="#Day3-单表查询" class="headerlink" title="Day3-单表查询"></a>Day3-单表查询</h1><p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820011424.png" alt=""></p>
-<p>select  列名，（<strong>字句1</strong>）  from 数据表<strong>，字句2</strong>；关键字+操作对象</p>
-<p>执行结果：数据表（二维表结构）</p>
-<p>单列查询</p>
-<p>多列查询</p>
-<p>所有列查询 select <em> from [表名]<em>*；</em></em></p>
-<h4 id="结果展示-select"><a href="#结果展示-select" class="headerlink" title="结果展示-select"></a><strong>结果展示-select</strong></h4><p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820011527.png" alt=""></p>
-<p>查询列-查询结果（修饰）</p>
-<ol>
-<li><p>别名设置 as </p>
-<p>未查询列设置别名</p>
-<p>select 列名 as 别名 from 表名；</p>
-</li>
-<li><p>常数添加</p>
-<ol>
-<li><p>select ‘常数’ as 别名 from 表名；</p>
-<p>select  * 0.9 from ;</p>
-<p>select * 0.9 as 别名 from 表名；</p>
-<p>别名就是0.9</p>
-<p>select * ‘零食’ as class from ;</p>
-<p>名称不用“”</p>
-</li>
-</ol>
-</li>
-<li><p>四则运输</p>
-<ol>
-<li><p>select 表达式 as from 表名 ；</p>
-<p>select  别名.a, 别名.b  from 表名 as 别名;</p>
-<p>select 别名.a-别名.b as  from 表名 as 别名;</p>
-<p>可以是列与列，也可以列与常数项</p>
-</li>
-</ol>
-</li>
-</ol>
-<h4 id="Day-4"><a href="#Day-4" class="headerlink" title="Day 4"></a>Day 4</h4><p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820011527.png" alt=""></p>
-<ol>
-<li><p>字符拼接</p>
-<p>concat（）函数 可以是数值也可以是字符串，可以是自定义的，可以是列，</p>
-<p> concat 和并列</p>
-<p> select concat([列名]，[列名]) as 别名 from 表</p>
-<p>如果不起名字就是concat([列名]，[列名]) </p>
-</li>
-<li><p>指定拼接符</p>
-<p>concat_WS(拼接符，列名1，列名2，)</p>
-<p>列之间用统一的拼接符拼接在一起</p>
-<ul>
-<li>‘ ‘ + </li>
-</ul>
-<p>concat_WS(‘是’,)</p>
-</li>
-<li><p>内容去重</p>
-<p>distinct 关键词</p>
-<p>select DISTINCT 列名 from ;</p>
-</li>
-</ol>
-<h4 id="结果排序"><a href="#结果排序" class="headerlink" title="结果排序"></a>结果排序</h4><p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820011812.png" alt=""></p>
-<p>order by 是子句，放在最后；</p>
-<p>select from order by 列1， 列2,</p>
-<p>排序： asc desc</p>
-<p>select m.* from 表明 as m orderby 列名 AES;（单列）</p>
-<p><strong>中文排序</strong></p>
-<p>CONvERT( 列名 USINS gbk) //重新编码</p>
-<p>select m.* from 表明 as m order by CONVERT(列名 USING gbk)  AES; （中文）</p>
-<p>utf-8是常用的</p>
-<p>多列 分号就可以了</p>
-<p>select m.* from 表明 as m orderby 列名 AES，列名2, desc;（多列）</p>
-<p>可以用列的位置 1， 2</p>
-<p>order by 1, 2 DESC;</p>
-<p>可以是不展示的列，用那一列 不影响select 列名</p>
-<h4 id="过滤子句（行）"><a href="#过滤子句（行）" class="headerlink" title="过滤子句（行）"></a>过滤子句（行）</h4><p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820011812.png" alt=""></p>
-<p>关键词 位置</p>
-<p>where 根据条件，过滤结果数据，不单独使用，非必须子句</p>
-<p>where 子句（过滤条件);</p>
-<p>对行过滤</p>
-<ol>
-<li><p>常规运算符</p>
-<p>等于=</p>
-<p>​    =/<>/!=/</>/ &gt;=</p>
-<p>a=2</p>
-</li>
-<li><p>计算表达式</p>
-<p>列与常数</p>
-<p>a*0.8&lt;2</p>
-<p>列与列</p>
-<p>a-b&lt;2</p>
-</li>
-<li><p>from之后 order 之前</p>
-</li>
-<li><p>文本格式的数值，大小比较</p>
-</li>
-<li><p>Null</p>
-<p>IFNULL(字段，赋值)</p>
-<p>where ifnull(列名1,2)&lt;3</p>
-</li>
-<li><p>Between and 数值过滤</p>
-<p>列 between 1 and 2;</p>
-<p>where price between 2 and 5</p>
-</li>
-<li><p>is null</p>
-<p>列 is null 找出空值</p>
-<p>where price is null</p>
-</li>
-<li><p>is not null</p>
-<p>找出非空值</p>
-<p>列 is not null</p>
-</li>
-<li><p>通配符like关键词</p>
-<p>where 列 lik ‘ ‘</p>
-<p>_单个，任意字符</p>
-<p>% 任意数目</p>
-<p>通配符开头，效率低</p>
-<p>转义字符（\)如果要查询% %_  \%仅仅表示字符</p>
-<p>where 列 LIKE ’奶%’</p>
-</li>
-<li><p>and or and or 多个条件</p>
-<p>where (m.sale_price <4 )or m.sale_price>50</p>
-<p>可以加括号，</p>
-<p>in </p>
-<p>列名 in ( , , ,)可以是字符串也可以是数值</p>
-<p>Not 反面 放在列名之前</p>
-<p>Not 放在某个列名前</p>
-<p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820012051.png" alt=""></p>
-</li>
-</ol>
-<h3 id="函数处理"><a href="#函数处理" class="headerlink" title="函数处理"></a>函数处理</h3><p>输入和输出一列</p>
-<p>输入参数是列名，输出也是一列</p>
-<p>文本处理函数</p>
-<p>日期函数</p>
-<p>YEAR()</p>
-<p>NOW()</p>
-<p>CURDATE（）</p>
-<p>CURTIME()</p>
-<p>时间增加 DATE_ADD()</p>
-<p>时间减少</p>
-<h3 id="聚合函数本身也是普通函数，最后当做常数用"><a href="#聚合函数本身也是普通函数，最后当做常数用" class="headerlink" title="聚合函数本身也是普通函数，最后当做常数用"></a>聚合函数本身也是普通函数，最后当做常数用</h3><p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820012051.png" alt=""></p>
-<p>输入是一列，输出是汇总处理数据</p>
-<p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820012313.png" alt=""></p>
-<p>计数函数</p>
-<p>​    count(*)/(1) 总行数（包括空值）</p>
-<p>​     count(col)是非空行</p>
-<p>​     count(DISTINCT col) 去重计数</p>
-<p>sum avg(col) 自动过滤控制</p>
-<p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820012348.png" alt=""></p>
-<p>max() min()</p>
-<p>select max(列) from as ;</p>
-<p>聚合函数和四则运算处理是不同的，四则运算保留，聚合函数排除了null</p>
-<p>最好理由ifnull对空值进行处理</p>
-<p>select max(), avg() from  as;</p>
-<p>分组子句</p>
-<p>group by 子句（聚合）</p>
-<p>多行数据表</p>
-<p>NULL单独成为一个分组</p>
-<p>聚合建尽量不起别名</p>
-<p>select sum(列名） from  table2 where  net in() group by ；</p>
-<p>先where 再分组，在聚合</p>
-<p>分组过滤</p>
-<p>将数据分组，各组进行聚合，对聚合结果再次筛选， having</p>
-<p>where是对行，对整个表进行筛选，分组之前排除行不参与分组</p>
-<p>having是对组 过滤分组，聚合建写在where中更好</p>
-<p>select sum(a) from group by m having sum(a)&lt;2;</p>
-<p>select sum(a) from group by m having b&lt;2;—不推荐</p>
-<p>执行语句顺序</p>
-<p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210819233244.png" alt="QQ图片20210819233244"></p>
-<h2 id="Day9-多表查询"><a href="#Day9-多表查询" class="headerlink" title="Day9 多表查询"></a>Day9 多表查询</h2><p>SELECT查询不但可以从一张表查询数据，还可以从多张表同时查询数据。查询多张表的语法是：<code>SELECT * FROM &lt;表1&gt; &lt;表2&gt;</code>。</p>
-<h4 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h4><p>子查询：嵌套在其他查询中的查询</p>
-<h5 id="标量子查询：一列一行一个值-相当于常数，当做常数处理"><a href="#标量子查询：一列一行一个值-相当于常数，当做常数处理" class="headerlink" title="标量子查询：一列一行一个值 相当于常数，当做常数处理"></a>标量子查询：一列一行一个值 相当于常数，当做常数处理</h5><p>增加常数列</p>
-<p>where having &lt;。&gt;</p>
-<p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820012509.png" alt=""></p>
-<p>位置：select where having</p>
-<p>关键词后面回车</p>
-<h5 id="关联子查询-in-from"><a href="#关联子查询-in-from" class="headerlink" title="关联子查询 in from"></a>关联子查询 in from</h5><p> 一列值</p>
-<p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820012625.png" alt=""></p>
-<h5 id="普通子查询"><a href="#普通子查询" class="headerlink" title="普通子查询"></a>普通子查询</h5><p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820012625.png" alt=""></p>
-<p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820012813.png" alt=""></p>
-<p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820012832.png" alt=""></p>
-<p>一列值，结果列作为主查询取值范围。</p>
-<p> in(子查询)</p>
-<p>select a from table </p>
-<p>where a <strong>in(</strong></p>
-<p>​                    select distinct a </p>
-<p>​                    from table</p>
-<p>​                 where a&lt;10);</p>
-<p>普通二维表，作为主查询的目标表(新的表)</p>
-<p>() as b 把子查询作为一个目标表，命名 b</p>
-<p>select p from <strong>(select p, a from talbe) as</strong> b where ;</p>
-<p>这种一次查询两个表的数据，查询的结果也是一个二维表，它是<code>students</code>表和<code>classes</code>表的“乘积”，即<code>students</code>表的每一行与<code>classes</code>表的每一行都两两拼在一起返回。结果集的列数是<code>students</code>表和<code>classes</code>表的列数之和，行数是<code>students</code>表和<code>classes</code>表的行数之积。</p>
-<p>这个查询的结果集每行记录都满足条件<code>s.gender = &#39;M&#39;</code>和<code>c.id = 1</code>。添加<code>WHERE</code>条件后结果集的数量大大减少了。</p>
-<p>使用多表查询可以获取M x N行记录；</p>
-<p>多表查询的结果集可能非常巨大，要小心使用。</p>
-<h3 id="联结：仍然返回表；"><a href="#联结：仍然返回表；" class="headerlink" title="联结：仍然返回表；"></a>联结：仍然返回表；</h3><p>子查询和连接，连接性能更好，且可以多个表中选择结果字段。都是多表查询</p>
-<p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820012945.png" alt=""></p>
-<p>连接查询是另一种类型的多表查询。连接查询对多个表进行JOIN运算，简单地说，就是先确定一个主表作为结果集，然后，把其他表的行有选择性地“连接”在主表结果集上。</p>
-<p>注意INNER JOIN查询的写法是：</p>
-<ol>
-<li>先确定主表，仍然使用<code>FROM &lt;表1&gt;</code>的语法；</li>
-<li>再确定需要连接的表，使用<code>INNER JOIN &lt;表2&gt;</code>的语法；</li>
-<li>然后确定连接条件，使用<code>ON &lt;条件...&gt;</code>，这里的条件是<code>s.class_id = c.id</code>，表示<code>students</code>表的<code>class_id</code>列与<code>classes</code>表的<code>id</code>列相同的行需要连接；</li>
-<li>可选：加上<code>WHERE</code>子句、<code>ORDER BY</code>等子句。</li>
-</ol>
-<p>使用别名不是必须的，但可以更好地简化查询语句。</p>
-<p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820013022.png" alt=""></p>
-<p>如果要把子查询作为新表（子查询） 表名字</p>
-<p>实际上没有表，虚拟表</p>
-<p>select</p>
-<p>from 表1， 表2 —连接的表</p>
-<p>where 表1.列a = 表2.列b —连接条件</p>
-<p>select a from a,b, where a.a1 &lt;b.a1 # inner join</p>
-<p>列出所有表，定义所有表的关系 # on()</p>
-<p>自连接</p>
-<p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820013125.png" alt=""></p>
-<p>列出所有表，联结条件</p>
-<p>外部连接</p>
-<p>  联结结果：所有表的所有列，包含相关表中没有关联行的行</p>
-<p> 创建联结规则：列出所有表，定义所有表的关系</p>
-<p>left outer join  包含左边表的所有行</p>
-<p>right outer join</p>
-<p>full outer join</p>
-<p>连接表，列，连接的条件</p>
-<p>select * from tabel1 as t1, table 2 as t2 where t1.id = t2.id and t1.a =3;</p>
-<p> select <em> from tabel1 as t1 <strong>inner join</strong> table 2 as t2 <strong>on</strong> t1.id = t2.id <em>*and</em></em> t1.a =3;</p>
-<p>select <em> <em>*from</em></em> table1 as t1 lfet outer join table2 as t2 on t1.id = t2.id ;</p>
-<p>子查询得到虚拟表，对虚拟表进行二次查询</p>
-<p>select a from</p>
-<p><strong>(</strong></p>
-<p><strong>select * from a,b where a.1 = b.1and a.2 like ‘1%’</strong></p>
-<p><strong>) c2</strong></p>
-<p>group by c2.id;</p>
-<p>连接后依然是一张表</p>
-<p>select  avg(a.ddd) from </p>
-<p>​    a inner join b on a.1 =b.1</p>
-<p>group by a.id</p>
-<h2 id="组合查询-union"><a href="#组合查询-union" class="headerlink" title="组合查询 union"></a>组合查询 union</h2><p>单挑select</p>
-<p>多条selectr </p>
-<p>union关键词</p>
-<p>条件：</p>
-<p><img src="F:\MyBlog\MyBlog\hexo\数据分析之SQL\QQ图片20210820000740.png" alt=""></p>
-<p>select id from a where a.1 = 2</p>
-<p>union</p>
-<p>select id from a whre b.2 =7;</p>
-<p>列要相同（不同表）</p>
 <h3 id="MySQL数据类型"><a href="#MySQL数据类型" class="headerlink" title="MySQL数据类型"></a>MySQL数据类型</h3><p>主要提供了三种类型，分别是文本，数字和日期。</p>
-<h2 id="MySQL-数据类型"><a href="#MySQL-数据类型" class="headerlink" title="MySQL 数据类型"></a>MySQL 数据类型</h2><p>在 MySQL 中，有三种主要的类型：文本、数字和日期/时间类型。</p>
+<p>在 MySQL 中，有三种主要的类型：文本、数字和日期/时间类型。</p>
 <h3 id="Text-类型："><a href="#Text-类型：" class="headerlink" title="Text 类型："></a>Text 类型：</h3><div class="table-container">
 <table>
 <thead>
@@ -750,7 +387,435 @@
 </table>
 </div>
 <p>* 即便 DATETIME 和 TIMESTAMP 返回相同的格式，它们的工作方式很不同。在 INSERT 或 UPDATE 查询中，TIMESTAMP 自动把自身设置为当前的日期和时间。TIMESTAMP 也接受不同的格式，比如 YYYYMMDDHHMMSS、YYMMDDHHMMSS、YYYYMMDD 或 YYMMDD。</p>
-<h2 id="Day-Ox00-入门："><a href="#Day-Ox00-入门：" class="headerlink" title="Day Ox00 入门："></a>Day Ox00 入门：</h2><p><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/sql/sql_syntax.asp">https://www.w3school.com.cn/sql/sql_syntax.asp</a></p>
+<h2 id="MySQL数据库"><a href="#MySQL数据库" class="headerlink" title="MySQL数据库"></a>MySQL数据库</h2><p>关键字 (大写)+操作对象</p>
+<p><img src="数据分析之SQL\QQ图片20210820010931.png" alt=""></p>
+<h2 id="使用MySQL数据库"><a href="#使用MySQL数据库" class="headerlink" title="使用MySQL数据库"></a>使用MySQL数据库</h2><h3 id="Step1-登录到MySQL"><a href="#Step1-登录到MySQL" class="headerlink" title="Step1: 登录到MySQL"></a>Step1: 登录到MySQL</h3><p>当 MySQL 服务已经运行时, 我们可以通过MySQL自带的客户端工具登录到MySQL数据库中, 首先打开命令提示符, 输入以下格式的命名:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h 主机名 -u 用户名 -p</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>-h :</strong> 该命令用于指定客户端所要登录的MySQL主机名, 登录当前机器该参数可以省略;</li>
+<li><strong>-u :</strong> 所要登录的用户名;</li>
+<li><strong>-p :</strong> 告诉服务器将会使用一个密码来登录, 如果所要登录的用户名密码为空, 可以忽略此选项。</li>
+</ul>
+<p>以登录刚刚安装在本机的MySQL数据库为例, 在命令行下输入 mysql -u root -p 按回车确认, 如果安装正确且MySQL正在运行, 会得到以下响应:</p>
+<p>Enter password:</p>
+<p>若密码存在, 输入密码登录, 不存在则直接按回车登录, 按照本文中的安装方法, 默认 root 账号是无密码的。登录成功后你将会看到 Welecome to the MySQL monitor… 的提示语。</p>
+<p>然后命令提示符会一直以 mysql&gt; 加一个闪烁的光标等待命令的输入, 输入 exit 或 quit 退出登录。</p>
+<h3 id="Step2-创建一个数据库"><a href="#Step2-创建一个数据库" class="headerlink" title="Step2: 创建一个数据库"></a>Step2: 创建一个数据库</h3><p>使用 create database 语句可完成对数据库的创建, 创建命令的格式如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database 数据库名 [其他选项];</span><br></pre></td></tr></table></figure>
+<p>例如我们需要创建一个名为 samp_db 的数据库, 在命令行下执行以下命令:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database samp_db character set gbk;</span><br></pre></td></tr></table></figure>
+<p>为了便于在命令提示符下显示中文, 在创建时通过 character set gbk 将数据库字符编码指定为 gbk。创建成功时会得到 Query OK, 1 row affected(0.02 sec) 的响应。</p>
+<p><strong>注意:</strong> MySQL语句以分号(;)作为语句的结束, 若在语句结尾不添加分号时, 命令提示符会以 -&gt; 提示你继续输入(有个别特例, 但加分号是一定不会错的);</p>
+<p><strong>提示:</strong> 可以使用 show databases; 命令查看已经创建了哪些数据库。</p>
+<h3 id="Step3-选择所要操作的数据库"><a href="#Step3-选择所要操作的数据库" class="headerlink" title="Step3: 选择所要操作的数据库"></a>Step3: 选择所要操作的数据库</h3><p>要对一个数据库进行操作, 必须先选择该数据库, 否则会提示错误:</p>
+<p>ERROR 1046(3D000): No database selected</p>
+<p>两种方式对数据库进行使用的选择:</p>
+<p><strong>一:</strong> 在登录数据库时指定, 命令: <code>mysql -D 所选择的数据库名 -h 主机名 -u 用户名 -p</code></p>
+<p>例如登录时选择刚刚创建的数据库: mysql -D samp_db -u root -p</p>
+<p><strong>二:</strong> 在登录后使用 use 语句指定, 命令: <code>use 数据库名;</code></p>
+<p>use 语句可以不加分号, 执行 use samp_db 来选择刚刚创建的数据库, 选择成功后会提示: Database changed</p>
+<h3 id="Step4-创建数据库表"><a href="#Step4-创建数据库表" class="headerlink" title="Step4: 创建数据库表"></a>Step4: 创建数据库表</h3><p>使用 create table 语句可完成对表的创建, create table 的常见形式:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create table 表名称(列声明);</span><br></pre></td></tr></table></figure>
+<p>以创建 students 表为例, 表中将存放 学号(id)、姓名(name)、性别(sex)、年龄(age)、联系电话(tel) 这些内容:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">create table students</span><br><span class="line">（</span><br><span class="line">	id int unsigned not null auto_increment primary key,</span><br><span class="line">	name char(8) not null,</span><br><span class="line">	sex char(4) not null,</span><br><span class="line">	age tinyint unsigned not null,</span><br><span class="line">	tel char(13) null default &quot;-&quot;</span><br><span class="line">);</span><br><span class="line">			</span><br></pre></td></tr></table></figure>
+<p>对于一些较长的语句在命令提示符下可能容易输错, 因此我们可以通过任何文本编辑器将语句输入好后保存为 createtable.sql 的文件中, 通过命令提示符下的文件重定向执行执行该脚本。</p>
+<p>打开命令提示符, 输入: <code>mysql -D samp_db -u root -p &lt; createtable.sql</code></p>
+<p>(提示: 1.如果连接远程主机请加上 -h 指令; 2. createtable.sql 文件若不在当前工作目录下需指定文件的完整路径。)</p>
+<p><strong>语句解说:</strong></p>
+<p>create table tablename(columns) 为创建数据库表的命令, 列的名称以及该列的数据类型将在括号内完成;</p>
+<p>括号内声明了5列内容, id、name、sex、age、tel为每列的名称, 后面跟的是数据类型描述, 列与列的描述之间用逗号(,)隔开;</p>
+<p>以 “id int unsigned not null auto_increment primary key” 行进行介绍:</p>
+<ul>
+<li>“id” 为列的名称;</li>
+<li>“int” 指定该列的类型为 int(取值范围为 -8388608到8388607), 在后面我们又用 “unsigned” 加以修饰, 表示该类型为无符号型, 此时该列的取值范围为 0到16777215;</li>
+<li>“not null” 说明该列的值不能为空, 必须要填, 如果不指定该属性, 默认可为空;</li>
+<li>“auto_increment” 需在整数列中使用, 其作用是在插入数据时若该列为 NULL, MySQL将自动产生一个比现存值更大的唯一标识符值。在每张表中仅能有一个这样的值且所在列必须为索引列。</li>
+<li>“primary key” 表示该列是表的主键, 本列的值必须唯一, MySQL将自动索引该列。</li>
+</ul>
+<p>下面的 char(8) 表示存储的字符长度为8, tinyint的取值范围为 -127到128, default 属性指定当该列值为空时的默认值。</p>
+<p>更多的数据类型请参阅 <a target="_blank" rel="noopener" href="http://www.cnblogs.com/zbseoag/archive/2013/03/19/2970004.html">《MySQL数据类型》</a> : <a target="_blank" rel="noopener" href="http://www.cnblogs.com/zbseoag/archive/2013/03/19/2970004.html">http://www.cnblogs.com/zbseoag/archive/2013/03/19/2970004.html</a></p>
+<p><strong>提示:</strong> 1. 使用 show tables; 命令可查看已创建了表的名称; 2. 使用 describe 表名; 命令可查看已创建的表的详细信息。</p>
+<h3 id="操作数据库"><a href="#操作数据库" class="headerlink" title="操作数据库"></a>操作数据库</h3><h3 id="向表中插入数据"><a href="#向表中插入数据" class="headerlink" title="向表中插入数据"></a>向表中插入数据</h3><p>insert 语句可以用来将一行或多行数据插到数据库表中, 使用的一般形式如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert [into] 表名 [(列名1, 列名2, 列名3, ...)] values (值1, 值2, 值3, ...);</span><br></pre></td></tr></table></figure>
+<p>其中 [] 内的内容是可选的, 例如, 要给 samp_db 数据库中的 students 表插入一条记录, 执行语句:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert into students values(NULL, &quot;王刚&quot;, &quot;男&quot;, 20, &quot;13811371377&quot;);</span><br></pre></td></tr></table></figure>
+<p>按回车键确认后若提示 Query Ok, 1 row affected (0.05 sec) 表示数据插入成功。 若插入失败请检查是否已选择需要操作的数据库。</p>
+<p>有时我们只需要插入部分数据, 或者不按照列的顺序进行插入, 可以使用这样的形式进行插入:</p>
+<p>insert into students (name, sex, age) values(“孙丽华”, “女”, 21);</p>
+<h3 id="查询表中的数据"><a href="#查询表中的数据" class="headerlink" title="查询表中的数据"></a>查询表中的数据</h3><p>select 语句常用来根据一定的查询规则到数据库中获取数据, 其基本的用法为:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 列名称 from 表名称 [查询条件];</span><br></pre></td></tr></table></figure>
+<h3 id="更新表中的数据"><a href="#更新表中的数据" class="headerlink" title="更新表中的数据"></a>更新表中的数据</h3><p>update 语句可用来修改表中的数据, 基本的使用形式为:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update 表名称 set 列名称=新值 where 更新条件;</span><br></pre></td></tr></table></figure>
+<p><strong>使用示例:</strong></p>
+<p>将id为5的手机号改为默认的”-“: update students set tel=default where id=5;</p>
+<p>将所有人的年龄增加1: update students set age=age+1;</p>
+<p>将手机号为 13288097888 的姓名改为 “张伟鹏”, 年龄改为 19: update students set name=”张伟鹏”, age=19 where tel=”13288097888”;</p>
+<h3 id="删除表中的数据"><a href="#删除表中的数据" class="headerlink" title="删除表中的数据"></a>删除表中的数据</h3><p>delete 语句用于删除表中的数据, 基本用法为:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete from 表名称 where 删除条件;</span><br></pre></td></tr></table></figure>
+<p><strong>使用示例:</strong></p>
+<p>删除id为2的行: delete from students where id=2;</p>
+<p>删除所有年龄小于21岁的数据: delete from students where age&lt;20;</p>
+<p>删除表中的所有数据: delete from students;</p>
+<h2 id="创建后表的修改"><a href="#创建后表的修改" class="headerlink" title="创建后表的修改"></a>创建后表的修改</h2><p>alter table 语句用于创建后对表的修改, 基础用法如下:</p>
+<h3 id="添加列"><a href="#添加列" class="headerlink" title="添加列"></a>添加列</h3><p>基本形式: <code>alter table 表名 add 列名 列数据类型 [after 插入位置];</code></p>
+<p><strong>示例:</strong></p>
+<p>在表的最后追加列 address: alter table students add address char(60);</p>
+<p>在名为 age 的列后插入列 birthday: alter table students add birthday date after age;</p>
+<h3 id="修改列"><a href="#修改列" class="headerlink" title="修改列"></a>修改列</h3><p>基本形式: <code>alter table 表名 change 列名称 列新名称 新数据类型;</code></p>
+<p><strong>示例:</strong></p>
+<p>将表 tel 列改名为 telphone: alter table students change tel telphone char(13) default “-“;</p>
+<p>将 name 列的数据类型改为 char(16): alter table students change name name char(16) not null;</p>
+<h3 id="删除列"><a href="#删除列" class="headerlink" title="删除列"></a>删除列</h3><p>基本形式: <code>alter table 表名 drop 列名称;</code></p>
+<p><strong>示例:</strong></p>
+<p>删除 birthday 列: alter table students drop birthday;</p>
+<h3 id="重命名表"><a href="#重命名表" class="headerlink" title="重命名表"></a>重命名表</h3><p>基本形式: <code>alter table 表名 rename 新表名;</code></p>
+<p><strong>示例:</strong></p>
+<p>重命名 students 表为 workmates: alter table students rename workmates;</p>
+<h3 id="删除整张表"><a href="#删除整张表" class="headerlink" title="删除整张表"></a>删除整张表</h3><p>基本形式: <code>drop table 表名;</code></p>
+<p><strong>示例:</strong> 删除 workmates 表: drop table workmates;</p>
+<h3 id="删除整个数据库"><a href="#删除整个数据库" class="headerlink" title="删除整个数据库"></a>删除整个数据库</h3><p>基本形式: <code>drop database 数据库名;</code></p>
+<p><strong>示例:</strong> 删除 samp_db 数据库: drop database samp_db;</p>
+<h2 id="数据表"><a href="#数据表" class="headerlink" title="数据表"></a>数据表</h2><p>列</p>
+<p>行</p>
+<p>虚拟表</p>
+<p>  create view</p>
+<p>​    drop    view</p>
+<p>真实表</p>
+<p>​    create table</p>
+<p>​    alter table</p>
+<h4 id="关键字-操作对象；"><a href="#关键字-操作对象；" class="headerlink" title="关键字+操作对象；"></a>关键字+操作对象；</h4><p><img src="数据分析之SQL\QQ图片20210820011129.png" style="zoom: 80%;" /></p>
+<p>操作对象（数据库，表）</p>
+<h1 id="Day02-语句类型"><a href="#Day02-语句类型" class="headerlink" title="Day02 - 语句类型"></a>Day02 - 语句类型</h1><p><img src="数据分析之SQL\QQ图片20210820011308.png" alt=""></p>
+<p>DDL: 数据定义语言</p>
+<p>​    create drop alter 数据库和表</p>
+<p>DML: 数据操作语言</p>
+<p>​    对数据表中的数据进行操作</p>
+<p>​    select</p>
+<p>​    insert</p>
+<p>​    update</p>
+<p>​    delete</p>
+<p>DCL数据控制语言</p>
+<p>​    commit </p>
+<p>​    rollback</p>
+<h1 id="Day3-单表查询"><a href="#Day3-单表查询" class="headerlink" title="Day3-单表查询"></a>Day3-单表查询</h1><p><img src="数据分析之SQL\QQ图片20210820011424.png" alt=""></p>
+<p>select  列名，（<strong>字句1</strong>）  from 数据表<strong>，字句2</strong>；关键字+操作对象</p>
+<p>执行结果：数据表（二维表结构）</p>
+<p>单列查询</p>
+<p>多列查询</p>
+<p>所有列查询 select <em> from [表名]<em>*；</em></em></p>
+<h2 id="select—查询结果"><a href="#select—查询结果" class="headerlink" title="select—查询结果"></a><strong>select—查询结果</strong></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select  from </span><br></pre></td></tr></table></figure>
+<p><img src="数据分析之SQL\QQ图片20210820011527.png" alt=""></p>
+<h3 id="查询列-查询结果（修饰）"><a href="#查询列-查询结果（修饰）" class="headerlink" title="查询列-查询结果（修饰）"></a>查询列-查询结果（修饰）</h3><ol>
+<li><p>别名设置 as </p>
+<p>未查询列设置别名</p>
+<p>select 列名 as 别名 from 表名；</p>
+<p>别名不用引号了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">列名 AS 别名</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">列名 &quot;别名&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>常数添加</p>
+<ol>
+<li><p>select ‘常数’ as 别名 from 表名；</p>
+<p>select  * 0.9 from ;</p>
+<p>select * 0.9 as 别名 from 表名；</p>
+<p>别名就是0.9</p>
+<p>select * ‘零食’ as class from ;</p>
+<p>名称不用“”</p>
+</li>
+</ol>
+</li>
+<li><p>四则运输</p>
+<ol>
+<li><p>select 表达式 as from 表名 ；</p>
+<p>select  别名.a, 别名.b  from 表名 as 别名;</p>
+<p>select 别名.a-别名.b as  from 表名 as 别名;</p>
+<p>可以是列与列，也可以列与常数项</p>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="Day-4"><a href="#Day-4" class="headerlink" title="Day 4"></a>Day 4</h1><p><img src="数据分析之SQL\QQ图片20210820011527.png" alt=""></p>
+<ol>
+<li><p>字符拼接</p>
+<p>concat（）函数 可以是数值也可以是字符串，可以是自定义的，可以是列，</p>
+<p> concat 和并列</p>
+<p> select concat([列名]，[列名]) as 别名 from 表</p>
+<p>如果不起名字就是concat([列名]，[列名]) </p>
+</li>
+<li><p>指定拼接符</p>
+<p>concat_WS(拼接符，列名1，列名2，)</p>
+<p>列之间用统一的拼接符拼接在一起</p>
+<ul>
+<li>‘ ‘ + </li>
+</ul>
+<p>concat_WS(‘是’,)</p>
+</li>
+<li><p>内容去重</p>
+<p>distinct 关键词</p>
+<p>select DISTINCT 列名 from ;（格式固定）</p>
+<p>distinct只能放在前面，只有一个，</p>
+</li>
+<li><p>空值参与运算</p>
+<p>空值： null ,不等于0，‘ ‘， ’null’</p>
+<p>ifnull(列名，值1， 值2)</p>
+</li>
+</ol>
+<h2 id="order-by-—-结果排序"><a href="#order-by-—-结果排序" class="headerlink" title="order by — 结果排序"></a>order by — 结果排序</h2><p>单列排序</p>
+<p>多列排序</p>
+<p>排序规则</p>
+<p><img src="数据分析之SQL\QQ图片20210820011812.png" alt=""></p>
+<p>order by 是子句，放在最后；</p>
+<p>select from order by 列1， 列2,</p>
+<p>排序： asc desc</p>
+<p>select m.* from 表明 as m orderby 列名 AES;（单列）</p>
+<p><strong>中文排序</strong></p>
+<p>CONvERT( 列名 USINS gbk) //重新编码</p>
+<p>select m.* from 表明 as m order by CONVERT(列名 USING gbk)  AES; （中文）</p>
+<p>utf-8是常用的</p>
+<p>多列 分号就可以了</p>
+<p>select m.* from 表明 as m orderby 列名 AES，列名2, desc;（多列）</p>
+<p>可以用列的位置 1， 2</p>
+<p>order by 1, 2 DESC;</p>
+<p>可以是不展示的列，用那一列 不影响select 列名</p>
+<h2 id="limit-分页"><a href="#limit-分页" class="headerlink" title="limit- 分页"></a>limit- 分页</h2><p>每页显示多少条记录</p>
+<p>limt 位置偏移量（可省略，默认0）， 条数</p>
+<h2 id="where-—-过滤子句（行）"><a href="#where-—-过滤子句（行）" class="headerlink" title="where — 过滤子句（行）"></a>where — 过滤子句（行）</h2><p><img src="数据分析之SQL\QQ图片20210820011812.png" alt=""></p>
+<p>关键词 位置（from 后面）</p>
+<p>where 根据条件，过滤结果数据，不单独使用，非必须子句</p>
+<p>where 子句（过滤条件);</p>
+<p>对行过滤</p>
+<ol>
+<li><p>常规运算符</p>
+<p>等于=</p>
+<p>​    =/<>/!=/</>/ &gt;=</p>
+<p>a=2</p>
+</li>
+<li><p>计算表达式</p>
+<p>列与常数</p>
+<p>a*0.8&lt;2</p>
+<p>列与列</p>
+<p>a-b&lt;2</p>
+</li>
+<li><p>from之后 order 之前</p>
+</li>
+<li><p>文本格式的数值，大小比较</p>
+</li>
+<li><p>Null</p>
+<p>IFNULL(字段，赋值)</p>
+<p>where ifnull(列名1,2)&lt;3</p>
+</li>
+<li><p>Between and 数值过滤</p>
+<p>列 between 1 and 2;</p>
+<p>where price between 2 and 5</p>
+</li>
+<li><p>is null</p>
+<p>列 is null 找出空值</p>
+<p>where price is null</p>
+</li>
+<li><p>is not null</p>
+<p>找出非空值</p>
+<p>列 is not null</p>
+</li>
+<li><p>通配符like关键词</p>
+<p>where 列 lik ‘ ‘</p>
+<p>_单个，任意字符</p>
+<p>% 任意数目</p>
+<p>通配符开头，效率低</p>
+<p>转义字符（\)如果要查询% %_  \%仅仅表示字符</p>
+<p>where 列 LIKE ’奶%’</p>
+</li>
+<li><p>and or and or 多个条件</p>
+<p>where (m.sale_price <4 )or m.sale_price>50</p>
+<p>可以加括号，</p>
+<p>in </p>
+<p>列名 in ( , , ,)可以是字符串也可以是数值</p>
+<p>Not 反面 放在列名之前</p>
+<p>Not 放在某个列名前</p>
+<p><img src="数据分析之SQL\QQ图片20210820012051.png" alt=""></p>
+</li>
+</ol>
+<h2 id="函数处理—单行函数"><a href="#函数处理—单行函数" class="headerlink" title="函数处理—单行函数"></a>函数处理—单行函数</h2><h3 id="普通函数"><a href="#普通函数" class="headerlink" title="普通函数"></a>普通函数</h3><h4 id="日期时间类型"><a href="#日期时间类型" class="headerlink" title="日期时间类型"></a>日期时间类型</h4><p>输入和输出一列</p>
+<p>输入参数是列名，输出也是一列</p>
+<p>文本处理函数</p>
+<p>日期函数</p>
+<p>YEAR()</p>
+<p>NOW()</p>
+<p>CURDATE（）</p>
+<p>CURTIME()</p>
+<p>时间增加 DATE_ADD()</p>
+<p>时间减少</p>
+<h4 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h4><h3 id="聚合函数本身也是普通函数，最后当做常数用"><a href="#聚合函数本身也是普通函数，最后当做常数用" class="headerlink" title="聚合函数本身也是普通函数，最后当做常数用"></a>聚合函数本身也是普通函数，最后当做常数用</h3><p>输入是一列，输出是汇总处理数据</p>
+<p><img src="数据分析之SQL\QQ图片20210820012313.png" alt=""></p>
+<p>计数函数</p>
+<p>​    count(*)/(1) 总行数（包括空值）</p>
+<p>​     count(col)是非空行</p>
+<p>​     count(DISTINCT col) 去重计数</p>
+<p>sum avg(col) 自动过滤控制</p>
+<p><img src="数据分析之SQL\QQ图片20210820012348.png" alt=""></p>
+<p>max() min()</p>
+<p>select max(列) from as ;</p>
+<p>聚合函数和四则运算处理是不同的，四则运算保留，聚合函数排除了null</p>
+<p>最好理由ifnull对空值进行处理</p>
+<p>select max(), avg() from  as;</p>
+<p>分组子句</p>
+<p>group by 子句（聚合）</p>
+<p>多行数据表</p>
+<p>NULL单独成为一个分组</p>
+<p>聚合建尽量不起别名</p>
+<p>select sum(列名） from  table2 where  net in() group by ；</p>
+<p>先where 再分组，在聚合</p>
+<p>分组过滤</p>
+<p>将数据分组，各组进行聚合，对聚合结果再次筛选， having</p>
+<p>where是对行，对整个表进行筛选，分组之前排除行不参与分组</p>
+<p>having是对组 过滤分组，聚合建写在where中更好</p>
+<p>select sum(a) from group by m having sum(a)&lt;2;</p>
+<p>select sum(a) from group by m having b&lt;2;—不推荐</p>
+<h2 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h2><h3 id="聚合函数种类"><a href="#聚合函数种类" class="headerlink" title="聚合函数种类"></a>聚合函数种类</h3><h3 id="group-by"><a href="#group-by" class="headerlink" title="group by"></a>group by</h3><p>可以多个列， 多列分组</p>
+<p>只有group by里面分组的列才可以写在select中，其他列，则不可以，</p>
+<p>聚合函数可以写在select中</p>
+<h3 id="having"><a href="#having" class="headerlink" title="having"></a>having</h3><p>having 针对聚合函数的过滤</p>
+<p>当过滤条件有聚合函数是，则过滤条件必须声明在having,</p>
+<p>当过滤条件没有聚合函数是，则此过滤条件可以声明在where和having中。</p>
+<h2 id="执行语句顺序"><a href="#执行语句顺序" class="headerlink" title="执行语句顺序"></a>执行语句顺序</h2><h1 id="SQL-SELECT语句执行顺序"><a href="#SQL-SELECT语句执行顺序" class="headerlink" title="[SQL SELECT语句执行顺序]"></a>[SQL SELECT语句执行顺序]</h1><p>SELECT语句内部的执行步骤。</p>
+<p>一条完整的SELECT语句内部的执行顺序是这样的：</p>
+<ol>
+<li>FROM子句组装数据（包括通过ON进行连接）；</li>
+<li>WHERE子句进行条件筛选；</li>
+<li>GROUP BY分组 ；</li>
+<li>使用聚集函数进行计算；</li>
+<li>HAVING筛选分组；</li>
+<li>计算所有的表达式；</li>
+<li>SELECT 的字段；</li>
+<li>ORDER BY排序；</li>
+<li>LIMIT筛选。</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ... <span class="keyword">FROM</span> ... <span class="keyword">WHERE</span> ... <span class="keyword">GROUP</span> <span class="keyword">BY</span> ... <span class="keyword">HAVING</span> ... <span class="keyword">ORDER</span> <span class="keyword">BY</span> ...</span><br></pre></td></tr></table></figure>
+<p>2.SELECT语句的执行顺序（在MySQL和Oracle中，SELECT执行顺序基本相同）：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> <span class="operator">&gt;</span> <span class="keyword">WHERE</span> <span class="operator">&gt;</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="operator">&gt;</span> <span class="keyword">HAVING</span> <span class="operator">&gt;</span> <span class="keyword">SELECT</span>的字段 <span class="operator">&gt;</span> <span class="keyword">DISTINCT</span> <span class="operator">&gt;</span> <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="operator">&gt;</span> LIMIT</span><br></pre></td></tr></table></figure>
+<p><img src="数据分析之SQL\QQ图片20210819233244.png" alt="QQ图片20210819233244"></p>
+<h1 id="Day9-多表查询"><a href="#Day9-多表查询" class="headerlink" title="Day9 多表查询"></a>Day9 多表查询</h1><p>SELECT查询不但可以从一张表查询数据，还可以从多张表同时查询数据。查询多张表的语法是：<code>SELECT * FROM &lt;表1&gt; &lt;表2&gt;</code>。</p>
+<h3 id="多表查询分类讲解"><a href="#多表查询分类讲解" class="headerlink" title="多表查询分类讲解"></a>多表查询分类讲解</h3><p>笛卡儿积（交叉连接）</p>
+<p>把任意表进行连接，即使两张表不相干。</p>
+<p>全匹配</p>
+<p>往往要多表连接条件（where) </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from 表1 t1， 表2</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from 表1 cross join 表2 </span><br></pre></td></tr></table></figure>
+<h4 id="等值连接vs-非等值连接"><a href="#等值连接vs-非等值连接" class="headerlink" title="等值连接vs 非等值连接"></a>等值连接vs 非等值连接</h4><p>where 条件&lt; &gt; </p>
+<h4 id="自连接vs-非自连接"><a href="#自连接vs-非自连接" class="headerlink" title="自连接vs 非自连接"></a>自连接vs 非自连接</h4><p>自连接：自己连接自己</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select from 表1 t1, 表1 t2 where </span><br></pre></td></tr></table></figure>
+<h4 id="内连接vs-外连接"><a href="#内连接vs-外连接" class="headerlink" title="内连接vs 外连接"></a>内连接vs 外连接</h4><p>内连接： 合并同一列的两个以上的表的行，不包括没有匹配到的行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select from 表1 inner join 表2 on 表1.列= 表2.列</span><br></pre></td></tr></table></figure>
+<p>外连接: 结果包含了未匹配到的行（包括左表和右表的行） 左外连接和右外连接</p>
+<h1 id="Day10-子查询"><a href="#Day10-子查询" class="headerlink" title="Day10- 子查询"></a>Day10- 子查询</h1><p>子查询：嵌套在其他查询中的查询</p>
+<p>select 可以嵌套在哪里，</p>
+<h3 id="标量子查询"><a href="#标量子查询" class="headerlink" title="标量子查询"></a>标量子查询</h3><p>：一列一行一个值 相当于常数，当做常数处理</p>
+<p>增加常数列</p>
+<p>where having &lt;。&gt;</p>
+<p><img src="数据分析之SQL\QQ图片20210820012509.png" alt=""></p>
+<p>位置：select where having</p>
+<p>关键词后面回车</p>
+<h2 id="关联子查询-in-from"><a href="#关联子查询-in-from" class="headerlink" title="关联子查询 in from"></a>关联子查询 in from</h2><p> 一列值</p>
+<p><img src="数据分析之SQL\QQ图片20210820012625.png" alt=""></p>
+<h2 id="普通子查询"><a href="#普通子查询" class="headerlink" title="普通子查询"></a>普通子查询</h2><p><img src="数据分析之SQL\QQ图片20210820012625.png" alt=""></p>
+<p><img src="数据分析之SQL\QQ图片20210820012813.png" alt=""></p>
+<p><img src="数据分析之SQL\QQ图片20210820012832.png" alt=""></p>
+<p>一列值，结果列作为主查询取值范围。</p>
+<p> in(子查询)</p>
+<p>select a from table </p>
+<p>where a <strong>in(</strong></p>
+<p>​                    select distinct a </p>
+<p>​                    from table</p>
+<p>​                 where a&lt;10);</p>
+<p>普通二维表，作为主查询的目标表(新的表)</p>
+<p>() as b 把子查询作为一个目标表，命名 b</p>
+<p>select p from <strong>(select p, a from talbe) as</strong> b where ;</p>
+<p>这种一次查询两个表的数据，查询的结果也是一个二维表，它是<code>students</code>表和<code>classes</code>表的“乘积”，即<code>students</code>表的每一行与<code>classes</code>表的每一行都两两拼在一起返回。结果集的列数是<code>students</code>表和<code>classes</code>表的列数之和，行数是<code>students</code>表和<code>classes</code>表的行数之积。</p>
+<p>这个查询的结果集每行记录都满足条件<code>s.gender = &#39;M&#39;</code>和<code>c.id = 1</code>。添加<code>WHERE</code>条件后结果集的数量大大减少了。</p>
+<p>使用多表查询可以获取M x N行记录；</p>
+<p>多表查询的结果集可能非常巨大，要小心使用。</p>
+<h2 id="联结：仍然返回表；"><a href="#联结：仍然返回表；" class="headerlink" title="联结：仍然返回表；"></a>联结：仍然返回表；</h2><p>子查询和连接，连接性能更好，且可以多个表中选择结果字段。都是多表查询</p>
+<p><img src="数据分析之SQL\QQ图片20210820012945.png" alt=""></p>
+<p>连接查询是另一种类型的多表查询。连接查询对多个表进行JOIN运算，简单地说，就是先确定一个主表作为结果集，然后，把其他表的行有选择性地“连接”在主表结果集上。</p>
+<p>注意INNER JOIN查询的写法是：</p>
+<ol>
+<li>先确定主表，仍然使用<code>FROM &lt;表1&gt;</code>的语法；</li>
+<li>再确定需要连接的表，使用<code>INNER JOIN &lt;表2&gt;</code>的语法；</li>
+<li>然后确定连接条件，使用<code>ON &lt;条件...&gt;</code>，这里的条件是<code>s.class_id = c.id</code>，表示<code>students</code>表的<code>class_id</code>列与<code>classes</code>表的<code>id</code>列相同的行需要连接；</li>
+<li>可选：加上<code>WHERE</code>子句、<code>ORDER BY</code>等子句。</li>
+</ol>
+<p>使用别名不是必须的，但可以更好地简化查询语句。</p>
+<p><img src="数据分析之SQL\QQ图片20210820013022.png" alt=""></p>
+<p>如果要把子查询作为新表（子查询） 表名字</p>
+<p>实际上没有表，虚拟表</p>
+<p>select</p>
+<p>from 表1， 表2 —连接的表</p>
+<p>where 表1.列a = 表2.列b —连接条件</p>
+<p>select a from a,b, where a.a1 &lt;b.a1 # inner join</p>
+<p>列出所有表，定义所有表的关系 # on()</p>
+<p>自连接</p>
+<p><img src="数据分析之SQL\QQ图片20210820013125.png" alt=""></p>
+<p>列出所有表，联结条件</p>
+<p>外部连接</p>
+<p>  联结结果：所有表的所有列，包含相关表中没有关联行的行</p>
+<p> 创建联结规则：列出所有表，定义所有表的关系</p>
+<p>left outer join  包含左边表的所有行</p>
+<p>right outer join</p>
+<p>full outer join</p>
+<p>连接表，列，连接的条件</p>
+<p>select * from tabel1 as t1, table 2 as t2 where t1.id = t2.id and t1.a =3;</p>
+<p> select <em> from tabel1 as t1 <strong>inner join</strong> table 2 as t2 <strong>on</strong> t1.id = t2.id <em>*and</em></em> t1.a =3;</p>
+<p>select <em> <em>*from</em></em> table1 as t1 lfet outer join table2 as t2 on t1.id = t2.id ;</p>
+<p>子查询得到虚拟表，对虚拟表进行二次查询</p>
+<p>select a from</p>
+<p><strong>(</strong></p>
+<p><strong>select * from a,b where a.1 = b.1and a.2 like ‘1%’</strong></p>
+<p><strong>) c2</strong></p>
+<p>group by c2.id;</p>
+<p>连接后依然是一张表</p>
+<p>select  avg(a.ddd) from </p>
+<p>​    a inner join b on a.1 =b.1</p>
+<p>group by a.id</p>
+<h2 id="单行子查询"><a href="#单行子查询" class="headerlink" title="单行子查询"></a>单行子查询</h2><p>内查询返回一个值</p>
+<h4 id="单行比较符"><a href="#单行比较符" class="headerlink" title="单行比较符"></a>单行比较符</h4><p>&lt; &gt; = </p>
+<p>where中的子查询</p>
+<p> 列 = （子查询）</p>
+<p>having 中子查询</p>
+<p>聚合函数&gt; (select 子查询)</p>
+<p>case 中的子查询</p>
+<p>case when 列名 = (子查询) when </p>
+<p>when case</p>
+<p>else</p>
+<p>end </p>
+<p>子查询中的空值问题</p>
+<p>非法使用子查询</p>
+<h2 id="多行子查询"><a href="#多行子查询" class="headerlink" title="多行子查询"></a>多行子查询</h2><p>内查询返回多行数据</p>
+<p>多行比较操作符</p>
+<h3 id="where"><a href="#where" class="headerlink" title="where"></a>where</h3><p>in </p>
+<p>where 列&lt; in(select)</p>
+<p>any</p>
+<p>&lt; any(select)</p>
+<p>all</p>
+<p>&lt; all(select )</p>
+<p>空值问题</p>
+<h3 id="from"><a href="#from" class="headerlink" title="from"></a>from</h3><p>from (select) 表的名字</p>
+<h2 id="相关子查询"><a href="#相关子查询" class="headerlink" title="相关子查询"></a>相关子查询</h2><p>内查询中用到了外表中的表</p>
+<h2 id="组合查询-union"><a href="#组合查询-union" class="headerlink" title="组合查询 union"></a>组合查询 union</h2><p>单挑select</p>
+<p>多条selectr</p>
+<p>union关键词</p>
+<p>条件：</p>
+<p><img src="数据分析之SQL\QQ图片20210820000740.png" alt=""></p>
+<p>select id from a where a.1 = 2</p>
+<p>union</p>
+<p>select id from a whre b.2 =7;</p>
+<p>列要相同（不同表）</p>
+<p>合并查询结果，select结果合并</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select </span><br><span class="line">union</span><br><span class="line">select</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select</span><br><span class="line">union all</span><br><span class="line">select </span><br></pre></td></tr></table></figure>
+<p>union all: 两个结果的重复部分，不去重</p>
+<h1 id="Day-Ox00-入门："><a href="#Day-Ox00-入门：" class="headerlink" title="Day Ox00 入门："></a>Day Ox00 入门：</h1><p><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/sql/sql_syntax.asp">https://www.w3school.com.cn/sql/sql_syntax.asp</a></p>
 <p>通过SQL使得数据操作员有能力查询，修改数据库。</p>
 <h3 id="What"><a href="#What" class="headerlink" title="What"></a>What</h3><p>SQL：结构化查询语言。SQL对大小写不敏感。</p>
 <p>SQL语句后面的分号？有些数据库系统要求每条SQL命令的末端使用分号，来表示语句的结束。</p>
@@ -777,7 +842,7 @@
 <p>​        DROP INDEX - 删除索引</p>
 </li>
 </ol>
-<h2 id="Day-Ox00-简单查询："><a href="#Day-Ox00-简单查询：" class="headerlink" title="Day Ox00 简单查询："></a>Day Ox00 简单查询：</h2><h3 id="SELECT-查询语句"><a href="#SELECT-查询语句" class="headerlink" title="SELECT : 查询语句"></a>SELECT : 查询语句</h3><p>不带条件查询语句</p>
+<h1 id="Day-Ox00-简单查询："><a href="#Day-Ox00-简单查询：" class="headerlink" title="Day Ox00 简单查询："></a>Day Ox00 简单查询：</h1><h3 id="SELECT-查询语句"><a href="#SELECT-查询语句" class="headerlink" title="SELECT : 查询语句"></a>SELECT : 查询语句</h3><p>不带条件查询语句</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT 列名称1, 列名称2 FROM 表名称</span><br><span class="line">SELECT * FROM 表名称</span><br><span class="line">SELECT DISTINCT 列名称 FROM 表名称 //去除重复值</span><br></pre></td></tr></table></figure>
 <p>有条件查询语句</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT 列名称 FROM 表名称 WHERE 列 运算符 值</span><br></pre></td></tr></table></figure>
@@ -793,15 +858,16 @@
 <p>可以将select插入到表中select替换成values就可以了</p>
 <p>insert into table_name(col1_name, col2_name) select * from tabel2_name</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">UPDATE 表名称 SET 列名称 = 新值 WHERE 列名称 = 某值</span><br></pre></td></tr></table></figure>
-<p>i=<img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820004053.png" alt=""></p>
-<p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820004957.png" alt=""></p>
-<p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820004300.png" alt=""></p>
-<p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820004945.png" alt=""></p>
-<p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820004008.png" alt=""></p>
-<p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820003940.png" alt=""></p>
+<p>i=<img src="数据分析之SQL\QQ图片20210820004053.png" alt=""></p>
+<p><img src="数据分析之SQL\QQ图片20210820004957.png" alt=""></p>
+<p><img src="数据分析之SQL\QQ图片20210820004300.png" alt=""></p>
+<p><img src="数据分析之SQL\QQ图片20210820004945.png" alt=""></p>
+<p><img src="数据分析之SQL\QQ图片20210820004008.png" alt=""></p>
+<p><img src="数据分析之SQL\QQ图片20210820003940.png" alt=""></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DELETE 语句</span><br><span class="line">DELETE 语句用于删除表中的行。</span><br><span class="line">DELETE FROM 表名称 WHERE 列名称 = 值</span><br></pre></td></tr></table></figure>
-<p><img src="F:\MyBlog\MyBlog\hexo\source\_posts\数据分析之SQL\QQ图片20210820005225.png" alt=""></p>
-<h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p>在使用 <strong>join</strong> 时，<strong>on</strong> 和 <strong>where</strong> 条件的区别如下：</p>
+<p><img src="数据分析之SQL\QQ图片20210820005225.png" alt=""></p>
+<p>连接</p>
+<p>在使用 <strong>join</strong> 时，<strong>on</strong> 和 <strong>where</strong> 条件的区别如下：</p>
 <ul>
 <li>1、 <strong>on</strong> 条件是在生成临时表时使用的条件，它不管 <strong>on</strong> 中的条件是否为真，都会返回左边表中的记录。</li>
 <li>2、<strong>where</strong> 条件是在临时表生成好后，再对临时表进行过滤的条件。这时已经没有 <strong>left join</strong> 的含义（必须返回左边表的记录）了，条件不为真的就全部过滤掉。</li>
@@ -813,317 +879,24 @@
 <p>全</p>
 <p>内</p>
 <h4 id="cross-join"><a href="#cross-join" class="headerlink" title="cross join"></a>cross join</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select *from 日销 as a cross join 日销 as b      on datediff(a.日期, b.日期) = 1;</span><br></pre></td></tr></table></figure>
-<h2 id="Day12-虚拟表"><a href="#Day12-虚拟表" class="headerlink" title="Day12-虚拟表"></a>Day12-虚拟表</h2><p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820013658.png" alt=""></p>
+<h1 id="Day12-虚拟表"><a href="#Day12-虚拟表" class="headerlink" title="Day12-虚拟表"></a>Day12-虚拟表</h1><p><img src="数据分析之SQL\QQ图片20210820013658.png" alt=""></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create view viewname</span><br><span class="line"></span><br><span class="line">as</span><br><span class="line"></span><br><span class="line">select * from table;</span><br><span class="line"></span><br><span class="line">selecy * from viewname</span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">create view viewname</span><br><span class="line">as</span><br><span class="line">select * from talbe where a =2;</span><br><span class="line"></span><br><span class="line">select * from viewnmae ;</span><br></pre></td></tr></table></figure>
 <p>固化SQL</p>
-<p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820014614.png" alt=""></p>
-<p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820014523.png" alt=""></p>
-<h2 id="DDl-数据定义语言-数据表"><a href="#DDl-数据定义语言-数据表" class="headerlink" title="DDl 数据定义语言 数据表"></a>DDl 数据定义语言 数据表</h2><p><img src="F:\MyBlog\MyBlog\hexo\source\_posts\数据分析之SQL\QQ图片20210820005525.png" alt=""></p>
-<p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820005806.png" alt=""></p>
-<p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820010019.png" alt=""></p>
-<p><img src="F:\MyBlog\MyBlog\hexo\source\_posts\数据分析之SQL\QQ图片20210820010455.png" alt=""></p>
-<p><img src="F:\MyBlog\MyBlog\hexo\source\_posts\数据分析之SQL\QQ图片20210820010458.png" alt=""></p>
-<h2 id="数据库管理"><a href="#数据库管理" class="headerlink" title="数据库管理"></a>数据库管理</h2><p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820014729.png" alt=""></p>
-<h3 id="Day14"><a href="#Day14" class="headerlink" title="Day14"></a>Day14</h3><p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820015321.png" alt=""></p>
-<p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820015646.png" alt=""></p>
-<p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820015813.png" alt=""></p>
-<p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820015928.png" alt=""></p>
-<p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820020113.png" alt=""></p>
-<p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\QQ图片20210820020117.png" alt=""></p>
-<h1 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h1><h3 id="那些位置可以使用查询select的结果作为表格"><a href="#那些位置可以使用查询select的结果作为表格" class="headerlink" title="那些位置可以使用查询select的结果作为表格"></a>那些位置可以使用查询select的结果作为表格</h3><p>三种情况。</p>
-<p>子查询的位置和作用，from in inner join等等位置</p>
-<h2 id="函数-1"><a href="#函数-1" class="headerlink" title="函数"></a>函数</h2><h3 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数"></a>日期函数</h3><h3 id="Case-when"><a href="#Case-when" class="headerlink" title="Case when"></a>Case when</h3><p>可以放在 select having</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select case when a=&#x27;1&#x27; then 2</span><br><span class="line">else 5</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CASE WHEN col_1 <span class="title function_ invoke__">IN</span> ( <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>) THEN <span class="string">&#x27;第一类&#x27;</span></span><br><span class="line">WHEN col_1 <span class="title function_ invoke__">IN</span> (<span class="string">&#x27;a&#x27;</span>)       THEN <span class="string">&#x27;第二类&#x27;</span></span><br><span class="line">ELSE<span class="string">&#x27;其他&#x27;</span> END <span class="keyword">as</span> <span class="string">&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
-<h2 id="空值的处理"><a href="#空值的处理" class="headerlink" title="空值的处理"></a>空值的处理</h2><h3 id="if"><a href="#if" class="headerlink" title="if"></a>if</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT IF(sva=1,&quot;男&quot;,&quot;女&quot;) AS s FROM table_name </span><br><span class="line">WHERE sva != &#x27;&#x27;;</span><br></pre></td></tr></table></figure>
-<h3 id="ifnull"><a href="#ifnull" class="headerlink" title="ifnull"></a>ifnull</h3><p>IFNULL(expr1,expr2)，如果expr1的值为null，则返回expr2的值，如果expr1的值不为null，则返回expr1的值。</p>
-<h3 id="isnull"><a href="#isnull" class="headerlink" title="isnull"></a>isnull</h3><p>ISNULL(<em>expression</em>)</p>
-<p>ISNULL(expr)，如果expr的值为null，则返回1，如果expr1的值不为null，则返回0。</p>
-<h3 id="NULLIF-函数的使用"><a href="#NULLIF-函数的使用" class="headerlink" title="NULLIF()函数的使用"></a>NULLIF()函数的使用</h3><p>NULLIF(expr1,expr2)，如果expr1=expr2成立，那么返回值为null，否则返回值为expr1的值。</p>
-<h3 id="case-when"><a href="#case-when" class="headerlink" title="case when"></a>case when</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT CASE sva</span><br><span class="line">WHEN 1 THEN &#x27;男&#x27; </span><br><span class="line">　　ELSE &#x27;女&#x27; END AS s FROM table_name</span><br><span class="line">WHERE sva != &#x27;&#x27;;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT CASE 1 </span><br><span class="line">WHEN 1 THEN &#x27;one&#x27;</span><br><span class="line">WHEN 2 THEN &#x27;two&#x27; </span><br><span class="line">   ELSE &#x27;more&#x27; END AS test</span><br></pre></td></tr></table></figure>
-<h2 id="统计"><a href="#统计" class="headerlink" title="统计"></a>统计</h2><p>count(*) count(1)</p>
-<p>coutn(列)</p>
-<p>count()</p>
-<h2 id="时间"><a href="#时间" class="headerlink" title="时间"></a>时间</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datediff(```date```,``&#x27;2025-10-15&#x27;``)&gt;0</span><br></pre></td></tr></table></figure>
-<h3 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">SQL Date 数据类型</span><br><span class="line">MySQL 使用下列数据类型在数据库中存储日期或日期/时间值：</span><br><span class="line"></span><br><span class="line">DATE - 格式 YYYY-MM-DD</span><br><span class="line">DATETIME - 格式: YYYY-MM-DD HH:MM:SS</span><br><span class="line">TIMESTAMP - 格式: YYYY-MM-DD HH:MM:SS</span><br><span class="line">YEAR - 格式 YYYY 或 YY</span><br><span class="line">SQL Server 使用下列数据类型在数据库中存储日期或日期/时间值：</span><br><span class="line"></span><br><span class="line">DATE - 格式 YYYY-MM-DD</span><br><span class="line">DATETIME - 格式: YYYY-MM-DD HH:MM:SS</span><br><span class="line">SMALLDATETIME - 格式: YYYY-MM-DD HH:MM:SS</span><br><span class="line">TIMESTAMP - 格式: 唯一的数字</span><br></pre></td></tr></table></figure>
-<p>DATEDIFF ( datepart , startdate , enddate )</p>
-<p><img src="https://iknow-pic.cdn.bcebos.com/eaf81a4c510fd9f9d19723c3202dd42a2934a493?x-bce-process%3Dimage%2Fresize%2Cm_lfit%2Cw_600%2Ch_800%2Climit_1%2Fquality%2Cq_85%2Fformat%2Cf_jpg" alt="img"></p>
-<h3 id="文本和日期转化"><a href="#文本和日期转化" class="headerlink" title="文本和日期转化"></a>文本和日期转化</h3><h4 id="to-date-to-char"><a href="#to-date-to-char" class="headerlink" title="to_date,to_char"></a>to_date,to_char</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select to_char(to_date(&#x27;2002-08-26&#x27;,&#x27;yyyy-mm-dd&#x27;),&#x27;day&#x27;) from dual;     //星期一      </span><br><span class="line">select to_char(to_date(&#x27;2002-08-26&#x27;,&#x27;yyyy-mm-dd&#x27;),&#x27;day&#x27;,</span><br></pre></td></tr></table></figure>
-<h3 id="日期比较"><a href="#日期比较" class="headerlink" title="日期比较"></a>日期比较</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line"> b_table.career_level,</span><br><span class="line"> COUNT (a_table.uid ) </span><br><span class="line">FROM</span><br><span class="line"> &quot;и߼data1&quot; AS a_table</span><br><span class="line"> INNER JOIN &quot;и߼data2&quot; AS b_table ON a_table.uid = b_table.uid </span><br><span class="line">WHERE</span><br><span class="line"> a_table.d &gt;= to_date(&#x27;2021-01-01&#x27;, &#x27;YYYY-MM-DD&#x27;) </span><br><span class="line"> AND a_table.d &lt;= to_date(&#x27;2021-01-31&#x27;, &#x27;YYYY-MM-DD&#x27;) </span><br><span class="line">GROUP BY</span><br><span class="line"> b_table.career_level;</span><br></pre></td></tr></table></figure>
-<h3 id="更改数据类型"><a href="#更改数据类型" class="headerlink" title="更改数据类型"></a>更改数据类型</h3><h4 id="CAST-expression-AS-TYPE-函数可以将任何类型的值转换为具有指定类型的值-利用该函数可以直接在数据库层处理部分因数据类型引起的问题。"><a href="#CAST-expression-AS-TYPE-函数可以将任何类型的值转换为具有指定类型的值-利用该函数可以直接在数据库层处理部分因数据类型引起的问题。" class="headerlink" title="CAST(expression AS TYPE) 函数可以将任何类型的值转换为具有指定类型的值,利用该函数可以直接在数据库层处理部分因数据类型引起的问题。"></a>CAST(expression AS TYPE) 函数可以将任何类型的值转换为具有指定类型的值,利用该函数可以直接在数据库层处理部分因数据类型引起的问题。</h4><p>SELECT CAST( 1231 AS BINARY ) AS result </p>
-<p>SELECT CAST(1995 AS CHAR) as result</p>
-<p>SELECT CAST(‘2019-08-29 16:50:21’ as date) as result</p>
-<h3 id="Data-操作函数"><a href="#Data-操作函数" class="headerlink" title="Data 操作函数"></a>Data 操作函数</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">函数</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/sql/func_now.asp">NOW()</a></td>
-<td style="text-align:left">返回当前的日期和时间</td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/sql/func_curdate.asp">CURDATE()</a></td>
-<td style="text-align:left">返回当前的日期</td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/sql/func_curtime.asp">CURTIME()</a></td>
-<td style="text-align:left">返回当前的时间</td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/sql/func_date.asp">DATE()</a></td>
-<td style="text-align:left">提取日期或日期/时间表达式的日期部分</td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/sql/func_extract.asp">EXTRACT()</a></td>
-<td style="text-align:left">返回日期/时间按的单独部分</td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/sql/func_date_add.asp">DATE_ADD()</a></td>
-<td style="text-align:left">给日期添加指定的时间间隔</td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/sql/func_date_sub.asp">DATE_SUB()</a></td>
-<td style="text-align:left">从日期减去指定的时间间隔</td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/sql/func_datediff_mysql.asp">DATEDIFF()</a></td>
-<td style="text-align:left">返回两个日期之间的天数</td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/sql/func_date_format.asp">DATE_FORMAT()</a></td>
-<td style="text-align:left">用不同的格式显示日期/时间</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h4 id="datediff-日期差"><a href="#datediff-日期差" class="headerlink" title="datediff 日期差"></a>datediff 日期差</h4><ol>
-<li>datediff 返回跨两个指定日期的日期和时间边界数。<br>select datediff(day,’2004-09-01’,’2004-09-18’)   —返回：17</li>
-</ol>
-<p>datediff(日期1, 日期2)：</p>
-<p>得到的结果是日期1与日期2相差的天数。</p>
-<p>如果日期1比日期2大，结果为正；如果日期1比日期2小，结果为负。</p>
-<p>timestampdiff(时间类型, 日期1, 日期2)</p>
-<p>这个函数和上面diffdate的正、负号规则刚好相反。</p>
-<p>日期1大于日期2，结果为负，日期1小于日期2，结果为正。</p>
-<h4 id="dateadd-日期加减-dateadd-type-增加值，日期基础"><a href="#dateadd-日期加减-dateadd-type-增加值，日期基础" class="headerlink" title="dateadd 日期加减 dateadd(type, 增加值，日期基础)"></a>dateadd 日期加减 dateadd(type, 增加值，日期基础)</h4><p>DATEADD(datepart,number,date)</p>
-<p>datepart：y-年份，m-月份，d-日期<br>date 参数是合法的日期表达式。number 是您希望添加的间隔数；对于未来的时间，此数是正数，对于过去的时间，此数是负数。</p>
-<p>例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select DATEADD(m,1,getdate()),DATEADD(m,1,CONVERT(datetime,&#x27;08/01/2019&#x27;,101))</span><br></pre></td></tr></table></figure>
-<h4 id="datepart-提取日期中的年月日-datepart-m-y-d-日期"><a href="#datepart-提取日期中的年月日-datepart-m-y-d-日期" class="headerlink" title="datepart 提取日期中的年月日(datepart(m/y/d), 日期)"></a><strong>datepart 提取日期中的年月日</strong>(datepart(m/y/d), 日期)</h4><h4 id="day-month-year-—可以与datepart对照一下"><a href="#day-month-year-—可以与datepart对照一下" class="headerlink" title="day(), month(),year() —可以与datepart对照一下"></a>day(), month(),year() —可以与datepart对照一下</h4><ol>
-<li>datepart 返回代表指定日期的指定日期部分的整数。<br> SELECT DATEPART(month, ‘2004-10-15’)  —返回 10</li>
-</ol>
-<p><strong>DATEPART(param,date)</strong></p>
-<p><img src="https://img2018.cnblogs.com/blog/1206977/201911/1206977-20191101141406910-243495753.png" alt="img"></p>
-<h4 id="提取字符串"><a href="#提取字符串" class="headerlink" title="提取字符串"></a>提取字符串</h4><ol>
-<li>datename 返回代表指定日期的指定日期部分的字符串<br>SELECT datename(weekday, ‘2004-10-15’)  —返回：星期五</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">在SQL数据库中，有一类函数是不得不提的，那就是Sql Server日期时间函数，这是Sql Server处理日期和时间最常用的函数，下面就将为介绍这类函数。</span><br><span class="line"></span><br><span class="line">Sql Server日期与时间函数:</span><br><span class="line">.  当前系统日期、时间</span><br><span class="line">    select getdate() </span><br><span class="line"></span><br><span class="line">2. dateadd  在向指定日期加上一段时间的基础上，返回新的 datetime 值</span><br><span class="line">   例如：向日期加上2天</span><br><span class="line">   select dateadd(day,2,&#x27;2004-10-15&#x27;)  --返回：2004-10-17 00:00:00.000</span><br><span class="line"></span><br><span class="line">3. datediff 返回跨两个指定日期的日期和时间边界数。</span><br><span class="line">   select datediff(day,&#x27;2004-09-01&#x27;,&#x27;2004-09-18&#x27;)   --返回：17</span><br><span class="line"></span><br><span class="line">4. datepart 返回代表指定日期的指定日期部分的整数。</span><br><span class="line">  SELECT DATEPART(month, &#x27;2004-10-15&#x27;)  --返回 10</span><br><span class="line"></span><br><span class="line">5. datename 返回代表指定日期的指定日期部分的字符串</span><br><span class="line">   SELECT datename(weekday, &#x27;2004-10-15&#x27;)  --返回：星期五</span><br><span class="line"></span><br><span class="line">6. day(), month(),year() --可以与datepart对照一下</span><br><span class="line"></span><br><span class="line">select 当前日期=convert(varchar(10),getdate(),120)</span><br><span class="line">,当前时间=convert(varchar(8),getdate(),114)</span><br><span class="line"></span><br><span class="line">select datename(dw,&#x27;2004-10-15&#x27;)</span><br><span class="line"></span><br><span class="line">select 本年第多少周=datename(week,&#x27;2004-10-15&#x27;)</span><br><span class="line">      ,今天是周几=datename(weekday,&#x27;2004-10-15&#x27;)#p#</span><br><span class="line"></span><br><span class="line">Sql Server日期函数 参数/功能</span><br><span class="line">GetDate( )  返回系统目前的日期与时间</span><br><span class="line">DateDiff (interval,date1,date2) 以interval 指定的方式，返回date2 与date1两个日期之间的差值 date2-date1</span><br><span class="line">DateAdd (interval,number,date) 以interval指定的方式，加上number之后的日期</span><br><span class="line">DatePart (interval,date) 返回日期date中，interval指定部分所对应的整数值</span><br><span class="line">DateName (interval,date) 返回日期date中，interval指定部分所对应的字符串名称</span><br><span class="line"></span><br><span class="line">参数 interval的设定值如下：</span><br><span class="line"></span><br><span class="line">值 缩 写（Sql Server） (Access 和 ASP) 说明</span><br><span class="line">Year Yy yyyy 年 1753 ~ 9999</span><br><span class="line">Quarter Qq q   季 1 ~ 4</span><br><span class="line">Month Mm m   月1 ~ 12</span><br><span class="line">Day of year Dy y  一年的日数,一年中的第几日 1-366</span><br><span class="line">Day Dd d   日，1-31</span><br><span class="line">Weekday Dw w 一周的日数，一周中的第几日 1-7</span><br><span class="line">Week Wk ww  周，一年中的第几周 0 ~ 51</span><br><span class="line">Hour Hh h   时0 ~ 23</span><br><span class="line">Minute Mi n  分钟0 ~ 59</span><br><span class="line">Second Ss s 秒 0 ~ 59</span><br><span class="line">Millisecond Ms - 毫秒 0 ~ 999</span><br><span class="line"></span><br><span class="line">access 和 asp 中用date()和now()取得系统日期时间；其中DateDiff,DateAdd,DatePart也同是能用于Access和asp中，这些函数的用法也类似</span><br><span class="line"></span><br><span class="line">Sql Server日期函数举例：</span><br><span class="line">1.GetDate() 用于sql server :select GetDate()</span><br><span class="line"></span><br><span class="line">2.DateDiff(&#x27;s&#x27;,&#x27;2005-07-20&#x27;,&#x27;2005-7-25 22:56:32&#x27;)返回值为 514592 秒</span><br><span class="line">DateDiff(&#x27;d&#x27;,&#x27;2005-07-20&#x27;,&#x27;2005-7-25 22:56:32&#x27;)返回值为 5 天</span><br><span class="line"></span><br><span class="line">3.DatePart(&#x27;w&#x27;,&#x27;2005-7-25 22:56:32&#x27;)返回值为 2 即星期一(周日为1，周六为7)</span><br><span class="line">DatePart(&#x27;d&#x27;,&#x27;2005-7-25 22:56:32&#x27;)返回值为 25即25号</span><br><span class="line">DatePart(&#x27;y&#x27;,&#x27;2005-7-25 22:56:32&#x27;)返回值为 206即这一年中第206天</span><br><span class="line">DatePart(&#x27;yyyy&#x27;,&#x27;2005-7-25 22:56:32&#x27;)返回值为 2005即2005年</span><br></pre></td></tr></table></figure>
-<h2 id="连续"><a href="#连续" class="headerlink" title="连续"></a>连续</h2><p><strong>连续3天登录用户</strong></p>
-<h4 id="关键性思路"><a href="#关键性思路" class="headerlink" title="关键性思路"></a>关键性思路</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 窗口函数排序，rank()</span><br><span class="line">2. 相减（新变量）</span><br><span class="line">3. 分组新变量</span><br></pre></td></tr></table></figure>
-<p><img src="https://mmbiz.qpic.cn/mmbiz/1OYP1AZw0W3tSUvjyS5cAyXmHujLfFa9Nx5d8OQokkByCJDol5JspFxKsbia9FRJ8ANcHFqcdPI2bdLVSpODPGw/640?wx_fmt=other&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz/1OYP1AZw0W3tSUvjyS5cAyXmHujLfFa97gYf9gzDQG7UiczUibHqbo8tnvODSkEuXBPybu4PTeHA1DR5u1080PfQ/640?wx_fmt=other&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
-<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h2 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h2><h3 id="去重"><a href="#去重" class="headerlink" title="去重"></a>去重</h3><p>distinct</p>
-<h3 id="limit"><a href="#limit" class="headerlink" title="limit"></a>limit</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">limit子句用于限制查询结果返回的数量。</span><br><span class="line"></span><br><span class="line">用法：【select * from tableName limit i,n 】</span><br><span class="line"></span><br><span class="line">参数：</span><br><span class="line"></span><br><span class="line">tableName : 为数据表；</span><br><span class="line">i : 为查询结果的索引值（默认从0开始）；下标是0</span><br><span class="line">n : 为查询结果返回的数量</span><br></pre></td></tr></table></figure>
-<h2 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h2><p>可以单独用</p>
-<p>可以放在select</p>
-<p>可以放在group by</p>
-<h2 id="窗口函数"><a href="#窗口函数" class="headerlink" title="窗口函数"></a>窗口函数</h2><h2 id="函数列表"><a href="#函数列表" class="headerlink" title="函数列表"></a>函数列表</h2><div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">分类</th>
-<th style="text-align:left">函数名称</th>
-<th style="text-align:left">语法</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">聚合函数</td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/63972.html#section-42t-cj8-nio">聚合函数</a></td>
-<td style="text-align:left">无</td>
-<td style="text-align:left">所有聚合函数都支持在窗口函数中使用。聚合函数列表请参见<a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/63445.htm#LogService-user-guide-0103">聚合函数</a>。</td>
-</tr>
-<tr>
-<td style="text-align:left">排名函数</td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/63972.html#section-6dk-2dm-t9u">cume_dist函数</a></td>
-<td style="text-align:left">cume_dist()</td>
-<td style="text-align:left">统计窗口分区内各个值的累计分布。即计算窗口分区内值小于等于当前值的行数占窗口内总行数的比例。返回值范围为(0,1]。</td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/63972.html#section-2sg-x7c-k6i">dense_rank函数</a></td>
-<td style="text-align:left">dense_rank()</td>
-<td style="text-align:left">窗口分区内值的排名。相同值拥有相同的排名，排名是连续的，例如有两个相同值的排名为1，则下一个值的排名为2。</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/63972.html#section-rbj-f90-1j7">ntile函数</a></td>
-<td style="text-align:left">ntile(n)</td>
-<td style="text-align:left">将窗口分区内数据按照顺序分成N组。</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/63972.html#section-1yc-nyu-obp">percent_rank函数</a></td>
-<td style="text-align:left">percent_rank()</td>
-<td style="text-align:left">计算窗口分区内各行的百分比排名。</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/63972.html#section-slw-cpg-1lp">rank函数</a></td>
-<td style="text-align:left">rank()</td>
-<td style="text-align:left">窗口分区内值的排名。相同值拥有相同的排名，排名不是连续的，例如有两个相同值的排名为1，则下一个值的排名为3。</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/63972.html#section-9a0-6yn-3kg">row_number函数</a></td>
-<td style="text-align:left">row_number()</td>
-<td style="text-align:left">窗口分区内值的排名。每个值拥有唯一的序号，从1开始。三个相同值的排名为1、2、3。</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left">偏移函数</td>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/63972.html#section-ddv-1t7-per">first_value函数</a></td>
-<td style="text-align:left">first_value(x)</td>
-<td style="text-align:left">返回各个窗口分区内第一行的值。</td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/63972.html#section-rdr-pgb-fvf">last_value函数</a></td>
-<td style="text-align:left">last_value(x)</td>
-<td style="text-align:left">返回各个窗口分区内最后一行的值。</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/63972.html#section-ugb-0vt-tdz">lag函数</a></td>
-<td style="text-align:left">lag(x, offset, defaut_value)</td>
-<td style="text-align:left">返回窗口分区内位于当前行上方第offset行的值。如果不存在该行，则返回defaut_value。</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/63972.html#section-pu9-9ch-j9k">lead函数</a></td>
-<td style="text-align:left">lead(x, offset, defaut_value)</td>
-<td style="text-align:left">返回窗口分区内位于当前行下方第offset行的值。如果不存在该行，则返回defaut_value。</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/63972.html#section-578-lim-ujg">nth_value函数</a></td>
-<td style="text-align:left">nth_value(x, offset)</td>
-<td style="text-align:left">返回窗口分区中第offset行的值。</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>窗口函数仅仅只会将结果附加到当前的结果上，它不会对已有的行或列做任何修改</strong>。</p>
-<ul>
-<li><strong>聚合（Aggregate）</strong>：<code>AVG()</code>, <code>COUNT()</code>, <code>MIN()</code>, <code>MAX()</code>, <code>SUM()</code>…</li>
-<li><strong>取值（Value）</strong>：<code>FIRST_VALUE()</code>, <code>LAST_VALUE()</code>, <code>LEAD()</code>, <code>LAG()</code>…</li>
-<li><strong>排序（Ranking）</strong>：<code>RANK()</code>, <code>DENSE_RANK()</code>, <code>ROW_NUMBER()</code>, <code>NTILE()</code>…</li>
-</ul>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select *,</span><br><span class="line">   rank() over (partition by 班级</span><br><span class="line">                 order by 成绩 desc) as ranking</span><br><span class="line">from 班级表</span><br></pre></td></tr></table></figure>
-<h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">排名问题：每个部门按业绩来排名</span><br><span class="line">topN问题：找出每个部门排名前N的员工进行奖励</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;窗口函数&gt; over (partition by &lt;用于分组的列名&gt;</span><br><span class="line">                order by &lt;用于排序的列名&gt;)</span><br></pre></td></tr></table></figure>
-<p>partition子句可是省略，省略就是不指定分组，结果如下，只是按成绩由高到低进行了排序：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select *,</span><br><span class="line">   rank() over (order by 成绩 desc) as ranking</span><br><span class="line">from 班级表</span><br></pre></td></tr></table></figure>
-<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">窗口函数的基本语法如下：</span><br><span class="line"></span><br><span class="line">&lt;窗口函数&gt; over (partition by &lt;用于分组的列名&gt;</span><br><span class="line">                order by &lt;用于排序的列名&gt;)</span><br><span class="line">那么语法中的&lt;窗口函数&gt;都有哪些呢？</span><br><span class="line"></span><br><span class="line">&lt;窗口函数&gt;的位置，可以放以下两种函数：</span><br><span class="line"></span><br><span class="line">1） 专用窗口函数，包括后面要讲到的rank, dense_rank, row_number等专用窗口函数。</span><br><span class="line"></span><br><span class="line">2） 聚合函数，如sum. avg, count, max, min等</span><br><span class="line"></span><br><span class="line">因为窗口函数是对where或者group by子句处理后的结果进行操作，所以窗口函数原则上只能写在select子句中。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">简单来说，窗口函数有以下功能：</span><br><span class="line"></span><br><span class="line">1）同时具有分组和排序的功能</span><br><span class="line"></span><br><span class="line">2）不减少原表的行数</span><br><span class="line"></span><br><span class="line">3）语法如下：</span><br><span class="line"></span><br><span class="line">&lt;窗口函数&gt; over (partition by &lt;用于分组的列名&gt;</span><br><span class="line">                order by &lt;用于排序的列名&gt;)</span><br></pre></td></tr></table></figure>
-<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select *,</span><br><span class="line">   rank() over (partition by 班级</span><br><span class="line">                 order by 成绩 desc) as ranking</span><br><span class="line">from 班级表</span><br></pre></td></tr></table></figure>
-<p>我们来解释下这个sql语句里的select子句。rank是排序的函数。要求是“每个班级内按成绩排名”，这句话可以分为两部分：</p>
-<p>1）每个班级内：按班级分组</p>
-<p><strong>partition by用来对表分组</strong>。在这个例子中，所以我们指定了按“班级”分组（partition by 班级）<br>2）按成绩排名</p>
-<p><strong>order by子句的功能是对分组后的结果进行排序</strong>，默认是按照升序（asc）排列。在本例中（order by 成绩 desc）是按成绩这一列排序，加了desc关键词表示降序排列。</p>
-<p>通过下图，我们就可以理解partiition by（分组）和order by（在组内排序）的作用了。</p>
-<p>窗口函数具备了我们之前学过的group by子句分组的功能和order by子句排序的功能。那么，为什么还要用窗口函数呢？</p>
-<p>这是因为，<strong>group by分组汇总后改变了表的行数，一行只有一个类别。而partiition by和rank函数不会减少原表中的行数</strong>。例如下面统计每个班级的人数。</p>
-<h3 id="专用窗口函数rank-dense-rank-row-number"><a href="#专用窗口函数rank-dense-rank-row-number" class="headerlink" title="专用窗口函数rank, dense_rank, row_number"></a>专用窗口函数rank, dense_rank, row_number</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">select *,</span><br><span class="line">   rank() over (order by 成绩 desc) as ranking,</span><br><span class="line">   dense_rank() over (order by 成绩 desc) as dese_rank,</span><br><span class="line">   row_number() over (order by 成绩 desc) as row_num</span><br><span class="line">from 班级表</span><br></pre></td></tr></table></figure>
-<p><img src="https://pic2.zhimg.com/80/v2-ad1d86f5a5b9f0ef684907b20b341099_720w.jpg" alt="img"></p>
-<p><img src="https://pic3.zhimg.com/80/v2-7b63c571dfa285c0aa0c8f944ca89482_720w.jpg" alt="img"></p>
-<h3 id="更常见的方法"><a href="#更常见的方法" class="headerlink" title="更常见的方法"></a>更常见的方法</h3><h5 id="LEAD和LAG，这两个函数都是用来计算偏移量的分析函数，这两个函数的用法相同。"><a href="#LEAD和LAG，这两个函数都是用来计算偏移量的分析函数，这两个函数的用法相同。" class="headerlink" title="LEAD和LAG，这两个函数都是用来计算偏移量的分析函数，这两个函数的用法相同。"></a>LEAD和LAG，这两个函数都是用来计算偏移量的分析函数，这两个函数的用法相同。</h5><p>LEAD函数是一个分析函数，它可以在不用自连接的情况下，同时访问一个表的多行数据。查询返回的一系列的数据行和游标，LEAD函数在当前位置上根据偏移量访问该表中的另一行数据。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">lead(e.hiredate,1(偏移量，默认1）,null（如果超过了）) over(partition by e.deptno order by e.hiredate) as next_hiredate  </span><br><span class="line"></span><br><span class="line">--5、lead函数的default参数  </span><br><span class="line">select e.empno,  </span><br><span class="line">       e.ename,  </span><br><span class="line">       e.deptno,  </span><br><span class="line">       e.hiredate,  </span><br><span class="line">       lead(e.hiredate,1,to_date(&#x27;2013-01-01&#x27;,&#x27;yyyy-MM-dd&#x27;)) over(partition by e.deptno order by e.hiredate) as next_hiredate  </span><br><span class="line">from emp e  </span><br><span class="line">where deptno=30;  </span><br></pre></td></tr></table></figure>
-<p><img src="https://mmbiz.qpic.cn/mmbiz/1OYP1AZw0W3tSUvjyS5cAyXmHujLfFa93MKeQLibXS0JeqQP7GoTE5Z9L5AyCJoptyZsewuKciaXMibmz2OSYP3Og/640?wx_fmt=other&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
-<h4 id="常见窗口函数"><a href="#常见窗口函数" class="headerlink" title="常见窗口函数"></a>常见窗口函数</h4><p><strong>四.总结</strong></p>
-<p><strong>1.窗口函数语法</strong></p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;窗口函数&gt; over (partition by &lt;用于分组的列名&gt;</span><br><span class="line">                order by &lt;用于排序的列名&gt;)</span><br></pre></td></tr></table></figure>
-<p>&lt;窗口函数&gt;的位置，可以放以下两种函数：</p>
-<p>1） 专用窗口函数，比如rank, dense_rank, row_number等</p>
-<p>2） 聚合函数，如sum. avg, count, max, min等</p>
-<p><strong>2.窗口函数有以下功能：</strong></p>
-<p>1）同时具有分组（partition by）和排序（order by）的功能</p>
-<p>2）不减少原表的行数，所以经常用来在每组内排名</p>
-<p><strong>3.注意事项</strong></p>
-<p>窗口函数原则上只能写在select子句中</p>
-<p><strong>4.窗口函数使用场景</strong></p>
-<p>1）业务需求“<strong>在每组内排名”</strong>，比如：</p>
-<blockquote>
-<p>排名问题：每个部门按业绩来排名<br>topN问题：找出每个部门排名前N的员工进行奖励</p>
-</blockquote>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/rfaNuFeWzwDHicVppcn3zqs3KdvibEXJW7plQCCOZzNDxoSs1luiafuTqA4kkiaGk8DoP5MlQDib9GS29DvHsTaIIaw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片" style="zoom:33%;" /></p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/rfaNuFeWzwDHicVppcn3zqs3KdvibEXJW7TXfSLE4UOhfch0DgHlHInViaVsMsyYvzGS4cUWGnfgk0LAOPUpWb6jg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片" style="zoom:50%;" /></p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/rfaNuFeWzwDHicVppcn3zqs3KdvibEXJW7hkXZFfUHia6uia0OvoI2tZ3N87UTqVLWz6EfXHZ8dMwudXHNIxtA5yFQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片" style="zoom:50%;" /></p>
-<h2 id="连接-1"><a href="#连接-1" class="headerlink" title="连接"></a>连接</h2><h3 id="多次连接"><a href="#多次连接" class="headerlink" title="多次连接"></a>多次连接</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select dept_emp.dept_no, departments.dept_name, count(salaries.emp_no ) sum from </span><br><span class="line">    salaries left join dept_emp </span><br><span class="line">        on salaries.emp_no = dept_emp.emp_no</span><br><span class="line">    left join departments on dept_emp.dept_no = departments.dept_no</span><br><span class="line">    group by dept_emp.dept_no  order by sum desc</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
-<h3 id="内连接"><a href="#内连接" class="headerlink" title="内连接"></a>内连接</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo</span><br><span class="line">FROM Persons, Orders</span><br><span class="line">WHERE Persons.Id_P = Orders.Id_P </span><br></pre></td></tr></table></figure>
-<h3 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h3><h3 id="自连接"><a href="#自连接" class="headerlink" title="自连接"></a>自连接</h3><h3 id="交叉连接"><a href="#交叉连接" class="headerlink" title="交叉连接"></a>交叉连接</h3><p>交叉联结（corss join）</p>
-<h2 id="case-when-1"><a href="#case-when-1" class="headerlink" title="case when"></a>case when</h2><h1 id="题库"><a href="#题库" class="headerlink" title="题库"></a>题库</h1><h2 id="select"><a href="#select" class="headerlink" title="select"></a>select</h2><h3 id="where"><a href="#where" class="headerlink" title="where"></a>where</h3><ol>
-<li>如果使用in可放入select </li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select emp_no </span><br><span class="line">from employees</span><br><span class="line">where emp_no not in (select distinct emp_no from dept_manager)</span><br></pre></td></tr></table></figure>
-<h3 id="排名-窗口函数新增一列"><a href="#排名-窗口函数新增一列" class="headerlink" title="排名(窗口函数新增一列)"></a>排名(窗口函数新增一列)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">select dept_no, emp_no, salary </span><br><span class="line">from </span><br><span class="line">(</span><br><span class="line">select  </span><br><span class="line">    dept_no, </span><br><span class="line">    a.emp_no,</span><br><span class="line">    salary,</span><br><span class="line">    row_number()  over( partition  by  dept_no order by salary desc) as ranking</span><br><span class="line">from (</span><br><span class="line">    salaries as a </span><br><span class="line">    inner join </span><br><span class="line">    dept_emp as b </span><br><span class="line">    on a.emp_no = b.emp_no</span><br><span class="line">    )</span><br><span class="line"> )</span><br><span class="line">where ranking =1 </span><br><span class="line">group by dept_no</span><br></pre></td></tr></table></figure>
-<h3 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">CASE input_expression</span><br><span class="line">WHEN when_expression THEN</span><br><span class="line">    result_expression [...n ] [</span><br><span class="line">ELSE</span><br><span class="line">    else_result_expression</span><br><span class="line">END</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CASE</span><br><span class="line">WHEN Boolean_expression THEN</span><br><span class="line">    result_expression [...n ] [</span><br><span class="line">ELSE</span><br><span class="line">    else_result_expression</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
-<h3 id="配合-count-sum"><a href="#配合-count-sum" class="headerlink" title="配合 count sum"></a>配合 count sum</h3><p>行列互换</p>
-<p>group by 行</p>
-<p>count/sum列统计</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">COUNT(DISTINCT CASE phoneType WHEN &#x27;iOS&#x27; THEN id END) AS iOSPush,</span><br><span class="line">COUNT(DISTINCT CASE phoneType WHEN &#x27;WeChat&#x27; THEN id END) AS weChatPush,</span><br><span class="line">COUNT(DISTINCT CASE phoneType WHEN &#x27;Android&#x27; THEN id END) AS androidPush,</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="连续几天-自连接（同一列相互"><a href="#连续几天-自连接（同一列相互" class="headerlink" title="连续几天+自连接（同一列相互)"></a>连续几天+自连接（同一列相互)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">select *</span><br><span class="line">from score as a,</span><br><span class="line">   score as b,</span><br><span class="line">   score as c;</span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">select distinct a.成绩 as 最终答案</span><br><span class="line">from score as a,</span><br><span class="line">   score as b,</span><br><span class="line">   score as c;</span><br><span class="line"> where a.学号 = b.学号 - 1</span><br><span class="line">   and b.学号 = c.学号 - 1</span><br><span class="line">   and a.成绩 = b.成绩</span><br><span class="line">   and b.成绩 = c.成绩;</span><br></pre></td></tr></table></figure>
-<p><strong>【本题考点】</strong></p>
-<p>• 本题考察的是连续出现，会有同学忽略“连续”二字</p>
-<p>• 考察对自关联的灵活应用</p>
-<p>• 从题目连续3次成绩相等，判断出“成绩相等”和“学号连续”这2个条件。考察构建“连续学号成绩相等”的思维构建能力</p>
-<p><strong>【举一反三】</strong></p>
-<p>遇到类似“连续出N次的问题”可以回想本题的解答思路，如：查询至少连续3天没有出勤的员工。</p>
-<h3 id="行列互换"><a href="#行列互换" class="headerlink" title="行列互换"></a>行列互换</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 学号,-- 第2步，在行列互换结果表中，其他列里的值分别使用case和max来获取max(case 课程 when &#x27;语文&#x27; then 成绩 else 0 end) as 语文成绩,max(case 课程 when &#x27;数学&#x27; then 成绩 else 0 end) as 数学成绩from 成绩表-- 第1步，在行列互换结果表中按第1列分组group by 学号;</span><br></pre></td></tr></table></figure>
-<p>1.考查用case语句进行数据替换，和条件判断</p>
-<p>2.遇到行列互换的问题，可以用下面的万能模版来解决。</p>
-<h3 id="最大最小的N个数"><a href="#最大最小的N个数" class="headerlink" title="最大最小的N个数"></a>最大最小的N个数</h3><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzAxMTMwNTMxMQ==&amp;mid=2649248455&amp;idx=1&amp;sn=57539b783e2f4a0bdc54c7ca63e162a6&amp;chksm=835fdaf7b42853e19fea0c1ecdf2e62dc70591c37129e3fd53193773ca372c7958b5b450f4b7&amp;cur_album_id=1398781984763428865&amp;scene=189#rd">https://mp.weixin.qq.com/s?__biz=MzAxMTMwNTMxMQ==&amp;mid=2649248455&amp;idx=1&amp;sn=57539b783e2f4a0bdc54c7ca63e162a6&amp;chksm=835fdaf7b42853e19fea0c1ecdf2e62dc70591c37129e3fd53193773ca372c7958b5b450f4b7&amp;cur_album_id=1398781984763428865&amp;scene=189#rd</a></p>
-<p><strong>【本题考点】</strong></p>
-<p>1.使用<a target="_blank" rel="noopener" href="http://mp.weixin.qq.com/s?__biz=MzAxMTMwNTMxMQ==&amp;mid=2649246563&amp;idx=2&amp;sn=3ffe509999d144d23dec5acc101fc2ef&amp;chksm=835fc353b4284a45ce01391453fe2fec1b225bbd6bbdb67dd7f304aacdd4f21f60d0b27ba309&amp;scene=21#wechat_redirect">逻辑树分析方法</a>将复杂问题变成简单问题的能力</p>
-<p>2.当遇到“每个”问题的时候，要想到用分组汇总</p>
-<p>3.查询最小n个数据的问题：先排序（order by），然后使用limit取出前n行数据</p>
-<p>4.遇到有筛选条件的统计数量问题时，使用case表达式筛选出符合条件的行为1，否则为0。然后用汇总函数（sum）对case表达式输出列求和。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select a.班级,人数,人数占比from 学生表 as a left join 临时表 as bon a.学号=b.学号group by 班级;</span><br></pre></td></tr></table></figure>
-<h1 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h1><h2 id="group-by"><a href="#group-by" class="headerlink" title="group by"></a>group by</h2><p>简而言之：使用GROUP BY子句时，SELECT子句中只能有聚合键、聚合函数、常数。</p>
-<h2 id="子查询要取名字"><a href="#子查询要取名字" class="headerlink" title="子查询要取名字"></a>子查询要取名字</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">select emp_no, max(salary), last_name, first_name</span><br><span class="line">from </span><br><span class="line">   </span><br><span class="line">    (select * from </span><br><span class="line">           employees  as a inner join salaries as b </span><br><span class="line">           on a.emp_no = b.emp_no</span><br><span class="line">   ) as c</span><br><span class="line"> where salary&lt; (select max(salary) from salaries)</span><br></pre></td></tr></table></figure>
-<h3 id="嵌套查询和查询子集"><a href="#嵌套查询和查询子集" class="headerlink" title="嵌套查询和查询子集"></a>嵌套查询和查询子集</h3><h3 id="统计每年，每月，每年的数据"><a href="#统计每年，每月，每年的数据" class="headerlink" title="统计每年，每月，每年的数据"></a>统计每年，每月，每年的数据</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">1、每年</span><br><span class="line">select year(ordertime) 年，</span><br><span class="line">sum(Total) 销售合计</span><br><span class="line">from 订单表</span><br><span class="line">group by year(ordertime)</span><br><span class="line"> </span><br><span class="line">2、每月</span><br><span class="line">select year(ordertime) 年，</span><br><span class="line">month(ordertime) 月,</span><br><span class="line">sum(Total) 销售合计</span><br><span class="line">from 订单表</span><br><span class="line">group by year(ordertime)，</span><br><span class="line">month(ordertime</span><br><span class="line"> </span><br><span class="line">3、每日</span><br><span class="line">select year(ordertime) 年，</span><br><span class="line">month(ordertime) 月,</span><br><span class="line">day(ordertime) 日，</span><br><span class="line">sum(Total) 销售合计</span><br><span class="line">from 订单表</span><br><span class="line">group by year(ordertime)，</span><br><span class="line">month(ordertime),</span><br><span class="line">day(ordertime)</span><br><span class="line"> </span><br><span class="line">另外每日也可以这样:</span><br><span class="line">select convert(char(8),ordertime,112) dt，</span><br><span class="line">sum(Total) 销售合计</span><br><span class="line">from 订单表</span><br><span class="line">group by convert(char(8),ordertime,112)</span><br></pre></td></tr></table></figure>
-<h2 id="计数重新映射值"><a href="#计数重新映射值" class="headerlink" title="计数重新映射值"></a>计数重新映射值</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT IF(sva=1,&quot;男&quot;,&quot;女&quot;) AS s FROM table_name </span><br><span class="line">WHERE sva != &#x27;&#x27;;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT CASE sva</span><br><span class="line">WHEN 1 THEN &#x27;男&#x27; </span><br><span class="line">　　ELSE &#x27;女&#x27; END AS s FROM table_name</span><br><span class="line">WHERE sva != &#x27;&#x27;;</span><br></pre></td></tr></table></figure>
-<p>可以在count, sum中select 中使用</p>
-<p>1.考查用case语句进行数据替换，和条件判断</p>
-<h2 id="sql执行顺序"><a href="#sql执行顺序" class="headerlink" title="sql执行顺序"></a>sql执行顺序</h2><p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\image-20210601135359672.png" alt="image-20210601135359672"></p>
-<p>where:顾虑</p>
-<p>group by</p>
-<p>having:分组筛选</p>
-<p><img src="F:\MyBlog\MyBlog\_posts\数据分析之SQL\FN9$IYZ7_T}`54_@5_YEAF1.png" alt="img"></p>
-<p>执行顺序：from join where group by  haveing: 中  select distinct; order by limit</p>
-<h1 id="SQL-1"><a href="#SQL-1" class="headerlink" title="SQL"></a>SQL</h1><h2 id="基础用法"><a href="#基础用法" class="headerlink" title="基础用法"></a>基础用法</h2><h3 id="第一层"><a href="#第一层" class="headerlink" title="第一层"></a>第一层</h3><p>select  from  where group by having  order by  limit</p>
-<h3 id="第二层"><a href="#第二层" class="headerlink" title="第二层"></a>第二层</h3><p>聚合</p>
-<p>分组</p>
-<p>子查询</p>
-<p>表连接</p>
-<h3 id="第三层"><a href="#第三层" class="headerlink" title="第三层"></a>第三层</h3><p>窗口函数</p>
-<p>时间函数</p>
-<h2 id="运行原理"><a href="#运行原理" class="headerlink" title="运行原理"></a>运行原理</h2><h2 id="准备表格（字段）"><a href="#准备表格（字段）" class="headerlink" title="准备表格（字段）"></a>准备表格（字段）</h2><p>from : 从一下数据库中</p>
-<p>​        SQL: 从数据库中找到from后指定的表格，复制一张完全一样的表格用于查询处理</p>
-<p>join: 连接表格</p>
-<h3 id="是否需要聚合"><a href="#是否需要聚合" class="headerlink" title="是否需要聚合"></a>是否需要聚合</h3><h3 id="函数处理-1"><a href="#函数处理-1" class="headerlink" title="函数处理"></a>函数处理</h3><h3 id="子查询-1"><a href="#子查询-1" class="headerlink" title="子查询"></a>子查询</h3><p>要用（）包括起来</p>
-<p>（）别名</p>
-<h4 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h4><p>from</p>
-<p>where</p>
-<p>join</p>
-<p>having </p>
+<p><img src="数据分析之SQL\QQ图片20210820014614.png" alt=""></p>
+<p><img src="数据分析之SQL\QQ图片20210820014523.png" alt=""></p>
+<h2 id="DDl-数据定义语言-数据表"><a href="#DDl-数据定义语言-数据表" class="headerlink" title="DDl 数据定义语言 数据表"></a>DDl 数据定义语言 数据表</h2><p><img src="数据分析之SQL\QQ图片20210820005525.png" alt=""></p>
+<p><img src="数据分析之SQL\QQ图片20210820005806.png" alt=""></p>
+<p><img src="数据分析之SQL\QQ图片20210820010019.png" alt=""></p>
+<p><img src="数据分析之SQL\QQ图片20210820010455.png" alt=""></p>
+<p><img src="数据分析之SQL\QQ图片20210820010458.png" alt=""></p>
+<h2 id="数据库管理"><a href="#数据库管理" class="headerlink" title="数据库管理"></a>数据库管理</h2><p><img src="数据分析之SQL\QQ图片20210820014729.png" alt=""></p>
+<h1 id="Day14"><a href="#Day14" class="headerlink" title="Day14"></a>Day14</h1><p><img src="数据分析之SQL\QQ图片20210820015321.png" alt=""></p>
+<p><img src="数据分析之SQL\QQ图片20210820015646.png" alt=""></p>
+<p><img src="数据分析之SQL\QQ图片20210820015813.png" alt=""></p>
+<p><img src="数据分析之SQL\QQ图片20210820015928.png" alt=""></p>
+<p><img src="数据分析之SQL\QQ图片20210820020113.png" alt=""></p>
+<p><img src="数据分析之SQL\QQ图片20210820020117.png" alt=""></p>
 
       
     </div>
@@ -1179,7 +952,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/1/" rel="tag">1</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/BI/" rel="tag">BI</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/BP/" rel="tag">BP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Boosting-AdaBoost/" rel="tag">Boosting, AdaBoost</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Daily/" rel="tag">Daily</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Data-Mining/" rel="tag">Data Mining</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Deep-learning/" rel="tag">Deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Excel/" rel="tag">Excel</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Numpuy/" rel="tag">Numpuy</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Pandas/" rel="tag">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/R/" rel="tag">R</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/SVD/" rel="tag">SVD</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/deep-learning/" rel="tag">deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/df/" rel="tag">df</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ielts/" rel="tag">ielts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/logisitics-regression/" rel="tag">logisitics regression</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/machine-learning/" rel="tag">machine learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/origin/" rel="tag">origin</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/tensorlow/" rel="tag">tensorlow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/test/" rel="tag">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92/" rel="tag">二次规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" rel="tag">交叉验证</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/" rel="tag">假设检验</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" rel="tag">关联规则</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%86%B3%E7%AD%96%E6%A0%91/" rel="tag">决策树</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%8D%95%E8%AF%8D/" rel="tag">单词</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%8D%A1%E6%96%B9%E5%88%86/" rel="tag">卡方分</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" rel="tag">回归分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" rel="tag">回归树</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%AE%89%E6%8E%92/" rel="tag">安排</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" rel="tag">希腊字母</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%BD%92%E4%B8%80%E5%8C%96/" rel="tag">归一化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%BD%A9%E9%93%85/" rel="tag">彩铅</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%80%9D%E7%BB%B4/" rel="tag">思维</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">我的读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%8A%80%E8%83%BD/" rel="tag">技能</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0/" rel="tag">抽样分布函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%8C%87%E6%A0%87/" rel="tag">指标</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" rel="tag">支持向量机</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" rel="tag">支持向量机回归</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%95%B0%E5%AD%97%E5%8C%96/" rel="tag">数字化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">数据分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD/" rel="tag">数据分析技能</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag">数据挖掘</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2/" rel="tag">数据探索</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%96%B0%E6%A6%82%E5%BF%B5/" rel="tag">新概念</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%96%B9%E6%B3%95/" rel="tag">方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%97%A5%E5%B8%B8/" rel="tag">日常</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%A0%87%E5%87%86%E5%8C%96/" rel="tag">标准化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/" rel="tag">案例分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%AD%A3%E5%88%99%E5%8C%96/" rel="tag">正则化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" rel="tag">特征工程</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" rel="tag">监督学习与非监督学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6/" rel="tag">社会科学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%A7%91%E7%A0%94/" rel="tag">科研</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" rel="tag">科研工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/" rel="tag">科研笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%AB%9E%E8%B5%9B/" rel="tag">竞赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%BB%98%E5%9B%BE/" rel="tag">绘图</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%81%8C%E4%B8%9A/" rel="tag">职业</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%83%BD%E5%8A%9B/" rel="tag">能力</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/" rel="tag">西瓜书</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/" rel="tag">计量经济学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" rel="tag">贝叶斯分类器</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%BF%90%E8%90%A5/" rel="tag">运营</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E9%9B%85%E6%80%9D/" rel="tag">雅思</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/1/" rel="tag">1</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/BI/" rel="tag">BI</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/BP/" rel="tag">BP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Boosting-AdaBoost/" rel="tag">Boosting, AdaBoost</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Daily/" rel="tag">Daily</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Data-Mining/" rel="tag">Data Mining</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Deep-learning/" rel="tag">Deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Excel/" rel="tag">Excel</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Numpuy/" rel="tag">Numpuy</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Pandas/" rel="tag">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/R/" rel="tag">R</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/SQl/" rel="tag">SQl</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/SVD/" rel="tag">SVD</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/deep-learning/" rel="tag">deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/df/" rel="tag">df</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ielts/" rel="tag">ielts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/logisitics-regression/" rel="tag">logisitics regression</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/machine-learning/" rel="tag">machine learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/origin/" rel="tag">origin</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/tensorlow/" rel="tag">tensorlow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/test/" rel="tag">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92/" rel="tag">二次规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" rel="tag">交叉验证</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/" rel="tag">假设检验</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" rel="tag">关联规则</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%86%B3%E7%AD%96%E6%A0%91/" rel="tag">决策树</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%8D%95%E8%AF%8D/" rel="tag">单词</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%8D%A1%E6%96%B9%E5%88%86/" rel="tag">卡方分</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" rel="tag">回归分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" rel="tag">回归树</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%AE%89%E6%8E%92/" rel="tag">安排</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" rel="tag">希腊字母</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%BD%92%E4%B8%80%E5%8C%96/" rel="tag">归一化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%BD%A9%E9%93%85/" rel="tag">彩铅</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%80%9D%E7%BB%B4/" rel="tag">思维</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">我的读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%8A%80%E8%83%BD/" rel="tag">技能</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0/" rel="tag">抽样分布函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%8C%87%E6%A0%87/" rel="tag">指标</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" rel="tag">支持向量机</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" rel="tag">支持向量机回归</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%95%B0%E5%AD%97%E5%8C%96/" rel="tag">数字化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">数据分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD/" rel="tag">数据分析技能</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag">数据挖掘</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2/" rel="tag">数据探索</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%96%B0%E6%A6%82%E5%BF%B5/" rel="tag">新概念</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%96%B9%E6%B3%95/" rel="tag">方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%97%A5%E5%B8%B8/" rel="tag">日常</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%A0%87%E5%87%86%E5%8C%96/" rel="tag">标准化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/" rel="tag">案例分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%AD%A3%E5%88%99%E5%8C%96/" rel="tag">正则化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" rel="tag">特征工程</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" rel="tag">监督学习与非监督学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6/" rel="tag">社会科学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%A7%91%E7%A0%94/" rel="tag">科研</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" rel="tag">科研工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/" rel="tag">科研笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%AB%9E%E8%B5%9B/" rel="tag">竞赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%BB%98%E5%9B%BE/" rel="tag">绘图</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%81%8C%E4%B8%9A/" rel="tag">职业</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%83%BD%E5%8A%9B/" rel="tag">能力</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/" rel="tag">西瓜书</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/" rel="tag">计量经济学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" rel="tag">贝叶斯分类器</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%BF%90%E8%90%A5/" rel="tag">运营</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E9%9B%85%E6%80%9D/" rel="tag">雅思</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a></li></ul>
     </div>
   </div>
 
@@ -1189,7 +962,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="../../../../tags/1/" style="font-size: 10px;">1</a> <a href="../../../../tags/BI/" style="font-size: 12px;">BI</a> <a href="../../../../tags/BP/" style="font-size: 10px;">BP</a> <a href="../../../../tags/Boosting-AdaBoost/" style="font-size: 10px;">Boosting, AdaBoost</a> <a href="../../../../tags/Daily/" style="font-size: 12px;">Daily</a> <a href="../../../../tags/Data-Mining/" style="font-size: 10px;">Data Mining</a> <a href="../../../../tags/Deep-learning/" style="font-size: 16px;">Deep learning</a> <a href="../../../../tags/English/" style="font-size: 10px;">English</a> <a href="../../../../tags/Excel/" style="font-size: 10px;">Excel</a> <a href="../../../../tags/Numpuy/" style="font-size: 10px;">Numpuy</a> <a href="../../../../tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="../../../../tags/Python/" style="font-size: 16px;">Python</a> <a href="../../../../tags/R/" style="font-size: 10px;">R</a> <a href="../../../../tags/SQL/" style="font-size: 10px;">SQL</a> <a href="../../../../tags/SVD/" style="font-size: 10px;">SVD</a> <a href="../../../../tags/deep-learning/" style="font-size: 10px;">deep learning</a> <a href="../../../../tags/df/" style="font-size: 10px;">df</a> <a href="../../../../tags/ielts/" style="font-size: 10px;">ielts</a> <a href="../../../../tags/linux/" style="font-size: 10px;">linux</a> <a href="../../../../tags/logisitics-regression/" style="font-size: 10px;">logisitics regression</a> <a href="../../../../tags/machine-learning/" style="font-size: 12px;">machine learning</a> <a href="../../../../tags/origin/" style="font-size: 10px;">origin</a> <a href="../../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../../tags/tensorlow/" style="font-size: 10px;">tensorlow</a> <a href="../../../../tags/test/" style="font-size: 10px;">test</a> <a href="../../../../tags/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92/" style="font-size: 10px;">二次规划</a> <a href="../../../../tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" style="font-size: 10px;">交叉验证</a> <a href="../../../../tags/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/" style="font-size: 10px;">假设检验</a> <a href="../../../../tags/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" style="font-size: 10px;">关联规则</a> <a href="../../../../tags/%E5%86%B3%E7%AD%96%E6%A0%91/" style="font-size: 14px;">决策树</a> <a href="../../../../tags/%E5%8D%95%E8%AF%8D/" style="font-size: 10px;">单词</a> <a href="../../../../tags/%E5%8D%A1%E6%96%B9%E5%88%86/" style="font-size: 10px;">卡方分</a> <a href="../../../../tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 14px;">可视化</a> <a href="../../../../tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" style="font-size: 10px;">回归分析</a> <a href="../../../../tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" style="font-size: 10px;">回归树</a> <a href="../../../../tags/%E5%AE%89%E6%8E%92/" style="font-size: 10px;">安排</a> <a href="../../../../tags/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" style="font-size: 10px;">希腊字母</a> <a href="../../../../tags/%E5%BD%92%E4%B8%80%E5%8C%96/" style="font-size: 10px;">归一化</a> <a href="../../../../tags/%E5%BD%A9%E9%93%85/" style="font-size: 10px;">彩铅</a> <a href="../../../../tags/%E6%80%9D%E7%BB%B4/" style="font-size: 18px;">思维</a> <a href="../../../../tags/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">我的读书笔记</a> <a href="../../../../tags/%E6%8A%80%E8%83%BD/" style="font-size: 12px;">技能</a> <a href="../../../../tags/%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0/" style="font-size: 10px;">抽样分布函数</a> <a href="../../../../tags/%E6%8C%87%E6%A0%87/" style="font-size: 10px;">指标</a> <a href="../../../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" style="font-size: 10px;">支持向量机</a> <a href="../../../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" style="font-size: 10px;">支持向量机回归</a> <a href="../../../../tags/%E6%95%B0%E5%AD%97%E5%8C%96/" style="font-size: 10px;">数字化</a> <a href="../../../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 20px;">数据分析</a> <a href="../../../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD/" style="font-size: 10px;">数据分析技能</a> <a href="../../../../tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 10px;">数据挖掘</a> <a href="../../../../tags/%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2/" style="font-size: 10px;">数据探索</a> <a href="../../../../tags/%E6%96%B0%E6%A6%82%E5%BF%B5/" style="font-size: 10px;">新概念</a> <a href="../../../../tags/%E6%96%B9%E6%B3%95/" style="font-size: 10px;">方法</a> <a href="../../../../tags/%E6%97%A5%E5%B8%B8/" style="font-size: 12px;">日常</a> <a href="../../../../tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 12px;">机器学习</a> <a href="../../../../tags/%E6%A0%87%E5%87%86%E5%8C%96/" style="font-size: 10px;">标准化</a> <a href="../../../../tags/%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/" style="font-size: 10px;">案例分析</a> <a href="../../../../tags/%E6%AD%A3%E5%88%99%E5%8C%96/" style="font-size: 10px;">正则化</a> <a href="../../../../tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="../../../../tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">特征工程</a> <a href="../../../../tags/%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">生活</a> <a href="../../../../tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">监督学习与非监督学习</a> <a href="../../../../tags/%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6/" style="font-size: 10px;">社会科学</a> <a href="../../../../tags/%E7%A7%91%E7%A0%94/" style="font-size: 12px;">科研</a> <a href="../../../../tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">科研工具</a> <a href="../../../../tags/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">科研笔记</a> <a href="../../../../tags/%E7%AB%9E%E8%B5%9B/" style="font-size: 10px;">竞赛</a> <a href="../../../../tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="../../../../tags/%E7%BB%98%E5%9B%BE/" style="font-size: 10px;">绘图</a> <a href="../../../../tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 14px;">统计学</a> <a href="../../../../tags/%E8%81%8C%E4%B8%9A/" style="font-size: 10px;">职业</a> <a href="../../../../tags/%E8%83%BD%E5%8A%9B/" style="font-size: 10px;">能力</a> <a href="../../../../tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/" style="font-size: 10px;">西瓜书</a> <a href="../../../../tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/" style="font-size: 12px;">计量经济学</a> <a href="../../../../tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 10px;">读书</a> <a href="../../../../tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" style="font-size: 10px;">贝叶斯分类器</a> <a href="../../../../tags/%E8%BF%90%E8%90%A5/" style="font-size: 10px;">运营</a> <a href="../../../../tags/%E9%9B%85%E6%80%9D/" style="font-size: 10px;">雅思</a> <a href="../../../../tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 10px;">项目</a>
+      <a href="../../../../tags/1/" style="font-size: 10px;">1</a> <a href="../../../../tags/BI/" style="font-size: 12px;">BI</a> <a href="../../../../tags/BP/" style="font-size: 10px;">BP</a> <a href="../../../../tags/Boosting-AdaBoost/" style="font-size: 10px;">Boosting, AdaBoost</a> <a href="../../../../tags/Daily/" style="font-size: 12px;">Daily</a> <a href="../../../../tags/Data-Mining/" style="font-size: 10px;">Data Mining</a> <a href="../../../../tags/Deep-learning/" style="font-size: 16px;">Deep learning</a> <a href="../../../../tags/English/" style="font-size: 10px;">English</a> <a href="../../../../tags/Excel/" style="font-size: 10px;">Excel</a> <a href="../../../../tags/Numpuy/" style="font-size: 10px;">Numpuy</a> <a href="../../../../tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="../../../../tags/Python/" style="font-size: 16px;">Python</a> <a href="../../../../tags/R/" style="font-size: 10px;">R</a> <a href="../../../../tags/SQL/" style="font-size: 10px;">SQL</a> <a href="../../../../tags/SQl/" style="font-size: 10px;">SQl</a> <a href="../../../../tags/SVD/" style="font-size: 10px;">SVD</a> <a href="../../../../tags/deep-learning/" style="font-size: 10px;">deep learning</a> <a href="../../../../tags/df/" style="font-size: 10px;">df</a> <a href="../../../../tags/ielts/" style="font-size: 10px;">ielts</a> <a href="../../../../tags/linux/" style="font-size: 10px;">linux</a> <a href="../../../../tags/logisitics-regression/" style="font-size: 10px;">logisitics regression</a> <a href="../../../../tags/machine-learning/" style="font-size: 12px;">machine learning</a> <a href="../../../../tags/origin/" style="font-size: 10px;">origin</a> <a href="../../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../../tags/tensorlow/" style="font-size: 10px;">tensorlow</a> <a href="../../../../tags/test/" style="font-size: 10px;">test</a> <a href="../../../../tags/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92/" style="font-size: 10px;">二次规划</a> <a href="../../../../tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" style="font-size: 10px;">交叉验证</a> <a href="../../../../tags/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/" style="font-size: 10px;">假设检验</a> <a href="../../../../tags/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" style="font-size: 10px;">关联规则</a> <a href="../../../../tags/%E5%86%B3%E7%AD%96%E6%A0%91/" style="font-size: 14px;">决策树</a> <a href="../../../../tags/%E5%8D%95%E8%AF%8D/" style="font-size: 10px;">单词</a> <a href="../../../../tags/%E5%8D%A1%E6%96%B9%E5%88%86/" style="font-size: 10px;">卡方分</a> <a href="../../../../tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 14px;">可视化</a> <a href="../../../../tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" style="font-size: 10px;">回归分析</a> <a href="../../../../tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" style="font-size: 10px;">回归树</a> <a href="../../../../tags/%E5%AE%89%E6%8E%92/" style="font-size: 10px;">安排</a> <a href="../../../../tags/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" style="font-size: 10px;">希腊字母</a> <a href="../../../../tags/%E5%BD%92%E4%B8%80%E5%8C%96/" style="font-size: 10px;">归一化</a> <a href="../../../../tags/%E5%BD%A9%E9%93%85/" style="font-size: 10px;">彩铅</a> <a href="../../../../tags/%E6%80%9D%E7%BB%B4/" style="font-size: 18px;">思维</a> <a href="../../../../tags/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">我的读书笔记</a> <a href="../../../../tags/%E6%8A%80%E8%83%BD/" style="font-size: 12px;">技能</a> <a href="../../../../tags/%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0/" style="font-size: 10px;">抽样分布函数</a> <a href="../../../../tags/%E6%8C%87%E6%A0%87/" style="font-size: 10px;">指标</a> <a href="../../../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" style="font-size: 10px;">支持向量机</a> <a href="../../../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" style="font-size: 10px;">支持向量机回归</a> <a href="../../../../tags/%E6%95%B0%E5%AD%97%E5%8C%96/" style="font-size: 10px;">数字化</a> <a href="../../../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 20px;">数据分析</a> <a href="../../../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD/" style="font-size: 10px;">数据分析技能</a> <a href="../../../../tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 10px;">数据挖掘</a> <a href="../../../../tags/%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2/" style="font-size: 10px;">数据探索</a> <a href="../../../../tags/%E6%96%B0%E6%A6%82%E5%BF%B5/" style="font-size: 10px;">新概念</a> <a href="../../../../tags/%E6%96%B9%E6%B3%95/" style="font-size: 10px;">方法</a> <a href="../../../../tags/%E6%97%A5%E5%B8%B8/" style="font-size: 12px;">日常</a> <a href="../../../../tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 12px;">机器学习</a> <a href="../../../../tags/%E6%A0%87%E5%87%86%E5%8C%96/" style="font-size: 10px;">标准化</a> <a href="../../../../tags/%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/" style="font-size: 10px;">案例分析</a> <a href="../../../../tags/%E6%AD%A3%E5%88%99%E5%8C%96/" style="font-size: 10px;">正则化</a> <a href="../../../../tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="../../../../tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">特征工程</a> <a href="../../../../tags/%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">生活</a> <a href="../../../../tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">监督学习与非监督学习</a> <a href="../../../../tags/%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6/" style="font-size: 10px;">社会科学</a> <a href="../../../../tags/%E7%A7%91%E7%A0%94/" style="font-size: 12px;">科研</a> <a href="../../../../tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">科研工具</a> <a href="../../../../tags/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">科研笔记</a> <a href="../../../../tags/%E7%AB%9E%E8%B5%9B/" style="font-size: 10px;">竞赛</a> <a href="../../../../tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="../../../../tags/%E7%BB%98%E5%9B%BE/" style="font-size: 10px;">绘图</a> <a href="../../../../tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 14px;">统计学</a> <a href="../../../../tags/%E8%81%8C%E4%B8%9A/" style="font-size: 10px;">职业</a> <a href="../../../../tags/%E8%83%BD%E5%8A%9B/" style="font-size: 10px;">能力</a> <a href="../../../../tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/" style="font-size: 10px;">西瓜书</a> <a href="../../../../tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/" style="font-size: 12px;">计量经济学</a> <a href="../../../../tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 10px;">读书</a> <a href="../../../../tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" style="font-size: 10px;">贝叶斯分类器</a> <a href="../../../../tags/%E8%BF%90%E8%90%A5/" style="font-size: 10px;">运营</a> <a href="../../../../tags/%E9%9B%85%E6%80%9D/" style="font-size: 10px;">雅思</a> <a href="../../../../tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 10px;">项目</a>
     </div>
   </div>
 
