@@ -58,7 +58,7 @@
 <meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820020113.png">
 <meta property="og:image" content="http://flytowardnewworld.github.io/2020/08/25/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL/数据分析之SQL/QQ图片20210820020117.png">
 <meta property="article:published_time" content="2020-08-25T09:55:15.000Z">
-<meta property="article:modified_time" content="2022-10-05T10:50:09.013Z">
+<meta property="article:modified_time" content="2022-10-05T11:23:34.814Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="SQL">
 <meta name="twitter:card" content="summary">
@@ -191,6 +191,8 @@
 <p>对于标识符是否区分大小写取决于当前的操作系统, Windows下是不敏感的, 但对于大多数 linux\unix 系统来说, 这些标识符大小写是<strong>敏感</strong>的。</p>
 <h3 id="关键字"><a href="#关键字" class="headerlink" title="关键字:"></a>关键字:</h3><p>MySQL的关键字众多, 这里不一一列出, 在学习中学习。 这些关键字有自己特定的含义, 尽量避免作为标识符。</p>
 <h3 id="语句"><a href="#语句" class="headerlink" title="语句:"></a>语句:</h3><p>MySQL语句是组成MySQL脚本的基本单位, 每条语句能完成特定的操作, 他是由 SQL 标准语句 + MySQL 扩展语句组成。</p>
+<p>关键字 (大写)+操作对象</p>
+<p><img src="数据分析之SQL\QQ图片20210820010931.png" alt=""></p>
 <h3 id="函数"><a href="#函数" class="headerlink" title="函数:"></a>函数:</h3><p>MySQL函数用来实现数据库操作的一些高级功能, 这些函数大致分为以下几类: 字符串函数、数学函数、日期时间函数、搜索函数、加密函数、信息函数。</p>
 <h2 id="MySQL中的数据类型"><a href="#MySQL中的数据类型" class="headerlink" title="MySQL中的数据类型"></a>MySQL中的数据类型</h2><ul>
 <li><p><strong>数字类型</strong></p>
@@ -387,8 +389,6 @@
 </table>
 </div>
 <p>* 即便 DATETIME 和 TIMESTAMP 返回相同的格式，它们的工作方式很不同。在 INSERT 或 UPDATE 查询中，TIMESTAMP 自动把自身设置为当前的日期和时间。TIMESTAMP 也接受不同的格式，比如 YYYYMMDDHHMMSS、YYMMDDHHMMSS、YYYYMMDD 或 YYMMDD。</p>
-<h2 id="MySQL数据库"><a href="#MySQL数据库" class="headerlink" title="MySQL数据库"></a>MySQL数据库</h2><p>关键字 (大写)+操作对象</p>
-<p><img src="数据分析之SQL\QQ图片20210820010931.png" alt=""></p>
 <h2 id="使用MySQL数据库"><a href="#使用MySQL数据库" class="headerlink" title="使用MySQL数据库"></a>使用MySQL数据库</h2><h3 id="Step1-登录到MySQL"><a href="#Step1-登录到MySQL" class="headerlink" title="Step1: 登录到MySQL"></a>Step1: 登录到MySQL</h3><p>当 MySQL 服务已经运行时, 我们可以通过MySQL自带的客户端工具登录到MySQL数据库中, 首先打开命令提示符, 输入以下格式的命名:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h 主机名 -u 用户名 -p</span><br></pre></td></tr></table></figure>
 <ul>
@@ -497,7 +497,7 @@
 <p>DCL数据控制语言</p>
 <p>​    commit </p>
 <p>​    rollback</p>
-<h1 id="Day3-单表查询"><a href="#Day3-单表查询" class="headerlink" title="Day3-单表查询"></a>Day3-单表查询</h1><p><img src="数据分析之SQL\QQ图片20210820011424.png" alt=""></p>
+<h1 id="Day03-单表查询"><a href="#Day03-单表查询" class="headerlink" title="Day03 - 单表查询"></a>Day03 - 单表查询</h1><p><img src="数据分析之SQL\QQ图片20210820011424.png" alt=""></p>
 <p>select  列名，（<strong>字句1</strong>）  from 数据表<strong>，字句2</strong>；关键字+操作对象</p>
 <p>执行结果：数据表（二维表结构）</p>
 <p>单列查询</p>
@@ -506,7 +506,7 @@
 <h2 id="select—查询结果"><a href="#select—查询结果" class="headerlink" title="select—查询结果"></a><strong>select—查询结果</strong></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select</span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select  from </span><br></pre></td></tr></table></figure>
 <p><img src="数据分析之SQL\QQ图片20210820011527.png" alt=""></p>
-<h3 id="查询列-查询结果（修饰）"><a href="#查询列-查询结果（修饰）" class="headerlink" title="查询列-查询结果（修饰）"></a>查询列-查询结果（修饰）</h3><ol>
+<h2 id="查询列-查询结果（修饰）"><a href="#查询列-查询结果（修饰）" class="headerlink" title="查询列-查询结果（修饰）"></a>查询列-查询结果（修饰）</h2><ol>
 <li><p>别名设置 as </p>
 <p>未查询列设置别名</p>
 <p>select 列名 as 别名 from 表名；</p>
@@ -679,7 +679,7 @@
 <h3 id="having"><a href="#having" class="headerlink" title="having"></a>having</h3><p>having 针对聚合函数的过滤</p>
 <p>当过滤条件有聚合函数是，则过滤条件必须声明在having,</p>
 <p>当过滤条件没有聚合函数是，则此过滤条件可以声明在where和having中。</p>
-<h2 id="执行语句顺序"><a href="#执行语句顺序" class="headerlink" title="执行语句顺序"></a>执行语句顺序</h2><h1 id="SQL-SELECT语句执行顺序"><a href="#SQL-SELECT语句执行顺序" class="headerlink" title="[SQL SELECT语句执行顺序]"></a>[SQL SELECT语句执行顺序]</h1><p>SELECT语句内部的执行步骤。</p>
+<h2 id="执行语句顺序"><a href="#执行语句顺序" class="headerlink" title="执行语句顺序"></a>执行语句顺序</h2><p>SELECT语句内部的执行步骤。</p>
 <p>一条完整的SELECT语句内部的执行顺序是这样的：</p>
 <ol>
 <li>FROM子句组装数据（包括通过ON进行连接）；</li>
@@ -711,7 +711,7 @@
 <p>外连接: 结果包含了未匹配到的行（包括左表和右表的行） 左外连接和右外连接</p>
 <h1 id="Day10-子查询"><a href="#Day10-子查询" class="headerlink" title="Day10- 子查询"></a>Day10- 子查询</h1><p>子查询：嵌套在其他查询中的查询</p>
 <p>select 可以嵌套在哪里，</p>
-<h3 id="标量子查询"><a href="#标量子查询" class="headerlink" title="标量子查询"></a>标量子查询</h3><p>：一列一行一个值 相当于常数，当做常数处理</p>
+<h2 id="标量子查询"><a href="#标量子查询" class="headerlink" title="标量子查询"></a>标量子查询</h2><p>：一列一行一个值 相当于常数，当做常数处理</p>
 <p>增加常数列</p>
 <p>where having &lt;。&gt;</p>
 <p><img src="数据分析之SQL\QQ图片20210820012509.png" alt=""></p>
