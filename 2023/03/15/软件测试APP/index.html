@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>软件测试APP | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="APP测试的时候，建议让开发打好包APK和IPA安装包，测试人员自己安装应用，进行测试。在测试过程中需要注意的测试点如下： 01、安装和卸载  应用是否可以在IOS不同系统版本或android不同系统版本上安装（有的系统版本过低，应用不能适配） 软件安装后是否可以正常运行，安装后的文件夹及文件是否可以写到指定的目录里。 安装过程中是否可以取消 安装空间不足时是否有相应提示 如果应用需要通过网络验证">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件测试APP">
+<meta property="og:url" content="http://flytowardnewworld.github.io/2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95APP/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="APP测试的时候，建议让开发打好包APK和IPA安装包，测试人员自己安装应用，进行测试。在测试过程中需要注意的测试点如下： 01、安装和卸载  应用是否可以在IOS不同系统版本或android不同系统版本上安装（有的系统版本过低，应用不能适配） 软件安装后是否可以正常运行，安装后的文件夹及文件是否可以写到指定的目录里。 安装过程中是否可以取消 安装空间不足时是否有相应提示 如果应用需要通过网络验证">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-03-15T15:30:08.000Z">
+<meta property="article:modified_time" content="2023-03-15T15:39:13.981Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="../../../../favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="../../../../css/style.css">
+
+  
+    
+<link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../../../index.html" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="../../../../index.html">Home</a>
+        
+          <a class="main-nav-link" href="../../../../archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../../../atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://flytowardnewworld.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-软件测试APP" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time class="dt-published" datetime="2023-03-15T15:30:08.000Z" itemprop="datePublished">2023-03-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      软件测试APP
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>APP测试的时候，建议让开发打好包APK和IPA安装包，测试人员自己安装应用，进行测试。在测试过程中需要注意的测试点如下：</p>
+<p><strong>01、安装和卸载</strong></p>
+<ul>
+<li>应用是否可以在IOS不同系统版本或android不同系统版本上安装（有的系统版本过低，应用不能适配）</li>
+<li>软件安装后是否可以正常运行，安装后的文件夹及文件是否可以写到指定的目录里。</li>
+<li>安装过程中是否可以取消</li>
+<li>安装空间不足时是否有相应提示</li>
+<li>如果应用需要通过网络验证之类的安装，需要测试一下断网情况下是否有相应提示</li>
+<li>是否可以删除应用（可通过桌面删除，也可以通过软件卸载安装。曾发现在IOS手相上有个应用安装时未完全安装，终止安装后，未完成安装的应用图标一直显示在手机上，并且无法成功删除）</li>
+<li>测试卸载后文件是否全部删除所有的安装文件</li>
+<li>卸载过程中出现死机，断电，重启等意外的情况，待环境恢复后是否可以正确卸载</li>
+<li>卸载是否支持取消功能，单击取消后软件卸载情况是否正常</li>
+</ul>
+<p><strong>02、运行</strong></p>
+<ul>
+<li>APP安装完成后，是否可以正常打开软件</li>
+<li>APP运行时，是否有加载图示</li>
+<li>APP的速度是可以让人接受，切换是否流畅</li>
+<li>用户登录状态太久，sessionId会过期，会出现“虽然是登录状态，系统会提示用户没有登录。</li>
+</ul>
+<p><strong>03、登录</strong></p>
+<ul>
+<li>登录用户名和密码错误时，界面有提示信息</li>
+<li>用户主动退出登录后，下次启动APP时，应该进入登录界面</li>
+<li>对于支持自动登录的APP，数据交换时 ，是否能自动登录成功且数据库操作无误</li>
+<li>密码更改后，登录时是否做到了有效数据的校验</li>
+<li>对于未登录时一些页面的操作，是否做了控制</li>
+<li>切换账号登录，检验登录的信息是否做到及时更新</li>
+<li>对于多个端都进行操作时，确保数据库操作无误，且每个端可以及时看到数据的更新</li>
+<li>对于一些软件，支持一个账号只允许登录一台机器，这时，需要检查账号登录多个手机时，是否将原用户剔除，且能够给出提示信息</li>
+<li>APP切换到后台时，再次切换到前台的测试，如登录时，有电话打进来</li>
+<li>对于IOS与android不同设备登录同一个账号时，对个人信息等数据进行操作后，确保数据数库操作无误，且IOS与android设备看到的数据都是最新的。</li>
+</ul>
+<p><strong>04、离线</strong></p>
+<ul>
+<li>离线是应用程序在本地的客户端会缓存一部分数据以功程序下次调用</li>
+<li>对于一些程序，需要在登录进来后，这时没有网络的情况下可以浏览本地数据</li>
+<li>对于无网络时，刷新获取新数据时，不能获取数据且能给出友好提示</li>
+<li>切换到后台，再次切换到前台时，可以正常查看</li>
+<li>离线后又连上网，这时对数据有更新时，需要从服务器端获取新数据来更新客户端数据，且要更新本地缓存信息</li>
+<li>对于一些界面的数据不提供离线查看，需要给出相应提示且界面更新后无任何数据</li>
+<li>确认在无网情况下可以浏览本地数据</li>
+<li>确认退出APP再开启APP时能正常浏览</li>
+<li>确认切换到后台再切回APP应用时可以正常浏览</li>
+<li>锁屏后再解锁回到应用前台可以正常浏览</li>
+<li>服务端的数据有更新时有离线的提示</li>
+</ul>
+<p><strong>05、数据更新</strong></p>
+<ul>
+<li>确认有数据更新后，哪些地方需要手动刷新，哪些地方需自动刷新。</li>
+<li>确认从后台切换回前台时，哪些页面需要进行数据更新</li>
+<li>根据需求和逻辑，确认哪些数据是从服务端请求实时响应，哪些是缓存到本地的数据。</li>
+</ul>
+<p><strong>06、消息推送开关设置</strong></p>
+<ul>
+<li>默认开关应该是全打开状态</li>
+<li>设置开关可以自由打开关闭</li>
+<li>设置开关打开状态下，消息推送是否可正常接收（应用启用中和应用关闭时都应该可以收到）</li>
+<li>确认后台未打开APP客户端时，手机消息栏可以接收到消息提醒。且点击可查看。点击后消息栏中消失</li>
+<li>确认APP客户端启动时，可以收到消息提醒，且点击可查看。客户端运行时，消息不会进消息栏。</li>
+<li>设置开关关闭时，客户端接收不到消息推送。</li>
+</ul>
+<p><strong>07、软件更新</strong></p>
+<ul>
+<li>当客户端有新版本时，有更新提示</li>
+<li>软件更新一定要测，确保android软件更新可以正确更新新版本，且安装运行正确。</li>
+<li>确保IOS软件更新会有限制，只有上了商店且有版本更新时才会测试，但是如果真有问题，再发现问题不点晚，可以让开发先在测试机上模拟一个地址进行测试。</li>
+<li>用户取消版本更新时，老版本可以正常使用，但是下次启动应用时，仍出现更新提示</li>
+<li>当有新版本时，不删除客户端的情况下，直接更新检查是否能正常更新，且更新后客户端的功能是否最新版本（正常来讲不用强制删除本地客户端可以正常更新）</li>
+</ul>
+<p><strong>08、异常测试</strong></p>
+<ul>
+<li>没有内存空间时，APP能否正确响应</li>
+<li>APP运行中手机断电</li>
+<li>APP运行中断开网络</li>
+<li>反复操作某个功能，不断点击，刷新时，是否会闪退</li>
+<li>APP运行时拔打或接听电话</li>
+<li>APP运行时发送信息、收取邮件等</li>
+<li>多个APP运行时</li>
+<li>不断切换前台和后台，是否影响应用正常功能</li>
+<li>APP运行时，启动相机功能</li>
+</ul>
+<p><strong>09、网络环境</strong></p>
+<ul>
+<li>测试２G、３Ｇ，４Ｇ，wifi网络下应用运应的速度</li>
+<li>内网测试时，选择到外网操作是否有异常处理</li>
+<li>网络不好时，提交数据是否一直处理提交中，是否会有延迟，数据交换失败是否会有提醒</li>
+<li>有网到无网再到有网环境时，数据是否可以自动恢复，正常加载</li>
+</ul>
+<p><strong>10、其他</strong></p>
+<ul>
+<li>接口测试。让开发提供一份接口文档，一定要将接口测试通。在接口测试阶段，将缺少接口，接口不完善的缺陷挖掘出来。这个需要准备充分的后台数据。</li>
+<li>导航测试。在运行APP时，不管在哪个接点，导航是否直观，精准，页面切换是否正确。</li>
+<li>图片测试。图片，按钮是否自适应。</li>
+<li>内容测试。要进行超长字符，空字符校验且校验是否有错别字</li>
+<li>功能测试。功能是否实现。</li>
+<li>易用性测试。所开发的功能，是否让用户容易接受，是否符合大众的操作习惯。</li>
+<li>适配性测试。应用在不同设备，不同系统上是否适配。</li>
+<li>UI测试。应用的设计是否够美观。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flytowardnewworld.github.io/2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95APP/" data-id="clh1918cm00da04vk7l3a6ny8" data-title="软件测试APP" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%8A%9F%E8%83%BD/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          软件测试功能
+        
+      </div>
+    </a>
+  
+  
+    <a href="../%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%9C%AF%E8%AF%AD/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">软件测试术语</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Book/">Book</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Categories/">Categories</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/Deep-Learning/">Deep Learning</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/R/">R</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/machine-learning/">machine learning</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E5%A8%B1%E4%B9%90%E7%94%9F%E6%B4%BB/">娱乐生活</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E5%AD%A6%E4%B9%A0%E3%81%AE%E5%8E%86%E7%A8%8B-Journal-of-Studying/">学习の历程(Journal of Studying)</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E5%BF%83%E5%BE%97/">心得</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E6%80%9D%E7%BB%B4/">思维</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E6%95%B0%E5%AD%A6/">数学</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">数据可视化</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/">数据挖掘</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6-Data-Science/">数据科学(Data Science)</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/">数理统计</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%95%B0%E5%AD%A6/">数学</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E6%9D%82%E9%A1%B9/">杂项</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E7%94%9F%E6%B4%BB%E6%94%BB%E7%95%A5/">生活攻略</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E7%A7%91%E6%99%AE/">科普</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E7%A7%91%E7%A0%94/">科研</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E7%AB%9E%E8%B5%9B/">竞赛</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">统计学</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E8%8B%B1%E8%AF%AD/">英语</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E8%A7%84%E5%88%92/">规划</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E8%A7%86%E9%A2%91%E5%AD%A6%E4%B9%A0/">视频学习</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/">计量经济学</a></li><li class="category-list-item"><a class="category-list-link" href="../../../../categories/%E8%AF%BB%E4%B9%A6%E6%97%A5%E5%B8%B8/">读书日常</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/1/" rel="tag">1</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/BI/" rel="tag">BI</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/BP/" rel="tag">BP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Boosting-AdaBoost/" rel="tag">Boosting, AdaBoost</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Categories/" rel="tag">Categories</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Daily/" rel="tag">Daily</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Data-Mining/" rel="tag">Data Mining</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Deep-learning/" rel="tag">Deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Excel/" rel="tag">Excel</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Numpuy/" rel="tag">Numpuy</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Pandas/" rel="tag">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/R/" rel="tag">R</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/SQl/" rel="tag">SQl</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/SVD/" rel="tag">SVD</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/deep-learning/" rel="tag">deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/df/" rel="tag">df</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/ielts/" rel="tag">ielts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/logisitics-regression/" rel="tag">logisitics regression</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/machine-learning/" rel="tag">machine learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/origin/" rel="tag">origin</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/tensorlow/" rel="tag">tensorlow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/test/" rel="tag">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92/" rel="tag">二次规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" rel="tag">交叉验证</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/" rel="tag">假设检验</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" rel="tag">关联规则</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%86%B3%E7%AD%96%E6%A0%91/" rel="tag">决策树</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%8D%95%E8%AF%8D/" rel="tag">单词</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%8D%A1%E6%96%B9%E5%88%86/" rel="tag">卡方分</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" rel="tag">回归分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" rel="tag">回归树</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%AE%89%E6%8E%92/" rel="tag">安排</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" rel="tag">希腊字母</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%BD%92%E4%B8%80%E5%8C%96/" rel="tag">归一化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E5%BD%A9%E9%93%85/" rel="tag">彩铅</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%80%9D%E7%BB%B4/" rel="tag">思维</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">我的读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%8A%80%E8%83%BD/" rel="tag">技能</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0/" rel="tag">抽样分布函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" rel="tag">支持向量机</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" rel="tag">支持向量机回归</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%95%B0%E5%AD%97%E5%8C%96/" rel="tag">数字化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">数据分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD/" rel="tag">数据分析技能</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag">数据挖掘</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2/" rel="tag">数据探索</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%96%B0%E6%A6%82%E5%BF%B5/" rel="tag">新概念</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%96%B9%E6%B3%95/" rel="tag">方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%96%B9%E6%B3%95%E8%AE%BA/" rel="tag">方法论</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%97%A5%E5%B8%B8/" rel="tag">日常</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%A0%87%E5%87%86%E5%8C%96/" rel="tag">标准化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/" rel="tag">案例分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%AD%A3%E5%88%99%E5%8C%96/" rel="tag">正则化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" rel="tag">特征工程</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" rel="tag">监督学习与非监督学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6/" rel="tag">社会科学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%A7%91%E7%A0%94/" rel="tag">科研</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" rel="tag">科研工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/" rel="tag">科研笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%AB%9E%E8%B5%9B/" rel="tag">竞赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%BB%98%E5%9B%BE/" rel="tag">绘图</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%81%8C%E4%B8%9A/" rel="tag">职业</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%83%BD%E5%8A%9B/" rel="tag">能力</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/" rel="tag">西瓜书</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/" rel="tag">计量经济学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" rel="tag">贝叶斯分类器</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%B7%AF%E7%BA%BF/" rel="tag">路线</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E8%BF%90%E8%90%A5/" rel="tag">运营</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E9%9B%85%E6%80%9D/" rel="tag">雅思</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../../../tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="../../../../tags/1/" style="font-size: 10px;">1</a> <a href="../../../../tags/BI/" style="font-size: 11.67px;">BI</a> <a href="../../../../tags/BP/" style="font-size: 10px;">BP</a> <a href="../../../../tags/Boosting-AdaBoost/" style="font-size: 10px;">Boosting, AdaBoost</a> <a href="../../../../tags/Categories/" style="font-size: 10px;">Categories</a> <a href="../../../../tags/Daily/" style="font-size: 16.67px;">Daily</a> <a href="../../../../tags/Data-Mining/" style="font-size: 10px;">Data Mining</a> <a href="../../../../tags/Deep-learning/" style="font-size: 15px;">Deep learning</a> <a href="../../../../tags/English/" style="font-size: 10px;">English</a> <a href="../../../../tags/Excel/" style="font-size: 10px;">Excel</a> <a href="../../../../tags/Numpuy/" style="font-size: 10px;">Numpuy</a> <a href="../../../../tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="../../../../tags/Python/" style="font-size: 16.67px;">Python</a> <a href="../../../../tags/R/" style="font-size: 10px;">R</a> <a href="../../../../tags/SQL/" style="font-size: 13.33px;">SQL</a> <a href="../../../../tags/SQl/" style="font-size: 10px;">SQl</a> <a href="../../../../tags/SVD/" style="font-size: 10px;">SVD</a> <a href="../../../../tags/deep-learning/" style="font-size: 10px;">deep learning</a> <a href="../../../../tags/df/" style="font-size: 10px;">df</a> <a href="../../../../tags/ielts/" style="font-size: 10px;">ielts</a> <a href="../../../../tags/linux/" style="font-size: 10px;">linux</a> <a href="../../../../tags/logisitics-regression/" style="font-size: 10px;">logisitics regression</a> <a href="../../../../tags/machine-learning/" style="font-size: 11.67px;">machine learning</a> <a href="../../../../tags/origin/" style="font-size: 10px;">origin</a> <a href="../../../../tags/python/" style="font-size: 10px;">python</a> <a href="../../../../tags/tensorlow/" style="font-size: 10px;">tensorlow</a> <a href="../../../../tags/test/" style="font-size: 10px;">test</a> <a href="../../../../tags/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92/" style="font-size: 10px;">二次规划</a> <a href="../../../../tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" style="font-size: 10px;">交叉验证</a> <a href="../../../../tags/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/" style="font-size: 10px;">假设检验</a> <a href="../../../../tags/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" style="font-size: 10px;">关联规则</a> <a href="../../../../tags/%E5%86%B3%E7%AD%96%E6%A0%91/" style="font-size: 11.67px;">决策树</a> <a href="../../../../tags/%E5%8D%95%E8%AF%8D/" style="font-size: 10px;">单词</a> <a href="../../../../tags/%E5%8D%A1%E6%96%B9%E5%88%86/" style="font-size: 10px;">卡方分</a> <a href="../../../../tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 11.67px;">可视化</a> <a href="../../../../tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" style="font-size: 10px;">回归分析</a> <a href="../../../../tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" style="font-size: 10px;">回归树</a> <a href="../../../../tags/%E5%AE%89%E6%8E%92/" style="font-size: 10px;">安排</a> <a href="../../../../tags/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" style="font-size: 10px;">希腊字母</a> <a href="../../../../tags/%E5%BD%92%E4%B8%80%E5%8C%96/" style="font-size: 10px;">归一化</a> <a href="../../../../tags/%E5%BD%A9%E9%93%85/" style="font-size: 10px;">彩铅</a> <a href="../../../../tags/%E6%80%9D%E7%BB%B4/" style="font-size: 18.33px;">思维</a> <a href="../../../../tags/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">我的读书笔记</a> <a href="../../../../tags/%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">技巧</a> <a href="../../../../tags/%E6%8A%80%E8%83%BD/" style="font-size: 11.67px;">技能</a> <a href="../../../../tags/%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0/" style="font-size: 10px;">抽样分布函数</a> <a href="../../../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" style="font-size: 10px;">支持向量机</a> <a href="../../../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" style="font-size: 10px;">支持向量机回归</a> <a href="../../../../tags/%E6%95%B0%E5%AD%97%E5%8C%96/" style="font-size: 10px;">数字化</a> <a href="../../../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 20px;">数据分析</a> <a href="../../../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD/" style="font-size: 10px;">数据分析技能</a> <a href="../../../../tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 10px;">数据挖掘</a> <a href="../../../../tags/%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2/" style="font-size: 10px;">数据探索</a> <a href="../../../../tags/%E6%96%B0%E6%A6%82%E5%BF%B5/" style="font-size: 10px;">新概念</a> <a href="../../../../tags/%E6%96%B9%E6%B3%95/" style="font-size: 10px;">方法</a> <a href="../../../../tags/%E6%96%B9%E6%B3%95%E8%AE%BA/" style="font-size: 10px;">方法论</a> <a href="../../../../tags/%E6%97%A5%E5%B8%B8/" style="font-size: 11.67px;">日常</a> <a href="../../../../tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 11.67px;">机器学习</a> <a href="../../../../tags/%E6%A0%87%E5%87%86%E5%8C%96/" style="font-size: 10px;">标准化</a> <a href="../../../../tags/%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/" style="font-size: 10px;">案例分析</a> <a href="../../../../tags/%E6%AD%A3%E5%88%99%E5%8C%96/" style="font-size: 10px;">正则化</a> <a href="../../../../tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="../../../../tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">特征工程</a> <a href="../../../../tags/%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">生活</a> <a href="../../../../tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">监督学习与非监督学习</a> <a href="../../../../tags/%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6/" style="font-size: 10px;">社会科学</a> <a href="../../../../tags/%E7%A7%91%E7%A0%94/" style="font-size: 11.67px;">科研</a> <a href="../../../../tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">科研工具</a> <a href="../../../../tags/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">科研笔记</a> <a href="../../../../tags/%E7%AB%9E%E8%B5%9B/" style="font-size: 10px;">竞赛</a> <a href="../../../../tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="../../../../tags/%E7%BB%98%E5%9B%BE/" style="font-size: 10px;">绘图</a> <a href="../../../../tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 13.33px;">统计学</a> <a href="../../../../tags/%E8%81%8C%E4%B8%9A/" style="font-size: 10px;">职业</a> <a href="../../../../tags/%E8%83%BD%E5%8A%9B/" style="font-size: 10px;">能力</a> <a href="../../../../tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/" style="font-size: 10px;">西瓜书</a> <a href="../../../../tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/" style="font-size: 11.67px;">计量经济学</a> <a href="../../../../tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 10px;">读书</a> <a href="../../../../tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" style="font-size: 10px;">贝叶斯分类器</a> <a href="../../../../tags/%E8%B7%AF%E7%BA%BF/" style="font-size: 10px;">路线</a> <a href="../../../../tags/%E8%BF%90%E8%90%A5/" style="font-size: 10px;">运营</a> <a href="../../../../tags/%E9%9B%85%E6%80%9D/" style="font-size: 10px;">雅思</a> <a href="../../../../tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 10px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2019/02/">February 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="../%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%BC%82%E5%B8%B8%E6%B5%8B%E8%AF%95/">软件测试异常测试</a>
+          </li>
+        
+          <li>
+            <a href="../%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E5%85%BC%E5%AE%B9%E6%80%A7%E6%B5%8B%E8%AF%95/">软件测试用户界面兼容性测试</a>
+          </li>
+        
+          <li>
+            <a href="../%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E6%B5%8B%E8%AF%95/">软件测试用户界面测试</a>
+          </li>
+        
+          <li>
+            <a href="../%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/">软件测试安装测试</a>
+          </li>
+        
+          <li>
+            <a href="../%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/">软件测试压力测试</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="../../../../js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="../../../../fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

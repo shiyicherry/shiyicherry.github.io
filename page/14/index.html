@@ -71,590 +71,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Xgboost" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-数据分析之SQL面试题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="../../2020/07/03/Xgboost/" class="article-date">
-  <time class="dt-published" datetime="2020-07-03T06:53:59.000Z" itemprop="datePublished">2020-07-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2020/07/03/Xgboost/">Xgboost</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <span id="more"></span>
-<h1 id="理论部分"><a href="#理论部分" class="headerlink" title="理论部分"></a>理论部分</h1><p>该算法思想就是不断地添加树，不断地进行特征分裂来生长一棵树，每次添加一个树，其实是学习一个新函数，去拟合上次<strong>预测的残差</strong>。当我们训练完成得到k棵树，我们要预测一个样本的分数，其实就是根据这个样本的特征，在每棵树中会落到对应的一个叶子节点，每个叶子节点就对应一个分数，最后只需要将每棵树对应的分数加起来就是该样本的预测值。</p>
-<p>boosting: <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/38329631">https://zhuanlan.zhihu.com/p/38329631</a></p>
-<p>Xgboost 就是回归树的集成</p>
-<p><a target="_blank" rel="noopener" href="https://www.csuldw.com/2019/07/20/2019-07-20-xgboost-theory/">https://www.csuldw.com/2019/07/20/2019-07-20-xgboost-theory/</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/github_38414650/article/details/76061893?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.compare&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.compare">https://blog.csdn.net/github_38414650/article/details/76061893?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.compare&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.compare</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_24519677/article/details/81809157">https://blog.csdn.net/qq_24519677/article/details/81809157</a></p>
-<p>有空再推导了</p>
-<h1 id="调用库"><a href="#调用库" class="headerlink" title="调用库"></a>调用库</h1><p>Python 提供了两种库</p>
-<ol>
-<li>xgboost</li>
-<li>xgboost sklearn接口</li>
-</ol>
-<p>搭建模型</p>
-<ol>
-<li><p>参数设置</p>
-</li>
-<li><p>GridSearchCV 调参(网格法)</p>
-<ol>
-<li>调参步骤，参数范围</li>
-</ol>
-</li>
-</ol>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/han_xiaoyang/article/details/52665396">https://blog.csdn.net/han_xiaoyang/article/details/52665396</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> xgboost <span class="keyword">as</span> xgb</span><br><span class="line"><span class="keyword">from</span> xgboost <span class="keyword">import</span> XGBRegressor</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_absolute_error,make_scorer</span><br><span class="line"><span class="keyword">from</span> sklearn.grid_search <span class="keyword">import</span> GridSearchCV</span><br><span class="line"><span class="keyword">from</span> sklearn.cross_validation <span class="keyword">import</span> KFold, train_test_split</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_boston</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/s09094031/article/details/94871596?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-6.compare&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-6.compare">https://blog.csdn.net/s09094031/article/details/94871596?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-6.compare&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-6.compare</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sklearn.model_selection.``train_test_split</span><br></pre></td></tr></table></figure>
-<p>test_size train_size：</p>
-<p>​    三种类型。float，int，None。</p>
-<ul>
-<li>float：0.0-1.0之间，代表训练数据集占总数据集的比例。</li>
-<li>int：代表训练数据集具体的样本数量。</li>
-<li>None：设置为test_size的补。</li>
-<li>default：默认为None。</li>
-</ul>
-<p>random_state：三种类型。int，randomstate instance，None。</p>
-<p>int：是随机数生成器的种子。每次分配的数据相同。</p>
-<p>randomstate：random_state是随机数生成器的种子。（这里没太理解）</p>
-<p>None：随机数生成器是使用了np.random的randomstate。</p>
-<p>种子相同，产生的随机数就相同。种子不同，即使是不同的实例，产生的种子也不相同。</p>
-<p>shuffle：布尔值，可选参数。默认是None。在划分数据之前先打乱数据。如果shuffle=FALSE，则stratify必须是None。</p>
-<p>stratify：array-like或者None，默认是None。如果不是None，将会利用数据的标签将数据分层划分。</p>
-<p>若为None时，划分出来的测试集或训练集中，其类标签的比例也是随机的。</p>
-<p>若不为None时，划分出来的测试集或训练集中，其类标签的比例同输入的数组中类标签的比例相同，可以用于处理不均衡的数据集。</p>
-<p>x_train, y_train, x_test, y_test = train_test_split(x, y,<br>                                                    test_size=0.23, random_state=2)</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43288098/article/details/105407204?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-4.compare&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-4.compare">https://blog.csdn.net/qq_43288098/article/details/105407204?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-4.compare&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-4.compare</a></p>
-<p>参数：分开调</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zc02051126/article/details/46711047">https://blog.csdn.net/zc02051126/article/details/46711047</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/dmlc/xgboost/blob/master/doc/parameter.rst">https://github.com/dmlc/xgboost/blob/master/doc/parameter.rst</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.analyticsvidhya.com/blog/2016/03/complete-guide-parameter-tuning-xgboost-with-codes-python/">https://www.analyticsvidhya.com/blog/2016/03/complete-guide-parameter-tuning-xgboost-with-codes-python/</a></p>
-<p><a target="_blank" rel="noopener" href="https://xgboost.readthedocs.io/en/latest/python/python_api.html#module-xgboost.sklearn">https://xgboost.readthedocs.io/en/latest/python/python_api.html#module-xgboost.sklearn</a></p>
-<h2 id="模型保存"><a href="#模型保存" class="headerlink" title="模型保存"></a>模型保存</h2><p><a target="_blank" rel="noopener" href="https://www.fatrabbids.com/2018/10/19/xgboost的保存模型、加载模型、继续训练/#more-235">https://www.fatrabbids.com/2018/10/19/xgboost%e7%9a%84%e4%bf%9d%e5%ad%98%e6%a8%a1%e5%9e%8b%e3%80%81%e5%8a%a0%e8%bd%bd%e6%a8%a1%e5%9e%8b%e3%80%81%e7%bb%a7%e7%bb%ad%e8%ae%ad%e7%bb%83/#more-235</a></p>
-<h1 id="XGBoost的特性重要性和特性选择"><a href="#XGBoost的特性重要性和特性选择" class="headerlink" title="XGBoost的特性重要性和特性选择"></a>XGBoost的特性重要性和特性选择</h1><ol>
-<li><p>模型复杂度</p>
-<p>特征数量衡量：特征重要性阙值的增加，选择特征数量减少，模型的准确率会下降。当然，特征数量的减少反而会是准确率升高，因为这些被剔除特征是噪声。</p>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://flytowardnewworld.github.io/2020/07/03/Xgboost/" data-id="cl67j0tkq002r7ovkhxcy4v44" data-title="Xgboost" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-English-Daily" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2020/06/23/English-Daily/" class="article-date">
-  <time class="dt-published" datetime="2020-06-23T10:08:22.000Z" itemprop="datePublished">2020-06-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2020/06/23/English-Daily/">English-Daily</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <span id="more"></span>
-<h1 id="2020-7-6"><a href="#2020-7-6" class="headerlink" title="2020-7-6"></a>2020-7-6</h1><p>coincide with v. 与…相符</p>
-<p>stalk v. 潜近（猎物或人）；（非法）跟踪；怒冲冲地走；趾高气扬地走</p>
-<p>n. 秆；柄；（叶）柄；（花）梗</p>
-<p>verge</p>
-<p>Bella was on the verge of tears when she heard the news.</p>
-<p>听到这个消息时，贝拉差点就要哭了。</p>
-<p>resistant adj. 抵制的，反抗的，抗拒的；有抵抗力的；抵抗…的；不受……损害的</p>
-<p>People are usually resistant to change.</p>
-<p>人们通常抗拒改变。</p>
-<p>liar</p>
-<p>The tall guy was a notorious liar.</p>
-<p>那个高个子是个臭名昭著的骗子。</p>
-<p>politics</p>
-<p>n. 政治；政治事物（活动）；政见；权术</p>
-<p>oblige (以法律、义务等)强迫, 迫使; 帮忙, 效劳; [常用被动]使感激; 使(行为等)成为必要</p>
-<p>phrase. (feel obliged to do sth.)觉得有义务做；不得不做</p>
-<p>I felt obliged to leave after such an unpleasant quarrel.</p>
-<p>发生了这样不愉快的争吵之后，我觉得有必要离开。</p>
-<h1 id="2020-7-1"><a href="#2020-7-1" class="headerlink" title="2020-7-1"></a>2020-7-1</h1><p>jelly n. 果冻；肉冻；果酱；胶状物，胶凝物；轻便塑料鞋</p>
-<p>oval adj. 椭圆形的；卵形的 n. 椭圆形；卵形</p>
-<p>rigorous /‘rɪɡərəs/ adj. 谨慎的，细致的；严格的，严厉的</p>
-<p>He makes a rigorous study of the plants in the area.</p>
-<p>他对该地的植物进行了缜密的研究。</p>
-<p>ultimately  UK/‘ʌltɪmətli/ adv. 最终, 最后, 归根结底, 终究</p>
-<p>Everything will ultimately depend on what is said at the meeting.</p>
-<p>一切将最终取决于会议的内容。</p>
-<p><strong>sturdy</strong> UK/‘stɜːdi/</p>
-<p>adj. 结实的，坚固的；强壮的；健壮的；坚决的，顽强的</p>
-<p><strong>broaden</strong> UK/‘brɔːdn/</p>
-<p>You should broaden your experience by travelling more.</p>
-<p>你应该多到各地走走以增广见识.</p>
-<p><strong>broaden</strong> the horizon 开拓视野</p>
-<p>propel UK/prə’pel/ v. 推进，推动；驱使；迫使</p>
-<p><strong>voyage</strong>  UK/‘vɔɪɪdʒ/</p>
-<p>n. 航行, （尤指）航海</p>
-<p>v. 航行, 远行, （尤指）远航</p>
-<p>例句</p>
-<p>The voyage from England to India used to take 3 weeks.</p>
-<p>从英格兰到印度的航行曾经需要三周。</p>
-<h1 id="2020-6-28"><a href="#2020-6-28" class="headerlink" title="2020-6-28"></a>2020-6-28</h1><p>moist  UK/mɔɪst/ adj. 微湿的, 湿润的</p>
-<p>insult UK/ɪn’sʌlt/v. 侮辱，辱骂 n. 侮辱，辱骂</p>
-<p>spontaneous UK/spɒn’teɪniəs/</p>
-<p>They greeted him with spontaneous applause.</p>
-<p>他们自发地鼓起掌来欢迎他。</p>
-<p>slender  UK/‘slendə(r)/</p>
-<p>perimeter UK/pə’rɪmɪtə(r)/ n. 周长；外缘，边缘</p>
-<p>blouse UK/blaʊz/</p>
-<p>He pointed out a woman passing by who was wearing a skirt and blouse.</p>
-<p>他指出了一个穿着裙子和衬衫的过路女子。</p>
-<p>perfume UK/‘pɜːfjuːm/ n. 香水, 香料, 芳香 v. 使…发出香气, 洒香水</p>
-<h1 id="2020-6-27"><a href="#2020-6-27" class="headerlink" title="2020-6-27"></a>2020-6-27</h1><h1 id="2020-6-26"><a href="#2020-6-26" class="headerlink" title="2020-6-26"></a>2020-6-26</h1><p>Functional foods are food products that have a potentially <strong>positive effect on</strong> health beyond basic nutritional benefits. Functional foods <strong>aim to solve not only</strong> all the needs that regular foods provide, <strong>but also to address</strong> functional needs, <strong>which can range from</strong> maintaining and improving physical or mental health <strong>to</strong> adjusting energy levels and moods.</p>
-<p>Food has been historically used as preventive medicine in many cultures around the world, but the recent rise of functional foods can be directly linked to the rise of the wellness economy, which, in turn, is largely <strong>driven by</strong> influencer marketing and social media use.</p>
-<h1 id="2020-6-25"><a href="#2020-6-25" class="headerlink" title="2020-6-25"></a>2020-6-25</h1><p>IT IS A truth universally acknowledged that inequality（不平等）in the rich world（发达国家）is high and rising. Or, at least, it used to be. A growing band of economists are challenging the received（被公认的）wisdom, pointing out that trends in the distribution（分布，分配）of income and wealth may not be as bad as is often thought.</p>
-<p>众所周知，富裕国家的不平等现象非常严重，而且还在加剧。或者说，至少曾经是这样的。越来越多的经济学家开始质疑既有的观点，他们指出收入和财富的分布趋势可能不是像通常被认为的那么糟糕。</p>
-<h2 id="2020-6-24"><a href="#2020-6-24" class="headerlink" title="2020-6-24"></a>2020-6-24</h2><p>imaginary</p>
-<p>adj. 想象中的, 幻想的, 虚构的</p>
-<p>carriage</p>
-<p>n. 运输；运费，（旧时）马车；火车车厢；仪态，姿态，举止</p>
-<p>message</p>
-<p>messenger </p>
-<p>n. 信使, 送信人, 通信员, 邮递员</p>
-<p>pavement</p>
-<p>n. 人行道</p>
-<p>postpone</p>
-<p>v. 延期, 延迟, 暂缓</p>
-<p>We’ll have to postpone the meeting until next week.</p>
-<p>我们将不得不把会议推迟到下周举行。</p>
-<p>velocity</p>
-<p>n. 速度，速率；高速</p>
-<p>reconcile</p>
-<p>v. 使和谐一致，调和；使和解；将就，妥协</p>
-<p>It’s difficult to reconcile these two different points of view.</p>
-<p>很难兼顾这两种不同的观点。</p>
-<h1 id="2020-6-23"><a href="#2020-6-23" class="headerlink" title="2020-6-23"></a>2020-6-23</h1><p>￼The success of the brand <strong>wasn’t</strong> built through big marketing campaigns, <strong>but</strong> through a savvy digital marketing strategy <strong>that</strong> <strong>increased</strong> brand awareness and <strong>generated</strong> high engagement, traffic, and conversions.  </p>
-<p>该品牌的成功并不建立于大型营销活动，而是建立于精准的数字营销策略，该策略提高了品牌的知名度，获得了很高的参与度、流量和转化率。</p>
-<p>traffic: 信息流量，通信量</p>
-<p>With only 40 physical stores, which are mostly used to drive consumers to e-commerce portals, Perfect Diary maintains momentum primarily through its digital footprint. Currently, it has a powerful presence on Little Red Book, Bilibili, Weibo, WeChat, Tmall, and Douyin.  </p>
-<p><strong>Thereafter</strong> she wrote articles for papers and magazines for a living.</p>
-<p>此后她给报纸和杂志撰稿谋生。</p>
-<p><strong>adv. 此后, 之后, 以后</strong></p>
-<p><strong>spur</strong></p>
-<p>n. 刺激, 激励, 鞭策; 踢马刺, 靴刺; 骨刺; 山嘴, 尖坡</p>
-<p>v. 刺激, 激励, 促进, 鞭策</p>
-<p><strong>stick</strong></p>
-<p>adj. 黏（性）的, 一面带黏胶的, 闷热的, 感到热得难受的</p>
-<p>n. 告事贴</p>
-<p>I have to take a shower before going out because the sweat had made my skin sticky.</p>
-<p>出门前我得冲个澡，因为汗水让我的皮肤黏乎乎的</p>
-<p><strong>devotion</strong></p>
-<p>n. 关爱，关照；奉献；忠诚；宗教礼拜</p>
-<p>The career needs our devotion for all our lives.</p>
-<p>这项事业需要我们毕生的奉献。</p>
-<p><strong>reckless</strong></p>
-<p>adj. 鲁莽的；不计后果的；无所顾忌的</p>
-<p><strong>wag</strong></p>
-<p>v. 摇动；摆（尾巴），（尾巴）摇，摆动</p>
-<p>n. 摇摆，摆动；老开玩笑的人，爱闹着玩的人</p>
-<p><strong>keen</strong></p>
-<p>adj. 热衷的, 热情的; 渴望的; 敏捷的; 灵敏的; 锋利的; 强烈的</p>
-<p>n. 恸哭; 挽歌</p>
-<p>v. (为死者)恸哭</p>
-<p>be keen on sth对 感兴趣 be keen to do 渴望做某事</p>
-<p><strong>offspring</strong></p>
-<p>n. 子女，后代；幼崽；幼苗</p>
-<p><strong>receipt</strong></p>
-<p>n. 收据，收入</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://flytowardnewworld.github.io/2020/06/23/English-Daily/" data-id="cl67j0tju000l7ovk7fkzeur5" data-title="English-Daily" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/English/" rel="tag">English</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="time-series-time-series-01" class="h-entry article article-type-time-series" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2020/06/22/time-series-01/" class="article-date">
-  <time class="dt-published" datetime="2020-06-22T11:14:33.000Z" itemprop="datePublished">2020-06-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2020/06/22/time-series-01/">day</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="时间序列及其分解"><a href="#时间序列及其分解" class="headerlink" title="时间序列及其分解"></a>时间序列及其分解</h1>
-        
-          <p class="article-more-link">
-            <a href="../../2020/06/22/time-series-01/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://flytowardnewworld.github.io/2020/06/22/time-series-01/" data-id="cl67j0tl2003t7ovk7rzhdv3w" data-title="day" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-回归分析" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2020/06/20/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" class="article-date">
-  <time class="dt-published" datetime="2020-06-20T11:45:16.000Z" itemprop="datePublished">2020-06-20</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="../../categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2020/06/20/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/">回归分析</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>[TOC]</p>
-<h1 id="回归分析"><a href="#回归分析" class="headerlink" title="回归分析"></a>回归分析</h1><p>最简单的线性回归，避免多重共线性，过拟合，引入正则项的线性回归模型。涉及到的数学知识：一范数，二范数，多元函数求极值。模型的含义，参数求解算法，目标函数，以及各种模型的优缺点。</p>
-        
-          <p class="article-more-link">
-            <a href="../../2020/06/20/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://flytowardnewworld.github.io/2020/06/20/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" data-id="cl67j0tl700497ovk1a2pf312" data-title="回归分析" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" rel="tag">回归分析</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-知识清单" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2020/06/19/%E7%9F%A5%E8%AF%86%E6%B8%85%E5%8D%95/" class="article-date">
-  <time class="dt-published" datetime="2020-06-19T14:08:16.000Z" itemprop="datePublished">2020-06-19</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="../../categories/%E8%A7%84%E5%88%92/">规划</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2020/06/19/%E7%9F%A5%E8%AF%86%E6%B8%85%E5%8D%95/">知识清单</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>主要是列出关于日常中遇到的很好的资料，自己不清楚的文章和资料。</p>
-        
-          <p class="article-more-link">
-            <a href="../../2020/06/19/%E7%9F%A5%E8%AF%86%E6%B8%85%E5%8D%95/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://flytowardnewworld.github.io/2020/06/19/%E7%9F%A5%E8%AF%86%E6%B8%85%E5%8D%95/" data-id="cl67j0tms00927ovk3xds11lz" data-title="知识清单" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E6%8A%80%E8%83%BD/" rel="tag">技能</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Data-Science" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2020/06/11/Data-Science/" class="article-date">
-  <time class="dt-published" datetime="2020-06-11T14:22:26.000Z" itemprop="datePublished">2020-06-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="../../categories/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6-Data-Science/">数据科学(Data Science)</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2020/06/11/Data-Science/">Data-Science</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <span id="more"></span>
-<h1 id="Course"><a href="#Course" class="headerlink" title="Course"></a>Course</h1><p>Tsinghua</p>
-<p>Dr. Yuan</p>
-<p>Data Mining: Theories and Algorithms for Tackling Big Data</p>
-<h1 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h1><p>Stata: <a target="_blank" rel="noopener" href="https://www.stata.com/why-use-stata/">https://www.stata.com/why-use-stata/</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=AyXeh7iojuA">https://www.youtube.com/watch?v=AyXeh7iojuA</a></p>
-<h1 id="BOOOOOOK"><a href="#BOOOOOOK" class="headerlink" title="BOOOOOOK"></a>BOOOOOOK</h1><p><a target="_blank" rel="noopener" href="https://www-users.cs.umn.edu/~kumar001/dmbook/index.php">https://www-users.cs.umn.edu/~kumar001/dmbook/index.php</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://flytowardnewworld.github.io/2020/06/11/Data-Science/" data-id="cl67j0tjn000a7ovkhzrk75dj" data-title="Data-Science" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Data-Mining/" rel="tag">Data Mining</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-密码学" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2020/06/11/%E5%AF%86%E7%A0%81%E5%AD%A6/" class="article-date">
-  <time class="dt-published" datetime="2020-06-11T12:34:21.000Z" itemprop="datePublished">2020-06-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="../../categories/%E7%A7%91%E6%99%AE/">科普</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2020/06/11/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>科普</p>
-        
-          <p class="article-more-link">
-            <a href="../../2020/06/11/%E5%AF%86%E7%A0%81%E5%AD%A6/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://flytowardnewworld.github.io/2020/06/11/%E5%AF%86%E7%A0%81%E5%AD%A6/" data-id="cl67j0tlc004l7ovk98dvfgch" data-title="密码学" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E6%97%A5%E5%B8%B8/" rel="tag">日常</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-每天了解多一点" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2020/06/11/%E6%AF%8F%E5%A4%A9%E4%BA%86%E8%A7%A3%E5%A4%9A%E4%B8%80%E7%82%B9/" class="article-date">
-  <time class="dt-published" datetime="2020-06-11T12:34:21.000Z" itemprop="datePublished">2020-06-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="../../categories/%E7%A7%91%E6%99%AE/">科普</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2020/06/11/%E6%AF%8F%E5%A4%A9%E4%BA%86%E8%A7%A3%E5%A4%9A%E4%B8%80%E7%82%B9/">每天了解多一点</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>科普</p>
-        
-          <p class="article-more-link">
-            <a href="../../2020/06/11/%E6%AF%8F%E5%A4%A9%E4%BA%86%E8%A7%A3%E5%A4%9A%E4%B8%80%E7%82%B9/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://flytowardnewworld.github.io/2020/06/11/%E6%AF%8F%E5%A4%A9%E4%BA%86%E8%A7%A3%E5%A4%9A%E4%B8%80%E7%82%B9/" data-id="cl67j0tmn008h7ovk071jdjvc" data-title="每天了解多一点" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E6%97%A5%E5%B8%B8/" rel="tag">日常</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-数据分析之数据分析业务篇" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2020/06/03/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%9A%E5%8A%A1%E7%AF%87/" class="article-date">
-  <time class="dt-published" datetime="2020-06-03T13:35:29.000Z" itemprop="datePublished">2020-06-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2020/06/03/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%9A%E5%8A%A1%E7%AF%87/">数据分析之数据分析思思维</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>业务篇</p>
-        
-          <p class="article-more-link">
-            <a href="../../2020/06/03/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%9A%E5%8A%A1%E7%AF%87/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://flytowardnewworld.github.io/2020/06/03/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%9A%E5%8A%A1%E7%AF%87/" data-id="cl67j0tm3006i7ovk78l77o0i" data-title="数据分析之数据分析思思维" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">数据分析</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-数据分析之数据分析思维" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2020/06/01/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%80%9D%E7%BB%B4/" class="article-date">
-  <time class="dt-published" datetime="2020-06-01T12:25:28.000Z" itemprop="datePublished">2020-06-01</time>
+    <a href="../../2020/08/20/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL%E9%9D%A2%E8%AF%95%E9%A2%98/" class="article-date">
+  <time class="dt-published" datetime="2020-08-20T07:30:56.000Z" itemprop="datePublished">2020-08-20</time>
 </a>
     
   <div class="article-category">
@@ -669,7 +89,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2020/06/01/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%80%9D%E7%BB%B4/">数据分析之数据分析思维</a>
+      <a class="p-name article-title" href="../../2020/08/20/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL%E9%9D%A2%E8%AF%95%E9%A2%98/">数据分析之SQL面试题</a>
     </h1>
   
 
@@ -677,217 +97,510 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>数据分析的目的在于驱动决策</p>
-<!-- more--->
-<h2 id="一、数据分析的三种核心思维"><a href="#一、数据分析的三种核心思维" class="headerlink" title="一、数据分析的三种核心思维"></a>一、数据分析的三种核心思维</h2><h3 id="1、数据分析思维——结构化"><a href="#1、数据分析思维——结构化" class="headerlink" title="1、数据分析思维——结构化"></a>1、数据分析思维——结构化</h3><p>《金字塔原理》层层递进，逐步拆解。树状结构。</p>
-<p>其实以上过程可以可以归纳为：<strong>核心论点</strong>、<strong>结构拆解</strong>、<strong>MECE</strong>、<strong>验证</strong>等几个相关的步骤。具体来说：</p>
-<p><strong>1、将论点归纳整理</strong>：找出<strong>核心论点</strong>，可以是<strong>假设</strong>，是<strong>问题</strong>，是<strong>预测</strong>，是<strong>原因</strong>等</p>
-<p>本题要解决的是<strong>销量下降的原因</strong>。</p>
-<p><strong>2、将论点递进和拆解</strong>：自上而下，将<strong>核心论点</strong>层层<strong>拆解成分论点</strong>，上下之间呈<strong>因果或依赖关系</strong></p>
-<p>例如本题要找出销量下降的原因，可以首先拆解成内部因素和外部因素。</p>
-<p>内部因素可以分为消费者减少，地区原因，时间因素等</p>
-<p>外部因素可以分为市场竞争是否激烈，市场容量是否饱和，政策因素等</p>
-<p><strong>3、将论点补充完善</strong>：也称<strong>MECE</strong>，<strong>相互独立，完全穷尽</strong>，论点之间要<strong>避免交叉和重复</strong>，分论点们要<strong>尽量完善</strong>（想到的所有可能情况）</p>
-<p><strong>4、验证</strong>：不论是核心论点还是分论点，都应该<strong>可量化</strong>，<strong>用数据说话</strong>，必然是可验证的</p>
-<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20210821144945964.png" alt="image-20210821144945964" style="zoom: 50%;" /></p>
-<p>举个例子：</p>
-<p>​    <img src="F:\MyBlog\MyBlog\hexo\source\_posts\数据分析之数据分析思维\image-20210821144610544.png" alt="image-20210821144610544" style="zoom:50%;" /></p>
-<p>问题： 销售额度下降了</p>
-<p>第一步：确定是否真的下降了，看看同比，</p>
-<p>原因：层层拆解，分解。</p>
-<pre><code>1. 常见的分析方法，看案例
-</code></pre><p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20210821145456616.png" alt="image-20210821145456616" style="zoom:50%;" /></p>
-<h3 id="2、数据分析思维——公式化"><a href="#2、数据分析思维——公式化" class="headerlink" title="2、数据分析思维——公式化"></a>2、数据分析思维——公式化</h3><p>一切皆可量化。</p>
-<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20210821152103199.png" alt="image-20210821152103199" style="zoom:50%;" /></p>
-<p><strong><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20210821152314566.png" alt="image-20210821152314566" style="zoom:50%;" /></strong></p>
-<p> </p>
-<p> 结构化容易交叉，公式化不容易交叉，重复，</p>
-<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20210821152435837.png" alt="image-20210821152435837" style="zoom:50%;" /></p>
-<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20210821152532197.png" alt="image-20210821152532197" style="zoom:50%;" /></p>
-<p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20210821152726076.png" alt="image-20210821152726076" style="zoom:50%;" /></p>
-<p>单价和销量</p>
-<p>公式化。</p>
-<p>针对上述的案例，如果用公式法进行分析的话，在以上的基础上还可以考虑造成这些结果的原因，从根本底层出发，具体内容如下：</p>
-<blockquote>
-<p> 1、 销售额由什么组成的？<strong>销量和客单价相乘</strong> 2、利润由什么组成的？<strong>销售额收益和成本相减</strong> 3、销售额是单一的维度么？不是。<strong>销售额是多个商品／SKU的总和</strong> 4、 地区的销量由什么组成？<strong>是不同线下渠道的累加</strong> 5、销量还能再细挖么？<strong>不妨想成人均销量和购买人数</strong> </p>
-</blockquote>
-<h3 id="3、数据分析思维——业务化"><a href="#3、数据分析思维——业务化" class="headerlink" title="3、数据分析思维——业务化"></a>3、数据分析思维——业务化</h3><p><a target="_blank" rel="noopener" href="https://ask.hellobi.com/blog/qinlu/sitemap/">https://ask.hellobi.com/blog/qinlu/sitemap/</a></p>
-<p>现象和原因，原因一定是能具体的，可量化的，切记空谈。</p>
-<p><img src="数据分析之数据分析思维\image-20210821155727691.png" alt="image-20210821155727691"></p>
-<p><img src="数据分析之数据分析思维\image-20210821160108930.png" alt="image-20210821160108930"></p>
-<h3 id="4-其他的分析思维"><a href="#4-其他的分析思维" class="headerlink" title="4. 其他的分析思维"></a>4. 其他的分析思维</h3><h4 id="1-流程化，过程化"><a href="#1-流程化，过程化" class="headerlink" title="1. 流程化，过程化"></a>1. 流程化，过程化</h4><p>梳理业务流程，用户周期，产品周期，分析环节上限</p>
-<p>业务过程可以概括为一个个不可拆分的行为事件。用户的业务系统中，通过埋点或日常积累，通常已经获取了充足的业务数据。为理清数据之间的逻辑关系和流向，首先需要理解用户的业务过程，了解过程中涉及到的数据系统。</p>
-<p>您可以采用过程分析法，将整个业务过程涉及的每个环节一一列清楚，包括技术、数据、系统环境等。在分析企业的工作职责范围（部门）后，您也可以借助工具通过逆向工程抽取业务系统的真实模型。您可以参考业务规划设计文档以及业务运行（开发、设计、变更等）相关文档，全面分析数据仓库涉及的源系统及业务管理系统：</p>
-<ul>
-<li>每个业务会生成哪些数据，存在于什么数据库中。</li>
-<li>对业务过程进行分解，了解过程中的每一个环节会产生哪些数据，数据的内容是什么。</li>
-<li>数据在什么情况下会更新，更新的逻辑是什么。</li>
-</ul>
-<p>业务过程可以是单个业务事件，例如交易的支付、退款等；也可以是某个事件的状态，例如当前的账户余额等；还可以是一系列相关业务事件组成的业务流程。具体取决于您分析的是某些事件过去发生情况、当前状态还是事件流转效率。</p>
-<p>选择粒度：在业务过程事件分析中，您需要预判所有分析需要细分的程度和范围，从而决定选择的粒度。 识别维表、选择好粒度之后，您需要基于此粒度设计维表，包括维度属性等，用于分析时进行分组和筛选。最后，您需要确定衡量的指标。</p>
-<p>本教程中，经过业务过程调研，我们了解到用户电商营销业务的交易订单功能模块的业务流程如下。<img src="http://static-aliyun-doc.oss-cn-hangzhou.aliyuncs.com/assets/img/zh-CN/9482309951/p44562.png" alt="业务流程"></p>
-<p>这是一个非常典型的电商交易业务流程图。在该业务流程图中，有创建订单、买家付款、卖家发货、确认收货四个核心业务步骤。由于确认收货代表交易成功，我们重点分析确认收货（交易成功）步骤即可。</p>
-<p>在明确用户的业务过程之后，您可以根据需要对进行分析决策的业务划分数据域。</p>
-<h4 id="2-闭环思想"><a href="#2-闭环思想" class="headerlink" title="2. 闭环思想"></a>2. 闭环思想</h4><p>是什么？为什么？怎么办？</p>
-<p>目标-&gt;拆解—&gt;小目标—&gt;分解—&gt;措施</p>
-<p>拆解的方法： 公式法，</p>
-<p>分解的方法：维度法</p>
-<p>迭代更新，决策，</p>
-<h4 id="3-分类的思想"><a href="#3-分类的思想" class="headerlink" title="3. 分类的思想"></a>3. 分类的思想</h4><h4 id="4-对比思想"><a href="#4-对比思想" class="headerlink" title="4. 对比思想"></a>4. 对比思想</h4><h4 id="5-维度的思想"><a href="#5-维度的思想" class="headerlink" title="5. 维度的思想"></a>5. 维度的思想</h4><p>落地的发生，寻找原因的方法</p>
-<p>具体实施的措施</p>
-<p>注意的是对许多的维度就行有效分类。</p>
-<h2 id="案例（下降了，异常了）"><a href="#案例（下降了，异常了）" class="headerlink" title="案例（下降了，异常了）"></a>案例（下降了，异常了）</h2><p><img src="C:\Users\ADMIN\AppData\Roaming\Typora\typora-user-images\image-20210821160133874.png" alt="image-20210821160133874"></p>
-<h3 id="4-总结"><a href="#4-总结" class="headerlink" title="4.总结"></a>4.总结</h3><ol>
-<li>核心思维为重点！结合案例理解了，这三种思维的重要性，运用范围极广，对于问题的思考都可以从这三方面开展。</li>
-<li>七大技巧，展示了具体的分析技巧，但是需要配合分析工具如Python、excel中去实现他，需要记住特点，在需要时运用到数据分析中</li>
-<li>数据分析思维的锻炼，来自于长期的思考习惯，从生活、案例和工作中日积月累的思考与积累，通过自己真正“思考”出来的结果，才是“真正”理解的思维。</li>
-</ol>
-<h1 id="数据分析的思维技巧"><a href="#数据分析的思维技巧" class="headerlink" title="数据分析的思维技巧"></a>数据分析的思维技巧</h1><h2 id="象限法"><a href="#象限法" class="headerlink" title="象限法"></a>象限法</h2><p><img src="数据分析之面试dayday\image-20210823090732079.png" alt="image-20210823090732079"></p>
-<p><img src="数据分析之面试dayday\image-20210823090752358.png" alt="image-20210823090752358"></p>
-<p>其实象限法的核心就是：<strong>一种策略驱劢的思维</strong>。其优点是：直观，清晰，对数据进行人工的划分。划分结果可以直接应用于策略。在应用方面：适用范围广、戓略分析、产品分析、市场分析、客户管理、用户管理、商品管理等方面。但是在应用象限法中我们应该必须注意的是：<strong>象限划分可以按中位数，也可以按平均数，或者是经验</strong>。</p>
-<h2 id="多维度法"><a href="#多维度法" class="headerlink" title="多维度法"></a>多维度法</h2><ul>
-<li><strong>用户统计维度</strong>：性别、年龄…</li>
-<li><strong>用户行为维度</strong>：注册用户、用户偏好、用户兴趣、用户流失…</li>
-<li><strong>消费维度</strong>：消费金额、消费频率、消费水平…</li>
-<li><strong>商品维度</strong>：商品品类、商品品牌、商品属性…</li>
-</ul>
-<p>其实多维法的核心就是：<strong>是一种精细驱劢的思维</strong>，其优点是：处理<a target="_blank" rel="noopener" href="https://cloud.tencent.com/solution/bigdata?from=10680">大数据</a>量，维度丰富且复杂的数据有较好的效果。但是维度过多，会消耗不少时间。当然我们在使用多维法分析数据时，必须要注意：对不同维度进行交叉分析时，需要注意<a target="_blank" rel="noopener" href="https://www.sohu.com/a/235918522_114819">辛普森悖论</a>。</p>
-<h3 id="辛普森悖论（混淆因子"><a href="#辛普森悖论（混淆因子" class="headerlink" title="辛普森悖论（混淆因子)"></a>辛普森悖论（混淆因子)</h3><p><strong>收获与总结</strong>：</p>
-<p>避免辛普森悖论的关键是要同时参考不同用户间的事实全貌。</p>
-<p>第一，准确的用户分群在数据分析中是非常重要的，尤其是在免费产品当中，平均用户不仅不存在，而且是误导研发的因素之一，所以<strong>关键在于利用特征将用户进行合理划分</strong>。</p>
-<p>第二，在一个具体的产品中，普适型的数据（如粗暴的对比IOS和Android总体情况）是没有多大参考意义的，一定要<strong>细分</strong>到具体设备、国家、获取渠道、消费能力等等再进行比对才有价值。</p>
-<p>第三，斟酌个别分组的权重，以一定的系数去消除以分组资料基数差异所造成的影响，同时必需了解该情境是否存在其他潜在要因而综合考虑。</p>
-<p>对潜在客户进行投放时，30岁以上客户1000人，转化率2%，30岁以下3000人，转化率4%，整体转化率就是3.5%，所以分析师得出结论：30岁以上的客户价值低，不建议再投放。请问这个结论合理吗？</p>
-<p>答案是：不合理。</p>
-<p>一般来说，30岁以上的用户，经济实力更强，购买转化率应该更高，所以，这里只用「年龄」来做客户区分，显示是片面了，我们接下来再来看这组数据：</p>
-<p>我们把每个年龄段的客户再按性别拆分，这样就构成了4个维度的数据：</p>
-<p>从这组数据我们可以看到，30岁以上，无论是男性还是女性，都要比30岁以下的转化率更高，但是为什么合在一起，结论就是相反的了呢？这个问题是1951年英国统计学家“辛普森”提出来的，所以，这个问题就叫做「辛普森悖论」。</p>
-<p>现在，我们再来介绍一下「辛普森悖论」的定义。辛普森说：<strong>在某个条件下的两组数据，分别讨论时都会满足某种性质，可是一旦合并考虑，却可能导致相反的结论。</strong></p>
-<p>原因其实非常简单，我们一般在分析数据的时候，要考虑「质」和「量」两个维度，但是如果仅仅以年龄来区分转化率的话，就只考虑到了「质」没有考虑到「量」，把年龄这个因素「放大化」了，其实它并不是导致转化率不同的主要变量，本质原因还是没有搞清楚驱动业务的关键因素。</p>
-<p>所以，在日常的AB测试中，找到根本变量之后，要设置一定比例的实验组，如果仅仅以2%的数据做实验，最终发现效果很好，但很可能会导致全部上线之后效果非常差，这就是「量变引起质变」的道理。</p>
-<p>辛普森悖论：钻取方法避免方法。就是可以考虑特征条件下降的情况。利用特征将用户进行合理的划分。</p>
-<p><img src="F:\MyBlog\MyBlog\hexo\source\_posts\数据分析之面试dayday\image-20210823093236385.png" alt="image-20210823093236385"></p>
+        <p>实战SQL的技巧：1） 拆解问题 2）执行顺序，逻辑得当</p>
+<p>拆解的小问题：</p>
+<p>​    1） 排序，窗口函数的应用，order by —- 分组排序</p>
+<p>​    2） 判断， if(), ifnull(), case() —- 空值问题，数据处理</p>
+<p>   3） 连接， 全连接，内连接，外连接 —- 连续几天 </p>
+<p>   4）日期时间，日期时间函数的计算 —- 时间间隔的天数，格式处理，提取信息</p>
+<p>   5）分组， group by  having —- 分组计算</p>
+<p>   6） 子查询，select语句的嵌套  —- 条件筛选，建立过度表</p>
+        
+          <p class="article-more-link">
+            <a href="../../2020/08/20/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL%E9%9D%A2%E8%AF%95%E9%A2%98/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flytowardnewworld.github.io/2020/08/20/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BSQL%E9%9D%A2%E8%AF%95%E9%A2%98/" data-id="clh1918b3007j04vk0w7y4zub" data-title="数据分析之SQL面试题" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/SQl/" rel="tag">SQl</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-数据分析之项目实战" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2020/08/18/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" class="article-date">
+  <time class="dt-published" datetime="2020-08-18T03:58:53.000Z" itemprop="datePublished">2020-08-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2020/08/18/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/">数据分析之项目实战</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>复习python</p>
+        
+          <p class="article-more-link">
+            <a href="../../2020/08/18/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flytowardnewworld.github.io/2020/08/18/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/" data-id="clh1918bg008x04vk71asc48q" data-title="数据分析之项目实战" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">数据分析</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-研二の学习" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2020/08/15/%E7%A0%94%E4%BA%8C%E3%81%AE%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time class="dt-published" datetime="2020-08-15T14:17:25.000Z" itemprop="datePublished">2020-08-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/%E5%AD%A6%E4%B9%A0%E3%81%AE%E5%8E%86%E7%A8%8B-Journal-of-Studying/">学习の历程(Journal of Studying)</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2020/08/15/%E7%A0%94%E4%BA%8C%E3%81%AE%E5%AD%A6%E4%B9%A0/">研二の学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        Here's something encrypted, password is required to continue reading.
+        
+          <p class="article-more-link">
+            <a href="../../2020/08/15/%E7%A0%94%E4%BA%8C%E3%81%AE%E5%AD%A6%E4%B9%A0/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flytowardnewworld.github.io/2020/08/15/%E7%A0%94%E4%BA%8C%E3%81%AE%E5%AD%A6%E4%B9%A0/" data-id="clh1918c100b704vkhuw2158v" data-title="研二の学习" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Daily/" rel="tag">Daily</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-英语学习方法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2020/08/15/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" class="article-date">
+  <time class="dt-published" datetime="2020-08-15T14:17:25.000Z" itemprop="datePublished">2020-08-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/%E5%AD%A6%E4%B9%A0%E3%81%AE%E5%8E%86%E7%A8%8B-Journal-of-Studying/">学习の历程(Journal of Studying)</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2020/08/15/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/">研二の学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+<h1 id="利用听力材料学英语最高效"><a href="#利用听力材料学英语最高效" class="headerlink" title="利用听力材料学英语最高效"></a>利用听力材料学英语最高效</h1><p><strong>有效输出应该是稍高于现有水平的、更准确、更得体的表达输出</strong></p>
+<p>先记住以下两点，下面我们再一一解析应该要怎么做到。</p>
+<p><strong>1.</strong> <strong>学习需要反馈，来告诉我们这输出是正确的，可以继续；或者是错误的，需要修正。</strong></p>
+<p><strong>2.</strong> <strong>将输入内化，变成自己的知识。</strong></p>
+<p>我一般会听<strong>四遍</strong>，但不是全听原文。</p>
+<p><strong>第一遍：泛听原文，不要看字幕或脚本，清楚录音的内容。</strong>听第一遍的时候我通常连笔记都不做，目的是为了让自己流畅的听完，对听力的内容有一个整体的掌握。</p>
+<p><strong>第二遍</strong>：<strong>先听原文，根据内容段落，开始复述内容，并录音</strong>。这一步的目的是强迫自己调用已经学过的知识，组织语言和进行练习。</p>
+<p><strong>第三遍，听自己的录音，然后做出修正。</strong>这一步很重要，可以让你了解自己的发音问题和语法问题，并把可听出来的语法问题进行修改。通过这一步，我们就可以把简单重复输入的语言材料，转化为有效输出。</p>
+<p><strong>第四遍，听原文看字幕和脚本，看把听不懂的地方标注</strong>，说明为什么听不懂（比如是因为自己发音不准导致的听不出，或者就是因为这个词没背过、不熟悉）。不熟悉的用法和自己用错的地方总结，背下来，下次试着用。</p>
+<p>Tips：</p>
 <ol>
-<li>总体趋势：不同年龄段的人锻炼量不同，且胆固醇含量也不同。年龄会影响锻炼和胆固醇。</li>
+<li><p>不要选择太难的材料，太难的材料容易使自己丧失学习兴趣。</p>
+</li>
+<li><p>一开始，不要选择太长的听力材料。10分钟左右最佳。在这里推荐ted，可以选择有字幕或关闭字幕。</p>
+</li>
+<li><p>在一个相近的时间段内，选择相近题材的材料。比如我会在两个星期内选择“心理”题材的录音。这样我就会有更大的几率用上刚学过的结构和词汇。</p>
+</li>
+<li><p>及时总结，及时复习已背过的材料，复习的重要性大家都懂，这里就不多说了。</p>
+</li>
 </ol>
-<p><img src="F:\MyBlog\MyBlog\hexo\source\_posts\数据分析之面试dayday\image-20210823093421213.png" alt="image-20210823093421213"></p>
-<p><img src="F:\MyBlog\MyBlog\hexo\source\_posts\数据分析之面试dayday\image-20210823090946840.png" alt="image-20210823090946840"></p>
-<h2 id="假设法"><a href="#假设法" class="headerlink" title="假设法"></a>假设法</h2><h2 id="指数法"><a href="#指数法" class="headerlink" title="指数法"></a>指数法</h2><p>很多时候，我们有数据，但不知道怎么应用。就是因为缺乏了一个有效性的方向。这个方向可以成为目标指数。通过将数据加工成指数，达到聚焦的目的。其中的指数法主要包括：<strong>线性加权</strong>、<strong>反比例</strong>、<strong>log法</strong>。很多时候，这几种方法主要应用于Excel做数据分析的时候。   其实，指数法的核心是：<strong>一种目标驱动的思维</strong>。其优点是：目标驱动力强，直观、简洁、有效。对业务有一定的指导作用。一旦设立指数，不易频繁变动。另外其中的应用在于：与假设法不同的是：假设法是缺乏有效的数据，指数法是无法利用数据而将其加工成可利用的。当我们要用指数法的时候必须要注意的是：指数法没统一的标准，很多指数更依赖经验的加工。接下来，给大家介绍二八法。</p>
-<h2 id="二八法"><a href="#二八法" class="headerlink" title="二八法"></a>二八法</h2><ol>
-<li>帕累托法则</li>
+<h1 id="真题听写"><a href="#真题听写" class="headerlink" title="真题听写"></a>真题听写</h1><ol>
+<li><p>材料选择</p>
+<p>能够听得懂 70%的材料</p>
+</li>
 </ol>
-<p>数据中，20%的变量将直接产生80%的效果，数据分析更应该围绕这20%作文章。</p>
-<p>持续关注TopN的数据，是一个非常好的习惯，尤其在部分行业。</p>
-<p>虽然指标很多，但往往某些指标更有价值，二八法则不仅能分析数据，也能管理数据。</p>
-<p>  其实二八法的核心是：<strong>一种只抓重点的思维</strong>。其中的优点有：和业务紧密相关，和KPI更紧密相关。几乎花费最少的精力就能达到不错的效果，性价比很优。应用很广，主要包括：二八法则存在于几乎所有的领域，所以这种分析思维没有局限。但是当我们在用二八法中必须要注意的是：在条件允许的情况下，数据分析依旧不能放弃全局，否则会让思路变得狭隘。接下来，给大家介绍对比法。</p>
-<h2 id="对比法"><a href="#对比法" class="headerlink" title="对比法"></a>对比法</h2><p>好的数据指标，一定是比例或者比率</p>
-<p>好的数据分析，一定有对比。</p>
-<p><img src="F:\MyBlog\MyBlog\hexo\source\_posts\数据分析之面试dayday\image-20210823105731710.png" alt="image-20210823105731710"></p>
-<p>对比法的核心是：<strong>一种挖掘数据规律的思考方式</strong>，其中的优点是：对比法可以发现很多数据间的规律，它可以与<strong>任何思维技巧结合</strong>，比如多维对比、象限对比、假设对比等。主要应用在于：对比更多是一种习惯，是数据分析的牛角尖，一次合格的分析，一定要用到n次对比。当我们用对比法进行数据分析时候，一定要注意：在条件允许的情况下，数据分析依旧不能放弃全局，否则会让思路变得狭隘。接下来给大家介绍最后一种数据分析方法——漏斗法。</p>
-<h2 id="漏斗法"><a href="#漏斗法" class="headerlink" title="漏斗法"></a>漏斗法</h2><p>漏斗分析模型，简单来讲，<strong>就是抽象产品中的某一流程</strong>，观察流程<strong>中每一步</strong>的<strong>转化与流失</strong>。</p>
-<p>比如：教育培训类产品的用户，从首页进入到最终完成支付的行为，大多需要经过搜索课程，查看课程详情、点击购买、立即支付、支付成功，我们需要将按照流程操作的用户进行各个转化层级上的监控，寻找每个层级的可优化点；对没有按照流程操作的用户绘制他们的转化路径，找到可提升用户体验，缩短路径的空间。</p>
-<p>  其实漏斗法的核心是：<strong>一种流程化思考方式</strong>，其优点是：单一的漏斗分析没有用，转化率20%，但是能说明什么呢？它要和其他分析思维结合，比如多维，比如对比。其中主要应用在：涉及到变化和流程的都能用。当我们用漏斗法的时候，必须要注意：<strong>单一的转化率没有</strong>。   以上就是七种主要的数据分析方法，希望我们可以分别掌握其核心以及优势和应用场合，多加以练习，在合适的场合用不同的数据分析方法，最后从多角度的方式做出分析出一份报告。</p>
-<p><img src="F:\MyBlog\MyBlog\hexo\source\_posts\数据分析之面试dayday\image-20210823110044680.png" alt="image-20210823110044680"></p>
-<h1 id="技能"><a href="#技能" class="headerlink" title="技能"></a>技能</h1><p>数据分析是通过<strong>明确分析目的</strong>，梳理并确定分析逻辑，<strong>针对性</strong>的收集、整理<strong>数据</strong>，并采用<strong>统计</strong>、<strong>挖掘技术分析</strong>，<strong>提取</strong>有用信息和<strong>展示结论的过程</strong>，是数据科学领域的核心技能。</p>
-<p>数据分析的一般流程总的来说就是这几个步骤：问题定义、数据获取、数据预处理、数据分析与建模、数据可视化与数据报告的撰写。</p>
-<h1 id="数据分析的逻辑"><a href="#数据分析的逻辑" class="headerlink" title="数据分析的逻辑"></a>数据分析的逻辑</h1><h3 id="1-1-PEST分析法"><a href="#1-1-PEST分析法" class="headerlink" title="1.1 PEST分析法"></a>1.1 PEST分析法</h3><p>PEST分析是指宏观环境的分析，宏观环境是指影响一切行业或企业的各种宏观力量。P是政治(Politics)，E是经济(Economy)，S是社会(Society)，T是技术(Technology)。通常是战略咨询顾问用来帮助企业检阅其外部宏观环境的一种方法，以吉利收购沃尔沃为例：</p>
-<p><img src="https://files.mdnice.com/pic/0bebf8d7-17ad-4611-8513-78d1d588ee87.jpg" alt="img"></p>
-<h3 id="1-2-5W2H分析法"><a href="#1-2-5W2H分析法" class="headerlink" title="1.2 5W2H分析法"></a>1.2 5W2H分析法</h3><p>5W2H分析法又称七何分析法，包括：Why、What、Where、When、Who、How、How much 。主要用于用户行为分析、业务问题专题分析、营销活动等，是一个方便又实用的工具。</p>
-<p><img src="https://files.mdnice.com/pic/a1edd4f0-6f04-4fea-9f76-fc9c6dd961ec.jpg" alt="img"></p>
-<h3 id="1-3-逻辑树分析法"><a href="#1-3-逻辑树分析法" class="headerlink" title="1.3 逻辑树分析法"></a>1.3 逻辑树分析法</h3><p><img src="https://files.mdnice.com/pic/ec992574-42bc-499b-89f9-f5fcf59cfa69.jpg" alt="img"></p>
-<p>逻辑树是分析问题最常用的工具之一，它是将问题的所有子问题分层罗列，从最高层开始，并逐步向下扩展。使用逻辑树分析的主要优点是保证解决问题的过程的完整性，且方便将工作细分为便于操作的任务，确定各部分的优先顺序，明确地把责任落实到个人。</p>
-<p><img src="https://files.mdnice.com/pic/baf4c5d0-0f61-4ba5-a87b-4217bb1aae87.jpg" alt="img"></p>
-<h3 id="1-4-4P营销理论"><a href="#1-4-4P营销理论" class="headerlink" title="1.4 4P营销理论"></a>1.4 4P营销理论</h3><p>4P即产品（Product）、价格（Price）、渠道（Place）、促销（Promotion），在营销领域，这种以市场为导向的营销组合理论，被企业应用最普遍。通过将四者的结合、协调发展，从而提高企业的市场份额，达到最终获利的目的。</p>
-<p>4P营销理论适用于分析企业的经营状况，可视为企业内部环境，PEST分析的是企业在外部面对的环境。</p>
-<p><img src="https://files.mdnice.com/pic/2a7f53b0-e6b0-4fe8-8c0a-b08e3e547421.jpg" alt="img"></p>
-<h3 id="1-5-SCQA分析法"><a href="#1-5-SCQA分析法" class="headerlink" title="1.5 SCQA分析法"></a>1.5 SCQA分析法</h3><p>SCQA分析是一个“结构化表达”工具，即S（Situation）情景、C（Complication）冲突、Q（Question）疑问、A（Answer）回答。</p>
-<p><img src="https://files.mdnice.com/pic/f8c9a035-8dde-4693-98a7-c0b4a0c7403e.jpg" alt="img"></p>
-<p>整个结构是通过描述当事者的现实状态，然后带出冲突和核心问题，通过结构化分析以提供更为明智的解决方案。以校园招聘SCQA分析为例：</p>
-<p><img src="https://files.mdnice.com/pic/11624a89-3c18-4b7b-8e00-12d5339b8fff.jpg" alt="img"></p>
-<h3 id="1-6-SMART分析法"><a href="#1-6-SMART分析法" class="headerlink" title="1.6 SMART分析法"></a>1.6 SMART分析法</h3><p>SMART法是一种目标管理方法，即对目标的S（Specific）明确性，M（Measurable）可衡量性，A（Attainable）可实现性，R（Relevant）相关性，T（Time-based）时限性。</p>
-<p><img src="https://files.mdnice.com/pic/705c5d2c-8f3e-46e4-b8ee-c2fca1a60360.jpg" alt="img"></p>
-<h3 id="1-7-SWOT分析法"><a href="#1-7-SWOT分析法" class="headerlink" title="1.7 SWOT分析法"></a>1.7 SWOT分析法</h3><p>SWOT分析法也叫态势分析法，S （Strengths）是优势、W （Weaknesses）是劣势，O （Opportunities）是机会、T （Threats）是威胁或风险。常用来确定企业自身的内部优势、劣势和外部的机会和威胁等，从而将公司的战略与公司内部与外部环境有机地结合起来。以HUAWEI 的SWOT分析为例：</p>
-<p><img src="https://files.mdnice.com/pic/73b0637a-8e19-499c-82d4-e1ba9d1ec3c1.jpg" alt="img"></p>
-<h2 id="二、-数据分析的技术方法"><a href="#二、-数据分析的技术方法" class="headerlink" title="二、 数据分析的技术方法"></a>二、 数据分析的技术方法</h2><p>数据分析的技术方法是指提取出关键信息的具体方法，如对比分析、交叉分析、回归预测分析等方法。</p>
-<p><img src="https://files.mdnice.com/pic/e78ed1b6-4aa9-483a-888d-4c876b0e2c95.jpg" alt="img"></p>
-<h3 id="2-1-对比分析法"><a href="#2-1-对比分析法" class="headerlink" title="2.1 对比分析法"></a>2.1 对比分析法</h3><p>对比分析法是将两个或两个以上的数据进行比较，分析差异，揭示发展变化情和规律。</p>
-<ul>
-<li>静态比较：时间一致的前提下选取不同指标，如部门、城市、门店等，也叫横向比较。</li>
-<li>动态比较：指标一致的前提下，针对不同时期的数据比较，也叫纵向比较。</li>
-</ul>
-<p>举例：各车企销售表现</p>
-<p><img src="https://files.mdnice.com/pic/9b38e829-1c31-4369-a9de-592f3f277fc0.jpg" alt="img"></p>
-<h3 id="2-2-分组分析法"><a href="#2-2-分组分析法" class="headerlink" title="2.2 分组分析法"></a>2.2 分组分析法</h3><ul>
-<li>先经过数据加工，对数据进行数据分组，然后对分组的数据进行分析。</li>
-<li>分组的目的是为了便于对比，把总体中具有不同性质的对象区分开，把性质相同的对象合并在一起，保持各组内对象属性的一致性、组与组之间属性的差异性，以便进一步运用各种数据分析方法来解释内在的数量关系。</li>
-</ul>
-<p>举例： 新书在各销售渠道的销量</p>
-<p><img src="https://files.mdnice.com/pic/48ff33cc-2e44-4d75-b8f4-90a40814e9fe.jpg" alt="img"></p>
-<h3 id="2-3-结构分析法"><a href="#2-3-结构分析法" class="headerlink" title="2.3 结构分析法"></a>2.3 结构分析法</h3><ul>
-<li>结构分析法又称比重分析法，是在分组分析法的基础上，计算总体内各组成部分占总体的比重，进而分析总体数据的内部特征。</li>
-</ul>
-<p>举例：市场占有率是典型的结构分析。</p>
-<p><img src="https://files.mdnice.com/pic/a2969ca7-4fb9-4031-aa9f-8385a21e5b88.jpg" alt="img"></p>
-<h3 id="2-4-平均分析法（标准参数分析法）"><a href="#2-4-平均分析法（标准参数分析法）" class="headerlink" title="2.4 平均分析法（标准参数分析法）"></a>2.4 平均分析法（标准参数分析法）</h3><ul>
-<li>运用计算平均数的方法来反映总体在一定的时间、地点条件下某一数量特征的一般水平。</li>
-<li>平均指标可用于同一现象在不同地区、不同部门或单位间的对比，还可用于同一现象在不同时间的对比。</li>
-</ul>
-<p>举例：季节性分析和价格分析时常会用到index指标</p>
-<p><img src="https://files.mdnice.com/pic/7394a7de-bad1-4d87-915e-f2cf9b4b8fda.jpg" alt="img"></p>
-<h3 id="2-5-交叉分析法"><a href="#2-5-交叉分析法" class="headerlink" title="2.5 交叉分析法"></a>2.5 交叉分析法</h3><ul>
-<li>通常用于分析两个变量之间的关系，即同时将两个有一定联系的变量及其值交叉排列在一张表格内，使各变量值成为不同变量的交叉节点，形成交叉表。</li>
-</ul>
-<p>举例：常见的气泡图数据表格</p>
-<p><img src="https://files.mdnice.com/pic/810768fa-8e0d-4bb2-8069-8c406824a12c.jpg" alt="img"></p>
-<h3 id="2-6-漏斗图分析法"><a href="#2-6-漏斗图分析法" class="headerlink" title="2.6 漏斗图分析法"></a>2.6 漏斗图分析法</h3><ul>
-<li>漏斗图可以很好的反映网站各步奏转化率，利用对比法对同一环节优化前后的效果进行对比分析来反映某个步奏转化率的好坏。</li>
-</ul>
-<p>举例：商品流转率表现图</p>
-<h2 id="1-重要的分析模型"><a href="#1-重要的分析模型" class="headerlink" title="1.重要的分析模型"></a>1.重要的分析模型</h2><p>1七何分析法</p>
-<ul>
-<li>从原因（Why）、事件(What)、人物(Who)、时间(When)、地点(where)、操作（How）、消费(How much)七个因素来构建分析框架</li>
-</ul>
-<p>2 AARRR模型（转化漏斗模型）</p>
-<ul>
-<li>从获取用户（Acquisition）、激活用户（Activation）、提高留存（Retention）、增加收入（Revenue）、自增长（Refer）五步来进行用户行为分析</li>
-</ul>
-<p>3 RFM模型（用户价值分类模型）</p>
-<ul>
-<li>从最近一次消费时间间隔（Recency）、消费频率(Frequency)、消费金额( Money)三各维度分析用户价值</li>
-</ul>
-<p>4 4P营销理论</p>
-<ul>
-<li>从产品（Product）、价格（Price）、渠道(Place)、促销(Promotion)四个维度分析企业整体经营情况</li>
-</ul>
-<p>5 SWOT分析法</p>
-<ul>
-<li>从优势（Strengths）、劣势(Weaknesses)、机会(Opportunities)、威胁(Threats)四要素分析企业自身进展战略方向</li>
-</ul>
-<p>6 PEST分析(宏观环境分析法)</p>
-<ul>
-<li>从政治环境、经济环境、社会环境、技术环境四个角度对企业发展的宏观环境的分析</li>
-</ul>
-<h2 id="2-重要的分析方法"><a href="#2-重要的分析方法" class="headerlink" title="2 重要的分析方法"></a>2 重要的分析方法</h2><p>1 多维度拆分分析</p>
-<p>将问题拆分，从多角度分析；</p>
-<ul>
-<li>拆分时可以依据指标构成（例GMV=浏览量<em>成交转化率</em>客单价）或业务流程（例成交流程：浏览-加购物车-下单-付款）来进行。</li>
-</ul>
-<p>2 逻辑树分析</p>
-<p>将大目标拆分为多个小问题</p>
-<p>3 对比分析</p>
-<p>和谁比（不同时间下自身比较、不同部门/地区比较、与竞争对手/目标比较）</p>
-<p>如何比较（比较指标的类型、计算方式、计量单位、口径）</p>
-<p>4 假设检验分析</p>
-<p>提出假设，收集证据，得出结论</p>
-<p>除了以上介绍的内容，还有很多其他的分析模型，结合实际业务，选择合适的分析方法，才能有效地进行分析工作。</p>
+<p>   2 具体执行方法</p>
+<ol>
+<li><p>先泛听一篇</p>
+</li>
+<li><p>再循环听几遍</p>
+</li>
+<li><p>再逐句逐句的听</p>
+</li>
+</ol>
+<h2 id="美剧精听"><a href="#美剧精听" class="headerlink" title="美剧精听"></a>美剧精听</h2><ol>
+<li>先看中文听</li>
+<li>英文，查</li>
+<li>听找</li>
+<li>台词，跟读</li>
+<li>重复三四<br>至少10</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://flytowardnewworld.github.io/2020/06/01/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%80%9D%E7%BB%B4/" data-id="cl67j0tm5006r7ovk675t7tah" data-title="数据分析之数据分析思维" class="article-share-link">Share</a>
+      <a data-url="http://flytowardnewworld.github.io/2020/08/15/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" data-id="clh1918ci00d004vk66ovgoaq" data-title="研二の学习" class="article-share-link">Share</a>
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Daily/" rel="tag">Daily</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-数据分析与机器学习之语言篇" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2020/08/11/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%AF%AD%E8%A8%80%E7%AF%87/" class="article-date">
+  <time class="dt-published" datetime="2020-08-11T15:27:25.000Z" itemprop="datePublished">2020-08-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2020/08/11/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%AF%AD%E8%A8%80%E7%AF%87/">数据分析与机器学习之语言篇</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="数据分析与机器学习之语言篇\工具篇.png" alt=""></p>
+<h1 id="神经网络Pytorch"><a href="#神经网络Pytorch" class="headerlink" title="神经网络Pytorch"></a>神经网络Pytorch</h1><h2 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h2><h2 id="常见神经网络的实现"><a href="#常见神经网络的实现" class="headerlink" title="常见神经网络的实现"></a>常见神经网络的实现</h2><h3 id="线性模型"><a href="#线性模型" class="headerlink" title="线性模型"></a>线性模型</h3><h3 id="多层感知机"><a href="#多层感知机" class="headerlink" title="多层感知机"></a>多层感知机</h3><h3 id="CNN"><a href="#CNN" class="headerlink" title="CNN"></a>CNN</h3><h3 id="LSTM"><a href="#LSTM" class="headerlink" title="LSTM"></a>LSTM</h3><h3 id="GAN"><a href="#GAN" class="headerlink" title="GAN"></a>GAN</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flytowardnewworld.github.io/2020/08/11/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%8B%E8%AF%AD%E8%A8%80%E7%AF%87/" data-id="clh1918az007004vk3ghugk83" data-title="数据分析与机器学习之语言篇" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-机器学习之模型性能" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2020/08/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%A8%A1%E5%9E%8B%E6%80%A7%E8%83%BD/" class="article-date">
+  <time class="dt-published" datetime="2020-08-11T14:54:26.000Z" itemprop="datePublished">2020-08-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2020/08/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%A8%A1%E5%9E%8B%E6%80%A7%E8%83%BD/">机器学习之模型性能</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="机器学习之模型性能\模型性能.png" alt="模型性能"></p>
+<h1 id="机器学习模型的性能评价"><a href="#机器学习模型的性能评价" class="headerlink" title="机器学习模型的性能评价"></a>机器学习模型的性能评价</h1><h2 id="训练误差和泛化误差"><a href="#训练误差和泛化误差" class="headerlink" title="训练误差和泛化误差"></a>训练误差和泛化误差</h2><p>训练误差即经验误差；学习器在新样本上的误差称为泛化误差。</p>
+<h2 id="模型评估的方法"><a href="#模型评估的方法" class="headerlink" title="模型评估的方法"></a>模型评估的方法</h2><p>留出法</p>
+<p>交叉验证法</p>
+<h2 id="性能度量"><a href="#性能度量" class="headerlink" title="性能度量"></a>性能度量</h2><h3 id="预测"><a href="#预测" class="headerlink" title="预测"></a>预测</h3><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><h3 id="准确度和错误率"><a href="#准确度和错误率" class="headerlink" title="准确度和错误率"></a>准确度和错误率</h3><p><strong>准确率</strong>：指的是分类正确的样本数量占样本总数的比例</p>
+<p><strong>错误率</strong>：指分类错误的样本占样本总数的比例</p>
+<h2 id="准确率和召回率"><a href="#准确率和召回率" class="headerlink" title="准确率和召回率"></a>准确率和召回率</h2><p>精确率，也被称作查准率，是指<strong>所有预测为正类的结果中，真正的正类的比例</strong>。</p>
+<p>召回率，也被称作查全率，是指所有正类中，被分类器找出来的比例。</p>
+<h2 id="过拟合"><a href="#过拟合" class="headerlink" title="过拟合"></a>过拟合</h2><p>学习器在未知数据上的表现差</p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><ol>
+<li>数据上<ol>
+<li>建模样本。样本数量少；</li>
+<li>噪音干扰大</li>
+</ol>
+</li>
+<li>模型<ol>
+<li>参数过得，模型太复杂</li>
+</ol>
+</li>
+</ol>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ol>
+<li>交叉验证</li>
+<li>添加正则项<ol>
+<li>范数；</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flytowardnewworld.github.io/2020/08/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%A8%A1%E5%9E%8B%E6%80%A7%E8%83%BD/" data-id="clh1918bt00ab04vkacgxgt79" data-title="机器学习之模型性能" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" rel="tag">交叉验证</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E6%AD%A3%E5%88%99%E5%8C%96/" rel="tag">正则化</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" rel="tag">特征工程</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Book-Learning" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2020/07/29/Book-Learning/" class="article-date">
+  <time class="dt-published" datetime="2020-07-29T13:13:42.000Z" itemprop="datePublished">2020-07-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/Book/">Book</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2020/07/29/Book-Learning/">Book-Learning</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>分享看书笔记</p>
+        
+          <p class="article-more-link">
+            <a href="../../2020/07/29/Book-Learning/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flytowardnewworld.github.io/2020/07/29/Book-Learning/" data-id="clh19188b000104vkgevs11s2" data-title="Book-Learning" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag">数据挖掘</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-prepare-for-work" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2020/07/28/prepare-for-work/" class="article-date">
+  <time class="dt-published" datetime="2020-07-28T12:03:48.000Z" itemprop="datePublished">2020-07-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2020/07/28/prepare-for-work/">向着永恒出发</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>编程语言的学习</p>
+        
+          <p class="article-more-link">
+            <a href="../../2020/07/28/prepare-for-work/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flytowardnewworld.github.io/2020/07/28/prepare-for-work/" data-id="clh1918a0003u04vkg6lm9c5y" data-title="向着永恒出发" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/python/" rel="tag">python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-数据分析之Python" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2020/07/28/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BPython/" class="article-date">
+  <time class="dt-published" datetime="2020-07-28T12:03:48.000Z" itemprop="datePublished">2020-07-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>►<a class="article-category-link" href="../../categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2020/07/28/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BPython/">数据分析之Python</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Python</p>
+        
+          <p class="article-more-link">
+            <a href="../../2020/07/28/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BPython/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flytowardnewworld.github.io/2020/07/28/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8BPython/" data-id="clh1918b2007d04vka4iu1k3q" data-title="数据分析之Python" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Numpuy/" rel="tag">Numpuy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Pandas/" rel="tag">Pandas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-机器学习" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2020/07/25/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time class="dt-published" datetime="2020-07-25T12:02:54.000Z" itemprop="datePublished">2020-07-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2020/07/25/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="K:\MyBlog\hexo\source\_posts\机器学习\机器学习算法系列.png" alt=""></p>
+<h1 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h1><h1 id="逻辑斯特回归"><a href="#逻辑斯特回归" class="headerlink" title="逻辑斯特回归"></a>逻辑斯特回归</h1><h1 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flytowardnewworld.github.io/2020/07/25/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" data-id="clh1918bs00a804vk7x4v2ap2" data-title="机器学习" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" rel="tag">监督学习与非监督学习</a></li></ul>
+
     </footer>
   </div>
   
@@ -900,7 +613,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="../13/">&laquo; Prev</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../12/">12</a><a class="page-number" href="../13/">13</a><span class="page-number current">14</span><a class="page-number" href="../15/">15</a><a class="page-number" href="../16/">16</a><span class="space">&hellip;</span><a class="page-number" href="../18/">18</a><a class="extend next" rel="next" href="../15/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="../13/">&laquo; Prev</a><a class="page-number" href="../../">1</a><span class="space">&hellip;</span><a class="page-number" href="../12/">12</a><a class="page-number" href="../13/">13</a><span class="page-number current">14</span><a class="page-number" href="../15/">15</a><a class="page-number" href="../16/">16</a><span class="space">&hellip;</span><a class="page-number" href="../20/">20</a><a class="extend next" rel="next" href="../15/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -921,7 +634,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/1/" rel="tag">1</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/BI/" rel="tag">BI</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/BP/" rel="tag">BP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Boosting-AdaBoost/" rel="tag">Boosting, AdaBoost</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Categories/" rel="tag">Categories</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Daily/" rel="tag">Daily</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Data-Mining/" rel="tag">Data Mining</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Deep-learning/" rel="tag">Deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Excel/" rel="tag">Excel</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Numpuy/" rel="tag">Numpuy</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Pandas/" rel="tag">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/R/" rel="tag">R</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SQl/" rel="tag">SQl</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SVD/" rel="tag">SVD</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/deep-learning/" rel="tag">deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/df/" rel="tag">df</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/ielts/" rel="tag">ielts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/logisitics-regression/" rel="tag">logisitics regression</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/machine-learning/" rel="tag">machine learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/origin/" rel="tag">origin</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/tensorlow/" rel="tag">tensorlow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/test/" rel="tag">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92/" rel="tag">二次规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" rel="tag">交叉验证</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/" rel="tag">假设检验</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" rel="tag">关联规则</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%86%B3%E7%AD%96%E6%A0%91/" rel="tag">决策树</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%8D%95%E8%AF%8D/" rel="tag">单词</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%8D%A1%E6%96%B9%E5%88%86/" rel="tag">卡方分</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" rel="tag">回归分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" rel="tag">回归树</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%AE%89%E6%8E%92/" rel="tag">安排</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" rel="tag">希腊字母</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%BD%92%E4%B8%80%E5%8C%96/" rel="tag">归一化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%BD%A9%E9%93%85/" rel="tag">彩铅</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%80%9D%E7%BB%B4/" rel="tag">思维</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">我的读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%8A%80%E8%83%BD/" rel="tag">技能</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0/" rel="tag">抽样分布函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%8C%87%E6%A0%87/" rel="tag">指标</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" rel="tag">支持向量机</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" rel="tag">支持向量机回归</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%95%B0%E5%AD%97%E5%8C%96/" rel="tag">数字化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">数据分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD/" rel="tag">数据分析技能</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag">数据挖掘</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2/" rel="tag">数据探索</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%96%B0%E6%A6%82%E5%BF%B5/" rel="tag">新概念</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%96%B9%E6%B3%95/" rel="tag">方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%97%A5%E5%B8%B8/" rel="tag">日常</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%A0%87%E5%87%86%E5%8C%96/" rel="tag">标准化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/" rel="tag">案例分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%AD%A3%E5%88%99%E5%8C%96/" rel="tag">正则化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" rel="tag">特征工程</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" rel="tag">监督学习与非监督学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6/" rel="tag">社会科学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%A7%91%E7%A0%94/" rel="tag">科研</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" rel="tag">科研工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/" rel="tag">科研笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%AB%9E%E8%B5%9B/" rel="tag">竞赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%BB%98%E5%9B%BE/" rel="tag">绘图</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%81%8C%E4%B8%9A/" rel="tag">职业</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%83%BD%E5%8A%9B/" rel="tag">能力</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/" rel="tag">西瓜书</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/" rel="tag">计量经济学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" rel="tag">贝叶斯分类器</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%B7%AF%E7%BA%BF/" rel="tag">路线</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%BF%90%E8%90%A5/" rel="tag">运营</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%9B%85%E6%80%9D/" rel="tag">雅思</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="../../tags/1/" rel="tag">1</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/BI/" rel="tag">BI</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/BP/" rel="tag">BP</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Boosting-AdaBoost/" rel="tag">Boosting, AdaBoost</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Categories/" rel="tag">Categories</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Daily/" rel="tag">Daily</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Data-Mining/" rel="tag">Data Mining</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Deep-learning/" rel="tag">Deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/English/" rel="tag">English</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Excel/" rel="tag">Excel</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Numpuy/" rel="tag">Numpuy</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Pandas/" rel="tag">Pandas</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/R/" rel="tag">R</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SQl/" rel="tag">SQl</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/SVD/" rel="tag">SVD</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/deep-learning/" rel="tag">deep learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/df/" rel="tag">df</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/ielts/" rel="tag">ielts</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/logisitics-regression/" rel="tag">logisitics regression</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/machine-learning/" rel="tag">machine learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/origin/" rel="tag">origin</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/tensorlow/" rel="tag">tensorlow</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/test/" rel="tag">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92/" rel="tag">二次规划</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" rel="tag">交叉验证</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/" rel="tag">假设检验</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" rel="tag">关联规则</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%86%B3%E7%AD%96%E6%A0%91/" rel="tag">决策树</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%8D%95%E8%AF%8D/" rel="tag">单词</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%8D%A1%E6%96%B9%E5%88%86/" rel="tag">卡方分</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" rel="tag">回归分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" rel="tag">回归树</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%AE%89%E6%8E%92/" rel="tag">安排</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" rel="tag">希腊字母</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%BD%92%E4%B8%80%E5%8C%96/" rel="tag">归一化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E5%BD%A9%E9%93%85/" rel="tag">彩铅</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%80%9D%E7%BB%B4/" rel="tag">思维</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">我的读书笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%8A%80%E8%83%BD/" rel="tag">技能</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0/" rel="tag">抽样分布函数</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" rel="tag">支持向量机</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" rel="tag">支持向量机回归</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%95%B0%E5%AD%97%E5%8C%96/" rel="tag">数字化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">数据分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD/" rel="tag">数据分析技能</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag">数据挖掘</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2/" rel="tag">数据探索</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%96%B0%E6%A6%82%E5%BF%B5/" rel="tag">新概念</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%96%B9%E6%B3%95/" rel="tag">方法</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%96%B9%E6%B3%95%E8%AE%BA/" rel="tag">方法论</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%97%A5%E5%B8%B8/" rel="tag">日常</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%A0%87%E5%87%86%E5%8C%96/" rel="tag">标准化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/" rel="tag">案例分析</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%AD%A3%E5%88%99%E5%8C%96/" rel="tag">正则化</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" rel="tag">特征工程</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" rel="tag">监督学习与非监督学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6/" rel="tag">社会科学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%A7%91%E7%A0%94/" rel="tag">科研</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" rel="tag">科研工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/" rel="tag">科研笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%AB%9E%E8%B5%9B/" rel="tag">竞赛</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%BB%98%E5%9B%BE/" rel="tag">绘图</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" rel="tag">统计学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%81%8C%E4%B8%9A/" rel="tag">职业</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%83%BD%E5%8A%9B/" rel="tag">能力</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/" rel="tag">西瓜书</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/" rel="tag">计量经济学</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" rel="tag">贝叶斯分类器</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%B7%AF%E7%BA%BF/" rel="tag">路线</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E8%BF%90%E8%90%A5/" rel="tag">运营</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%9B%85%E6%80%9D/" rel="tag">雅思</a></li><li class="tag-list-item"><a class="tag-list-link" href="../../tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a></li></ul>
     </div>
   </div>
 
@@ -931,7 +644,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="../../tags/1/" style="font-size: 10px;">1</a> <a href="../../tags/BI/" style="font-size: 12px;">BI</a> <a href="../../tags/BP/" style="font-size: 10px;">BP</a> <a href="../../tags/Boosting-AdaBoost/" style="font-size: 10px;">Boosting, AdaBoost</a> <a href="../../tags/Categories/" style="font-size: 10px;">Categories</a> <a href="../../tags/Daily/" style="font-size: 12px;">Daily</a> <a href="../../tags/Data-Mining/" style="font-size: 10px;">Data Mining</a> <a href="../../tags/Deep-learning/" style="font-size: 16px;">Deep learning</a> <a href="../../tags/English/" style="font-size: 10px;">English</a> <a href="../../tags/Excel/" style="font-size: 10px;">Excel</a> <a href="../../tags/Numpuy/" style="font-size: 10px;">Numpuy</a> <a href="../../tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="../../tags/Python/" style="font-size: 16px;">Python</a> <a href="../../tags/R/" style="font-size: 10px;">R</a> <a href="../../tags/SQL/" style="font-size: 10px;">SQL</a> <a href="../../tags/SQl/" style="font-size: 10px;">SQl</a> <a href="../../tags/SVD/" style="font-size: 10px;">SVD</a> <a href="../../tags/deep-learning/" style="font-size: 10px;">deep learning</a> <a href="../../tags/df/" style="font-size: 10px;">df</a> <a href="../../tags/ielts/" style="font-size: 10px;">ielts</a> <a href="../../tags/linux/" style="font-size: 10px;">linux</a> <a href="../../tags/logisitics-regression/" style="font-size: 10px;">logisitics regression</a> <a href="../../tags/machine-learning/" style="font-size: 12px;">machine learning</a> <a href="../../tags/origin/" style="font-size: 10px;">origin</a> <a href="../../tags/python/" style="font-size: 10px;">python</a> <a href="../../tags/tensorlow/" style="font-size: 10px;">tensorlow</a> <a href="../../tags/test/" style="font-size: 10px;">test</a> <a href="../../tags/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92/" style="font-size: 10px;">二次规划</a> <a href="../../tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" style="font-size: 10px;">交叉验证</a> <a href="../../tags/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/" style="font-size: 10px;">假设检验</a> <a href="../../tags/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" style="font-size: 10px;">关联规则</a> <a href="../../tags/%E5%86%B3%E7%AD%96%E6%A0%91/" style="font-size: 14px;">决策树</a> <a href="../../tags/%E5%8D%95%E8%AF%8D/" style="font-size: 10px;">单词</a> <a href="../../tags/%E5%8D%A1%E6%96%B9%E5%88%86/" style="font-size: 10px;">卡方分</a> <a href="../../tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 14px;">可视化</a> <a href="../../tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" style="font-size: 10px;">回归分析</a> <a href="../../tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" style="font-size: 10px;">回归树</a> <a href="../../tags/%E5%AE%89%E6%8E%92/" style="font-size: 10px;">安排</a> <a href="../../tags/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" style="font-size: 10px;">希腊字母</a> <a href="../../tags/%E5%BD%92%E4%B8%80%E5%8C%96/" style="font-size: 10px;">归一化</a> <a href="../../tags/%E5%BD%A9%E9%93%85/" style="font-size: 10px;">彩铅</a> <a href="../../tags/%E6%80%9D%E7%BB%B4/" style="font-size: 18px;">思维</a> <a href="../../tags/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">我的读书笔记</a> <a href="../../tags/%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">技巧</a> <a href="../../tags/%E6%8A%80%E8%83%BD/" style="font-size: 12px;">技能</a> <a href="../../tags/%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0/" style="font-size: 10px;">抽样分布函数</a> <a href="../../tags/%E6%8C%87%E6%A0%87/" style="font-size: 10px;">指标</a> <a href="../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" style="font-size: 10px;">支持向量机</a> <a href="../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" style="font-size: 10px;">支持向量机回归</a> <a href="../../tags/%E6%95%B0%E5%AD%97%E5%8C%96/" style="font-size: 10px;">数字化</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 20px;">数据分析</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD/" style="font-size: 10px;">数据分析技能</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 10px;">数据挖掘</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2/" style="font-size: 10px;">数据探索</a> <a href="../../tags/%E6%96%B0%E6%A6%82%E5%BF%B5/" style="font-size: 10px;">新概念</a> <a href="../../tags/%E6%96%B9%E6%B3%95/" style="font-size: 10px;">方法</a> <a href="../../tags/%E6%97%A5%E5%B8%B8/" style="font-size: 12px;">日常</a> <a href="../../tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 12px;">机器学习</a> <a href="../../tags/%E6%A0%87%E5%87%86%E5%8C%96/" style="font-size: 10px;">标准化</a> <a href="../../tags/%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/" style="font-size: 10px;">案例分析</a> <a href="../../tags/%E6%AD%A3%E5%88%99%E5%8C%96/" style="font-size: 10px;">正则化</a> <a href="../../tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="../../tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">特征工程</a> <a href="../../tags/%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">生活</a> <a href="../../tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">监督学习与非监督学习</a> <a href="../../tags/%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6/" style="font-size: 10px;">社会科学</a> <a href="../../tags/%E7%A7%91%E7%A0%94/" style="font-size: 12px;">科研</a> <a href="../../tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">科研工具</a> <a href="../../tags/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">科研笔记</a> <a href="../../tags/%E7%AB%9E%E8%B5%9B/" style="font-size: 10px;">竞赛</a> <a href="../../tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="../../tags/%E7%BB%98%E5%9B%BE/" style="font-size: 10px;">绘图</a> <a href="../../tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 14px;">统计学</a> <a href="../../tags/%E8%81%8C%E4%B8%9A/" style="font-size: 10px;">职业</a> <a href="../../tags/%E8%83%BD%E5%8A%9B/" style="font-size: 10px;">能力</a> <a href="../../tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/" style="font-size: 10px;">西瓜书</a> <a href="../../tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/" style="font-size: 12px;">计量经济学</a> <a href="../../tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 10px;">读书</a> <a href="../../tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" style="font-size: 10px;">贝叶斯分类器</a> <a href="../../tags/%E8%B7%AF%E7%BA%BF/" style="font-size: 10px;">路线</a> <a href="../../tags/%E8%BF%90%E8%90%A5/" style="font-size: 10px;">运营</a> <a href="../../tags/%E9%9B%85%E6%80%9D/" style="font-size: 10px;">雅思</a> <a href="../../tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 10px;">项目</a>
+      <a href="../../tags/1/" style="font-size: 10px;">1</a> <a href="../../tags/BI/" style="font-size: 11.67px;">BI</a> <a href="../../tags/BP/" style="font-size: 10px;">BP</a> <a href="../../tags/Boosting-AdaBoost/" style="font-size: 10px;">Boosting, AdaBoost</a> <a href="../../tags/Categories/" style="font-size: 10px;">Categories</a> <a href="../../tags/Daily/" style="font-size: 16.67px;">Daily</a> <a href="../../tags/Data-Mining/" style="font-size: 10px;">Data Mining</a> <a href="../../tags/Deep-learning/" style="font-size: 15px;">Deep learning</a> <a href="../../tags/English/" style="font-size: 10px;">English</a> <a href="../../tags/Excel/" style="font-size: 10px;">Excel</a> <a href="../../tags/Numpuy/" style="font-size: 10px;">Numpuy</a> <a href="../../tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="../../tags/Python/" style="font-size: 16.67px;">Python</a> <a href="../../tags/R/" style="font-size: 10px;">R</a> <a href="../../tags/SQL/" style="font-size: 13.33px;">SQL</a> <a href="../../tags/SQl/" style="font-size: 10px;">SQl</a> <a href="../../tags/SVD/" style="font-size: 10px;">SVD</a> <a href="../../tags/deep-learning/" style="font-size: 10px;">deep learning</a> <a href="../../tags/df/" style="font-size: 10px;">df</a> <a href="../../tags/ielts/" style="font-size: 10px;">ielts</a> <a href="../../tags/linux/" style="font-size: 10px;">linux</a> <a href="../../tags/logisitics-regression/" style="font-size: 10px;">logisitics regression</a> <a href="../../tags/machine-learning/" style="font-size: 11.67px;">machine learning</a> <a href="../../tags/origin/" style="font-size: 10px;">origin</a> <a href="../../tags/python/" style="font-size: 10px;">python</a> <a href="../../tags/tensorlow/" style="font-size: 10px;">tensorlow</a> <a href="../../tags/test/" style="font-size: 10px;">test</a> <a href="../../tags/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92/" style="font-size: 10px;">二次规划</a> <a href="../../tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" style="font-size: 10px;">交叉验证</a> <a href="../../tags/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/" style="font-size: 10px;">假设检验</a> <a href="../../tags/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" style="font-size: 10px;">关联规则</a> <a href="../../tags/%E5%86%B3%E7%AD%96%E6%A0%91/" style="font-size: 11.67px;">决策树</a> <a href="../../tags/%E5%8D%95%E8%AF%8D/" style="font-size: 10px;">单词</a> <a href="../../tags/%E5%8D%A1%E6%96%B9%E5%88%86/" style="font-size: 10px;">卡方分</a> <a href="../../tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 11.67px;">可视化</a> <a href="../../tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" style="font-size: 10px;">回归分析</a> <a href="../../tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" style="font-size: 10px;">回归树</a> <a href="../../tags/%E5%AE%89%E6%8E%92/" style="font-size: 10px;">安排</a> <a href="../../tags/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" style="font-size: 10px;">希腊字母</a> <a href="../../tags/%E5%BD%92%E4%B8%80%E5%8C%96/" style="font-size: 10px;">归一化</a> <a href="../../tags/%E5%BD%A9%E9%93%85/" style="font-size: 10px;">彩铅</a> <a href="../../tags/%E6%80%9D%E7%BB%B4/" style="font-size: 18.33px;">思维</a> <a href="../../tags/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">我的读书笔记</a> <a href="../../tags/%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">技巧</a> <a href="../../tags/%E6%8A%80%E8%83%BD/" style="font-size: 11.67px;">技能</a> <a href="../../tags/%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0/" style="font-size: 10px;">抽样分布函数</a> <a href="../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" style="font-size: 10px;">支持向量机</a> <a href="../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" style="font-size: 10px;">支持向量机回归</a> <a href="../../tags/%E6%95%B0%E5%AD%97%E5%8C%96/" style="font-size: 10px;">数字化</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 20px;">数据分析</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD/" style="font-size: 10px;">数据分析技能</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 10px;">数据挖掘</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2/" style="font-size: 10px;">数据探索</a> <a href="../../tags/%E6%96%B0%E6%A6%82%E5%BF%B5/" style="font-size: 10px;">新概念</a> <a href="../../tags/%E6%96%B9%E6%B3%95/" style="font-size: 10px;">方法</a> <a href="../../tags/%E6%96%B9%E6%B3%95%E8%AE%BA/" style="font-size: 10px;">方法论</a> <a href="../../tags/%E6%97%A5%E5%B8%B8/" style="font-size: 11.67px;">日常</a> <a href="../../tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 11.67px;">机器学习</a> <a href="../../tags/%E6%A0%87%E5%87%86%E5%8C%96/" style="font-size: 10px;">标准化</a> <a href="../../tags/%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/" style="font-size: 10px;">案例分析</a> <a href="../../tags/%E6%AD%A3%E5%88%99%E5%8C%96/" style="font-size: 10px;">正则化</a> <a href="../../tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="../../tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">特征工程</a> <a href="../../tags/%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">生活</a> <a href="../../tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">监督学习与非监督学习</a> <a href="../../tags/%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6/" style="font-size: 10px;">社会科学</a> <a href="../../tags/%E7%A7%91%E7%A0%94/" style="font-size: 11.67px;">科研</a> <a href="../../tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">科研工具</a> <a href="../../tags/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">科研笔记</a> <a href="../../tags/%E7%AB%9E%E8%B5%9B/" style="font-size: 10px;">竞赛</a> <a href="../../tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="../../tags/%E7%BB%98%E5%9B%BE/" style="font-size: 10px;">绘图</a> <a href="../../tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 13.33px;">统计学</a> <a href="../../tags/%E8%81%8C%E4%B8%9A/" style="font-size: 10px;">职业</a> <a href="../../tags/%E8%83%BD%E5%8A%9B/" style="font-size: 10px;">能力</a> <a href="../../tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/" style="font-size: 10px;">西瓜书</a> <a href="../../tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/" style="font-size: 11.67px;">计量经济学</a> <a href="../../tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 10px;">读书</a> <a href="../../tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" style="font-size: 10px;">贝叶斯分类器</a> <a href="../../tags/%E8%B7%AF%E7%BA%BF/" style="font-size: 10px;">路线</a> <a href="../../tags/%E8%BF%90%E8%90%A5/" style="font-size: 10px;">运营</a> <a href="../../tags/%E9%9B%85%E6%80%9D/" style="font-size: 10px;">雅思</a> <a href="../../tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 10px;">项目</a>
     </div>
   </div>
 
@@ -940,7 +653,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/02/">February 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/02/">February 2019</a></li></ul>
     </div>
   </div>
 
@@ -953,23 +666,23 @@
       <ul>
         
           <li>
-            <a href="../../2022/10/04/%E7%A7%91%E7%A0%94%E4%B9%8B%E7%A7%91%E7%A0%94%E6%96%B9%E6%B3%95%E7%B3%BB%E5%88%97/">科研之科研方法系列</a>
+            <a href="../../2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%BC%82%E5%B8%B8%E6%B5%8B%E8%AF%95/">软件测试异常测试</a>
           </li>
         
           <li>
-            <a href="../../2022/10/04/%E7%A7%91%E7%A0%94%E4%B9%8B%E9%80%BB%E8%BE%91%E6%96%AF%E7%89%B9%E5%9B%9E%E5%BD%92/">科研之逻辑斯特回归</a>
+            <a href="../../2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E5%85%BC%E5%AE%B9%E6%80%A7%E6%B5%8B%E8%AF%95/">软件测试用户界面兼容性测试</a>
           </li>
         
           <li>
-            <a href="../../2022/10/04/%E7%A7%91%E7%A0%94%E4%B9%8B%E5%86%85%E7%94%9F%E6%80%A7/">科研之内生性</a>
+            <a href="../../2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E6%B5%8B%E8%AF%95/">软件测试用户界面测试</a>
           </li>
         
           <li>
-            <a href="../../2022/10/03/%E7%88%B1%E7%94%9F%E6%B4%BB-%E5%AF%BC%E8%88%AA%E6%A0%8F/">爱生活-导航栏</a>
+            <a href="../../2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/">软件测试安装测试</a>
           </li>
         
           <li>
-            <a href="../../2022/10/03/Statistics-%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0/">Statistics-抽样分布函数</a>
+            <a href="../../2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/">软件测试压力测试</a>
           </li>
         
       </ul>
@@ -985,7 +698,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2022 John Doe<br>
+      &copy; 2023 John Doe<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
