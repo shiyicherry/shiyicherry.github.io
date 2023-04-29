@@ -71,6 +71,221 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-linux" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2019/11/27/linux/" class="article-date">
+  <time class="dt-published" datetime="2019-11-27T06:04:05.000Z" itemprop="datePublished">2019-11-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/machine-learning/">machine learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2019/11/27/linux/">linux</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>linux内核，linux发行版（带桌面环境），服务器的访问方式（三种），linux操作系统的相关使用，通过命令行和键盘输入搞定（用户权限，用户分组，用户之间的关系，用户操作；文件结构，文件使用，文件权限，文件编辑，文件压缩和解压，这系列操作类比操作系统，只是linux系统里面，都是命令行完成，不是可视化界面罢了；帮助，终止操作，root，sudo,超级管理员，管理员组，普通用户）windows操作系统可以干的事情，在linux服务器里面，都可以干，通过命令行配置，安装，完成！</p>
+<h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><h2 id="Linux-的科普"><a href="#Linux-的科普" class="headerlink" title="Linux 的科普"></a>Linux 的科普</h2><p> Linux 是一套免费使用和自由传播的类 Unix 操作系统 ，支持多用户，多任务，支持多线程和对CPU的操作系统。，就像你多少已经了解的 Windows（xp，7，8）和 Mac OS 。</p>
+<p><img src="https://doc.shiyanlou.com/linux_base/1-1.png/wm" alt="图1-1"></p>
+<p> 或许你之前不知道 Linux ，要知道，你之前在 Windows 使用百度、谷歌，上淘宝，聊 QQ 时，支撑这些软件和服务的，是后台成千上万的 Linux 服务器主机，它们时时刻刻都在忙碌地进行着数据处理和运算，可以说世界上大部分软件和服务都是运行在 Linux 之上的。 </p>
+<p> 明确目的：你是要用 Linux 来干什么，搭建服务器、做程序开发、日常办公，还是娱乐游戏； </p>
+<p> 兼具图形界面操作（需要使用带有桌面环境的发行版）和完全的命令行操作，可以只用键盘完成一切操作，新手入门较困难，需要一些学习和指导（这正是我们要做的事情），一旦熟练之后效率极高。 </p>
+<p>一般命令行操作，通过键盘完成</p>
+<p> 因为linux的哲学就是：没有结果就是最好的结果 </p>
+<p> 如果只是执行，执行失败会告诉你哪里错了，如果执行成功那么会没有输出，因为linux的哲学就是：没有结果就是最好的结果 </p>
+<h2 id="Linux的发行版"><a href="#Linux的发行版" class="headerlink" title="Linux的发行版"></a>Linux的发行版</h2><p>Linux发行版 = linux内核+应用软件的打包</p>
+<p>知名的发行版： ubuntu，redhat,centos</p>
+<p>Linux系统</p>
+<ol>
+<li><p>用户登录系统</p>
+<p>（1）命令行</p>
+<p>（2）ssh登录</p>
+<p> SSH 为 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Secure Shell">Secure Shell</a> 的缩写 ，用于远程登陆的协议</p>
+<p>远程连接工具客户端：xshell, putty,</p>
+<p>  (3)   图形界面登录</p>
+</li>
+</ol>
+<p><img src="https://img-blog.csdn.net/20180719122550321?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zOTAzNjcwMA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="img"></p>
+<ol>
+<li><p>文件目录以及权限</p>
+<ol>
+<li>Linux 中创建、删除用户，及用户组等操作。</li>
+<li>Linux 中的文件权限设置。</li>
+</ol>
+<p>1.2 实验知识点</p>
+<ul>
+<li>Linux <strong>用户管理</strong></li>
+<li>Linux <strong>权限管理</strong></li>
+</ul>
+<ol>
+<li><p>用户管理</p>
+<p>通过第一节课程的学习，你应该已经知道，Linux 是一个可以实现多用户登录的操作系统，比如“李雷”和“韩梅梅”都可以同时登录同一台主机，他们共享一些主机的资源，但他们也分别有自己的用户空间，用于存放各自的文件。但实际上他们的文件都是放在同一个物理磁盘上的甚至同一个逻辑分区或者目录里，但是由于 Linux 的 <strong>用户管理</strong>和 <strong>权限机制</strong>，不同用户不可以轻易地查看、修改彼此的文件。 </p>
+</li>
+<li><p>在 Linux 系统里， <code>root</code> 账户拥有整个系统至高无上的权利，比如 新建/添加 用户。</p>
+<p>sudo adduser lilei</p>
+</li>
+<li><p>创建用户（sudo 组）</p>
+<p>我们一般登录系统时都是以普通账户的身份登录的，要创建用户需要 root 权限，这里就要用到 <code>sudo</code> 这个命令了。不过使用这个命令有两个大前提，一是你要知道当前登录用户的密码，二是当前用户必须在 <code>sudo</code> 用户组。 sudo命令：获得root权限</p>
+</li>
+<li><p>用户组</p>
+<p>查看：</p>
+<p>在 Linux 里面每个用户都有一个归属（用户组），用户组简单地理解就是一组用户的集合，它们共享一些资源和权限，同时拥有私有资源 。</p>
+<p> groups shiyanlou </p>
+<p>加入sudo用户组</p>
+<p>su <user>：切换用户user，需要输入目标用户和密码</p>
+<p>sudo usermod -G sudo lilei</p>
+</li>
+<li><p>文件所以者</p>
+<p>su -l lilei</p>
+<p>su chown 修改权限</p>
+<p><code>sudo</code> 可以以特权级别运行 cmd 命令，需要当前用户属于 sudo 组，且需要输入当前用户的密码。 </p>
+</li>
+</ol>
+</li>
+<li><p>文档编辑</p>
+<p>vim编辑器</p>
+<p>i esc :wq</p>
+</li>
+<li><p>linux文件系统与磁盘管理</p>
+</li>
+<li><p><img src="https://doc.shiyanlou.com/linux_base/4-1.png/wm" alt="img"></p>
+<p>  $ tree /  </p>
+<p>pwd</p>
+<p>cd ..: 上一级目录</p>
+<p>../</p>
+<p>/:根目录：绝对路径</p>
+<p> cd /home/shiyanlou</p>
+<p>touch test</p>
+<p> mkdir mydir </p>
+<p>  <code>cp</code>（copy）命令复制一个文件到指定目录 </p>
+<p> 要成功复制目录需要加上 <code>-r</code> 或者 <code>-R</code> 参数，表示递归复制 </p>
+<p>cd /home/shiyanlou<br> mkdir family<br>​ cp -r father family</p>
+</li>
+</ol>
+<pre><code>rm test 
+
+跟复制目录一样，要删除一个目录，也需要加上 `-r` 或 `-R` 参数 
+
+mv 源目录文件 目的目录 ，可以用来重命名文件
+</code></pre><p>   $ cd /home/shiyanlou/</p>
+<p>   使用通配符批量创建 5 个文件:</p>
+<p>   $ touch file{1..5}.txt</p>
+<p>   批量将这 5 个后缀为 .txt 的文本文件重命名为以 .c 为后缀的文件:</p>
+<p>   $ rename ‘s/.txt/.c/‘ *.txt</p>
+<p>   批量将这 5 个文件，文件名和后缀改为大写:</p>
+<p>   $ rename ‘y/a-z/A-Z/‘ *.c</p>
+<p>   文件打包和解压缩</p>
+<ul>
+<li>zip：<ul>
+<li>打包 ：zip something.zip something （目录请加 -r 参数）</li>
+<li>解包：unzip something.zip</li>
+<li>指定路径：-d 参数</li>
+</ul>
+</li>
+<li><p>tar：</p>
+<ul>
+<li>打包：tar -cf something.tar something</li>
+<li>解包：tar -xf something.tar</li>
+<li>指定路径：-C 参数、</li>
+</ul>
+<p>tar -cf shiyanlou.tar /home/shiyanlou/Desktop </p>
+<p><code>-c</code> 表示创建一个 tar 包文件，<code>-f</code> 用于指定创建的文件名，注意文件名必须紧跟在 <code>-f</code> 参数之后 </p>
+<p>tar -xf shiyanlou.tar -C tardir </p>
+<p>解包一个文件（<code>-x</code> 参数）到指定路径的<strong>已存在</strong>目录（<code>-C</code> 参数） </p>
+<p>tar -xzf shiyanlou.tar.gz </p>
+</li>
+</ul>
+<ol>
+<li><p>| 压缩文件格式 | 参数 |<br>| —————— | —— |<br>| <code>*.tar.gz</code>   | <code>-z</code> |<br>| <code>*.tar.xz</code>   | <code>-J</code> |<br>| <code>*tar.bz2</code>   | <code>-j</code> |</p>
+</li>
+<li><p>linux安装软件</p>
+</li>
+</ol>
+<h3 id="输入，输出"><a href="#输入，输出" class="headerlink" title="输入，输出"></a>输入，输出</h3><p>   输入：输入当然就是打开终端，然后按键盘输入，然后按回车，输入格式一般就是这类的</p>
+<p>输出：</p>
+<p>输出会返回你想要的结果，比如你要看什么文件，就会返回文件的内容。</p>
+<p>如果只是执行，执行失败会告诉你哪里错了，如果执行成功那么会没有输出，因为linux的哲学就是：没有结果就是最好的结果</p>
+<p>Tab: 命令补全</p>
+<p>Ctrl+C:强制终止</p>
+<p>学会使用通配符：通配符：*,?</p>
+<p>学会在命令行中获取帮助：man命令调用手册页，</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>区段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>一般命令</td>
+</tr>
+<tr>
+<td>2</td>
+<td>系统调用</td>
+</tr>
+<tr>
+<td>3</td>
+<td>库函数，涵盖了C标准函数库</td>
+</tr>
+<tr>
+<td>4</td>
+<td>特殊文件（通常是/dev中的设备）和驱动程序</td>
+</tr>
+<tr>
+<td>5</td>
+<td>文件格式和约定</td>
+</tr>
+<tr>
+<td>6</td>
+<td>游戏和屏保</td>
+</tr>
+<tr>
+<td>7</td>
+<td>杂项</td>
+</tr>
+<tr>
+<td>8</td>
+<td>系统管理命令和守护进程</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">man 1 ls</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls --help</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flytowardnewworld.github.io/2019/11/27/linux/" data-id="clh19189r003j04vkgbvf41rj" data-title="linux" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/linux/" rel="tag">linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-清晰有效的数据分析思路" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="../../2019/11/26/%E6%B8%85%E6%99%B0%E6%9C%89%E6%95%88%E7%9A%84%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%80%9D%E8%B7%AF/" class="article-date">
@@ -1417,138 +1632,6 @@ J\left(w^{[1]}, b^{[1]}, \ldots \ldots\right)=\frac{1}{m} \sum_{i=1}^{m} L\left(
 
 
   
-    <article id="post-彩铅DailyLifeStyle" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2019/04/16/%E5%BD%A9%E9%93%85DailyLifeStyle/" class="article-date">
-  <time class="dt-published" datetime="2019-04-16T12:20:46.000Z" itemprop="datePublished">2019-04-16</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="../../categories/%E5%A8%B1%E4%B9%90%E7%94%9F%E6%B4%BB/">娱乐生活</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2019/04/16/%E5%BD%A9%E9%93%85DailyLifeStyle/">彩铅DailyLifeStyle</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id=""><a href="#" class="headerlink" title=""></a><!-- more  --></h1><h1 id="Day-one"><a href="#Day-one" class="headerlink" title="Day one"></a>Day one</h1><h2 id="1-工具简单介绍"><a href="#1-工具简单介绍" class="headerlink" title="1. 工具简单介绍"></a>1. 工具简单介绍</h2><ol>
-<li><p>彩铅</p>
-<p>水溶性，油性</p>
-</li>
-<li><p>彩铅纸</p>
-</li>
-<li><p>铅笔</p>
-<ol>
-<li><p>B</p>
-<p>2B&lt;4B黑的程度</p>
-</li>
-<li><p>H</p>
-<p>4H&lt;8H软度</p>
-</li>
-</ol>
-</li>
-<li><p>橡皮</p>
-<ol>
-<li>软橡皮</li>
-<li>硬橡皮</li>
-<li>电动橡皮擦</li>
-</ol>
-</li>
-<li><p>铅笔刀</p>
-<ol>
-<li>可跳档类型</li>
-</ol>
-</li>
-<li><p>勾线笔</p>
-</li>
-<li><p>针管笔 （樱花）</p>
-</li>
-<li><p>笔套</p>
-</li>
-<li><p>高光笔</p>
-<ol>
-<li>可以用修正液替换（三棱)</li>
-</ol>
-</li>
-<li><p>纸擦笔</p>
-<ol>
-<li>玛丽</li>
-</ol>
-</li>
-<li>刷子</li>
-<li><p>画板</p>
-<ol>
-<li>速写板</li>
-</ol>
-</li>
-</ol>
-<h2 id="2-颜色"><a href="#2-颜色" class="headerlink" title="2. 颜色"></a>2. 颜色</h2><p>三原色： 红 黄 蓝</p>
-<ol>
-<li><p>色相</p>
-<p>颜色</p>
-</li>
-<li><p>饱和度</p>
-<ol>
-<li>鲜艳程度</li>
-</ol>
-</li>
-<li><p>明度</p>
-<ol>
-<li>明暗程度</li>
-</ol>
-</li>
-<li>邻近色</li>
-<li>对比色<ol>
-<li>红-绿</li>
-<li>蓝-橙</li>
-<li>紫-黄</li>
-</ol>
-</li>
-<li>暖色和冷色</li>
-</ol>
-<h2 id="3-排线"><a href="#3-排线" class="headerlink" title="3. 排线"></a>3. 排线</h2><ol>
-<li><p>一个方向</p>
-<p>往同一个方向排，无连接</p>
-</li>
-<li><p>来回</p>
-<p>相连接，一条线</p>
-</li>
-<li><p>不同方向排列</p>
-</li>
-</ol>
-<p>注意：力度和间距</p>
-<h2 id="4-平涂"><a href="#4-平涂" class="headerlink" title="4. 平涂"></a>4. 平涂</h2><p>力度一致</p>
-<h2 id="5-渐变"><a href="#5-渐变" class="headerlink" title="5. 渐变"></a>5. 渐变</h2><p>力度不一致</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://flytowardnewworld.github.io/2019/04/16/%E5%BD%A9%E9%93%85DailyLifeStyle/" data-id="clh1918aq006404vk2t8781j6" data-title="彩铅DailyLifeStyle" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E5%BD%A9%E9%93%85/" rel="tag">彩铅</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -1584,7 +1667,7 @@ J\left(w^{[1]}, b^{[1]}, \ldots \ldots\right)=\frac{1}{m} \sum_{i=1}^{m} L\left(
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="../../tags/1/" style="font-size: 10px;">1</a> <a href="../../tags/BI/" style="font-size: 11.67px;">BI</a> <a href="../../tags/BP/" style="font-size: 10px;">BP</a> <a href="../../tags/Boosting-AdaBoost/" style="font-size: 10px;">Boosting, AdaBoost</a> <a href="../../tags/Categories/" style="font-size: 10px;">Categories</a> <a href="../../tags/Daily/" style="font-size: 16.67px;">Daily</a> <a href="../../tags/Data-Mining/" style="font-size: 10px;">Data Mining</a> <a href="../../tags/Deep-learning/" style="font-size: 15px;">Deep learning</a> <a href="../../tags/English/" style="font-size: 10px;">English</a> <a href="../../tags/Excel/" style="font-size: 10px;">Excel</a> <a href="../../tags/Numpuy/" style="font-size: 10px;">Numpuy</a> <a href="../../tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="../../tags/Python/" style="font-size: 16.67px;">Python</a> <a href="../../tags/R/" style="font-size: 10px;">R</a> <a href="../../tags/SQL/" style="font-size: 13.33px;">SQL</a> <a href="../../tags/SQl/" style="font-size: 10px;">SQl</a> <a href="../../tags/SVD/" style="font-size: 10px;">SVD</a> <a href="../../tags/deep-learning/" style="font-size: 10px;">deep learning</a> <a href="../../tags/df/" style="font-size: 10px;">df</a> <a href="../../tags/ielts/" style="font-size: 10px;">ielts</a> <a href="../../tags/linux/" style="font-size: 10px;">linux</a> <a href="../../tags/logisitics-regression/" style="font-size: 10px;">logisitics regression</a> <a href="../../tags/machine-learning/" style="font-size: 11.67px;">machine learning</a> <a href="../../tags/origin/" style="font-size: 10px;">origin</a> <a href="../../tags/python/" style="font-size: 10px;">python</a> <a href="../../tags/tensorlow/" style="font-size: 10px;">tensorlow</a> <a href="../../tags/test/" style="font-size: 10px;">test</a> <a href="../../tags/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92/" style="font-size: 10px;">二次规划</a> <a href="../../tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" style="font-size: 10px;">交叉验证</a> <a href="../../tags/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/" style="font-size: 10px;">假设检验</a> <a href="../../tags/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" style="font-size: 10px;">关联规则</a> <a href="../../tags/%E5%86%B3%E7%AD%96%E6%A0%91/" style="font-size: 11.67px;">决策树</a> <a href="../../tags/%E5%8D%95%E8%AF%8D/" style="font-size: 10px;">单词</a> <a href="../../tags/%E5%8D%A1%E6%96%B9%E5%88%86/" style="font-size: 10px;">卡方分</a> <a href="../../tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 11.67px;">可视化</a> <a href="../../tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" style="font-size: 10px;">回归分析</a> <a href="../../tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" style="font-size: 10px;">回归树</a> <a href="../../tags/%E5%AE%89%E6%8E%92/" style="font-size: 10px;">安排</a> <a href="../../tags/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" style="font-size: 10px;">希腊字母</a> <a href="../../tags/%E5%BD%92%E4%B8%80%E5%8C%96/" style="font-size: 10px;">归一化</a> <a href="../../tags/%E5%BD%A9%E9%93%85/" style="font-size: 10px;">彩铅</a> <a href="../../tags/%E6%80%9D%E7%BB%B4/" style="font-size: 18.33px;">思维</a> <a href="../../tags/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">我的读书笔记</a> <a href="../../tags/%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">技巧</a> <a href="../../tags/%E6%8A%80%E8%83%BD/" style="font-size: 11.67px;">技能</a> <a href="../../tags/%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0/" style="font-size: 10px;">抽样分布函数</a> <a href="../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" style="font-size: 10px;">支持向量机</a> <a href="../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" style="font-size: 10px;">支持向量机回归</a> <a href="../../tags/%E6%95%B0%E5%AD%97%E5%8C%96/" style="font-size: 10px;">数字化</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 20px;">数据分析</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD/" style="font-size: 10px;">数据分析技能</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 10px;">数据挖掘</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2/" style="font-size: 10px;">数据探索</a> <a href="../../tags/%E6%96%B0%E6%A6%82%E5%BF%B5/" style="font-size: 10px;">新概念</a> <a href="../../tags/%E6%96%B9%E6%B3%95/" style="font-size: 10px;">方法</a> <a href="../../tags/%E6%96%B9%E6%B3%95%E8%AE%BA/" style="font-size: 10px;">方法论</a> <a href="../../tags/%E6%97%A5%E5%B8%B8/" style="font-size: 11.67px;">日常</a> <a href="../../tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 11.67px;">机器学习</a> <a href="../../tags/%E6%A0%87%E5%87%86%E5%8C%96/" style="font-size: 10px;">标准化</a> <a href="../../tags/%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/" style="font-size: 10px;">案例分析</a> <a href="../../tags/%E6%AD%A3%E5%88%99%E5%8C%96/" style="font-size: 10px;">正则化</a> <a href="../../tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="../../tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">特征工程</a> <a href="../../tags/%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">生活</a> <a href="../../tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">监督学习与非监督学习</a> <a href="../../tags/%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6/" style="font-size: 10px;">社会科学</a> <a href="../../tags/%E7%A7%91%E7%A0%94/" style="font-size: 11.67px;">科研</a> <a href="../../tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">科研工具</a> <a href="../../tags/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">科研笔记</a> <a href="../../tags/%E7%AB%9E%E8%B5%9B/" style="font-size: 10px;">竞赛</a> <a href="../../tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="../../tags/%E7%BB%98%E5%9B%BE/" style="font-size: 10px;">绘图</a> <a href="../../tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 13.33px;">统计学</a> <a href="../../tags/%E8%81%8C%E4%B8%9A/" style="font-size: 10px;">职业</a> <a href="../../tags/%E8%83%BD%E5%8A%9B/" style="font-size: 10px;">能力</a> <a href="../../tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/" style="font-size: 10px;">西瓜书</a> <a href="../../tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/" style="font-size: 11.67px;">计量经济学</a> <a href="../../tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 10px;">读书</a> <a href="../../tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" style="font-size: 10px;">贝叶斯分类器</a> <a href="../../tags/%E8%B7%AF%E7%BA%BF/" style="font-size: 10px;">路线</a> <a href="../../tags/%E8%BF%90%E8%90%A5/" style="font-size: 10px;">运营</a> <a href="../../tags/%E9%9B%85%E6%80%9D/" style="font-size: 10px;">雅思</a> <a href="../../tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 10px;">项目</a>
+      <a href="../../tags/1/" style="font-size: 10px;">1</a> <a href="../../tags/BI/" style="font-size: 11.67px;">BI</a> <a href="../../tags/BP/" style="font-size: 10px;">BP</a> <a href="../../tags/Boosting-AdaBoost/" style="font-size: 10px;">Boosting, AdaBoost</a> <a href="../../tags/Categories/" style="font-size: 10px;">Categories</a> <a href="../../tags/Daily/" style="font-size: 18.33px;">Daily</a> <a href="../../tags/Data-Mining/" style="font-size: 10px;">Data Mining</a> <a href="../../tags/Deep-learning/" style="font-size: 15px;">Deep learning</a> <a href="../../tags/English/" style="font-size: 10px;">English</a> <a href="../../tags/Excel/" style="font-size: 10px;">Excel</a> <a href="../../tags/Numpuy/" style="font-size: 10px;">Numpuy</a> <a href="../../tags/Pandas/" style="font-size: 10px;">Pandas</a> <a href="../../tags/Python/" style="font-size: 16.67px;">Python</a> <a href="../../tags/R/" style="font-size: 10px;">R</a> <a href="../../tags/SQL/" style="font-size: 13.33px;">SQL</a> <a href="../../tags/SQl/" style="font-size: 10px;">SQl</a> <a href="../../tags/SVD/" style="font-size: 10px;">SVD</a> <a href="../../tags/deep-learning/" style="font-size: 10px;">deep learning</a> <a href="../../tags/df/" style="font-size: 10px;">df</a> <a href="../../tags/ielts/" style="font-size: 10px;">ielts</a> <a href="../../tags/linux/" style="font-size: 10px;">linux</a> <a href="../../tags/logisitics-regression/" style="font-size: 10px;">logisitics regression</a> <a href="../../tags/machine-learning/" style="font-size: 11.67px;">machine learning</a> <a href="../../tags/origin/" style="font-size: 10px;">origin</a> <a href="../../tags/python/" style="font-size: 10px;">python</a> <a href="../../tags/tensorlow/" style="font-size: 10px;">tensorlow</a> <a href="../../tags/test/" style="font-size: 10px;">test</a> <a href="../../tags/%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92/" style="font-size: 10px;">二次规划</a> <a href="../../tags/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/" style="font-size: 10px;">交叉验证</a> <a href="../../tags/%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/" style="font-size: 10px;">假设检验</a> <a href="../../tags/%E5%85%B3%E8%81%94%E8%A7%84%E5%88%99/" style="font-size: 10px;">关联规则</a> <a href="../../tags/%E5%86%B3%E7%AD%96%E6%A0%91/" style="font-size: 11.67px;">决策树</a> <a href="../../tags/%E5%8D%95%E8%AF%8D/" style="font-size: 10px;">单词</a> <a href="../../tags/%E5%8D%A1%E6%96%B9%E5%88%86/" style="font-size: 10px;">卡方分</a> <a href="../../tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 11.67px;">可视化</a> <a href="../../tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/" style="font-size: 10px;">回归分析</a> <a href="../../tags/%E5%9B%9E%E5%BD%92%E6%A0%91/" style="font-size: 10px;">回归树</a> <a href="../../tags/%E5%AE%89%E6%8E%92/" style="font-size: 10px;">安排</a> <a href="../../tags/%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D/" style="font-size: 10px;">希腊字母</a> <a href="../../tags/%E5%BD%92%E4%B8%80%E5%8C%96/" style="font-size: 10px;">归一化</a> <a href="../../tags/%E5%BD%A9%E9%93%85/" style="font-size: 10px;">彩铅</a> <a href="../../tags/%E6%80%9D%E7%BB%B4/" style="font-size: 18.33px;">思维</a> <a href="../../tags/%E6%88%91%E7%9A%84%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">我的读书笔记</a> <a href="../../tags/%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">技巧</a> <a href="../../tags/%E6%8A%80%E8%83%BD/" style="font-size: 11.67px;">技能</a> <a href="../../tags/%E6%8A%BD%E6%A0%B7%E5%88%86%E5%B8%83%E5%87%BD%E6%95%B0/" style="font-size: 10px;">抽样分布函数</a> <a href="../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" style="font-size: 10px;">支持向量机</a> <a href="../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" style="font-size: 10px;">支持向量机回归</a> <a href="../../tags/%E6%95%B0%E5%AD%97%E5%8C%96/" style="font-size: 10px;">数字化</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 20px;">数据分析</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%8A%80%E8%83%BD/" style="font-size: 10px;">数据分析技能</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" style="font-size: 10px;">数据挖掘</a> <a href="../../tags/%E6%95%B0%E6%8D%AE%E6%8E%A2%E7%B4%A2/" style="font-size: 10px;">数据探索</a> <a href="../../tags/%E6%96%B0%E6%A6%82%E5%BF%B5/" style="font-size: 10px;">新概念</a> <a href="../../tags/%E6%96%B9%E6%B3%95/" style="font-size: 10px;">方法</a> <a href="../../tags/%E6%96%B9%E6%B3%95%E8%AE%BA/" style="font-size: 10px;">方法论</a> <a href="../../tags/%E6%97%A5%E5%B8%B8/" style="font-size: 11.67px;">日常</a> <a href="../../tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 11.67px;">机器学习</a> <a href="../../tags/%E6%A0%87%E5%87%86%E5%8C%96/" style="font-size: 10px;">标准化</a> <a href="../../tags/%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/" style="font-size: 10px;">案例分析</a> <a href="../../tags/%E6%AD%A3%E5%88%99%E5%8C%96/" style="font-size: 10px;">正则化</a> <a href="../../tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a> <a href="../../tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">特征工程</a> <a href="../../tags/%E7%94%9F%E6%B4%BB/" style="font-size: 10px;">生活</a> <a href="../../tags/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0%E4%B8%8E%E9%9D%9E%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">监督学习与非监督学习</a> <a href="../../tags/%E7%A4%BE%E4%BC%9A%E7%A7%91%E5%AD%A6/" style="font-size: 10px;">社会科学</a> <a href="../../tags/%E7%A7%91%E7%A0%94/" style="font-size: 11.67px;">科研</a> <a href="../../tags/%E7%A7%91%E7%A0%94%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">科研工具</a> <a href="../../tags/%E7%A7%91%E7%A0%94%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">科研笔记</a> <a href="../../tags/%E7%AB%9E%E8%B5%9B/" style="font-size: 10px;">竞赛</a> <a href="../../tags/%E7%AE%97%E6%B3%95/" style="font-size: 10px;">算法</a> <a href="../../tags/%E7%BB%98%E5%9B%BE/" style="font-size: 10px;">绘图</a> <a href="../../tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" style="font-size: 13.33px;">统计学</a> <a href="../../tags/%E8%81%8C%E4%B8%9A/" style="font-size: 10px;">职业</a> <a href="../../tags/%E8%83%BD%E5%8A%9B/" style="font-size: 10px;">能力</a> <a href="../../tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/" style="font-size: 10px;">西瓜书</a> <a href="../../tags/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6/" style="font-size: 11.67px;">计量经济学</a> <a href="../../tags/%E8%AF%BB%E4%B9%A6/" style="font-size: 10px;">读书</a> <a href="../../tags/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" style="font-size: 10px;">贝叶斯分类器</a> <a href="../../tags/%E8%B7%AF%E7%BA%BF/" style="font-size: 10px;">路线</a> <a href="../../tags/%E8%BF%90%E8%90%A5/" style="font-size: 10px;">运营</a> <a href="../../tags/%E9%9B%85%E6%80%9D/" style="font-size: 10px;">雅思</a> <a href="../../tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 10px;">项目</a>
     </div>
   </div>
 
@@ -1593,7 +1676,7 @@ J\left(w^{[1]}, b^{[1]}, \ldots \ldots\right)=\frac{1}{m} \sum_{i=1}^{m} L\left(
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/02/">February 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/02/">February 2019</a></li></ul>
     </div>
   </div>
 
@@ -1604,6 +1687,10 @@ J\left(w^{[1]}, b^{[1]}, \ldots \ldots\right)=\frac{1}{m} \sum_{i=1}^{m} L\left(
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="../../2023/04/29/%E5%AD%A6%E4%B9%A0Daily-2023/">学习Daily-2023</a>
+          </li>
         
           <li>
             <a href="../../2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%BC%82%E5%B8%B8%E6%B5%8B%E8%AF%95/">软件测试异常测试</a>
@@ -1619,10 +1706,6 @@ J\left(w^{[1]}, b^{[1]}, \ldots \ldots\right)=\frac{1}{m} \sum_{i=1}^{m} L\left(
         
           <li>
             <a href="../../2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%AE%89%E8%A3%85%E6%B5%8B%E8%AF%95/">软件测试安装测试</a>
-          </li>
-        
-          <li>
-            <a href="../../2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/">软件测试压力测试</a>
           </li>
         
       </ul>
