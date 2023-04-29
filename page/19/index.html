@@ -71,6 +71,166 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Boosting" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2019/03/22/Boosting/" class="article-date">
+  <time class="dt-published" datetime="2019-03-22T06:54:29.000Z" itemprop="datePublished">2019-03-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2019/03/22/Boosting/">Boosting</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+<h1 id="Boosting"><a href="#Boosting" class="headerlink" title="Boosting"></a>Boosting</h1><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>Boosting算法是将“弱学习算法“提升为“强学习算法”的过程。</p>
+<ol>
+<li><p>加法模型</p>
+<script type="math/tex; mode=display">
+F_n(x;P) = \sum_{t=1}^{n}\alpha_th_t(x;a_t)</script></li>
+<li><p>前向分步</p>
+<script type="math/tex; mode=display">
+F_m(x) = F_{m-1}(x)+\alpha_mh_m(x,a_m)</script><p>如果选取不同损失函数，则产生不同的类型</p>
+</li>
+</ol>
+<h1 id="AdaBoost"><a href="#AdaBoost" class="headerlink" title="AdaBoost"></a>AdaBoost</h1><p>AdaBoost就是损失函数为指数损失的Boosting算法。</p>
+<ol>
+<li><p>每一次迭代的弱学习$h(x;a_m)$有何不一样，如何学习？</p>
+<p>AdaBoost改变了训练数据的权值，也就是样本的概率分布，其思想是将关注点放在被错误分类的样本上，减小上一轮被正确分类的样本权值，提高那些被错误分类的样本权值。</p>
+</li>
+<li><p>弱分类器权值$β_m$如何确定？</p>
+<p>AdaBoost采用加权多数表决的方法，加大分类误差率小的弱分类器的权重，减小分类误差率大的弱分类器的权重。这个很好理解，正确率高分得好的弱分类器在强分类器中当然应该有较大的发言权。</p>
+</li>
+</ol>
+<h2 id="原理理解"><a href="#原理理解" class="headerlink" title="原理理解"></a>原理理解</h2><p>基于Boosting的理解，对于AdaBoost，我们要搞清楚两点：</p>
+<p>每一次迭代的弱学习h(x;am)有何不一样，如何学习？<br>弱分类器权值βm如何确定？<br>对于第一个问题，AdaBoost改变了训练数据的权值，也就是样本的概率分布，其思想是将关注点放在被错误分类的样本上，减小上一轮被正确分类的样本权值，提高那些被错误分类的样本权值。然后，再根据所采用的一些基本机器学习算法进行学习，比如逻辑回归。</p>
+<p>对于第二个问题，AdaBoost采用加权多数表决的方法，加大分类误差率小的弱分类器的权重，减小分类误差率大的弱分类器的权重。这个很好理解，正确率高分得好的弱分类器在强分类器中当然应该有较大的发言权。</p>
+<h2 id="公式推导"><a href="#公式推导" class="headerlink" title="公式推导"></a>公式推导</h2><p>指数损失函数</p>
+<script type="math/tex; mode=display">
+L(Y,f(x))=exp(-Yf(x))</script><p>权重更新公式: 采用的指数误差函数</p>
+<script type="math/tex; mode=display">
+l_{exp}(a_th_t|D_t)=E(exp(-f(x)a_th_t(x)))\\
+=p(f(x)=h_t(x))e^{-at}+p(f(x)!=h_t(x))e^{at}\\
+=e^{-at}(1-\xi)+e^{at}\xi</script><script type="math/tex; mode=display">
+a_t=\frac{1}{2}ln \frac{1-\xi}{\xi}</script><p>分布更新公式</p>
+<script type="math/tex; mode=display">
+\begin{aligned} l\left(H_{t-1}(x)+\alpha h_{t}(x) | D\right) &=E_{X \sim D}\left(\exp \left(-y(x)\left(H_{t-1}(x)+\alpha h_{t}(x)\right)\right)\right) \\ &=E_{x \sim D}\left(\exp \left(-y(x) H_{t-1}(x)\right) \exp \left(-y(x) \alpha h_{t}(x)\right)\right) \end{aligned}</script><p>在泰勒展开$exp(-y(x)h_t(x))$</p>
+<script type="math/tex; mode=display">
+\begin{aligned} l\left(H_{t-1}(x)+h_{t}(x) | D\right) & \approx E_{x \sim D}\left[\exp \left(-y(x) H_{t-1}(x)\right)\left(1-\alpha y(x) h_{t}(x)+\frac{\alpha^{2} y^{2}(x) h_{t}^{2}(x)}{2}\right)\right] \\ &=E_{x \sim D}\left[\exp \left(-y(x) H_{t-1}(x)\right)\left(1-y(x) h_{t}(x)+0.5 \alpha^{2}\right)\right] \end{aligned}</script><script type="math/tex; mode=display">
+\begin{aligned} h(x) &=\arg \min _{h} l\left(H_{t-1}(x)+\alpha h_{t} | D\right) \\ &=\arg \max _{h} E_{x \sim D}\left[\exp \left(-y(x) H_{t-1}(x)\right) \alpha y(x) h_{t}(x)\right] \\ &=\arg \max _{h}\left[\frac{\exp \left(-y(x) H_{t-1}(x)\right)}{E_{x \sim D}\left[\exp \left(-y(x) H_{t-1}(x)\right)\right]} y(x) h(x)\right] \end{aligned}</script><script type="math/tex; mode=display">
+</script><p>令一个新分布,注意分子是常数</p>
+<script type="math/tex; mode=display">
+D_{t}(x)=\frac{D(x) \exp \left(-y(x) H_{t-1}(x)\right)^{L}}{E_{x \sim D}\left[\exp \left(-y(x) H_{t-1}(x)\right)\right]}</script><script type="math/tex; mode=display">
+\begin{aligned} h(x) &=\arg \max _{h} E_{x \sim D,}(y(x) h(x)) \\ &=\arg \max _{h} E_{x \sim D_{t}}(1-2 \mathcal{I}(y(x) \neq h(x))) \\ &=\arg \min _{h} E_{x \sim D_{i}}(\mathcal{I}(y(x) \neq h(x))) \end{aligned}</script><p>同理可得</p>
+<script type="math/tex; mode=display">
+\begin{aligned} D_{t+1} &=\frac{D(x) \exp \left(-y(x) H_{t}(x)\right)}{E_{x \sim D}\left[\exp \left(-y(x) H_{t}(x)\right)\right]} \\ &=\frac{D_{t}(x) \cdot E_{x \sim D}\left[\exp \left(-y(x) H_{t-1}(x)\right)\right] \cdot \exp \left(-y(x) H_{t}(x)\right)}{\exp \left(-y(x) H_{t-1}(x)\right) \cdot E_{x \sim D}\left[\exp \left(-y(x) H_{t}(x)\right)\right]} \\ &=D_{t}(x) \exp \left(-y(x) \alpha h_{t}(x)\right) \cdot C . \quad(C i s a \text {constant}) \end{aligned}</script><script type="math/tex; mode=display">
+Z_{t}=\sum_{i}^{m} D_{t}(x) \exp \left(-y(x) \alpha_{t} h_{y}(x)\right)</script><p>指数误差函数</p>
+<script type="math/tex; mode=display">
+\begin{aligned} l(H(x) | D) &=\frac{1}{m} \sum_{i}^{m} \exp \left(-y_{i} H\left(x_{i}\right)\right) \\ &=\frac{1}{m} \sum_{i}^{m} \exp \left(-\sum_{j}^{T} \alpha_{j} y_{i} h_{j}\left(x_{i}\right)\right) \\ &=\sum_{i}^{m} D_{1}\left(x_{i}\right) \exp \left(-\sum_{j}^{T} \alpha_{j} y_{i} h_{j}\left(x_{i}\right)\right) \\ &=Z_{1} Z_{2}\left(x_{i}\right) \exp \left(-\sum_{j=2}^{T} \alpha_{j} y_{i} h_{j}\left(x_{i}\right)\right) \\ & \vdots \\ &=\prod_{i=1}^{T} Z_{i} \end{aligned}</script><h2 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h2><p>总结一下，得到AdaBoost的算法流程：</p>
+<p>输入：训练数据集$T={(x1,y1),(x2,y2),(xN,yN)}T={(x1,y1),(x2,y2),(xN,yN)}$，其中，$xi∈X⊆Rnxi∈X⊆Rn，yi∈Y=−1,1yi∈Y=−1,1，$迭代次数M</p>
+<p>初始化训练样本的权值分布：$D1=(w1,1,w1,2,…,w1,i),w,i=1,2,…,N$。</p>
+<p>对于$m=1,2,…,M$</p>
+<p>(a)　使用具有权值分布$D_m$的训练数据集进行学习，得到弱分类器$h_m(x)$　(b)　计算$h_m(x)$在训练数据集上的分类误差率：</p>
+<p>$e<em>m=∑</em>{i=1}^{N}w_m,iI(h_m(xi)≠y_i)$</p>
+<p>(c)　计算$h_m(x)$在强分类器中所占的权重：</p>
+<p>$\alpha_m=\frac{1}{2}log(\frac{1−e_m}{e_m})$</p>
+<p>(d)　更新训练数据集的权值分布（这里，$z_m是归一化因子，为了使样本的概率分布和为1）：</p>
+<script type="math/tex; mode=display">w_{m+1,i}=\frac{w_{m,i}}exp(−α_my_ih_m(xi))，i=1,2,…,10</script><script type="math/tex; mode=display">z_m=∑_{i=1}^{N}w_{m,i}exp(−α_my_ih_m(xi))</script><p> 得到最终分类器：</p>
+<script type="math/tex; mode=display">F(x)=sign(∑_{i=1}^{N}α_mh_m(x))</script><h2 id="面经"><a href="#面经" class="headerlink" title="面经"></a>面经</h2><p>今年8月开始找工作，参加大厂面试问到的相关问题有如下几点：</p>
+<ol>
+<li>手推AdaBoost</li>
+</ol>
+<ol>
+<li>与GBDT比较</li>
+</ol>
+<ol>
+<li>AdaBoost几种基本机器学习算法哪个抗噪能力最强，哪个对重采样不敏感？</li>
+</ol>
+<h2 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h2><h2 id="实例计算"><a href="#实例计算" class="headerlink" title="实例计算"></a>实例计算</h2><h2 id="Python实现"><a href="#Python实现" class="headerlink" title="Python实现"></a>Python实现</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/davidwang456/articles/8927029.html">https://www.cnblogs.com/davidwang456/articles/8927029.html</a></p>
+<h1 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flytowardnewworld.github.io/2019/03/22/Boosting/" data-id="clh19188g000504vkgv1d35fh" data-title="Boosting" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Boosting-AdaBoost/" rel="tag">Boosting, AdaBoost</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-SVR" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2019/03/19/SVR/" class="article-date">
+  <time class="dt-published" datetime="2019-03-19T06:34:14.000Z" itemprop="datePublished">2019-03-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2019/03/19/SVR/">支持向量回归</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+<p>支持向量机用于分类:硬间隔和软件间隔支持向量机。尽可能分对</p>
+<p>支持向量机回归： 希望$f(x)$与$y$尽可能的接近。</p>
+        
+          <p class="article-more-link">
+            <a href="../../2019/03/19/SVR/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://flytowardnewworld.github.io/2019/03/19/SVR/" data-id="clh191898001w04vk1iph1u75" data-title="支持向量回归" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" rel="tag">支持向量机回归</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-SVMClassifiar" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="../../2019/03/17/SVMClassifiar/" class="article-date">
@@ -635,176 +795,6 @@ W_{sl1}^{(l+1)}&W_{sl2}^{(l+1)} &\dots& W_{sl(sl+1)}^{(l+1)}\\
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Python/" rel="tag">Python</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-读书笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2019/02/22/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time class="dt-published" datetime="2019-02-22T13:02:12.000Z" itemprop="datePublished">2019-02-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="../../categories/%E8%AF%BB%E4%B9%A6%E6%97%A5%E5%B8%B8/">读书日常</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2019/02/22/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">我的读书笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <span id="more"></span>
-<h2 id="2019-第十五周"><a href="#2019-第十五周" class="headerlink" title="2019 第十五周"></a><font color='red' >2019 第十五周<font></h2><p>三月份至2019.4.9这段时间，才发现我是如此没有自律的人，充分体现了我是人的特性，那就是我是群体动物，苦笑.jpg,苦笑.jpg,</p>
-<p>en, 最近突然想给自己打上厨娘的身份，如果可以每天花两个小时做饭就好了</p>
-<hr>
-<h2 id="愿你被世界温柔的相待"><a href="#愿你被世界温柔的相待" class="headerlink" title="愿你被世界温柔的相待"></a>愿你被世界温柔的相待</h2><ol>
-<li>接触的东西越多，越深入，就会发现我是如此的菜，开始有些知识焦虑了，知识那么多<del>~，可是我只有一个头脑啊</del>~</li>
-<li>开始不想写一些特别低俗的博客了，一是觉得浪费时间，二是输出效果太差，引不起特别大的关注，虽然我写博客，完全是站在自己的角度，没有考虑读者的意愿，（滑稽.jpg)。</li>
-<li>现在的自己，不是停留在基本的问题上，更应该去探索未知 的知识世界，虽然离这个flag可能还有几年的时间，能够给世界的知识创造一点点价值，哪怕只是一小点点。离这个目标还需要努力啊！！！！！</li>
-<li>我想我应该去记录学习知识的过程，突破更大的更困难的问题。 </li>
-</ol>
-<hr>
-<h2 id="2019-第四周读书笔记"><a href="#2019-第四周读书笔记" class="headerlink" title="2019-第四周读书笔记"></a>2019-第四周读书笔记</h2><ol>
-<li><p>这周读了一本小说，是张爱玲的《倾城之恋》，原来和电视剧的何晟铭主演《倾城之恋》不是同一个事情啊！</p>
-</li>
-<li><p>看了《阿甘正传》，“生活就像一盒巧克力，你永远不知道下一颗是什么味道。“这是阿甘对生活最好的诠释。小时候，有人骑着自行车羞辱他，他只会跑，拼命的跑，只会再公路上跑。长大后，别人骑着车想打他，阿甘还是跑，但是这次阿甘学会了网草坪上跑！就被大学看上，进入运动大学，还通过参加比赛赢得了冠军，然后，阿甘当兵了，再后来，打乒乓球很出色。阿甘似乎做什么都能成功，也许心无旁骛，最笨的方法+时间=收获。</p>
-</li>
-</ol>
-<p>我觉得很心酸的是，当珍妮告诉他有儿子时候，阿甘问，”他聪明吗“？</p>
-<hr>
-<h2 id="2019第四周安排"><a href="#2019第四周安排" class="headerlink" title="2019第四周安排"></a>2019第四周安排</h2><ol>
-<li><p>改论文，改变自己的办事效率喔，拒绝重复工作</p>
-</li>
-<li><p>编程能力</p>
-</li>
-<li><p>慢慢的做事情，先慢后快，</p>
-</li>
-<li><p>生活、学习、交友、文采<br>2019-第三周读书笔记<br>这次读了《极简思维：颠覆传统思维模式的极简法则》作者：S.J斯科特 巴里.达文波特</p>
-</li>
-</ol>
-<p>我们生活充满了各种诱惑、杂乱信息、导致了生活的混乱，产生知识焦虑、年龄危机、人际关系的淡化。作者给我们介绍了许多问题、许多的解决方法，让我们这个信息爆炸的时代可以过的充实些。</p>
-<p>每天睡8个小时、还剩下16个小时，在减去2个小时解决个人卫生和饮食，那么还有14个小时，一个星期98个小时。那么98个小时，你投入在哪里呢？</p>
-<p>总的来说，这本书传达的东西，我还是很喜欢的，极简主义者，少不得也多不得！！！！！！！！！！！！！！！</p>
-<hr>
-<h2 id="读《拆掉思维里的墙》"><a href="#读《拆掉思维里的墙》" class="headerlink" title="读《拆掉思维里的墙》"></a>读《拆掉思维里的墙》</h2><p>摘录 ：我们的生活也由三个支架组成：自我、家庭与团体和职业。这样的支架支撑着我们的灵魂，它在记录我们的生命。我们一直都在调整着三个位置的平稳，使之成为最稳固的联动三脚架。</p>
-<p>这句大概是结合我的经历，最具有感悟的。因为一旦走出大学，这三者才开始真正的组成我们的生活。</p>
-<p>古典老师，从职业、成功学、爱情、家庭等等不同的案例，给我分析了大多数人会面临的无形的”墙“，给了我们如何拆掉这些墙的方法。但是呢，对于古典老师的爱情观点，我并不是很赞同，因为呢，那些愿意陪你度过余生的人付出的感情，是如此的廉价吗？有的人既可以是白玫瑰，也可以红玫瑰啊！</p>
-<hr>
-<h2 id="2019年第二周安T排"><a href="#2019年第二周安T排" class="headerlink" title="2019年第二周安T排"></a>2019年第二周安T排</h2><p>每天两个小时阅读论文或者专业书籍的阅读<br>开题报告修改和PPT制作（3h)<br>《拆掉思维里面的墙》（3h)<br>看哈利波特（一集）</p>
-<h2 id="—"><a href="#—" class="headerlink" title="—-"></a>—-</h2><h1 id="2018年的总结"><a href="#2018年的总结" class="headerlink" title="2018年的总结"></a>2018年的总结</h1><p> 小小的悔恨与遗憾</p>
-<ol>
-<li>大三下，在课堂上，打了半学期的游戏</li>
-<li>生活还是不规律，超喜欢深夜逛知乎、刷B站</li>
-<li>额头上，不停的冒着痘痘啊</li>
-<li>英语单词量在下降ing</li>
-<li>运动量在降低喔</li>
-<li>很讨厌洗衣服</li>
-</ol>
-<p>相比于上一年进步的方面</p>
-<ol>
-<li>愿意去承担更多的责任</li>
-<li>更乐意去交流</li>
-<li>越来越重视健康style</li>
-<li>不会随意发泄自己的情绪了<ol>
-<li>更加认识到自身的优势与劣势了<br>感到愉快的事情</li>
-</ol>
-</li>
-<li>知道自己想要什么，知道自己在做什么</li>
-<li>整理完了大学期间所有的东西，往事不堪回首， 但也只能是柳暗花明又一村。</li>
-<li>能读研究生了</li>
-</ol>
-<p>聊聊2019年的点点期许<br>学习上</p>
-<ol>
-<li>多看19场知乎live</li>
-<li>阅读10本书籍，书单也有了</li>
-<li>在专业学习上，希望有所提升咯<br>生活中</li>
-<li>早睡早起身体好</li>
-<li>看十部美剧，尽管我最大的兴趣是睡觉</li>
-<li>时常更新歌单，不想在一年里面都是相同的旋律</li>
-<li>静静静静静静静</li>
-<li>合理安排</li>
-<li>折星星</li>
-<li>番茄闹钟</li>
-<li>偶尔听听 TED<br>技术</li>
-<li>清理下了github 仓库</li>
-<li>重新更新了  github page</li>
-<li>多读、多写、多想</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://flytowardnewworld.github.io/2019/02/22/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" data-id="clh1918ck00d404vk8elzba6b" data-title="我的读书笔记" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-学习Daily (copy)" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2019/02/22/%E5%AD%A6%E4%B9%A0Daily%20(copy)/" class="article-date">
-  <time class="dt-published" datetime="2019-02-22T06:54:12.000Z" itemprop="datePublished">2019-02-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="../../categories/%E5%AD%A6%E4%B9%A0%E3%81%AE%E5%8E%86%E7%A8%8B-Journal-of-Studying/">学习の历程(Journal of Studying)</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2019/02/22/%E5%AD%A6%E4%B9%A0Daily%20(copy)/">学习の历程</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        Here's something encrypted, password is required to continue reading.
-        
-          <p class="article-more-link">
-            <a href="../../2019/02/22/%E5%AD%A6%E4%B9%A0Daily%20(copy)/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://flytowardnewworld.github.io/2019/02/22/%E5%AD%A6%E4%B9%A0Daily%20(copy)/" data-id="clh1918aj005l04vkdnz4b0xi" data-title="学习の历程" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Daily/" rel="tag">Daily</a></li></ul>
 
     </footer>
   </div>
