@@ -9,38 +9,38 @@
   <meta name="description" content="C5: Sequence ModelsW1 : Recurrent Neural Networks (循环序列模型)L1 ： Why Sequence Models?循环神经网络（RNN）之类的模型在语音识别、自然语言处理和其他领域中引起变革。 序列模型的列子  L2 : Notation 数学符号NLP 我们用$X^{(i)}$来表示第个i训练样本，所以为了指代第个t元素，或者说是训练样本i的序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="deep_learning.ai深度学习笔记&lt;Andrew Ng&gt;">
-<meta property="og:url" content="http://flytowardnewworld.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:url" content="http://littlestar.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="C5: Sequence ModelsW1 : Recurrent Neural Networks (循环序列模型)L1 ： Why Sequence Models?循环神经网络（RNN）之类的模型在语音识别、自然语言处理和其他领域中引起变革。 序列模型的列子  L2 : Notation 数学符号NLP 我们用$X^{(i)}$来表示第个i训练样本，所以为了指代第个t元素，或者说是训练样本i的序">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c11.png">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c12.png">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c13.png">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c14.png">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c15.png">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c16.png">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c17.png">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c18.png">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c19.png">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c110.png">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c111.png">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c112.png">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c113.png">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c114.png">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c115.png">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c116.png">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c117.png">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c118.png">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c119.png">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c120.png">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c121.png">
+<meta property="og:image" content="http://littlestar.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c11.png">
+<meta property="og:image" content="http://littlestar.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c12.png">
+<meta property="og:image" content="http://littlestar.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c13.png">
+<meta property="og:image" content="http://littlestar.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c14.png">
+<meta property="og:image" content="http://littlestar.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c15.png">
+<meta property="og:image" content="http://littlestar.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c16.png">
+<meta property="og:image" content="http://littlestar.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c17.png">
+<meta property="og:image" content="http://littlestar.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c18.png">
+<meta property="og:image" content="http://littlestar.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c19.png">
+<meta property="og:image" content="http://littlestar.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c110.png">
+<meta property="og:image" content="http://littlestar.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c111.png">
+<meta property="og:image" content="http://littlestar.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c112.png">
+<meta property="og:image" content="http://littlestar.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c113.png">
+<meta property="og:image" content="http://littlestar.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c114.png">
+<meta property="og:image" content="http://littlestar.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c115.png">
+<meta property="og:image" content="http://littlestar.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c116.png">
+<meta property="og:image" content="http://littlestar.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c117.png">
+<meta property="og:image" content="http://littlestar.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c118.png">
+<meta property="og:image" content="http://littlestar.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c119.png">
+<meta property="og:image" content="http://littlestar.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c120.png">
+<meta property="og:image" content="http://littlestar.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c121.png">
 <meta property="article:published_time" content="2019-04-11T01:15:23.000Z">
 <meta property="article:modified_time" content="2019-11-15T06:16:12.000Z">
 <meta property="article:author" content="May May">
 <meta property="article:tag" content="我的读书笔记">
 <meta property="article:tag" content="deep learning">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://flytowardnewworld.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c11.png">
+<meta name="twitter:image" content="http://littlestar.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/deep-learning-ai深度学习笔记/c11.png">
   
     <link rel="alternate" href="../../../../atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -90,7 +90,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://flytowardnewworld.github.io"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://littlestar.github.io"></form>
       </div>
     </div>
   </div>
@@ -164,7 +164,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://flytowardnewworld.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-id="clh19189n003804vkb9dig19x" data-title="deep_learning.ai深度学习笔记&lt;Andrew Ng&gt;" class="article-share-link">Share</a>
+      <a data-url="http://littlestar.github.io/2019/04/11/deep-learning-ai%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-id="clh19189n003804vkb9dig19x" data-title="deep_learning.ai深度学习笔记&lt;Andrew Ng&gt;" class="article-share-link">Share</a>
       
       
       

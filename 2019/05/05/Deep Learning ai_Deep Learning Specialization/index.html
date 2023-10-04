@@ -9,33 +9,33 @@
   <meta name="description" content="C3 Improving Model PerformanceW1 ML Strategy(1)L01 Improving Model Performance需要提高训练结果的表现，表现得更好的措施 Machine Learning Strategy  L2 : Orthogonalization(正交化)所谓正交，就是你的操控效果尽量只影响一个方面。比如以老式电视机为例，调节图像的大小、左右偏移、">
 <meta property="og:type" content="article">
 <meta property="og:title" content="The Deep Learning Specialization">
-<meta property="og:url" content="http://flytowardnewworld.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/index.html">
+<meta property="og:url" content="http://littlestar.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="C3 Improving Model PerformanceW1 ML Strategy(1)L01 Improving Model Performance需要提高训练结果的表现，表现得更好的措施 Machine Learning Strategy  L2 : Orthogonalization(正交化)所谓正交，就是你的操控效果尽量只影响一个方面。比如以老式电视机为例，调节图像的大小、左右偏移、">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-24_21-03-13.jpg">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-25_20-42-10.jpg">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-25_20-47-46.jpg">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-25_20-48-11.jpg">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-09-36.jpg">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-09-37.jpg">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-29-51.jpg">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-32-25.jpg">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-32-26.jpg">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-32-27.jpg">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Bayes-Optimal-Error.png">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/e1ef954731399bb4fbf18f2fb99b863a.png">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-32-28.jpg">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-32-29.jpg">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/de2eb0ddc7918f6e9213871e07b8fa56.png">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-32-39.jpg">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-32-49.jpg">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/e1ef954731399bb4fbf18f2fb99b863.png">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-32-51.jpg">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-32-50.jpg">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-32-52.jpg">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-32-53.jpg">
-<meta property="og:image" content="http://flytowardnewworld.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-32-54.jpg">
+<meta property="og:image" content="http://littlestar.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-24_21-03-13.jpg">
+<meta property="og:image" content="http://littlestar.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-25_20-42-10.jpg">
+<meta property="og:image" content="http://littlestar.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-25_20-47-46.jpg">
+<meta property="og:image" content="http://littlestar.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-25_20-48-11.jpg">
+<meta property="og:image" content="http://littlestar.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-09-36.jpg">
+<meta property="og:image" content="http://littlestar.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-09-37.jpg">
+<meta property="og:image" content="http://littlestar.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-29-51.jpg">
+<meta property="og:image" content="http://littlestar.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-32-25.jpg">
+<meta property="og:image" content="http://littlestar.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-32-26.jpg">
+<meta property="og:image" content="http://littlestar.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-32-27.jpg">
+<meta property="og:image" content="http://littlestar.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Bayes-Optimal-Error.png">
+<meta property="og:image" content="http://littlestar.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/e1ef954731399bb4fbf18f2fb99b863a.png">
+<meta property="og:image" content="http://littlestar.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-32-28.jpg">
+<meta property="og:image" content="http://littlestar.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-32-29.jpg">
+<meta property="og:image" content="http://littlestar.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/de2eb0ddc7918f6e9213871e07b8fa56.png">
+<meta property="og:image" content="http://littlestar.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-32-39.jpg">
+<meta property="og:image" content="http://littlestar.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-32-49.jpg">
+<meta property="og:image" content="http://littlestar.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/e1ef954731399bb4fbf18f2fb99b863.png">
+<meta property="og:image" content="http://littlestar.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-32-51.jpg">
+<meta property="og:image" content="http://littlestar.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-32-50.jpg">
+<meta property="og:image" content="http://littlestar.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-32-52.jpg">
+<meta property="og:image" content="http://littlestar.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-32-53.jpg">
+<meta property="og:image" content="http://littlestar.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-32-54.jpg">
 <meta property="og:image" content="k:/MyBlog/hexo/source/_posts/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Analysis-With-Data-Mismatch.png">
 <meta property="og:image" content="k:/MyBlog/hexo/source/_posts/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-32-55.jpg">
 <meta property="og:image" content="k:/MyBlog/hexo/source/_posts/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-26_08-32-56.jpg">
@@ -49,7 +49,7 @@
 <meta property="article:author" content="May May">
 <meta property="article:tag" content="Deep learning">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://flytowardnewworld.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-24_21-03-13.jpg">
+<meta name="twitter:image" content="http://littlestar.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Deep%20Learning%20ai_Deep%20Learning%20Specialization/Xnip2018-06-24_21-03-13.jpg">
   
     <link rel="alternate" href="../../../../atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -99,7 +99,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://flytowardnewworld.github.io"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://littlestar.github.io"></form>
       </div>
     </div>
   </div>
@@ -264,7 +264,7 @@ F 1=\frac{2}{\frac{1}{P}+\frac{1}{R}}=\frac{2 P R}{P+R}</script><h3 id="L4-Satis
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://flytowardnewworld.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/" data-id="clh19188j000b04vk743f3fvl" data-title="The Deep Learning Specialization" class="article-share-link">Share</a>
+      <a data-url="http://littlestar.github.io/2019/05/05/Deep%20Learning%20ai_Deep%20Learning%20Specialization/" data-id="clh19188j000b04vk743f3fvl" data-title="The Deep Learning Specialization" class="article-share-link">Share</a>
       
       
       
