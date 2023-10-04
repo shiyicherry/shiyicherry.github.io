@@ -71,10 +71,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-软件测试功能" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-个人能力之创新能力" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="../../2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%8A%9F%E8%83%BD/" class="article-date">
-  <time class="dt-published" datetime="2023-03-15T15:30:23.000Z" itemprop="datePublished">2023-03-15</time>
+    <a href="../../2022/08/31/%E4%B8%AA%E4%BA%BA%E8%83%BD%E5%8A%9B%E4%B9%8B%E5%88%9B%E6%96%B0%E8%83%BD%E5%8A%9B/" class="article-date">
+  <time class="dt-published" datetime="2022-08-31T12:29:56.000Z" itemprop="datePublished">2022-08-31</time>
 </a>
     
   </div>
@@ -85,449 +85,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%8A%9F%E8%83%BD/">软件测试功能</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://bealittlestar.github.io/2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%8A%9F%E8%83%BD/" data-id="clh1918cn00df04vk27r8djjl" data-title="软件测试功能" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-软件测试APP" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95APP/" class="article-date">
-  <time class="dt-published" datetime="2023-03-15T15:30:08.000Z" itemprop="datePublished">2023-03-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95APP/">软件测试APP</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>APP测试的时候，建议让开发打好包APK和IPA安装包，测试人员自己安装应用，进行测试。在测试过程中需要注意的测试点如下：</p>
-<p><strong>01、安装和卸载</strong></p>
-<ul>
-<li>应用是否可以在IOS不同系统版本或android不同系统版本上安装（有的系统版本过低，应用不能适配）</li>
-<li>软件安装后是否可以正常运行，安装后的文件夹及文件是否可以写到指定的目录里。</li>
-<li>安装过程中是否可以取消</li>
-<li>安装空间不足时是否有相应提示</li>
-<li>如果应用需要通过网络验证之类的安装，需要测试一下断网情况下是否有相应提示</li>
-<li>是否可以删除应用（可通过桌面删除，也可以通过软件卸载安装。曾发现在IOS手相上有个应用安装时未完全安装，终止安装后，未完成安装的应用图标一直显示在手机上，并且无法成功删除）</li>
-<li>测试卸载后文件是否全部删除所有的安装文件</li>
-<li>卸载过程中出现死机，断电，重启等意外的情况，待环境恢复后是否可以正确卸载</li>
-<li>卸载是否支持取消功能，单击取消后软件卸载情况是否正常</li>
-</ul>
-<p><strong>02、运行</strong></p>
-<ul>
-<li>APP安装完成后，是否可以正常打开软件</li>
-<li>APP运行时，是否有加载图示</li>
-<li>APP的速度是可以让人接受，切换是否流畅</li>
-<li>用户登录状态太久，sessionId会过期，会出现“虽然是登录状态，系统会提示用户没有登录。</li>
-</ul>
-<p><strong>03、登录</strong></p>
-<ul>
-<li>登录用户名和密码错误时，界面有提示信息</li>
-<li>用户主动退出登录后，下次启动APP时，应该进入登录界面</li>
-<li>对于支持自动登录的APP，数据交换时 ，是否能自动登录成功且数据库操作无误</li>
-<li>密码更改后，登录时是否做到了有效数据的校验</li>
-<li>对于未登录时一些页面的操作，是否做了控制</li>
-<li>切换账号登录，检验登录的信息是否做到及时更新</li>
-<li>对于多个端都进行操作时，确保数据库操作无误，且每个端可以及时看到数据的更新</li>
-<li>对于一些软件，支持一个账号只允许登录一台机器，这时，需要检查账号登录多个手机时，是否将原用户剔除，且能够给出提示信息</li>
-<li>APP切换到后台时，再次切换到前台的测试，如登录时，有电话打进来</li>
-<li>对于IOS与android不同设备登录同一个账号时，对个人信息等数据进行操作后，确保数据数库操作无误，且IOS与android设备看到的数据都是最新的。</li>
-</ul>
-<p><strong>04、离线</strong></p>
-<ul>
-<li>离线是应用程序在本地的客户端会缓存一部分数据以功程序下次调用</li>
-<li>对于一些程序，需要在登录进来后，这时没有网络的情况下可以浏览本地数据</li>
-<li>对于无网络时，刷新获取新数据时，不能获取数据且能给出友好提示</li>
-<li>切换到后台，再次切换到前台时，可以正常查看</li>
-<li>离线后又连上网，这时对数据有更新时，需要从服务器端获取新数据来更新客户端数据，且要更新本地缓存信息</li>
-<li>对于一些界面的数据不提供离线查看，需要给出相应提示且界面更新后无任何数据</li>
-<li>确认在无网情况下可以浏览本地数据</li>
-<li>确认退出APP再开启APP时能正常浏览</li>
-<li>确认切换到后台再切回APP应用时可以正常浏览</li>
-<li>锁屏后再解锁回到应用前台可以正常浏览</li>
-<li>服务端的数据有更新时有离线的提示</li>
-</ul>
-<p><strong>05、数据更新</strong></p>
-<ul>
-<li>确认有数据更新后，哪些地方需要手动刷新，哪些地方需自动刷新。</li>
-<li>确认从后台切换回前台时，哪些页面需要进行数据更新</li>
-<li>根据需求和逻辑，确认哪些数据是从服务端请求实时响应，哪些是缓存到本地的数据。</li>
-</ul>
-<p><strong>06、消息推送开关设置</strong></p>
-<ul>
-<li>默认开关应该是全打开状态</li>
-<li>设置开关可以自由打开关闭</li>
-<li>设置开关打开状态下，消息推送是否可正常接收（应用启用中和应用关闭时都应该可以收到）</li>
-<li>确认后台未打开APP客户端时，手机消息栏可以接收到消息提醒。且点击可查看。点击后消息栏中消失</li>
-<li>确认APP客户端启动时，可以收到消息提醒，且点击可查看。客户端运行时，消息不会进消息栏。</li>
-<li>设置开关关闭时，客户端接收不到消息推送。</li>
-</ul>
-<p><strong>07、软件更新</strong></p>
-<ul>
-<li>当客户端有新版本时，有更新提示</li>
-<li>软件更新一定要测，确保android软件更新可以正确更新新版本，且安装运行正确。</li>
-<li>确保IOS软件更新会有限制，只有上了商店且有版本更新时才会测试，但是如果真有问题，再发现问题不点晚，可以让开发先在测试机上模拟一个地址进行测试。</li>
-<li>用户取消版本更新时，老版本可以正常使用，但是下次启动应用时，仍出现更新提示</li>
-<li>当有新版本时，不删除客户端的情况下，直接更新检查是否能正常更新，且更新后客户端的功能是否最新版本（正常来讲不用强制删除本地客户端可以正常更新）</li>
-</ul>
-<p><strong>08、异常测试</strong></p>
-<ul>
-<li>没有内存空间时，APP能否正确响应</li>
-<li>APP运行中手机断电</li>
-<li>APP运行中断开网络</li>
-<li>反复操作某个功能，不断点击，刷新时，是否会闪退</li>
-<li>APP运行时拔打或接听电话</li>
-<li>APP运行时发送信息、收取邮件等</li>
-<li>多个APP运行时</li>
-<li>不断切换前台和后台，是否影响应用正常功能</li>
-<li>APP运行时，启动相机功能</li>
-</ul>
-<p><strong>09、网络环境</strong></p>
-<ul>
-<li>测试２G、３Ｇ，４Ｇ，wifi网络下应用运应的速度</li>
-<li>内网测试时，选择到外网操作是否有异常处理</li>
-<li>网络不好时，提交数据是否一直处理提交中，是否会有延迟，数据交换失败是否会有提醒</li>
-<li>有网到无网再到有网环境时，数据是否可以自动恢复，正常加载</li>
-</ul>
-<p><strong>10、其他</strong></p>
-<ul>
-<li>接口测试。让开发提供一份接口文档，一定要将接口测试通。在接口测试阶段，将缺少接口，接口不完善的缺陷挖掘出来。这个需要准备充分的后台数据。</li>
-<li>导航测试。在运行APP时，不管在哪个接点，导航是否直观，精准，页面切换是否正确。</li>
-<li>图片测试。图片，按钮是否自适应。</li>
-<li>内容测试。要进行超长字符，空字符校验且校验是否有错别字</li>
-<li>功能测试。功能是否实现。</li>
-<li>易用性测试。所开发的功能，是否让用户容易接受，是否符合大众的操作习惯。</li>
-<li>适配性测试。应用在不同设备，不同系统上是否适配。</li>
-<li>UI测试。应用的设计是否够美观。</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://bealittlestar.github.io/2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95APP/" data-id="clh1918cm00da04vk7l3a6ny8" data-title="软件测试APP" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-软件测试术语" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%9C%AF%E8%AF%AD/" class="article-date">
-  <time class="dt-published" datetime="2023-03-15T15:28:29.000Z" itemprop="datePublished">2023-03-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%9C%AF%E8%AF%AD/">软件测试术语</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://bealittlestar.github.io/2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%9C%AF%E8%AF%AD/" data-id="clh1918ct00e004vk01sn70r5" data-title="软件测试术语" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-软件测试数据库" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE%E5%BA%93/" class="article-date">
-  <time class="dt-published" datetime="2023-03-15T15:28:15.000Z" itemprop="datePublished">2023-03-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE%E5%BA%93/">软件测试数据库</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://bealittlestar.github.io/2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE%E5%BA%93/" data-id="clh1918cs00dy04vk0xxzbbnn" data-title="软件测试数据库" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-软件测试存储" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%AD%98%E5%82%A8/" class="article-date">
-  <time class="dt-published" datetime="2023-03-15T15:28:04.000Z" itemprop="datePublished">2023-03-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%AD%98%E5%82%A8/">软件测试存储</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://bealittlestar.github.io/2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%AD%98%E5%82%A8/" data-id="clh1918cp00do04vk3jrefvah" data-title="软件测试存储" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-软件测试网页" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%BD%91%E9%A1%B5/" class="article-date">
-  <time class="dt-published" datetime="2023-03-15T15:27:58.000Z" itemprop="datePublished">2023-03-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%BD%91%E9%A1%B5/">软件测试网页</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://bealittlestar.github.io/2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%BD%91%E9%A1%B5/" data-id="clh1918cx00ea04vk0i747vhq" data-title="软件测试网页" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-软件测试分类" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB/" class="article-date">
-  <time class="dt-published" datetime="2023-03-15T15:27:00.000Z" itemprop="datePublished">2023-03-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB/">软件测试分类</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://bealittlestar.github.io/2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB/" data-id="clh1918cm00dc04vkg0xheud6" data-title="软件测试分类" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-软件测试理论" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/" class="article-date">
-  <time class="dt-published" datetime="2023-03-15T15:26:50.000Z" itemprop="datePublished">2023-03-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/">软件测试理论</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://bealittlestar.github.io/2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/" data-id="clh1918cu00e204vkc5qj5yye" data-title="软件测试理论" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-软件测试目录" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%9B%AE%E5%BD%95/" class="article-date">
-  <time class="dt-published" datetime="2023-03-15T15:26:22.000Z" itemprop="datePublished">2023-03-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%9B%AE%E5%BD%95/">软件测试目录</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://bealittlestar.github.io/2023/03/15/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%9B%AE%E5%BD%95/" data-id="clh1918cw00e804vk7608fzbj" data-title="软件测试目录" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-个人提升之美貌" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="../../2022/10/16/%E4%B8%AA%E4%BA%BA%E6%8F%90%E5%8D%87%E4%B9%8B%E7%BE%8E%E8%B2%8C/" class="article-date">
-  <time class="dt-published" datetime="2022-10-16T12:51:59.000Z" itemprop="datePublished">2022-10-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="../../2022/10/16/%E4%B8%AA%E4%BA%BA%E6%8F%90%E5%8D%87%E4%B9%8B%E7%BE%8E%E8%B2%8C/">个人提升之美貌</a>
+      <a class="p-name article-title" href="../../2022/08/31/%E4%B8%AA%E4%BA%BA%E8%83%BD%E5%8A%9B%E4%B9%8B%E5%88%9B%E6%96%B0%E8%83%BD%E5%8A%9B/">个人能力之创新能力</a>
     </h1>
   
 
@@ -538,13 +96,437 @@
         Here's something encrypted, password is required to continue reading.
         
           <p class="article-more-link">
-            <a href="../../2022/10/16/%E4%B8%AA%E4%BA%BA%E6%8F%90%E5%8D%87%E4%B9%8B%E7%BE%8E%E8%B2%8C/#more">Read More</a>
+            <a href="../../2022/08/31/%E4%B8%AA%E4%BA%BA%E8%83%BD%E5%8A%9B%E4%B9%8B%E5%88%9B%E6%96%B0%E8%83%BD%E5%8A%9B/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bealittlestar.github.io/2022/10/16/%E4%B8%AA%E4%BA%BA%E6%8F%90%E5%8D%87%E4%B9%8B%E7%BE%8E%E8%B2%8C/" data-id="clh1918a7004n04vkb7zt86tz" data-title="个人提升之美貌" class="article-share-link">Share</a>
+      <a data-url="http://bealittlestar.github.io/2022/08/31/%E4%B8%AA%E4%BA%BA%E8%83%BD%E5%8A%9B%E4%B9%8B%E5%88%9B%E6%96%B0%E8%83%BD%E5%8A%9B/" data-id="clh1918a9004v04vke8qtd7yb" data-title="个人能力之创新能力" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E6%80%9D%E7%BB%B4/" rel="tag">思维</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-数据分析之报告案例学习" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2022/08/14/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E6%8A%A5%E5%91%8A%E6%A1%88%E4%BE%8B%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time class="dt-published" datetime="2022-08-14T11:45:00.000Z" itemprop="datePublished">2022-08-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2022/08/14/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E6%8A%A5%E5%91%8A%E6%A1%88%E4%BE%8B%E5%AD%A6%E4%B9%A0/">数据分析之报告案例学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="数字化转型，从战略到执行"><a href="#数字化转型，从战略到执行" class="headerlink" title="数字化转型，从战略到执行"></a>数字化转型，从战略到执行</h1>
+        
+          <p class="article-more-link">
+            <a href="../../2022/08/14/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E6%8A%A5%E5%91%8A%E6%A1%88%E4%BE%8B%E5%AD%A6%E4%B9%A0/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bealittlestar.github.io/2022/08/14/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E6%8A%A5%E5%91%8A%E6%A1%88%E4%BE%8B%E5%AD%A6%E4%B9%A0/" data-id="clh1918b6007x04vk4hrm7ttk" data-title="数据分析之报告案例学习" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/" rel="tag">案例分析</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-个人提升之职业发展" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2022/08/14/%E4%B8%AA%E4%BA%BA%E6%8F%90%E5%8D%87%E4%B9%8B%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95/" class="article-date">
+  <time class="dt-published" datetime="2022-08-14T11:10:49.000Z" itemprop="datePublished">2022-08-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/%E6%80%9D%E7%BB%B4/">思维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2022/08/14/%E4%B8%AA%E4%BA%BA%E6%8F%90%E5%8D%87%E4%B9%8B%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95/">个人提升之职业发展</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bealittlestar.github.io/2022/08/14/%E4%B8%AA%E4%BA%BA%E6%8F%90%E5%8D%87%E4%B9%8B%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95/" data-id="clh1918a8004p04vk8zxlcf0j" data-title="个人提升之职业发展" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E6%80%9D%E7%BB%B4/" rel="tag">思维</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-个人提升之生活品质" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2022/08/14/%E4%B8%AA%E4%BA%BA%E6%8F%90%E5%8D%87%E4%B9%8B%E7%94%9F%E6%B4%BB%E5%93%81%E8%B4%A8/" class="article-date">
+  <time class="dt-published" datetime="2022-08-14T11:10:34.000Z" itemprop="datePublished">2022-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2022/08/14/%E4%B8%AA%E4%BA%BA%E6%8F%90%E5%8D%87%E4%B9%8B%E7%94%9F%E6%B4%BB%E5%93%81%E8%B4%A8/">个人提升之生活品质</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        Here's something encrypted, password is required to continue reading.
+        
+          <p class="article-more-link">
+            <a href="../../2022/08/14/%E4%B8%AA%E4%BA%BA%E6%8F%90%E5%8D%87%E4%B9%8B%E7%94%9F%E6%B4%BB%E5%93%81%E8%B4%A8/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bealittlestar.github.io/2022/08/14/%E4%B8%AA%E4%BA%BA%E6%8F%90%E5%8D%87%E4%B9%8B%E7%94%9F%E6%B4%BB%E5%93%81%E8%B4%A8/" data-id="clh1918a6004j04vk4bzvc7h2" data-title="个人提升之生活品质" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-个人提升之思维能力" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2022/08/14/%E4%B8%AA%E4%BA%BA%E6%8F%90%E5%8D%87%E4%B9%8B%E6%80%9D%E7%BB%B4%E8%83%BD%E5%8A%9B/" class="article-date">
+  <time class="dt-published" datetime="2022-08-14T11:09:32.000Z" itemprop="datePublished">2022-08-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/%E6%80%9D%E7%BB%B4/">思维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2022/08/14/%E4%B8%AA%E4%BA%BA%E6%8F%90%E5%8D%87%E4%B9%8B%E6%80%9D%E7%BB%B4%E8%83%BD%E5%8A%9B/">个人提升之思维能力</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        Here's something encrypted, password is required to continue reading.
+        
+          <p class="article-more-link">
+            <a href="../../2022/08/14/%E4%B8%AA%E4%BA%BA%E6%8F%90%E5%8D%87%E4%B9%8B%E6%80%9D%E7%BB%B4%E8%83%BD%E5%8A%9B/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bealittlestar.github.io/2022/08/14/%E4%B8%AA%E4%BA%BA%E6%8F%90%E5%8D%87%E4%B9%8B%E6%80%9D%E7%BB%B4%E8%83%BD%E5%8A%9B/" data-id="clh1918a5004g04vkbg4y0hf3" data-title="个人提升之思维能力" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E6%80%9D%E7%BB%B4/" rel="tag">思维</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-机器学习-特征工程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2022/08/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" class="article-date">
+  <time class="dt-published" datetime="2022-08-11T12:53:48.000Z" itemprop="datePublished">2022-08-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2022/08/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/">机器学习-特征工程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="特征工程"><a href="#特征工程" class="headerlink" title="特征工程"></a>特征工程</h1><p>目的</p>
+<p>方法</p>
+<p>特征构造</p>
+<p>特征筛选</p>
+<p>特征排序：重要特征</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bealittlestar.github.io/2022/08/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" data-id="clh1918bp009y04vk7qduhqjc" data-title="机器学习-特征工程" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-数据分析之案例分析" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2022/08/11/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/" class="article-date">
+  <time class="dt-published" datetime="2022-08-11T12:13:29.000Z" itemprop="datePublished">2022-08-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2022/08/11/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/">数据分析之案例分析</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        Here's something encrypted, password is required to continue reading.
+        
+          <p class="article-more-link">
+            <a href="../../2022/08/11/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bealittlestar.github.io/2022/08/11/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/" data-id="clh1918bc008g04vkf55ohjh5" data-title="数据分析之案例分析" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">数据分析</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-数据分析之日常工作" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2022/08/11/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E6%97%A5%E5%B8%B8%E5%B7%A5%E4%BD%9C/" class="article-date">
+  <time class="dt-published" datetime="2022-08-11T12:13:20.000Z" itemprop="datePublished">2022-08-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2022/08/11/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E6%97%A5%E5%B8%B8%E5%B7%A5%E4%BD%9C/">数据分析之日常工作</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        Here's something encrypted, password is required to continue reading.
+        
+          <p class="article-more-link">
+            <a href="../../2022/08/11/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E6%97%A5%E5%B8%B8%E5%B7%A5%E4%BD%9C/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bealittlestar.github.io/2022/08/11/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8B%E6%97%A5%E5%B8%B8%E5%B7%A5%E4%BD%9C/" data-id="clh1918bc008d04vk04y76it4" data-title="数据分析之日常工作" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" rel="tag">数据分析</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-个人能力之思考模式" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2022/08/07/%E4%B8%AA%E4%BA%BA%E8%83%BD%E5%8A%9B%E4%B9%8B%E6%80%9D%E8%80%83%E6%A8%A1%E5%BC%8F/" class="article-date">
+  <time class="dt-published" datetime="2022-08-07T12:35:15.000Z" itemprop="datePublished">2022-08-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="../../categories/%E6%80%9D%E7%BB%B4/">思维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2022/08/07/%E4%B8%AA%E4%BA%BA%E8%83%BD%E5%8A%9B%E4%B9%8B%E6%80%9D%E8%80%83%E6%A8%A1%E5%BC%8F/">个人能力之思考模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        Here's something encrypted, password is required to continue reading.
+        
+          <p class="article-more-link">
+            <a href="../../2022/08/07/%E4%B8%AA%E4%BA%BA%E8%83%BD%E5%8A%9B%E4%B9%8B%E6%80%9D%E8%80%83%E6%A8%A1%E5%BC%8F/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bealittlestar.github.io/2022/08/07/%E4%B8%AA%E4%BA%BA%E8%83%BD%E5%8A%9B%E4%B9%8B%E6%80%9D%E8%80%83%E6%A8%A1%E5%BC%8F/" data-id="clh1918aa004z04vk2ko31h58" data-title="个人能力之思考模式" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/%E6%80%9D%E7%BB%B4/" rel="tag">思维</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-数据分析之ppt" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="../../2022/08/01/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8Bppt/" class="article-date">
+  <time class="dt-published" datetime="2022-08-01T15:14:02.000Z" itemprop="datePublished">2022-08-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="../../2022/08/01/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8Bppt/">数据分析之ppt</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="总述"><a href="#总述" class="headerlink" title="总述"></a>总述</h1>
+        
+          <p class="article-more-link">
+            <a href="../../2022/08/01/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8Bppt/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bealittlestar.github.io/2022/08/01/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%B9%8Bppt/" data-id="clh1918b4007n04vk0b7ygo4m" data-title="数据分析之ppt" class="article-share-link">Share</a>
       
       
       
@@ -560,7 +542,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="../3/">&laquo; Prev</a><a class="page-number" href="../../">1</a><a class="page-number" href="../2/">2</a><a class="page-number" href="../3/">3</a><span class="page-number current">4</span><a class="page-number" href="../5/">5</a><a class="page-number" href="../6/">6</a><span class="space">&hellip;</span><a class="page-number" href="../20/">20</a><a class="extend next" rel="next" href="../5/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="../3/">&laquo; Prev</a><a class="page-number" href="../../">1</a><a class="page-number" href="../2/">2</a><a class="page-number" href="../3/">3</a><span class="page-number current">4</span><a class="page-number" href="../5/">5</a><a class="page-number" href="../6/">6</a><span class="space">&hellip;</span><a class="page-number" href="../18/">18</a><a class="extend next" rel="next" href="../5/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -600,7 +582,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/02/">February 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2019/02/">February 2019</a></li></ul>
     </div>
   </div>
 
