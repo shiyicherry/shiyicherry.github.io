@@ -17,11 +17,11 @@
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=x_i">
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=a_j">
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=a_j%3D%5Cfrac%7B1%7D%7B%5Cleft%7C+c_i+%5Cright%7C%7D%5Csum_%7Bx%5Cin+c_i%7Dx">
-<meta property="og:image" content="http://bealittlestar.github.io/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/机器学习-聚类算法/4edg8iytsb.png">
-<meta property="og:image" content="http://bealittlestar.github.io/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/机器学习-聚类算法/jbw467l498.png">
-<meta property="og:image" content="http://bealittlestar.github.io/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/机器学习-聚类算法/e29j2kv6ze.png">
-<meta property="og:image" content="http://bealittlestar.github.io/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/机器学习-聚类算法/i9t9nak7vp.png">
-<meta property="og:image" content="http://bealittlestar.github.io/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/机器学习-聚类算法/ku270y2ln6.png">
+<meta property="og:image" content="http://bealittlestar.github.io/.io//4edg8iytsb.png">
+<meta property="og:image" content="http://bealittlestar.github.io/.io//jbw467l498.png">
+<meta property="og:image" content="http://bealittlestar.github.io/.io//e29j2kv6ze.png">
+<meta property="og:image" content="http://bealittlestar.github.io/.io//i9t9nak7vp.png">
+<meta property="og:image" content="http://bealittlestar.github.io/.io//ku270y2ln6.png">
 <meta property="article:published_time" content="2022-03-09T08:21:43.000Z">
 <meta property="article:modified_time" content="2022-10-03T13:53:43.624Z">
 <meta property="article:author" content="May May">
@@ -142,20 +142,20 @@
 <p>\3. average linkage，将两组数据中的样本两两求解距离，最后计算均值，作为两个cluster之间的距离</p>
 <p>从定义可以看出，以上三种方法分别考虑了最小，最大和平均值，其中最小，最大都容易受到异常值点的干扰，而均值则计算量较大。</p>
 <p>下面通过一个例子来看下凝聚法的运算过程，首先有5个样本的数据，第一步计算距离矩阵，结果如下</p>
-<p><img src="机器学习-聚类算法\4edg8iytsb.png" alt=""></p>
+<p><img src="/.io//4edg8iytsb.png" alt></p>
 <p>可以看到，距离矩阵中最小值为3，为样本1与样本2之间的距离，所以可以先将1和2聚为一类，图示如下</p>
-<p><img src="机器学习-聚类算法\jbw467l498.png" alt=""></p>
+<p><img src="/.io//jbw467l498.png" alt></p>
 <p>然后将(1,2)这个cluster与其他样本计算距离矩阵，结果如下</p>
-<p><img src="机器学习-聚类算法\e29j2kv6ze.png" alt=""></p>
+<p><img src="/.io//e29j2kv6ze.png" alt></p>
 <p>最小值为7，是样本3和样本5的距离，所以将3和5聚为一类，接下来就是计算(1,2), (3,5), 4这3组样本的距离，同样是距离最近的聚为一类。各个层级的聚类过程示意如下</p>
-<p><img src="机器学习-聚类算法\i9t9nak7vp.png" alt=""></p>
+<p><img src="/.io//i9t9nak7vp.png" alt></p>
 <p>最终可以绘制如下所示的聚类树</p>
-<p><img src="机器学习-聚类算法\ku270y2ln6.png" alt=""></p>
+<p><img src="/.io//ku270y2ln6.png" alt></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bealittlestar.github.io/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/" data-id="clh1918bq00a004vk2fkkaq64" data-title="机器学习-聚类算法" class="article-share-link">Share</a>
+      <a data-url="http://bealittlestar.github.io/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95/" data-id="clpo4oluu00an8wvkg9h69s2p" data-title="机器学习-聚类算法" class="article-share-link">Share</a>
       
       
       

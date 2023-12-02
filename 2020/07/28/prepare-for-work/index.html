@@ -14,8 +14,8 @@
 <meta property="og:description" content="编程语言的学习">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github.com/jackfrued/Python-100-Days/raw/master/Day01-15/res/file-open-mode.png">
-<meta property="og:image" content="http://bealittlestar.github.io/2020/07/28/prepare-for-work/prepare-for-work/image-20200807213131859.png">
-<meta property="og:image" content="http://bealittlestar.github.io/2020/07/28/prepare-for-work/prepare-for-work/image-20200807214032542.png">
+<meta property="og:image" content="http://bealittlestar.github.io/.io//image-20200807213131859.png">
+<meta property="og:image" content="http://bealittlestar.github.io/.io//image-20200807214032542.png">
 <meta property="article:published_time" content="2020-07-28T12:03:48.000Z">
 <meta property="article:modified_time" content="2022-12-11T05:13:38.907Z">
 <meta property="article:author" content="May May">
@@ -260,19 +260,19 @@
 <h1 id="必须运行writer-save-，不然不能输出到本地"><a href="#必须运行writer-save-，不然不能输出到本地" class="headerlink" title="必须运行writer.save()，不然不能输出到本地"></a>必须运行writer.save()，不然不能输出到本地</h1><p>writer.save()<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 第二周：numpy</span><br><span class="line"></span><br><span class="line">https://cloudxlab.com/blog/numpy-pandas-introduction/</span><br><span class="line"></span><br><span class="line">## 对象</span><br><span class="line"></span><br><span class="line">Numpy 提供了n维数组对象（ndarray, A multidimensional array object)</span><br><span class="line"></span><br><span class="line">## 创建</span><br><span class="line"></span><br><span class="line">![image-20200807212039210](prepare-for-work\image-20200807212039210.png)</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">np.arange(6)</span><br><span class="line">array([0,1, 2, 3, 4, 5])</span><br><span class="line">np.zeros(10) # 1-n</span><br><span class="line">np.zeros((3, 6)) # 2-n</span><br></pre></td></tr></table></figure></p>
 <h3 id="types"><a href="#types" class="headerlink" title="types"></a>types</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr1 = np.array([1, 2, 3], dtype=np.float64)</span><br><span class="line">arr1.dtype</span><br><span class="line">float_arr = arr.astype(np.float64)</span><br></pre></td></tr></table></figure>
 <h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>就是用中括号，注意切片是一维数组还是多少维数组！[, ], 如果，后面省略表示全部索引。</p>
-<p><img src="prepare-for-work\image-20200807213131859.png" alt="image-20200807213131859"></p>
+<p><img src="/.io//image-20200807213131859.png" alt="image-20200807213131859"></p>
 <p>布尔类型索引</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data[names == &#x27;Bob&#x27;]</span><br><span class="line">表示索引行</span><br><span class="line"></span><br><span class="line">data[names == &#x27;Bob&#x27;, 2:]</span><br><span class="line">表示行列索引</span><br></pre></td></tr></table></figure>
 <h2 id="增"><a href="#增" class="headerlink" title="增"></a>增</h2><h2 id="改"><a href="#改" class="headerlink" title="改"></a>改</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">result = np.where(cond, xarr, yarr)</span><br></pre></td></tr></table></figure>
 <h3 id="索引-1"><a href="#索引-1" class="headerlink" title="索引"></a>索引</h3><h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><h2 id="删"><a href="#删" class="headerlink" title="删"></a>删</h2><h2 id="计算函数"><a href="#计算函数" class="headerlink" title="计算函数"></a>计算函数</h2><p>+-<em>/ *</em>都是元素对齐</p>
 <p>np.sqrt()</p>
 <p>np.exp()</p>
-<p><img src="prepare-for-work\image-20200807214032542.png" alt="image-20200807214032542"></p>
+<p><img src="/.io//image-20200807214032542.png" alt="image-20200807214032542"></p>
 <h1 id="pandas"><a href="#pandas" class="headerlink" title="pandas"></a>pandas</h1><h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><h2 id="索引-2"><a href="#索引-2" class="headerlink" title="索引"></a>索引</h2><h2 id="增-1"><a href="#增-1" class="headerlink" title="增"></a>增</h2><h2 id="改-1"><a href="#改-1" class="headerlink" title="改"></a>改</h2><h3 id="索引-3"><a href="#索引-3" class="headerlink" title="索引"></a>索引</h3><h3 id="值-1"><a href="#值-1" class="headerlink" title="值"></a>值</h3><h2 id="删-1"><a href="#删-1" class="headerlink" title="删"></a>删</h2><h2 id="计算函数-1"><a href="#计算函数-1" class="headerlink" title="计算函数"></a>计算函数</h2><h1 id="matplotlib"><a href="#matplotlib" class="headerlink" title="matplotlib"></a>matplotlib</h1><h1 id="seaborn"><a href="#seaborn" class="headerlink" title="seaborn"></a>seaborn</h1><h1 id="第三周：sklearn"><a href="#第三周：sklearn" class="headerlink" title="第三周：sklearn"></a>第三周：sklearn</h1><h1 id="第五周：sql"><a href="#第五周：sql" class="headerlink" title="第五周：sql"></a>第五周：sql</h1><h1 id="第六周：-Linux"><a href="#第六周：-Linux" class="headerlink" title="第六周： Linux"></a>第六周： Linux</h1><h1 id="第七周和八周：机器学习算法和数据挖掘"><a href="#第七周和八周：机器学习算法和数据挖掘" class="headerlink" title="第七周和八周：机器学习算法和数据挖掘"></a>第七周和八周：机器学习算法和数据挖掘</h1>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bealittlestar.github.io/2020/07/28/prepare-for-work/" data-id="clh1918a0003u04vkg6lm9c5y" data-title="向着永恒出发" class="article-share-link">Share</a>
+      <a data-url="http://bealittlestar.github.io/2020/07/28/prepare-for-work/" data-id="clpo4olsw003v8wvkah461jso" data-title="向着永恒出发" class="article-share-link">Share</a>
       
       
       

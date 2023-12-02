@@ -13,19 +13,19 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="目录 :smile::one: 简单说一下特征值、特征向量与特征分解&amp;nbsp;&amp;nbsp; I. 特征值、特征向量与特征分解&amp;nbsp;&amp;nbsp; II. 几何意义&amp;nbsp;&amp;nbsp; III.  如何实现通过Matlab、Python实现:two:详细解说SVD&amp;nbsp;&amp;nbsp; I. 几何意义&amp;nbsp;&amp;nbsp; I. 奇异值分解的推导过程&amp;nbsp;&amp;nbsp; I. SV">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://bealittlestar.github.io/2019/02/28/SVD/SVD/SVD1.png">
-<meta property="og:image" content="http://bealittlestar.github.io/2019/02/28/SVD/SVD/SVD3.png">
-<meta property="og:image" content="http://bealittlestar.github.io/2019/02/28/SVD/SVD/SVD4.png">
-<meta property="og:image" content="http://bealittlestar.github.io/2019/02/28/SVD/SVD/SVD2.png">
-<meta property="og:image" content="http://bealittlestar.github.io/2019/02/28/SVD/SVD/SVD5.png">
-<meta property="og:image" content="http://bealittlestar.github.io/2019/02/28/SVD/SVD/SVD6.png">
-<meta property="og:image" content="http://bealittlestar.github.io/2019/02/28/SVD/SVD/SVD7.png">
+<meta property="og:image" content="http://bealittlestar.github.io/.io//SVD1.png">
+<meta property="og:image" content="http://bealittlestar.github.io/.io//SVD3.png">
+<meta property="og:image" content="http://bealittlestar.github.io/.io//SVD4.png">
+<meta property="og:image" content="http://bealittlestar.github.io/.io//SVD2.png">
+<meta property="og:image" content="http://bealittlestar.github.io/.io//SVD5.png">
+<meta property="og:image" content="http://bealittlestar.github.io/.io//SVD6.png">
+<meta property="og:image" content="http://bealittlestar.github.io/.io//SVD7.png">
 <meta property="article:published_time" content="2019-02-28T06:54:12.000Z">
 <meta property="article:modified_time" content="2020-06-29T08:24:54.000Z">
 <meta property="article:author" content="May May">
 <meta property="article:tag" content="SVD">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://bealittlestar.github.io/2019/02/28/SVD/SVD/SVD1.png">
+<meta name="twitter:image" content="http://bealittlestar.github.io/.io//SVD1.png">
   
     <link rel="alternate" href="../../../../atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -109,16 +109,16 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <h1 id="目录-smile"><a href="#目录-smile" class="headerlink" title="目录 :smile:"></a>目录 :smile:</h1><p>:one: <a href="#1">简单说一下特征值、特征向量与特征分解</a><br>&nbsp;&nbsp; I. <a href="#1.1">特征值、特征向量与特征分解</a><br>&nbsp;&nbsp; II. <a href="#1.2">几何意义</a><br>&nbsp;&nbsp; III.  <a href="#1.3">如何实现通过Matlab、Python实现</a><br>:two:<a href="#2">详细解说SVD</a><br>&nbsp;&nbsp; I. <a href="#2.1">几何意义</a><br>&nbsp;&nbsp; I. <a href="#2.2">奇异值分解的推导过程</a><br>&nbsp;&nbsp; I. <a href="#2.3">SVD算例</a><br>&nbsp;&nbsp; I. <a href="#2.4">如何通过Matlab和Python</a><br>:three:<a href="#3">应用举例</a><br>&nbsp;&nbsp; I. <a href="#3.1">特征值、特征向量与特征分解</a><br>:four:<a href="#4">特征分解、奇异值分解的区别</a><br>&nbsp;&nbsp; I. <a href="#4">特征分解、奇异值分解的区别</a></p>
-<h1 id="简单说一下特征值、特征向量与特征分解"><a href="#简单说一下特征值、特征向量与特征分解" class="headerlink" title=" 简单说一下特征值、特征向量与特征分解"></a><font id = '1' color = 'blue'> 简单说一下特征值、特征向量与特征分解</font></h1><span id="more"></span>
-<h2 id="特征值、特征向量与特征分解"><a href="#特征值、特征向量与特征分解" class="headerlink" title="特征值、特征向量与特征分解"></a><font id = 1.1>特征值、特征向量与特征分解</font></h2><p><font color='red'>Theory:</font><br>对于一个正阵$M$，满足如下：</p>
+<h1 id="简单说一下特征值、特征向量与特征分解"><a href="#简单说一下特征值、特征向量与特征分解" class="headerlink" title=" 简单说一下特征值、特征向量与特征分解"></a><font id="1" color="blue"> 简单说一下特征值、特征向量与特征分解</font></h1><span id="more"></span>
+<h2 id="特征值、特征向量与特征分解"><a href="#特征值、特征向量与特征分解" class="headerlink" title="特征值、特征向量与特征分解"></a><font id="1.1">特征值、特征向量与特征分解</font></h2><p><font color="red">Theory:</font><br>对于一个正阵$M$，满足如下：</p>
 <script type="math/tex; mode=display">Mx=\lambda x</script><p>其中$\lambda$被成为特征值，满足$||M-\lambda E||=0$再有$(M-\lambda E)x=0$，可计算其特征向量。<br>如果有了特征值和特征向量后呢，则可以将矩阵$M$用特征分解：</p>
 <script type="math/tex; mode=display">M=W\sum W^{-1}</script><p>$W={w_1,w_2,…,w_n}$分别是特征值$\lambda_1,\lambda_2,…,\lambda_n$对应的特征向量构成的方阵</p>
-<h2 id="几何意义"><a href="#几何意义" class="headerlink" title=" 几何意义 "></a><font id = 1.2> 几何意义 </font></h2><p>对应矩阵M,其对应的线性变化</p>
-<script type="math/tex; mode=display">Mx = x'</script><p>上面这个式子，$Mx，x’$是一个向量，$x,x’$可能是不共线的(如图(b))，如果向量$Mx,x’$满足$Mx=x’=\lambda x$,则如图(b)，这说明了这个变换就是对向量x做一个拉伸或者压缩。<br><img src="SVD/SVD1.png" alt="图一"></p>
-<h2 id="如何实现通过Matlab、Python实现"><a href="#如何实现通过Matlab、Python实现" class="headerlink" title="如何实现通过Matlab、Python实现"></a><font id = 1.2 >如何实现通过Matlab、Python实现</font></h2><p>数学推导：</p>
+<h2 id="几何意义"><a href="#几何意义" class="headerlink" title=" 几何意义 "></a><font id="1.2"> 几何意义 </font></h2><p>对应矩阵M,其对应的线性变化</p>
+<script type="math/tex; mode=display">Mx = x'</script><p>上面这个式子，$Mx，x’$是一个向量，$x,x’$可能是不共线的(如图(b))，如果向量$Mx,x’$满足$Mx=x’=\lambda x$,则如图(b)，这说明了这个变换就是对向量x做一个拉伸或者压缩。<br><img src="/.io//SVD1.png" alt="图一"></p>
+<h2 id="如何实现通过Matlab、Python实现"><a href="#如何实现通过Matlab、Python实现" class="headerlink" title="如何实现通过Matlab、Python实现"></a><font id="1.2">如何实现通过Matlab、Python实现</font></h2><p>数学推导：</p>
 <script type="math/tex; mode=display">Mx = \lambda x</script><script type="math/tex; mode=display">Mx-\lambda x=(M-\lambda E)x=0</script><p>齐次线性方程组有非零解，则$||M-\lambda E||=0$可求得特征向量<br>再带回，可得特征向量。<br>Matlab:<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">d = eig(M) <span class="comment">% 求取矩阵M的特征值，向量形式存储</span></span><br><span class="line">[V,D] = eig(M) <span class="comment">% 计算M的特征值对角阵D和特征向量V，使得MV = VD成立</span></span><br><span class="line">[V,D] = eig(M,<span class="string">&#x27;nobalance&#x27;</span>)   <span class="comment">%当矩阵M中有与截断误差数量级相差不远的值时，该指令可能更精确。&#x27;nobalance&#x27;起误差调节作用</span></span><br></pre></td></tr></table></figure><br>Python<br>numpy科学计算库提供相应的方法<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x = np.diag((<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)) <span class="comment"># 这是你想要求取特征值的数组</span></span><br><span class="line">a,b = numpy.linalg.elg(x) <span class="comment"># 特征值赋值给a,对应的特征向量赋值给b</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="详细解说SVD"><a href="#详细解说SVD" class="headerlink" title="详细解说SVD"></a><font id ='2' color='blue'>详细解说SVD</font></h1><p>SVD的英文全称： Singular Value Decomposition，中文名字：奇异值分解</p>
-<h2 id="几何意义-1"><a href="#几何意义-1" class="headerlink" title="几何意义"></a><font id='2.1'>几何意义</font></h2><p><a target="_blank" rel="noopener" href="http://www.ams.org/publicoutreach/feature-column/fcarc-svd">图来源</a><br>以二维空间为例<br><img src="SVD/SVD3.png" alt="图二"><img src="SVD/SVD4.png" alt="图二"><br>几何意义就是把一个单位正交的网格，转换为另外一个单位正交的网格</p>
+<h1 id="详细解说SVD"><a href="#详细解说SVD" class="headerlink" title="详细解说SVD"></a><font id="2" color="blue">详细解说SVD</font></h1><p>SVD的英文全称： Singular Value Decomposition，中文名字：奇异值分解</p>
+<h2 id="几何意义-1"><a href="#几何意义-1" class="headerlink" title="几何意义"></a><font id="2.1">几何意义</font></h2><p><a target="_blank" rel="noopener" href="http://www.ams.org/publicoutreach/feature-column/fcarc-svd">图来源</a><br>以二维空间为例<br><img src="/.io//SVD3.png" alt="图二"><img src="/.io//SVD4.png" alt="图二"><br>几何意义就是把一个单位正交的网格，转换为另外一个单位正交的网格</p>
 <p>假如选取了一组单位正交基{$\vec{v}_1$,$\vec{v}_2$},刚好矩阵$M$的线性变化$M\vec{v}_1 $,$M\vec{v}_2 $ 也正交，用$\vec{u}_1,\vec{u}_2 $分别表示$M\vec{v}_1 $,$M\vec{v}_2 $ 的单位向量，用$\lambda_1,\lambda_2 $表示$M\vec{v}_1 $,$M\vec{v}_2$的长度，描述网格在这些特定方向上的拉伸量，也被称作矩阵M的奇异值。<br>$M\vec{v}_1 =\lambda_1\vec{u}_1 $<br>$M\vec{v}_2 =\lambda_2\vec{u}_2 $<br>对任意给定的向量 $\vec{x}$ ,则有</p>
 <script type="math/tex; mode=display">
 \mathbf{x}=\left(\mathbf{v}_{1} \cdot \mathbf{x}\right) \mathbf{v}_{1}+\left(\mathbf{v}_{2} \cdot \mathbf{x}\right) \mathbf{v}_{2}</script><p> 再将M的线性变换</p>
@@ -126,13 +126,13 @@
 \begin{aligned} M \mathbf{x} &=\left(\mathbf{v}_{1} \cdot \mathbf{x}\right) M \mathbf{N}_{1}+\left(\mathbf{v}_{2} \cdot \mathbf{x}\right) M \mathbf{v}_{2} \\ M \mathbf{x} &=\left(\mathbf{v}_{1} \cdot \mathbf{x}\right) \sigma_{1} \mathbf{u}_{1}+\left(\mathbf{v}_{2} \cdot \mathbf{x}\right) \sigma_{2} \mathbf{u}_{2} \end{aligned}</script><script type="math/tex; mode=display">
 \begin{array}{c}{M \mathbf{x}=\mathbf{u}_{1} \sigma_{1} \mathbf{v}_{1}^{\top} \mathbf{x}+\mathbf{u}_{2} \sigma_{2} \mathbf{v}_{2}^{\top} \mathbf{x}} \\ {M=\mathbf{u}_{1} \sigma_{1} \mathbf{v}_{1}^{\top}+\mathbf{u}_{2} \sigma_{2} \mathbf{v}_{2}^{\top}}\end{array}</script><p> so</p>
 <script type="math/tex; mode=display">
-M=U \Sigma V^{T}</script><h2 id="奇异值分解的推导过程"><a href="#奇异值分解的推导过程" class="headerlink" title="奇异值分解的推导过程"></a><font id='2.2'>奇异值分解的推导过程</font></h2><p>$u=(u<em>1,u_2,…,u_m)$<br>$v=(v_1,v_2,…,v_n)$<br>$u,v$都是空间的基,是正交矩阵 $u^Tu=E,v^Tv = E$<br><img src="SVD/SVD2.png" alt="图二"><br>任何一个矩阵$M</em>{m*n}$，$rank(M)=k$，一定存在ＳＶＤ,换句话说，M可以将一组单位正交基映射到另一组单位正交基。答案是肯定的<br>证明如下：<br>在n为空间中，有一组单位正交基{$\vec{v}_1,\vec{v}_2,…,\vec{v}_n$},线性变化作用以后</p>
+M=U \Sigma V^{T}</script><h2 id="奇异值分解的推导过程"><a href="#奇异值分解的推导过程" class="headerlink" title="奇异值分解的推导过程"></a><font id="2.2">奇异值分解的推导过程</font></h2><p>$u=(u<em>1,u_2,…,u_m)$<br>$v=(v_1,v_2,…,v_n)$<br>$u,v$都是空间的基,是正交矩阵 $u^Tu=E,v^Tv = E$<br><img src="/.io//SVD2.png" alt="图二"><br>任何一个矩阵$M</em>{m*n}$，$rank(M)=k$，一定存在ＳＶＤ,换句话说，M可以将一组单位正交基映射到另一组单位正交基。答案是肯定的<br>证明如下：<br>在n为空间中，有一组单位正交基{$\vec{v}_1,\vec{v}_2,…,\vec{v}_n$},线性变化作用以后</p>
 <script type="math/tex; mode=display">
 {M\vec{v}_1,M\vec{v}_2,...,M\vec{v}_n}</script><p>也是正交的，则有</p>
 <script type="math/tex; mode=display">
 (M\vec{v}_i,M\vec{v}_j) = (M\vec{x}_i)^TM\vec{v}_j=\vec{v}_i^TM^TM\vec{v}_j=0</script><p>注意喔，$M^TM$是矩阵喔，则会有$M^TM\vec{v}_j=\lambda \vec{v}_j$<br>接下去，</p>
 <script type="math/tex; mode=display">
-\begin{aligned} v_{i}^{T} M^{T} \mathrm{M} v_{j}=& v_{i}^{T} \lambda_{j} v_{j} \\ &=\lambda_{j} v_{i}^{T} v_{j} \\ &=\lambda_{j} v_{i}\dot v_{j}=0 \end{aligned}</script><p> 上述就证明了是有的：任何一个矩阵，都可以将一组单位正交基转换成另外一组正交基。<br> 当$i=j$,$<M\vec{v}_i,M \vec{v}_i>=\lambda_i \vec{v}_i \vec{v}_i=\lambda_i$<br> 进行一些单位化，记$u_i=\frac{A\vec{v}_i}{|M\vec{v}_i|}=\frac{1}{\sqrt{\lambda_i}}M\vec{v}_i$<br>则</p>
+\begin{aligned} v_{i}^{T} M^{T} \mathrm{M} v_{j}=& v_{i}^{T} \lambda_{j} v_{j} \\ &=\lambda_{j} v_{i}^{T} v_{j} \\ &=\lambda_{j} v_{i}\dot v_{j}=0 \end{aligned}</script><p> 上述就证明了是有的：任何一个矩阵，都可以将一组单位正交基转换成另外一组正交基。<br> 当$i=j$,$<M\vec{v}_i,M \vec{v}_i>=\lambda_i \vec{v}_i \vec{v}_i=\lambda_i$<br> 进行一些单位化，记$u_i=\frac{A\vec{v}_i}{|M\vec{v}_i|}=\frac{1}{\sqrt{\lambda_i}}M\vec{v}_i$<br>则</M\vec{v}_i,M></p>
 <script type="math/tex; mode=display">
 A v_{i}=\sigma_{i} u_{i}, \sigma_{i}(\operatorname{奇异值})=\sqrt{\lambda_{i}}, 0 \leq i \leq \mathrm{k}, \mathrm{k}=\operatorname{Rank}(\mathrm{A})</script><p> 当$k &lt; i &lt;= m$时，对$u1，u2，…，uk$进行扩展$u(k+1),…,um$，使得$u1，u2，…，um$为$m$维空间中的一组正交基.也可对$\vec{v}<em>1,\vec{v}_2,…,\vec{v}_k$进行扩展，扩展的$\vec{v}</em>{k+1},…,\vec{v}_{n}$存在零子空间里面。</p>
 <script type="math/tex; mode=display">
@@ -143,7 +143,7 @@ M=\left[ \begin{array}{lll}{\vec{u}_{1}} & {\cdots} & {\vec{u}_{k}}\end{array}\r
 \left[ \begin{array}{c}{\vec{v}_{1}^{T}} \\ {\vdots} \\ {\vec{v}_{k}^{T}}\end{array}\right]+
 \left[ \begin{array}{ccc}{\vec{u}_{k+1}} & {\cdots} & {\vec{u}_{m}}\end{array}\right] 
 \left[\begin{array}{c} 0 \end{array} \right] 
-\left[ \begin{array}{c}{\vec{v}_{k+1}^{T}} \\ {\vdots} \\ {\vec{v}_{n}^{T}}\end{array}\right]</script><h2 id="SVD算例"><a href="#SVD算例" class="headerlink" title="SVD算例"></a><font id='2.3'>SVD算例</font></h2><p>U：$AA^T$的特征值和特征向量，用单位化的特征向量构成 U<br>V: $A^TA$ 的特征值和特征向量，用单位化的特征向量构成 V<br>$\sum_{mn} $ :将$ AA^{T} $或者 A^{T}A 的特征值求平方根，然后构成 Σ<br>以矩阵$A = \left[\begin{matrix} 1 &amp; 1\1 &amp;1\ 0 &amp;0\\end{matrix} \right]$<br>第一步 U ，下面是一种计算方法<br>对矩阵</p>
+\left[ \begin{array}{c}{\vec{v}_{k+1}^{T}} \\ {\vdots} \\ {\vec{v}_{n}^{T}}\end{array}\right]</script><h2 id="SVD算例"><a href="#SVD算例" class="headerlink" title="SVD算例"></a><font id="2.3">SVD算例</font></h2><p>U：$AA^T$的特征值和特征向量，用单位化的特征向量构成 U<br>V: $A^TA$ 的特征值和特征向量，用单位化的特征向量构成 V<br>$\sum_{mn} $ :将$ AA^{T} $或者 A^{T}A 的特征值求平方根，然后构成 Σ<br>以矩阵$A = \left[\begin{matrix} 1 &amp; 1\1 &amp;1\ 0 &amp;0\\end{matrix} \right]$<br>第一步 U ，下面是一种计算方法<br>对矩阵</p>
 <script type="math/tex; mode=display">
 A A^{T}=\left[ \begin{array}{lll}{2} & {2} & {0} \\ {2} & {2} & {0} \\ {0} & {0} & {0}\end{array}\right]</script><p> 特征分解，<br> 特征是4，0，0<br> 特征向量是<br> $\left[\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}, 0\right]^{T},\left[-\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}, 0\right]^{T},[0,0,1]^{T}$,可得到</p>
 <script type="math/tex; mode=display">
@@ -153,17 +153,17 @@ V=\left[ \begin{array}{cc}{\frac{1}{\sqrt{2}}} & {-\frac{1}{\sqrt{2}}} \\ {\frac
 <script type="math/tex; mode=display">
 \Sigma=\left[ \begin{array}{ll}{2} & {0} \\ {0} & {0} \\ {0} & {0}\end{array}\right]</script><p> 最后，</p>
 <script type="math/tex; mode=display">
-A=U \Sigma V^{T}=\left[ \begin{array}{ccc}{\frac{1}{\sqrt{2}}} & {-\frac{1}{\sqrt{2}}} & {0} \\ {\frac{1}{\sqrt{2}}} & {\frac{1}{\sqrt{2}}} & {0} \\ {0} & {0} & {1}\end{array}\right] \left[ \begin{array}{ll}{2} & {0} \\ {0} & {0} \\ {0} & {0}\end{array}\right] \left[ \begin{array}{cc}{\frac{1}{\sqrt{2}}} & {-\frac{1}{\sqrt{2}}} \\ {\frac{1}{\sqrt{2}}} & {\frac{1}{\sqrt{2}}}\end{array}\right]^{T}=\left[ \begin{array}{cc}{1} & {1} \\ {1} & {1} \\ {0} & {0}\end{array}\right]</script><h2 id="如何通过Matlab和Python"><a href="#如何通过Matlab和Python" class="headerlink" title="如何通过Matlab和Python"></a><font id='2.4'>如何通过Matlab和Python</font></h2><p>Matlab：<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">s = svd(A)</span><br><span class="line">[U,S,V] = svd(A)</span><br><span class="line">[U,S,V] = svd(A,<span class="string">&#x27;econ&#x27;</span>)</span><br><span class="line">[U,S,V] = svd(A,<span class="number">0</span>)</span><br><span class="line">input: A 矩阵</span><br><span class="line">output:</span><br><span class="line">        s:奇异值，以列向量形式返回。奇异值是以降序顺序列出的非负实数</span><br><span class="line">        S：</span><br><span class="line">        U:左奇异向量，以矩阵的列形式返回。</span><br><span class="line">        V:奇异值，以对角矩阵形式返回。S 的对角元素是以降序排列的非负奇异值。</span><br><span class="line">        右奇异向量，以矩阵的列形式返回。</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>Python<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">M = np.array([ [<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>]])</span><br><span class="line">U,S,V  = np.linalg.svd(M)</span><br></pre></td></tr></table></figure></p>
-<h1 id="应用举例"><a href="#应用举例" class="headerlink" title="应用举例"></a><font id='3' color='blue'>应用举例</font></h1><h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a><font id ='3.1'>应用</font></h2><p> 2.1 信息检索<br> 2.2 推荐系统<br> 2.3 基于协同过滤的推荐系统<br> 2.4 图像压缩</p>
-<h1 id="特征值分解和奇异值分解的区别"><a href="#特征值分解和奇异值分解的区别" class="headerlink" title="特征值分解和奇异值分解的区别"></a><font id='4' color='blue'>特征值分解和奇异值分解的区别</font></h1><ol>
+A=U \Sigma V^{T}=\left[ \begin{array}{ccc}{\frac{1}{\sqrt{2}}} & {-\frac{1}{\sqrt{2}}} & {0} \\ {\frac{1}{\sqrt{2}}} & {\frac{1}{\sqrt{2}}} & {0} \\ {0} & {0} & {1}\end{array}\right] \left[ \begin{array}{ll}{2} & {0} \\ {0} & {0} \\ {0} & {0}\end{array}\right] \left[ \begin{array}{cc}{\frac{1}{\sqrt{2}}} & {-\frac{1}{\sqrt{2}}} \\ {\frac{1}{\sqrt{2}}} & {\frac{1}{\sqrt{2}}}\end{array}\right]^{T}=\left[ \begin{array}{cc}{1} & {1} \\ {1} & {1} \\ {0} & {0}\end{array}\right]</script><h2 id="如何通过Matlab和Python"><a href="#如何通过Matlab和Python" class="headerlink" title="如何通过Matlab和Python"></a><font id="2.4">如何通过Matlab和Python</font></h2><p>Matlab：<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">s = svd(A)</span><br><span class="line">[U,S,V] = svd(A)</span><br><span class="line">[U,S,V] = svd(A,<span class="string">&#x27;econ&#x27;</span>)</span><br><span class="line">[U,S,V] = svd(A,<span class="number">0</span>)</span><br><span class="line">input: A 矩阵</span><br><span class="line">output:</span><br><span class="line">        s:奇异值，以列向量形式返回。奇异值是以降序顺序列出的非负实数</span><br><span class="line">        S：</span><br><span class="line">        U:左奇异向量，以矩阵的列形式返回。</span><br><span class="line">        V:奇异值，以对角矩阵形式返回。S 的对角元素是以降序排列的非负奇异值。</span><br><span class="line">        右奇异向量，以矩阵的列形式返回。</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>Python<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">M = np.array([ [<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>]])</span><br><span class="line">U,S,V  = np.linalg.svd(M)</span><br></pre></td></tr></table></figure></p>
+<h1 id="应用举例"><a href="#应用举例" class="headerlink" title="应用举例"></a><font id="3" color="blue">应用举例</font></h1><h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a><font id="3.1">应用</font></h2><p> 2.1 信息检索<br> 2.2 推荐系统<br> 2.3 基于协同过滤的推荐系统<br> 2.4 图像压缩</p>
+<h1 id="特征值分解和奇异值分解的区别"><a href="#特征值分解和奇异值分解的区别" class="headerlink" title="特征值分解和奇异值分解的区别"></a><font id="4" color="blue">特征值分解和奇异值分解的区别</font></h1><ol>
 <li>特征值分解只能是方阵，而奇异值分解是矩阵就可以</li>
-<li>特征值分解只考虑了对矩阵缩放效果，奇异值分解对矩阵有选择、收缩、投影的效果<br><img src="SVD/SVD5.png" alt="图二"><img src="SVD/SVD6.png" alt="图二"><img src="SVD/SVD7.png" alt="图二"></li>
+<li>特征值分解只考虑了对矩阵缩放效果，奇异值分解对矩阵有选择、收缩、投影的效果<br><img src="/.io//SVD5.png" alt="图二"><img src="/.io//SVD6.png" alt="图二"><img src="/.io//SVD7.png" alt="图二"></li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bealittlestar.github.io/2019/02/28/SVD/" data-id="clh191896001q04vkgjo8c1qe" data-title="我的读书笔记" class="article-share-link">Share</a>
+      <a data-url="http://bealittlestar.github.io/2019/02/28/SVD/" data-id="clpo4olrz001n8wvk1wbhdjp5" data-title="我的读书笔记" class="article-share-link">Share</a>
       
       
       
