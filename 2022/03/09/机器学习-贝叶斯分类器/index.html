@@ -13,13 +13,13 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="[TOC] 概率论的知识">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://bealittlestar.github.io/.io//熵.png">
-<meta property="og:image" content="http://bealittlestar.github.io/.io//2.png">
+<meta property="og:image" content="http://bealittlestar.github.io/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/熵.png">
+<meta property="og:image" content="http://bealittlestar.github.io/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/2.png">
 <meta property="article:published_time" content="2022-03-09T06:46:51.000Z">
 <meta property="article:modified_time" content="2022-03-09T08:46:12.000Z">
 <meta property="article:author" content="May May">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://bealittlestar.github.io/.io//熵.png">
+<meta name="twitter:image" content="http://bealittlestar.github.io/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/熵.png">
   
     <link rel="alternate" href="../../../../atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -187,7 +187,7 @@ I(X;Y)=\sum \sum p(x,y)log(\frac{p(x,y)}{p(x)p(y)})\\
 =H(X)-H(X|Y)=H(Y)-H(Y|X)</script><p>如果两个随机变量独立，则互信息为0,因此，互信息可以衡量两个随机变量的相关程度</p>
 <h2 id="条件互信息"><a href="#条件互信息" class="headerlink" title="条件互信息"></a>条件互信息</h2><p>在条件z发生时的条件互信息</p>
 <script type="math/tex; mode=display">
-I(X;Y|Z) = \sum\sum p(x,y|z)log_2^{\frac{p(x,y|z)}{p(x|z)p(y|z)}}</script><p><img src="/.io//熵.png" alt></p>
+I(X;Y|Z) = \sum\sum p(x,y|z)log_2^{\frac{p(x,y|z)}{p(x|z)p(y|z)}}</script><p><img src="/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/熵.png" alt></p>
 <h2 id="半朴素贝叶斯-1"><a href="#半朴素贝叶斯-1" class="headerlink" title="半朴素贝叶斯"></a>半朴素贝叶斯</h2><p>适当的考虑一部分属性间的相互依赖关系，这个关系可以用互信息描述</p>
 <h3 id="独依赖"><a href="#独依赖" class="headerlink" title="独依赖"></a>独依赖</h3><p>假设每个属性只有一个其他 的属性.则计算公式改下如下</p>
 <script type="math/tex; mode=display">
@@ -203,7 +203,7 @@ I(X;Y|Y)=\sum_{i}I(X;Y|c_i)</script><p>step 2: 以属性为结点构建完全图
 <p>step 3: 最大带权生成树，挑选根变量</p>
 <p>step 4: 加入类别结点y,增加到每个属性的有向边</p>
 <p>条件互信息反应了属性在已知类别下的相关性大小</p>
-<p><img src="/.io//2.png" alt></p>
+<p><img src="/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/2.png" alt></p>
 <h2 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h2><p>AODE选择模型尝试将每个属性作为超父构建SPODE</p>
 <script type="math/tex; mode=display">
 P(c_i|X)正比于 \sum_{i=1,|D_{x_i}>=m}p(c,x_i)\Pi_{j=1}^{d}p(x_j|c_i,x_i)</script><p>$m$通常取30,</p>
@@ -218,7 +218,7 @@ p(x_1,x_2,...,x_n)=\Pi_{i=1}^{n}p_{B}(x_i|\pi_i)=\Pi_{i=1}^{d}\Theta_{xi|\pi_i}\
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bealittlestar.github.io/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" data-id="clpo4oluw00av8wvkhawshe2j" data-title="机器学习-贝叶斯分类器" class="article-share-link">Share</a>
+      <a data-url="http://bealittlestar.github.io/2022/03/09/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8/" data-id="clpo50yh000avh8vk5k1lcynz" data-title="机器学习-贝叶斯分类器" class="article-share-link">Share</a>
       
       
       

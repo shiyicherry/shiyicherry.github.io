@@ -13,14 +13,14 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="[TOC] 1. 需要的微积分知识1.1 导数对于一元函数，在导数存在的情况下，在某一点的导数，也就是该点的斜率。对于多元函数，对于某一点求导，则需要指明方向，两个特殊的方向，1. 偏导：在坐标轴方向的导数 2. 梯度的方向:总有一个方向是变化最快的。 1.2 求导的链式法则 $x \in R$, $z&#x3D;g(f(x))$, $y&#x3D;f(x)$ \frac{\partial z}{\partial x">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://bealittlestar.github.io/.io//2.1.1.png">
-<meta property="og:image" content="http://bealittlestar.github.io/.io//3.1.1.png">
+<meta property="og:image" content="http://bealittlestar.github.io/2019/03/05/BP%E7%AE%97%E6%B3%95/2.1.1.png">
+<meta property="og:image" content="http://bealittlestar.github.io/2019/03/05/BP%E7%AE%97%E6%B3%95/3.1.1.png">
 <meta property="article:published_time" content="2019-03-05T11:24:23.000Z">
 <meta property="article:modified_time" content="2020-06-24T12:29:14.000Z">
 <meta property="article:author" content="May May">
 <meta property="article:tag" content="BP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://bealittlestar.github.io/.io//2.1.1.png">
+<meta name="twitter:image" content="http://bealittlestar.github.io/2019/03/05/BP%E7%AE%97%E6%B3%95/2.1.1.png">
   
     <link rel="alternate" href="../../../../atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -113,8 +113,8 @@
 <script type="math/tex; mode=display">\nabla_x^z=(\frac{\partial f}{\partial x})^T \nabla_y^z</script><h1 id="2-梯度下降法"><a href="#2-梯度下降法" class="headerlink" title="2. 梯度下降法"></a>2. 梯度下降法</h1><h2 id="2-1-梯度"><a href="#2-1-梯度" class="headerlink" title="2.1 梯度"></a>2.1 梯度</h2><p>梯度其实本质也是一个向量，对于函数$f(X,y)$<br>在$(W,y)$这一点的梯度 $(\frac{\partial f}{\partial X},\frac{\partial f}{\partial y})$<br>梯度的几何意义：在该店变化增加最快的地方</p>
 </li>
 </ol>
-<h2 id="2-2-梯度算法的解释"><a href="#2-2-梯度算法的解释" class="headerlink" title="2.2 梯度算法的解释"></a>2.2 梯度算法的解释</h2><p>图来自吴恩达的机器学习课程<br><img src="/.io//2.1.1.png" alt="tu"><br>颜色偏红(A)的地方开始，根据梯度的负方向通过9次更新，达到了最小值(B)。<br>现在给定一个点$A(\theta_0,\theta_1)$,干嘛呢，我们想从A到B点（最小值点),类似人类下山，需要知道往那个方向吧、走大多一步呢？<br>方向：梯度的负方向 $ \delta=(\frac{\partial L}{\partial \theta_0},\frac{\partial L}{\partial \theta_1})$)<br>步长：学习率（$\alpha$)<br>因此，计算一次里目标更近了 $(\theta_0,\theta_1)=(\theta_0,\theta_1)-\alpha \dot (\delta)$<br>在重复上两步，直到满意为止。</p>
-<h1 id="3-误差反向传播算法"><a href="#3-误差反向传播算法" class="headerlink" title="3.误差反向传播算法"></a>3.误差反向传播算法</h1><h2 id="3-1-理论推导"><a href="#3-1-理论推导" class="headerlink" title="3.1 理论推导"></a>3.1 理论推导</h2><p><img src="/.io//3.1.1.png" alt="计算图"></p>
+<h2 id="2-2-梯度算法的解释"><a href="#2-2-梯度算法的解释" class="headerlink" title="2.2 梯度算法的解释"></a>2.2 梯度算法的解释</h2><p>图来自吴恩达的机器学习课程<br><img src="/2019/03/05/BP%E7%AE%97%E6%B3%95/2.1.1.png" alt="tu"><br>颜色偏红(A)的地方开始，根据梯度的负方向通过9次更新，达到了最小值(B)。<br>现在给定一个点$A(\theta_0,\theta_1)$,干嘛呢，我们想从A到B点（最小值点),类似人类下山，需要知道往那个方向吧、走大多一步呢？<br>方向：梯度的负方向 $ \delta=(\frac{\partial L}{\partial \theta_0},\frac{\partial L}{\partial \theta_1})$)<br>步长：学习率（$\alpha$)<br>因此，计算一次里目标更近了 $(\theta_0,\theta_1)=(\theta_0,\theta_1)-\alpha \dot (\delta)$<br>在重复上两步，直到满意为止。</p>
+<h1 id="3-误差反向传播算法"><a href="#3-误差反向传播算法" class="headerlink" title="3.误差反向传播算法"></a>3.误差反向传播算法</h1><h2 id="3-1-理论推导"><a href="#3-1-理论推导" class="headerlink" title="3.1 理论推导"></a>3.1 理论推导</h2><p><img src="/2019/03/05/BP%E7%AE%97%E6%B3%95/3.1.1.png" alt="计算图"></p>
 <h3 id="3-1-1-符号说明"><a href="#3-1-1-符号说明" class="headerlink" title="3.1.1 符号说明"></a>3.1.1 符号说明</h3><p>上图是一个L层的神经网络，输入层为第一层，隐藏层：2至$L-1$层，输出层L</p>
 <p>令 输入向量 $\vec{X}$</p>
 <script type="math/tex; mode=display">\vec{X} = (x_1,x_2,...,x_{m-1},x_m)</script><p>输出向量 $\vec{Y}$</p>
@@ -289,7 +289,7 @@ W_{sl1}^{(l+1)}&W_{sl2}^{(l+1)} &\dots& W_{sl(sl+1)}^{(l+1)}\\
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bealittlestar.github.io/2019/03/05/BP%E7%AE%97%E6%B3%95/" data-id="clpo4olr000018wvkgmimeyqe" data-title="BP算法" class="article-share-link">Share</a>
+      <a data-url="http://bealittlestar.github.io/2019/03/05/BP%E7%AE%97%E6%B3%95/" data-id="clpo50ydq0001h8vk01vj3jes" data-title="BP算法" class="article-share-link">Share</a>
       
       
       

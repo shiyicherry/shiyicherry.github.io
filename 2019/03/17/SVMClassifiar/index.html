@@ -13,15 +13,15 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="[TOC]">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://bealittlestar.github.io/.io//MyBlog/hexo/source/_posts/SVMClassifiar/1.png">
-<meta property="og:image" content="http://bealittlestar.github.io/.io//MyBlog/hexo/source/_posts/SVMClassifiar/2.png">
-<meta property="og:image" content="http://bealittlestar.github.io/.io//MyBlog/hexo/source/_posts/SVMClassifiar/3.jpg">
+<meta property="og:image" content="http://bealittlestar.github.io/2019/03/17/SVMClassifiar/MyBlog/hexo/source/_posts/SVMClassifiar/1.png">
+<meta property="og:image" content="http://bealittlestar.github.io/2019/03/17/SVMClassifiar/MyBlog/hexo/source/_posts/SVMClassifiar/2.png">
+<meta property="og:image" content="http://bealittlestar.github.io/2019/03/17/SVMClassifiar/MyBlog/hexo/source/_posts/SVMClassifiar/3.jpg">
 <meta property="article:published_time" content="2019-03-17T00:50:59.000Z">
 <meta property="article:modified_time" content="2020-07-25T08:01:04.000Z">
 <meta property="article:author" content="May May">
 <meta property="article:tag" content="支持向量机">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://bealittlestar.github.io/.io//MyBlog/hexo/source/_posts/SVMClassifiar/1.png">
+<meta name="twitter:image" content="http://bealittlestar.github.io/2019/03/17/SVMClassifiar/MyBlog/hexo/source/_posts/SVMClassifiar/1.png">
   
     <link rel="alternate" href="../../../../atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -126,11 +126,11 @@ s.t \lambda_i>=0</script><p><strong>弱对偶问题：对偶问题&lt;=原问题
 <p>证明: $max<em>{x} min(\lambda \eta ) L&lt;=min</em>{\eta,\lambda } max_{x} L$</p>
 <script type="math/tex; mode=display">
 \underbrace{\min_{x}L(x,\lambda,\eta)}_{A(\lambda,\eta)}<=L(x,\lambda,\eta)<=\underbrace{\max_{\lambda,\eta} L(x,\lambda,\eta)}_{B(x)}</script><h1 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h1><p>hard-margin SVM、 soft-margin SVM 、kernel SVM</p>
-<h1 id="线性可分支持向量机"><a href="#线性可分支持向量机" class="headerlink" title="线性可分支持向量机"></a>线性可分支持向量机</h1><p><img src="/.io//MyBlog\hexo\source\_posts\SVMClassifiar\1.png" alt></p>
+<h1 id="线性可分支持向量机"><a href="#线性可分支持向量机" class="headerlink" title="线性可分支持向量机"></a>线性可分支持向量机</h1><p><img src="/2019/03/17/SVMClassifiar/MyBlog\hexo\source\_posts\SVMClassifiar\1.png" alt></p>
 <p>对于A子图，可以用一个超平面($w^Tx+b$)去分类两类数据，建立如下的数学模型</p>
 <script type="math/tex; mode=display">f(w,b)=sign(w^Tx+b)</script><p>B,C,D子图提供了超平面都可以分类，显然B,C图的超平面的鲁棒性不如D图。SVM就是找到最好的一个超平面，怎么衡量好呢？找到平面离样本点的距离最大</p>
 <h2 id="hard-margin-SVM：-最大间隔SVM"><a href="#hard-margin-SVM：-最大间隔SVM" class="headerlink" title="hard-margin SVM： 最大间隔SVM"></a>hard-margin SVM： 最大间隔SVM</h2><h2 id="第一宝-间隔"><a href="#第一宝-间隔" class="headerlink" title="第一宝 间隔"></a>第一宝 间隔</h2><p>首先，看下margin的定义</p>
-<p><img src="/.io//MyBlog\hexo\source\_posts\SVMClassifiar\2.png" alt></p>
+<p><img src="/2019/03/17/SVMClassifiar/MyBlog\hexo\source\_posts\SVMClassifiar\2.png" alt></p>
 <script type="math/tex; mode=display">margin(w,b) = min(\frac{|w^Tx_i+b|}{||w||})</script><p>接下来</p>
 <p>数学模型：</p>
 <script type="math/tex; mode=display">\begin{cases}  \max margin(w,b)\\ st. y_i(w^Tx_i+b)>0\end{cases}</script><script type="math/tex; mode=display">\Longrightarrow\begin{cases}  max \frac{1}{||w||}min(y_i(w^Tx_i+b))\\  st. y_i(w^Tx_i+b)>0\end{cases}</script><p>注意，$y_i(w^Tx_i+b)&gt;0$,所以$\exists r&gt;0, min(y_i(w^Tx_i+b))=r$,可令$r=1$,这是对超平面范数的固定作用，因为$y=w^Tx+b$和$y=2w^T+2b$是同一个超平面，总能找到缩放$w,b$使得，可以将$r$缩放到1</p>
@@ -179,7 +179,7 @@ l_{exp}(z)=exp(-z)</script></li>
 <script type="math/tex; mode=display">
 l_{log}(z)=log(1+exp(-z)）</script></li>
 </ol>
-<p><img src="/.io//MyBlog\hexo\source\_posts\SVMClassifiar\3.jpg" alt></p>
+<p><img src="/2019/03/17/SVMClassifiar/MyBlog\hexo\source\_posts\SVMClassifiar\3.jpg" alt></p>
 <h1 id="核方法"><a href="#核方法" class="headerlink" title="核方法"></a>核方法</h1><h2 id="核函数的定义"><a href="#核函数的定义" class="headerlink" title="核函数的定义"></a>核函数的定义</h2><p>设 $\chi$为输入空间（Input Space），  $\mathrm{H}$为特征空间(Feature Space,一定是希尔伯特空间），存在一个映射</p>
 <script type="math/tex; mode=display">
 \varphi : \chi \rightarrow \mathrm{H}</script><p>对任意的 $x, y \in \mathrm{X}$，函数  $K(x, y)$，满足</p>
@@ -189,7 +189,7 @@ K(x, y)=<\varphi(x), \varphi(y)></script><p>则称  $K(x, y)$为核函数。可�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bealittlestar.github.io/2019/03/17/SVMClassifiar/" data-id="clpo4ols2001z8wvk2uddg3t0" data-title="支持向量机(SVM) ----- 分类器" class="article-share-link">Share</a>
+      <a data-url="http://bealittlestar.github.io/2019/03/17/SVMClassifiar/" data-id="clpo50yej001th8vkfjaram9c" data-title="支持向量机(SVM) ----- 分类器" class="article-share-link">Share</a>
       
       
       
