@@ -4,19 +4,18 @@
   <meta charset="utf-8">
   
   
-  <title>支持向量回归 | Hexo</title>
+  <title>选题思路 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="[TOC] 支持向量机用于分类:硬间隔和软件间隔支持向量机。尽可能分对 支持向量机回归： 希望$f(x)$与$y$尽可能的接近。">
+  <meta name="description" content="系统的研究">
 <meta property="og:type" content="article">
-<meta property="og:title" content="支持向量回归">
-<meta property="og:url" content="http://shiyicherry.github.io/2019/03/19/SVR/index.html">
+<meta property="og:title" content="选题思路">
+<meta property="og:url" content="http://shiyicherry.github.io/2024/09/20/phd-%E7%A7%91%E7%A0%94-summary-%E9%A1%B9%E7%9B%AE-%E9%80%89%E9%A2%98/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="[TOC] 支持向量机用于分类:硬间隔和软件间隔支持向量机。尽可能分对 支持向量机回归： 希望$f(x)$与$y$尽可能的接近。">
+<meta property="og:description" content="系统的研究">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2019-03-19T06:34:14.000Z">
-<meta property="article:modified_time" content="2020-06-29T08:25:24.000Z">
+<meta property="article:published_time" content="2024-09-20T12:46:13.000Z">
+<meta property="article:modified_time" content="2024-09-20T12:46:40.546Z">
 <meta property="article:author" content="May May">
-<meta property="article:tag" content="支持向量机回归">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="../../../../atom.xml" title="Hexo" type="application/atom+xml">
@@ -78,16 +77,12 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-SVR" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-phd-科研-summary-项目-选题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="" class="article-date">
-  <time class="dt-published" datetime="2019-03-19T06:34:14.000Z" itemprop="datePublished">2019-03-19</time>
+  <time class="dt-published" datetime="2024-09-20T12:46:13.000Z" itemprop="datePublished">2024-09-20</time>
 </a>
     
-  <div class="article-category">
-    <a class="article-category-link" href="../../../../categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
-  </div>
-
   </div>
   <div class="article-inner">
     
@@ -96,7 +91,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      支持向量回归
+      选题思路
     </h1>
   
 
@@ -104,77 +99,40 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>[TOC]</p>
-<p>支持向量机用于分类:硬间隔和软件间隔支持向量机。尽可能分对</p>
-<p>支持向量机回归： 希望$f(x)$与$y$尽可能的接近。</p>
+        <p>系统的研究</p>
 <span id="more"></span>
-<h1 id="支持向量机基本思想"><a href="#支持向量机基本思想" class="headerlink" title="支持向量机基本思想"></a>支持向量机基本思想</h1><p>英文名:support vector regression</p>
-<p>简记：SVR</p>
-<h2 id="标准的线性支持向量回归模型"><a href="#标准的线性支持向量回归模型" class="headerlink" title="标准的线性支持向量回归模型"></a>标准的线性支持向量回归模型</h2><p>学习的模型:</p>
-<script type="math/tex; mode=display">f(x)=w^Tx+b</script><p>假设能容忍$f(x)$与$y$之间差别绝对值$\xi$,这就以$f(x)=w^Tx+b$形成了一个$2\xi$的间隔带，因此模型</p>
-<script type="math/tex; mode=display">
-\min \frac{1}{2}w^Tw\\
-s.t -\xi<=f(x_i)-y_i<=\xi</script><p>但是上述条件太过严苛，因此增加惩罚项，</p>
-<script type="math/tex; mode=display">
-\min \frac{1}{2}w^Tw+C\sum(\epsilon_i+\hat{\epsilon}_i)\\
-s.t. \begin{cases}f(x_i)-y_i<=\xi+\epsilon_i\\
-y_i-f(x_i)<=\xi+\hat{\epsilon}_i\\
-\hat{\epsilon}_i>=0,\epsilon_i>=0
-\end{cases}</script><p>构造Lagrange函数</p>
-<script type="math/tex; mode=display">
-\begin{aligned} L :=\frac{1}{2}\|\omega\|^{2} &+C \sum\left(\xi_i+\xi^{\prime}_i\right)-\sum_{i=1}^{N}\left(\eta_{i} \xi_{i}+\eta_{i}^{'} \xi_{i}6{'}\right) \\ &+\sum \alpha_{i}\left(y_{i}-\omega^{T} x_{i}-b-\varepsilon-\xi_{i}\right) \\ &+\sum \alpha_{i}^{'}\left(\omega^{T} x_{i}+b-y_{i}-\varepsilon-\xi_{i}^{\prime}\right) \end{aligned}\tag{1}</script><p>求偏导</p>
-<script type="math/tex; mode=display">
-\frac{\partial L}{\partial \omega}=\omega-\sum\left(\alpha_{i}-\alpha_{i}\right) x_{i}=0 \Rightarrow \omega=\sum\left(\alpha_{i}-\alpha_{i}^{\prime}\right) x_{i}\tag{2}</script><script type="math/tex; mode=display">
-\frac{\partial L}{\partial b}=\sum_{i=1}^{N}\left(\alpha_{i}-\alpha_{i}^{\prime}\right)=0 \tag{3}</script><script type="math/tex; mode=display">
-\frac{\partial L}{\partial \xi_{i}^{\prime}}=C-\alpha_{i}^{'}-\eta_{i}^{\prime}=0 \tag{4}</script><script type="math/tex; mode=display">
-\frac{\partial L}{\partial \xi_{i}}=C-\alpha_{i}-\eta_{i}=0 \tag{5}</script><p>将(2)-(4)带回(1),可得对偶问题</p>
-<script type="math/tex; mode=display">
-\begin{aligned} \min L(\boldsymbol{\alpha})=& \frac{1}{2} \sum_{i=1}^{N} \sum_{j=1}^{N}\left(\alpha_{i}-\alpha_{i}^{*}\right)\left(\alpha_{j}-\alpha_{j}^{*}\right)\left\langle x_{i}, x_{j}\right\rangle \\ &+\varepsilon \sum_{i=1}^{N}\left(\alpha_{i}+\alpha_{i}^{*}\right)-\sum_{i=1}^{N} y_{i}\left(\alpha_{i}-\alpha_{i}^{*}\right) \\ \text { s.t. } & \sum_{n=1}^{N}\left(\alpha_{n}-\alpha_{n}^{*}\right)=0 \end{aligned}</script><p>再将(2)带回$Y=w^Tx+b$,可得线性回归模型</p>
-<script type="math/tex; mode=display">
-y(x)=\sum_{i=1}^{N}\left(\alpha_{i}-\alpha_{i}^{*}\right) x_{i}^{T} x+b</script><h2 id="非线性支持向量机"><a href="#非线性支持向量机" class="headerlink" title="非线性支持向量机"></a>非线性支持向量机</h2><p>考虑模型</p>
-<script type="math/tex; mode=display">
-y=f(x)+b</script><p>$f(x)$是非线性函数，存在一个由$X$所在空间到希尔伯特空间的映射，使得</p>
-<script type="math/tex; mode=display">
-f(x)=w^T\varphi(x)</script><p>因此，建立如下的优化问题</p>
-<script type="math/tex; mode=display">
-\min \frac{1}{2}\|\omega\|^{T}+C \sum_{i}\left(\xi_{i}+\xi_{i}^{\prime}\right)\\
-\begin{cases} y\left(x_{i}\right)-\omega^{T} \varphi\left(x_{i}\right)-b \leq \xi_{i} \\ \omega^{T} \varphi\left(x_{i}\right)+b-y\left(x_{i}\right) & \leq \xi_{i} \\ \xi_{i} & \geq 0 \\ \xi_{i} & \geq 0 \end{cases}</script><p>构造lagrange函数</p>
-<script type="math/tex; mode=display">
-\begin{aligned} L :=\frac{1}{2}\|\omega\|^{2} &+C \sum\left(\xi+\xi^{\prime}\right)-\sum\left(\eta_{i} \xi_{i}+\eta_{i} \xi_{i}^{\prime}\right) \\ &+\sum \alpha_{i}\left(y_{i}-w^{T} \varphi\left(x_{i}\right)-b-\varepsilon_{i}-\xi_{i}\right) \\ &+\sum \alpha_{\mathrm{i}}^{\prime}\left(w^{T} \varphi\left(x_{i}\right)+b-y_{i}-\varepsilon_{i}^{'}-\xi_{i}^{\prime}\right) \end{aligned}</script><p>求偏导</p>
-<script type="math/tex; mode=display">
-\begin{cases}\frac{\partial L}{\partial w}=w-\sum\left(\alpha_{i}-\alpha_{i}\right) \varphi\left(x_{i}\right)=0\\
- \frac{\partial L}{\partial b} =\sum\left(\alpha_{i}-\alpha_{i}^{\prime}\right)=0 \\ \frac{\partial L}{\partial \xi_{i}^{\prime}} =C-\alpha_{i}^{'}-\eta_{i}^{\prime}=0 \\ \frac{\partial L}{\partial \xi_{i}} =C-\alpha_{i}-\eta_{i}=0 \end{cases}</script><p>再带回优化问题可得</p>
-<script type="math/tex; mode=display">\min _{t}-\frac{1}{2} \sum\left(\alpha_{i}-\alpha_{i}^{\prime}\right)\left(\alpha_{j}-\alpha_{j}^{\prime}\right) \varphi\left(x_{i}\right)^{T} \varphi\left(x_{j}\right)-\varepsilon \sum\left(\alpha_{i}+\alpha_{i}^{\prime}\right)+\sum y_{i}\left(\alpha_{i}-\alpha_{i}^{'}\right)\\s t . \sum\left(\alpha_{i}-\alpha_{i}^{\prime}\right)=0</script><p>再次将$w$带回模型</p>
-<script type="math/tex; mode=display">
-y=\sum\left(\alpha_{i}-\alpha_{i}^{'}\right) \varphi\left(x_{i}\right)^{T} \varphi(x)+b</script>
+<h1 id="两个变量"><a href="#两个变量" class="headerlink" title="两个变量"></a>两个变量</h1><p><a target="_blank" rel="noopener" href="https://kns.cnki.net/kcms2/article/abstract?v=GqSshYi5sNfGc8OhhGTwcusw4TGK8H6C3uz_F2EtKrnmUHZj__Xralu7hpPZc8iXQUwicLa3zAKEkiH8BlwcB90xfSxYwS8GJkLG_CJjTcPfW4klamAqHhz8jzJwO_kod9g5BcE6HW-OU1_hc845Rsboxxgs0uiSGSii99b_bVKMFaiebcCRbvW5pauvfPuA&amp;uniplatform=NZKPT&amp;language=CHS">无酬劳动对女性心理健康的影响</a></p>
+<p><a target="_blank" rel="noopener" href="https://kns.cnki.net/kcms2/article/abstract?v=GqSshYi5sNcKIzhbFv4byQA1_NfzunvPUPSxrfv0OkhoqOsCdrHwLk5XPcrsdNqipRod6xXqvINyHgJzTUX4v9AEHcFzMbA16LpG56tOCIZ_7W4I_-Vhc-fn23lVxs9OI_3Qgb1IQWTX0YwVWGHEqk6k_T-PKXHWmdNjto0cUUAfCjSmNk-OQjGPjLreSVjD&amp;uniplatform=NZKPT&amp;language=CHS">产业发展视角下中国城市人力资本空间分化研究——基于2008—2019年288个城市面板数据的分析</a></p>
+<p><a target="_blank" rel="noopener" href="https://kns.cnki.net/kcms2/article/abstract?v=GqSshYi5sNec7tKHQ03ZECMRYtbQNNce2Nm8sxtYKrMhKFSuGyGVWt1LR9kMLzXKiTasjy9MXA1qotQV9iBSQuPPK2eehPfQV8qwW3ANMOqQ_VuNK0fxD-uHxEJTV-cgOEhfRwA5oiMK5CEhsr_9p_HBngHn8rKZfizhTtRb_MBM6_9Oj-uHDoxyJsaCA6Oc&amp;uniplatform=NZKPT&amp;language=CHS">中国劳动力市场中的年龄歧视及其影响——基于中国社会状况综合调查(CSS)数据的分析</a></p>
+<p><a target="_blank" rel="noopener" href="https://kns.cnki.net/kcms2/article/abstract?v=GqSshYi5sNdhvdOuox_5ecLtVMFOLYgvKVmcSsniILtpGe5Pc7opjTgDCBSmJYV9L5ZzD7l2cmw-EUD9VyHcruOBJLAh5fxCpIxum_nps-iPyL-0xoXvnVy2PoWR9s1lc3P7FbOJJJqpQOsSQaVVLNqx5OKHSrbaJzo7uKTpcwdSgCq6VcoqbpAaeoxP50NK&amp;uniplatform=NZKPT&amp;language=CHS">人工智能对企业收入分配的非线性影响——基于2007—2022年上市公司数据的检验</a></p>
+<p><a target="_blank" rel="noopener" href="https://kns.cnki.net/kcms2/article/abstract?v=GqSshYi5sNdqE8cF6mXR8ZQtiaxqHRRVuzbsUGBV-e8rzFQXC3epQ8MM6qnZoJRZ4-f4i2KrBSNH7gNXtgaavc1aVzsG1f1OxakcYjWgWLptvlP2W_Dv1w-t3Es8ozyLfyqimSQoX7HNXdYSfjsYHteFXatPT_lqg_ihOtwW7Bzs_G87bef9w3GYVqwv6MqS&amp;uniplatform=NZKPT&amp;language=CHS">劳动力老化如何影响劳动生产率?——基于中国城市面板数据的分析</a></p>
+<p>学前教育扩张对女性就业的促进效应分析——兼析学前教育政策的生育包容</p>
+<!-- more -->
+<h2 id="三个变量"><a href="#三个变量" class="headerlink" title="三个变量"></a>三个变量</h2><p><a target="_blank" rel="noopener" href="https://kns.cnki.net/kcms2/article/abstract?v=GqSshYi5sNdCaSqsh1RudpgPk3PvmPAnuly773kMVAvYORqH_IpG6mfCKP7snQc_eRTwsyMtazbkn8ozF316CXL4tNEhRMrBIh9bZ_1XrmbbFVKE1qrVinpMJwApn6_uS2WapLJQG56Kw6yMNYLpfznZjbB2Jnb12Z5Qv-tPzF9_kESCgGX5oi-sTHe2_Wsv&amp;uniplatform=NZKPT&amp;language=CHS">教育对生育意愿影响的性别差异及机制分析</a></p>
+<p><a target="_blank" rel="noopener" href="https://kns.cnki.net/kcms2/article/abstract?v=GqSshYi5sNc9uXiZQ4rX3-pMpox58zL6k9JRAp-5whgF03gItbUdeLoHNDRRqAU-5tYrnQ2DBcurb2fhl1jL2XjxEJU271ea1GEd3qvMplpiDO9Q5VwaAavZXbAqEUKJY9SNJAw4AjWiMtcw39E7aaVIftc5t4EgDozCJMUGNyT3HZUCy8Tp1SI_nmI2T5N4&amp;uniplatform=NZKPT&amp;language=CHS">数字经济背景下的就业性别平等——现状、挑战与应对方略</a></p>
+<p><a target="_blank" rel="noopener" href="https://kns.cnki.net/kcms2/article/abstract?v=GqSshYi5sNcECXSHujZZXJkRifFJEGvdgWfMF7q619Ilyc13HXPYANicWuoy1fRBXx82TeWkLPCYLmuRxVFNUuVdkentOZXQgkZpApVSbHLHoaUyEVuJfwzA6VktjhD7f1H6uF8i9TJqPeSqTMOo1Kgfam0CLXv3HmtN7QOmfkxQfqtxu0y3rbDzj3UZ9D4B&amp;uniplatform=NZKPT&amp;language=CHS">代际同住变动对农村老人死亡风险影响的性别差异及其根源</a></p>
+<p><a target="_blank" rel="noopener" href="https://kns.cnki.net/kcms2/article/abstract?v=GqSshYi5sNf6wf8HIDzlkdP21Zi2ToDCUJzHi2J7graKqIGWMUqVZ_izlSIaJW7CeDG01le4Va_RnMlhnhmvas1SKUK7fTByekacG6AAIMxtpeQKSjYySDtwvonK7tCVG-oUbgPf6YxXJcerBXtPConOPqi_by_FMbW9PpA0glXIdoRZ2FS8jvnAB61Sb3cY&amp;uniplatform=NZKPT&amp;language=CHS">机器人使用与职业伤害——理论机制与中国证据</a></p>
+<h2 id="一个变量"><a href="#一个变量" class="headerlink" title="一个变量"></a>一个变量</h2><p><a target="_blank" rel="noopener" href="https://kns.cnki.net/kcms2/article/abstract?v=GqSshYi5sNf6wf8HIDzlkdP21Zi2ToDCUJzHi2J7graKqIGWMUqVZ_izlSIaJW7Cn-kRSIZeh9YX95f3ys3uib4f2eHgqftHRJp1n_GF1RLPS2QeGOew1h5isCb6mvBx-aWyRSPdFaFr86q8NC8Y5-H9stqmz2DTfB1r7_vKUGCJgHW56RfJ3CPGEsBUTE2X&amp;uniplatform=NZKPT&amp;language=CHS">中国居民健康素养的水平、差异及影响因素</a></p>
+<p><a target="_blank" rel="noopener" href="https://kns.cnki.net/kcms2/article/abstract?v=GqSshYi5sNeaxYl_JnrMhwRxXLSSFnKU4kJH0XDumJlUqUCmcturQRxdOMU4OSKwTZfk86vtfX-cCQ9PX8jBGJPSWQ9twLL9pmektjssYAKqBYQiSCoPvEZcXpFjppalH3LAH4W3Oa6Y_DE2maZ0stuafPwPLo0YUmXJ8Ar8xkZxpdGsRkzitkjPSP_wB7HH&amp;uniplatform=NZKPT&amp;language=CHS">中国居民健康不平等的测度及影响因素研究</a></p>
+<p><a target="_blank" rel="noopener" href="https://kns.cnki.net/kcms2/article/abstract?v=GqSshYi5sNdmtEUzMOm7WAmah9yKgXFzh-gNr7K_70MZFn2CdDT4g_vAiymMBSXL1L0qCLKqBhgvuDZ8CIOMBKIFtK_x6p5_O6tkfTkvRVZWPYL6UvP9eZqisB2cx9ri7qQwzrpshTYee3DXl2nSCEudE2DYf4yPiEAXaT4Fc7HpcNuExLAwOifX_dnM2KRM&amp;uniplatform=NZKPT&amp;language=CHS">中国城市人口空间格局演化的新特征——基于2000—2020年人口普查数据的分析</a></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://shiyicherry.github.io/2019/03/19/SVR/" data-id="cm1adyqcl001wekvkfu090y2t" data-title="支持向量回归" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://shiyicherry.github.io/2024/09/20/phd-%E7%A7%91%E7%A0%94-summary-%E9%A1%B9%E7%9B%AE-%E9%80%89%E9%A2%98/" data-id="cm1apttew00002ovkhxrd1ms7" data-title="选题思路" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA%E5%9B%9E%E5%BD%92/" rel="tag">支持向量机回归</a></li></ul>
-
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="../../22/Boosting/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Boosting
-        
-      </div>
-    </a>
   
-  
-    <a href="../../17/SVMClassifiar/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="../phd-%E7%A7%91%E7%A0%94-summary-%E5%86%99%E4%BD%9C-%E6%8A%A5%E5%91%8A/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">支持向量机(SVM) ----- 分类器</div>
+      <div class="article-nav-title">报告</div>
     </a>
   
 </nav>
@@ -233,23 +191,23 @@ y=\sum\left(\alpha_{i}-\alpha_{i}^{'}\right) \varphi\left(x_{i}\right)^{T} \varp
       <ul>
         
           <li>
-            <a href="../../../../2024/09/20/phd-%E7%A7%91%E7%A0%94-summary-%E9%A1%B9%E7%9B%AE-%E9%80%89%E9%A2%98/">选题思路</a>
+            <a href="">选题思路</a>
           </li>
         
           <li>
-            <a href="../../../../2024/09/20/phd-%E7%A7%91%E7%A0%94-summary-%E5%86%99%E4%BD%9C-%E6%8A%A5%E5%91%8A/">报告</a>
+            <a href="../phd-%E7%A7%91%E7%A0%94-summary-%E5%86%99%E4%BD%9C-%E6%8A%A5%E5%91%8A/">报告</a>
           </li>
         
           <li>
-            <a href="../../../../2024/09/20/phd-record-dayday/">the jouney of phd</a>
+            <a href="../phd-record-dayday/">the jouney of phd</a>
           </li>
         
           <li>
-            <a href="../../../../2024/09/20/phd-%E7%A7%91%E7%A0%94-summary-%E5%86%99%E4%BD%9C-%E5%BC%95%E8%A8%80/">引言</a>
+            <a href="../phd-%E7%A7%91%E7%A0%94-summary-%E5%86%99%E4%BD%9C-%E5%BC%95%E8%A8%80/">引言</a>
           </li>
         
           <li>
-            <a href="../../../../2024/09/16/0-%E6%80%A7%E5%88%ABframework/%E7%A0%94%E7%A9%B6%E9%9D%A2/">(no title)</a>
+            <a href="../../16/0-%E6%80%A7%E5%88%ABframework/%E7%A0%94%E7%A9%B6%E9%9D%A2/">(no title)</a>
           </li>
         
       </ul>
